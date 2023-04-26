@@ -1,8 +1,7 @@
 <?php
-session_start();
-
-$_SESSION;
-$user_data = check_login($con);
+session_start();    
+    $_SESSION;
+    //$user_data = check_login($con);
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +14,10 @@ $user_data = check_login($con);
     </head> 
     <br>
     <body>
-        Hello! Username.
+<!--         
+        Hello! 
+        //<?php echo $user_data['user_name']; ?> -->
         <br>
-        <a href="Logout.php">Logout</a>
+        <a href="Home.html">Logout</a>
     </body>   
 </html>
