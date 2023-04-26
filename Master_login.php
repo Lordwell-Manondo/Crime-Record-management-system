@@ -1,34 +1,6 @@
-<!-- <?php
-
-// Define the menu options
-$menu = array(
-    "1" => "Admin",
-    "2" => "Staff",
-    "3" => "Public User"
-);
-
-// Display the menu to the user
-echo "Select a login type:\n";
-foreach ($menu as $key => $value) {
-    echo "$key. $value\n";
-}
-
-// Get user input for the selected menu option
-$selection = readline("Enter the number corresponding to your choice: ");
-
-// Use a conditional statement to determine the selected login type
-if ($selection == "1") {
-    echo "Selected login type: Admin\n";
-} elseif ($selection == "2") {
-    echo "Selected login type: Staff\n";
-} elseif ($selection == "3") {
-    echo "Selected login type: Public User\n";
-} else {
-    echo "Invalid selection. Please try again.\n";
-}
-
-?> -->
-<! DOCTYPE html>
+<?php
+?>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Master_login</title>
