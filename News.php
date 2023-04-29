@@ -1,9 +1,9 @@
 <?php
 // Database connection
-$host = "localhost"; // database server (in this case, the same machine where the PHP code is running)
+$host = "localhost"; // database server 
 $username = "root"; // database username
-$password = ""; // database password (leave this blank if you have not set a password for MySQL)
-$dbname = "newsdata"; // database name (replace this with the name of your database)
+$password = ""; // database password
+$dbname = "newsdata"; // database name 
 
 $conn = mysqli_connect($host, $username, $password, $dbname);
 
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $type = $_POST["type"];
     
     // File upload
-    $target_dir = "C:/xampp/htdocs/News/uploads/"; // update this with the root directory you want to use
+    $target_dir = "C:/xampp/htdocs/News/uploads/"; 
     $target_file = $target_dir . basename($_FILES["file"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
