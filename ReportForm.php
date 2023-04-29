@@ -44,6 +44,20 @@
             font-size: 12px;
             display: none;
         }
+        .back-button {
+        
+            background-color: #4cc3f1;
+            border-color: #ff8c00;
+            color: #fff;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+
+        .back-button:hover {
+             background-color: navy;
+        }
+
     </style>
 </head>
 <body>
@@ -65,15 +79,16 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="date">Date</label>
-                          <input type="date" class="form-control" id="date" name="date" placeholder="Enter todays date" required>
-                          <span class="error">Please enter a valid date</span>
-                      </div>
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" id="date" name="date" placeholder="Enter todays date" required>
+                            <span class="error">Please enter a valid date</span>
+                        </div>
 
                         <div class="form-group">
-                          <label for="location">Location</label>
-                          <input type="location" class="form-control" id="location" name="location" placeholder="Enter your location" required>
-                          <span class="error">Please enter a valid Location</span>
+                            <label for="location">Location</label>
+                            <input type="location" class="form-control"id="location" name="location" placeholder="Enter your location" required>
+
+                            <span class="error">Please enter a valid Location</span>
                       </div>
 
                       <div class="form-group">
@@ -83,6 +98,7 @@
                         </div>
                         <div class="text-center">
                             <button type="Report" class="btn btn-lg btn-block">Report</button>
+                            <button type="button" class="btn btn-lg btn-block back-button">Back</button>
                         </div>
                     </form>
                 </div>
