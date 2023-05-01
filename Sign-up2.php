@@ -13,12 +13,12 @@ session_start();
         if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
         {
             //save to database
-            $user_id = random_num(4);
+            $user_id = random_num(20);
             $query = "insert into users (user_id,user_name,password) values ('$user_id','$user_name','$password')";
 
             mysqli_query($con, $query);
 
-            header("Location: Login1.php");
+            header("Location: Home.html");
             die;
         }
         else
@@ -53,7 +53,7 @@ session_start();
             
             <input id="button" type="submit" value="Submit"> <button>  <a id="button1" href="Home.html">Cancel</a></button> <br><br>
 
-            <a id="button" href="Login1.php">Click to Login</a><br><br>
+            <a id="button" href="Login2.php">Click to Login</a><br><br>
         </form>
         </div>
             

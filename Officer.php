@@ -5,9 +5,10 @@
   <head>
     <title>Officer Page</title>
     <head>
-      <script src="js/bootstrap.js"></script>
+     <script src="js/bootstrap.js"></script>
      <link rel="stylesheet" href="HomeStyling.css">
      <link rel="stylesheet" href="Admin_landing_page.css">
+     <a href="Home.html">Logout</a>
   </head>
   <body>
     
@@ -40,7 +41,10 @@
                 <a class="nav-link" href="#">View cases</a>
               </li>
               <li class="nav-item" >
-                <a class="nav-link" href="#">Report</a>
+                <a class="nav-link" href="#">Report Work</a>
+              </li>
+              <li class="nav-item" >
+                <a class="nav-link" href="ReportForm.php">Report incident</a>
               </li>
               <li class="nav-item" >
                 <a class="nav-link" href="#">Notifications</a>

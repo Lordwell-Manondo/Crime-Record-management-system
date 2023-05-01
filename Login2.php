@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             if($user_data['password'] == $password)
             {
                 $_SESSION['user_id'] = $user_data['user_id'];
-                header("Location: Admin_landing_page.html");
+                header("Location: ReportForm.php");
                 die; 
             }       
         }
@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <title>Login to Report</title>
         <header style="background-color: grey; red; text-align: center; color: white;">
             <div>
                 <h1>Crime Record Management</h1>
@@ -64,7 +64,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             
             <input id="button" type="submit" value="Login"><br><br>
 
-           <!-- <a id="button" href="sign-up.php">Click to Signup</a><br><br> -->
+            <a id="button" href="Sign-up2.php">Click to Signup</a><br><br>
         </form>
         </div>
             
