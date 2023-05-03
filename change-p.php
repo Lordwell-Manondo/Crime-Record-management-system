@@ -57,6 +57,6 @@ if (isset($_POST['op']) && isset($_POST['np'])
 }
 
 }else{
-     header("Location: index.php");
+     header("Location: Home.html");
      exit();
 }
