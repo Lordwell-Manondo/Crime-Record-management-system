@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Admin_page</title>
+    <title>Home_page</title>
     <head>
       
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
       
-      <script src="js/bootstrap.js"></script>
+      
+      
      <link rel="stylesheet" href="HomeStyling.css">
      <link rel="stylesheet" href="Admin_landing_page.css">
   </head>
   <body>
     
+    <div style="background-color: gray; border-radius: 3px;">
+      <img class="police_log" src="policeLog.PNG">
+      <h1 style="display: inline-block; color: white; ">CRIME RECORD MANAGEMENT SYSTEM</h1>
+    </div>
+
     <main>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
        
       <div class="nav">
 
-      <div style="background-color: gray">
-        <img src="policeLog.PNG" style="display: inline-block; width: 10%; height: 5%; margin-left: 5%;">
-        <h1 style="display: inline-block; color: white;">CRIME RECORD MANAGEMENT SYSTEM</h1>
-      </div>
-
-      <hr>
+     
+      
          
         <header>
        
@@ -39,44 +43,69 @@
               </svg>
 
               <li class="nav-item active" >
-               <a class="nav-link"   href="#" >Home</a>
+               <a class="nav-link"   href="#" style="color: white;">Home</a>
               </li>
               <li class="nav-item" >
-                <a class="nav-link" href="#">News</a>
+                <a class="nav-link" href="News.php"  style="color: white;">News</a>
               </li>
               <li class="nav-item" >
-                <a class="nav-link" href="#">Guidelines</a>
+                <a class="nav-link" href="#"  style="color: white;">Guidelines</a>
               </li>
               <li class="nav-item" >
-                <a class="nav-link" href="Master_login.php">Register</a>
+                <a class="nav-link" href="Master_login.php"   style="color: white;">Register</a>
               </li>
               <li class="nav-item" >
-                <a class="nav-link" href="#">Report incident</a>
+                <a class="nav-link" href="ReportForm.php"  style="color: white;  display: inline-block;  white-space: nowrap;">Report incident</a>
               </li>
               <li class="nav-item"  >
-                <a class="nav-link" href="#">FAQ</a>
+                <a class="nav-link" href="#"  style="color: white;">FAQ</a>
               </li>
               <li class="nav-item"  >
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#"   style="color: white;">About</a>
               </li>
               
             </ul>
             </h2>
                   
         </nav>
+      </nav>
 
       </header>
       <div>
      </main>
 
 
-    <div class="imageContainer">
-    <img src="hand-cuff.PNG"  style="width: 95%;" >
+    <div class="image_container">
+    <img src="hand-cuff.PNG"  >
     </div>
 
 
     
+<style>
+  a:hover{
+    font-weight: bold;
+  }
+  .police_log{
+
+    display: inline-block;
+     width: 10%; 
+     height: 5%; 
+     margin-left: 5%; 
+     align-items: start;
+     margin-top: 0px;
+
+}
+.nav{
+  width: 1300px;
+}
+.navbar{
+  width: 1350px;
+}
+
+
     
+  
+</style>    
    
 </body>
 <footer class="footer">
