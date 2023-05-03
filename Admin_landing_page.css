@@ -1,4 +1,5 @@
 .nav{
+<<<<<<< HEAD
     background-color: aqua;
 
     
@@ -8,6 +9,12 @@
     
     
    
+=======
+    background-color: gray;
+    border-radius: 10x;
+    padding: 10px;
+    margin-top: 0%;
+>>>>>>> 19c71f78622e7252ac6c8192e2a2ebc582ddc816
   }
   .navbar{
     background-color: grey;
