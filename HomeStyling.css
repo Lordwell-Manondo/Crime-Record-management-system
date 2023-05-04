@@ -35,11 +35,11 @@
   }
   
   .image_container img {
-    text-align: center;
-    margin-left: 80px;
-    width: 1200px;
-    height:350px;
-    margin-top: 70px;
+    
+    width: 90%;
+    height:400px;
+    margin-left: 5%;
+   
     
  
     margin-bottom: 5%;

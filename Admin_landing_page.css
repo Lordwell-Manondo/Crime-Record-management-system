@@ -1,28 +1,12 @@
 .nav{
-<<<<<<< HEAD
-    background-color: aqua;
-
-    
-    
-    
-   
-    
-    
-   
-=======
-    background-color: gray;
-    border-radius: 10x;
-    padding: 10px;
     margin-top: 0%;
->>>>>>> 19c71f78622e7252ac6c8192e2a2ebc582ddc816
+    background-color: gray;
+    
+    
   }
   .navbar{
-    background-color: grey;
-    position: absolute;
-    top: 1;
-    left: 0;
-    right: 0;
     
+    background-color: gray;
     margin-left: 3px;
     border-radius: 10px;
     padding: 10px;
@@ -34,23 +18,33 @@
     text-decoration: none;
     font-style: initial;
     color: white;
-    display: inline-block
+    display: flex;
+    flex-direction: row;
+
     
     
   }
   .navbar-nav{
     display: flex; 
+    flex-direction: row;
     list-style: none;
-    background-color: grey;
-   
+    background-color:gray;
     
-     }
+    
+  
+   }
   .nav-item{
-    font-size: 25px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
     font-family: Helvetica;
     font-weight: 200; /* adjust the font weight to make it lighter */
     
     margin-left: 5%;
+     }
+     .cont{
+      background-color: gray;
      }
 
 svg {
@@ -106,7 +100,8 @@ svg.active span:nth-child(3) {
 
 
 .navbar.show {
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
 }
