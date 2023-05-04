@@ -10,59 +10,57 @@
      <link rel="stylesheet" href="Admin_landing_page.css">
   </head>
   <body>
-    <div class="cont">
+   
     
-    <div style="background-color: gray; border-radius: 3px;">
-      <img class="police_log" src="policeLog.PNG">
-      <h1 style="display: inline-block; color: white; ">CRIME RECORD MANAGEMENT SYSTEM</h1>
-    </div>
+     
 
     <main>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
        
       <div class="nav">
+
+       
          <header>
             <nav class="navbar">
+              <div class="nav-top" style="background-color: gray; border-radius: 3px;">
+                <img class="police_log" src="policeLog.PNG">
+                <h1 style="display: inline-block; color: white; margin-left: 25%; ">CRIME RECORD MANAGEMENT SYSTEM</h1>
+              </div>
+
              <h2> 
                <hr>
-         
-
                   <ul class="navbar-nav" >
-
-                    
-
-                       <li class="nav-item active" >
-                       <a class="nav-link"   href="#" style="color: white;">Home</a>
+                    <li class="nav-item active" >
+                       <a class="nav-link"   href="#" >Home</a>
                        </li>
                        <li class="nav-item" >
-                       <a class="nav-link" href="News.php"  style="color: white;">News</a>
+                       <a class="nav-link" href="News.php"  >News</a>
                        </li>
                        <li class="nav-item" >
-                       <a class="nav-link" href="#"  style="color: white;">Guidelines</a>
+                       <a class="nav-link" href="#"  >Guidelines</a>
                        </li>
                        <li class="nav-item" >
-                       <a class="nav-link" href="Master_login_register.php"   style="color: white;">Register</a>
+                       <a class="nav-link" href="Master_login_register.php"   >Register</a>
                        </li>
                       <li class="nav-item" >
-                      <a class="nav-link" href="Login2.php"  style="color: white;  display: inline-block;  white-space: nowrap;">Report incident</a>
+                      <a class="nav-link" href="Login2.php" >Report incident</a>
                       </li>
                       <li class="nav-item"  >
-                      <a class="nav-link" href="#"  style="color: white;">FAQ</a>
+                      <a class="nav-link" href="#"  >FAQ</a>
                       </li>
                       <li class="nav-item"  >
                       <a class="nav-link" href="#" >About</a>
                       </li>
-              
                    </ul>
                </h2>
             </nav>
+          </header>
           </nav>
-      </headers>
-     <div>
+        </div>
    </main>
-</div>
+
     <div class="image_container">
-    <img src="hand-cuff.PNG"  >
+    <img src="hand-cuff.PNG" >
     </div>
 
 
@@ -70,16 +68,29 @@
 <style>
   a:hover{
     font-weight: bold;
+    
   }
   .police_log{
 
     display: inline-block;
-     width: 10%; 
-     height: 5%; 
+     width: 40px; 
+     height: 40px; 
      margin-left: 5%; 
      align-items: start;
      margin-top: 0px;
+     border-radius: 5px;
 
+  }
+ .nav-top{
+   padding: 1px;
+   height: 25px;
+  }
+h2{
+  height: 100px;
+  background-color: gray;
+  padding: 5px;
+  padding-top: 1px;
+  height: 50px;
 }
 
 </style>    
