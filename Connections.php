@@ -4,7 +4,7 @@ $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
 //$confirm_password = "$dbpass";
-$dbname = "login";
+$dbname = "crms";
 
 if(!$con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
 {
