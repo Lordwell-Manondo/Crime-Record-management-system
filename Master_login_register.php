@@ -11,9 +11,9 @@
     <div class="login-types">
   <h2>Select a login/registration type:</h2><br><br>
   <ul>
-    <li><a href="Login.php" class="admin">Admin</a></li>
-    <li><a href="Login1.php" class="staff">Officer</a></li>
-    <li><a href="Sign-up2.php" class="public-user">Public User</a></li>
+    <li><a href="Login_admin.php" class="admin">Admin</a></li>
+    <li><a href="Login_officer.php" class="staff">Officer</a></li>
+    <li><a href="Sign-up_public_user.php" class="public-user">Public User</a></li>
   </ul>
 </div>
 <style>

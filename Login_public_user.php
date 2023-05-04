@@ -64,7 +64,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             
             <input id="button" type="submit" value="Login"><br><br>
 
-            <a id="button" href="Sign-up2.php">Click to Signup</a><br><br>
+            <a id="button" href="Sign-up_public_user.php">Click to Signup</a><br><br>
         </form>
         </div>
             
