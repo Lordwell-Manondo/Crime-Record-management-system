@@ -31,13 +31,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
      	<input type="password" name="c_np" placeholder="Confirm New Password"><br>
  
      	<button type="submit">CHANGE</button>
-          <a href="home.php" class="ca">HOME</a>
+          <a href="Home.html" class="ca">HOME</a>
      </form></body>
 </html>
 
 <?php 
 }else{
-     header("Location: index.php");
+     header("Location: Admin_landing_page.html");
      exit();
 }
  
