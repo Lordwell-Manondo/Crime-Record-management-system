@@ -12,11 +12,12 @@ session_start();
     $location = $_POST['location'];
     $date = $_POST['date'];
     $crime = $_POST['crime'];
+    $file = $_POST['file'];
                 
               
             
             // saving the case into database
-            $query = "insert into cases (suspect_name, victim_name, incident, location, date, type) values ('$suspect', '$victim' ,'$incident', '$location', '$date', '$crime')";
+            $query = "insert into cases (suspect_name, victim_name, incident, file, location, date, type) values ('$suspect', '$victim' ,'$incident', '$file', '$location', '$date', '$crime')";
             
             //executing the above statement
             mysqli_query($con, $query);
@@ -47,7 +48,8 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Dv78Sm9XbiIbS8ykO4GpxbEikx4s4w4sLM8WY7V+jvocEy9IaUBM0tZu0tPHq3IvguNN7wQ2EoYB3Cq3j/9XGQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
 </head>
 <div class="navbar">
  <h1>CRIME RCORD MANAGEMENT SYSTEM</h1>
@@ -76,6 +78,12 @@ session_start();
                             <textarea class="form-control" id="incident" name="incident" rows="5"  required></textarea>
                             <span class="error">Please enter incident</span>
                         </div>
+                          
+                        <div class="form-group">
+                        <label for="file">Attach file:</label>
+                        <input type="file" class="form-control-file" id="file" name="file" required>
+                    </div>
+                        
 
                         <div class="form-group">
                             <label for="location">Location</label>
