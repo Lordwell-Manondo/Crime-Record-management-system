@@ -16,8 +16,10 @@
             mysqli_query($con, $query);
            
             //give this message if the process of saving the case was successful
-           echo" Assigned";
-            exit;
+        //    echo" Assigned";
+        //     exit;
+            header("Location: Admin_landing_page.html");
+                die; 
  }
         else
         {
