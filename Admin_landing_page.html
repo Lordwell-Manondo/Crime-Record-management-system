@@ -23,7 +23,11 @@
 
               <div class="nav-top" style="background-color: gray; border-radius: 3px;">
                 <img class="police_log" src="policeLog.PNG">
-                <h1 style="display: inline-block; color: white; margin-left: 25%; ">CRIME RECORD MANAGEMENT SYSTEM</h1>
+                <h1 style="display: inline-block; color: #ffffff; margin-left: 25%; font-size: 30px;">CRIME RECORD MANAGEMENT SYSTEM</h1>
+                <a href="Home.html" style="margin-left: 180px;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16" style="margin-left: 65px;">
+                  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                </svg> </a>
               </div>
 
           <h2> 
@@ -32,7 +36,7 @@
 
 
               <li class="nav-item active" >
-               <a class="nav-link"   href="#">Record cases</a>
+               <a class="nav-link"   href="Record_case.php">Record case</a>
               </li>
               <li class="nav-item" >
                 <a class="nav-link" href="#"  >Add officer</a>
@@ -40,9 +44,6 @@
               </li>
               <li class="nav-item" >
                 <a class="nav-link" href="#"  >Assign work</a>
-              </li>
-              <li class="nav-item" >
-                <a class="nav-link" href="#"  >Notifications</a>
               </li>
               <li class="nav-item" >
                 <a class="nav-link" href="#"  >View cases</a>
@@ -53,7 +54,13 @@
               <li class="nav-item"  >
                 <a class="nav-link" href="change-password.php">Password</a>
               </li>
-              
+              <li class="nav-item" >
+                
+                <a class="nav-link" href="#"  ><svg class="notification" xmlns="http://www.w3.org/2000/svg"  width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+                </svg></a>
+             
+              </li>
             </ul>
             </h2>
                   
@@ -68,17 +75,27 @@
   
   <style>
     
+    .notification:hover{
+    font-weight: bold;
+    color: khaki;
+    }
     a:hover{
     font-weight: bold;
+    color: khaki;
     }
+    svg:hover{
+    font-weight: bold;
+    color:red;
+    }
+   
     
     hr{
      background-color: white;
     }
     .nav-top{
    padding: 1px;
-   height: 25px;
-   background-color: blue;
+   height: 24px;
+   
   }
 h2{
   height: 100px;
@@ -98,9 +115,24 @@ display: inline-block;
  border-radius: 5px;
 
 }
+.nav-link {
+    font-size: 22px;
+    font-weight: lighter;
+   display: inline-block;
+  
+    
+   
+  }
+ 
     
   </style>
   <div>
+    <script>
+      function openPopup() {
+        // Add code to create and show the pop-up window or modal here
+        Notifications
+      }
+    </script>
  </body>
 
     <footer class="footer">

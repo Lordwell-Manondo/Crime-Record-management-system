@@ -71,7 +71,7 @@
 <body>
     <header>
         <div class="container mt-5">
-            <h1 class="heading">News and Events</h1>
+            <h1 class="heading">Add News and Events</h1>
             <div class="form-box">
                 <form action="News.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">

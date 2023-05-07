@@ -5,12 +5,12 @@
     padding: 3px;
     }
     
-  .nav-link{
+  .nav-link {
     text-decoration: none;
     font-style: initial;
     color: white;
-    display: flex;
-    flex-direction: row;
+    display: inline-block
+    
 
      }
   .navbar-nav{
