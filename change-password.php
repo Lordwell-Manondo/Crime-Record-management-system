@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include("Connections.php");
 
 if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
@@ -37,7 +38,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 <?php 
 }else{
-     header("Location: index.php");
+     header("Location: Admin_landing_page.html");
      exit();
 }
  ?>
