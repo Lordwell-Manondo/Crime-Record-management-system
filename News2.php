@@ -1,3 +1,37 @@
+<?php
+//linking up Record_case.php file with database using Connections.php file
+include('Connections.php');
+
+//defining and initializing variables that will be used to pass values into database     
+// Form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $title = $_POST["title"];
+    $description = $_POST["description"];
+    $date = $_POST["date"];
+    $type = $_POST["type"];
+    
+    // File upload
+    $file_name = $_FILES['file']['name'];
+    $file_tmp = $_FILES['file']['tmp_name'];
+    $file_destination = 'uploads/' . $file_name;
+    move_uploaded_file($file_tmp, $file_destination);
+
+    // Insert into database
+    $sql = "INSERT INTO news (title, description, date, type, file) 
+            VALUES ('$title', '$description', '$date', '$type', '$file_destination')";
+    mysqli_query($con, $sql);
+
+    //give this message if the process of saving the case was successful
+    echo "News added successfully";
+    exit;
+}
+else {
+    //printing this message  if the process of saving the case was not successful
+    //echo "Please enter valid information!";
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,7 +107,7 @@
         <div class="container mt-5">
             <h1 class="heading">Add News and Events</h1>
             <div class="form-box">
-                <form action="News.php" method="post" enctype="multipart/form-data">
+                <form action="News2.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="title">Title:</label>
                         <input type="text" class="form-control" id="title" name="title" required>
@@ -96,6 +130,7 @@
                             <option value="Other">Other</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="file">File:</label>
                         <input type="file" class="form-control-file" id="file" name="file" required>
