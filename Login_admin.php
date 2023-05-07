@@ -1,96 +1,105 @@
 <?php
 session_start();
-include("Connections.php");
-include("Functions.php");
-//$user_data = check_login($con);
+    include("Connections.php");
+    include("Functions.php");
+    //$user_data = check_login($con);
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
     //something was posted
-    $user_name = $_POST['user_name'];
+    $user_name = $_POST['user_name'];z
     $password = $_POST['password'];
 
-    if (!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
+    if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+    {
         //read from database
         $query = "select * from users where user_name = '$user_name' limit 1";
 
-        $result = mysqli_query($con, $query);
+        $result = mysqli_query($con,$query);
 
-        if ($result) {
-            if ($result && mysqli_num_rows($result) > 0) {
-                $user_data = mysqli_fetch_assoc($result);
+        if($result)
+        {
+        if($result && mysqli_num_rows($result) > 0)
+        {
+            $user_data = mysqli_fetch_assoc($result);
 
-                if ($user_data['password'] == $password) {
-                    $_SESSION['user_id'] = $user_data['user_id'];
-                    header("Location: Admin_landing_page.html");
-                    die;
-                }
-            }
+            if($user_data['password'] == $password)
+            {
+                $_SESSION['user_id'] = $user_data['user_id'];
+                header("Location: Admin_landing_page.html");
+                die; 
+            }       
         }
+    }
         echo "Wrong username or password!";
-    } else {
+    }else
+    {
         echo "Please enter valid information!";
     }
 }
 ?>
 
+
+
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>Login</title>
-    <header style="background-color: grey; text-align: center; color: white;">
-        <div>
-            <h1>Crime Record Management</h1>
-        </div>
-    </header>
+    <head>
+        <title>Login</title>
+        <header style="background-color: grey; red; text-align: center; color: white;">
+            <div>
+                <h1>Crime Record Management</h1>
+            </div>
+</header>
 </head>
-
-<br>
-
+  
+    <br>
 <body>
-    <div id="box">
+        <div id="box">
         <form method="post">
             <div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Login</div>
-            <label for="Username:">Username:</label><br><br>
+            <label for="Username:"> Username: </label><br><br>
             <input id="text" type="text" name="user_name" placeholder="Type here"><br><br>
-            <label for="Password:">Password:</label><br><br>
+            <label for="Password:"> Password: </label><br><br>
             <input id="text" type="password" name="password" placeholder="Type here"><br><br>
-
+            
             <input id="button" type="submit" value="Login"><br><br>
 
-            <!-- <a id="button" href="sign-up.php">Click to Signup</a><br><br> -->
+           <!-- <a id="button" href="sign-up.php">Click to Signup</a><br><br> -->
         </form>
-    </div>
+        </div>
+            
+</body>
 
-    <style type="text/css">
-        body {
-            background-color: aqua;
+<style type = "text/css">
+        body{
+            backgroud-color: aqua;
         }
-
-        #text {
+        #text{
             height: 25px;
-            border-radius: 5px;
+            boader-radius: 5px;
             padding: 4px;
-            border: solid thin #aaa;
+            boarder: solid thin #aaa;
             width: 100%;
         }
 
-        #button {
+        #button{
             padding: 10px;
             width: 100px;
             background-color: blue;
             color: white;
-            border: none;
+            boarder: none;
         }
 
-        #box {
+        #box{
             background-color: white;
             margin: auto;
             width: 300px;
             padding: 20px;
         }
+        body{
+            background-color: aqua;
+      }
+
     </style>
-
-</body>
-
+    
 </html>
