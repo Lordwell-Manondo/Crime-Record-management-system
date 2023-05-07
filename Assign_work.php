@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include("Connections.php");
 
     //defining and initializing variables that will be used to pass values into database     
@@ -7,8 +8,9 @@
     $officer_id = $_POST['officer_id'];
     $assigned_date = $_POST['assigned_date'];
     $report_date = $_POST['report_date'];
-            // saving the case into database
-            $query = "insert into assign_work (case_id, officer_id, assignen_date, report_date) values ('$case_id', '$officer_id' ,'$assigned_date', '$report_date')";
+           
+          // saving the case into database
+            $query = "insert into assign_work (case_id, officer_id, assigned_date, report_date) values ('$case_id', '$officer_id' ,'$assigned_date', '$report_date')";
             
             //executing the above statement
             mysqli_query($con, $query);
