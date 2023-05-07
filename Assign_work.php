@@ -1,3 +1,29 @@
+<?php
+    include("Connections.php");
+
+    //defining and initializing variables that will be used to pass values into database     
+ if($_SERVER['REQUEST_METHOD'] == "POST") {
+    $case_id = $_POST['case_id'];
+    $officer_id = $_POST['officer_id'];
+    $assigned_date = $_POST['assigned_date'];
+    $report_date = $_POST['report_date'];
+            // saving the case into database
+            $query = "insert into assign_work (case_id, officer_id, assignen_date, report_date) values ('$case_id', '$officer_id' ,'$assigned_date', '$report_date')";
+            
+            //executing the above statement
+            mysqli_query($con, $query);
+           
+            //give this message if the process of saving the case was successful
+           echo" Assigned";
+            exit;
+ }
+        else
+        {
+            //printing this message  if the process of saving the case was not successful
+            //echo "Please enter valid information!";
+        }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,23 +99,23 @@
         <div class="container mt-5">
             <h1 class="heading">Assign Work</h1>
             <div class="form-box"  class="form-group">
-                <form action="News.php" method="post" enctype="multipart/form-data">
+                <form action="Assign_work.php" method="post" enctype="multipart/form-data">
                     <div>
-                        <label for="title">Case ID:</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
+                        <label for="case_id">Case ID:</label>
+                        <input type="text" class="form-control" id="case_id" name="case_id" required>
                     </div><br>
                     <div>
-                        <label for="title">Officer ID:</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
+                        <label for="officer_id">Officer ID:</label>
+                        <input type="text" class="form-control" id="officer_id" name="officer_id" required>
                     </div><br>
                     <div>
-                        <label for="date">Date Assigned:</label>
-                        <input type="date" class="form-control" id="date" name="date" required>
+                        <label for="assigned_date">Date Assigned:</label>
+                        <input type="date" class="form-control" id="assigned_date" name="assigned_date" required>
                     </div><br>
                 
                     <div>
-                        <label for="date">Date to Report:</label>
-                        <input type="date" class="form-control" id="date" name="date" required>
+                        <label for="report_date">Date to Report:</label>
+                        <input type="date" class="form-control" id="report_date" name="report_date" required>
                     </div>
                     <br>                    
                     <button type="submit" class="btn btn-primary">Assign</button>
