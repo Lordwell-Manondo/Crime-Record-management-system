@@ -8,7 +8,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 <html>
 <head>
 	<title>Change Password</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="change-password.css">
 </head>
 <body>
 	 <form action="change-p.php" method="post">
