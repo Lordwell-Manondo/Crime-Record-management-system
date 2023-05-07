@@ -22,7 +22,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
      	<?php } ?>
 
      	<label>Old password</label>
-     	<input type="text" name="op" placeholder="Old Password"><br>
+     	<input type="password" name="op" placeholder="Old Password"><br>
 
      	<label>New Password</label>
      	<input type="password" name="np" placeholder="New Password"><br>
@@ -31,13 +31,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
      	<input type="password" name="c_np" placeholder="Confirm New Password"><br>
  
      	<button type="submit">CHANGE</button>
-          <a href="Home.html" class="ca">HOME</a>
+          <a href="Login_admin.php" class="ca"></a>
      </form></body>
 </html>
 
 <?php 
 }else{
-     header("Location: Admin_landing_page.html");
+     header("Location: index.php");
      exit();
 }
- 
+ ?>
