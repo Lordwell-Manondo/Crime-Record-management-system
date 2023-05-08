@@ -1,0 +1,68 @@
+.suspects {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    padding: 4px;
+}
+
+.suspects li {
+    width: 100%;
+    margin-bottom: 4px;
+    font-size: 1.1em;
+    font-weight: semi-bold;
+}
+
+.suspects li a {
+    text-decoration: none;
+    color: #000;
+}
+
+
+.cases-head * {
+    flex:none;
+    margin-left: 24px;
+}
+.cases-head div {
+    font-weight: bolder;
+    font-size: 1.3em;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.cases-head h2 {
+    flex: auto;
+    margin-left: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #333;
+    overflow-x: scroll;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #333;
+}
+
+th {
+    background-color: aqua;
+    color: #000;
+}
+
+tr {
+    background-color: #f5f5f5;
+}
+

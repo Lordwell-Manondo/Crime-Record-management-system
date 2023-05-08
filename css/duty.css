@@ -1,0 +1,49 @@
+.main {
+    margin: 0;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 16px;
+    padding: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 32px;
+    width: 100%;
+    max-width: 360px;
+    background-color: aqua;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+form input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type=submit] {
+    background-color: #818982;
+    color: white;
+    cursor: pointer;
+    font-weight: bolder;
+    border: 0;
+    padding: 10px;
+}
+
+form label {
+    font-size: 1.05em;
+    margin: 2px;
+}

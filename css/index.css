@@ -1,0 +1,51 @@
+/* Style for the top bar */
+.top-bar {
+    background-color: #818982;
+    color: #fff;
+    padding: 16px;
+    display: flex;
+    justify-content:flex-start;
+    flex-direction: row;
+}
+
+.top-bar div {
+    font-weight: bold;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+    flex: auto;
+    text-align: center;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+/* Style for the left side bar */
+.left-side-bar {
+    float: left;
+    padding: 20px;
+    height: 100vh;
+    overflow: auto;
+    max-width: 224px;
+    border-right: 1px solid #0dd;
+}
+
+/* Style for the main content area */
+.main-content {
+    float: left;
+    padding: 20px;
+    height: 100vh;
+    overflow: auto;
+}
+
+.main {
+    background-color: aqua;
+}
