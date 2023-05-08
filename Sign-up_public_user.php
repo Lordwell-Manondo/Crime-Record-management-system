@@ -19,10 +19,10 @@ session_start();
             $query = "insert into users (fname,sname,user_name,password) values ('$fname','$sname','$user_name','$password')";
 
             mysqli_query($con, $query);
+            echo "<script>alert('Welcome to Crime record management system, $fname!');</script>";
             
-            header("Location: Sign-up_public_user.php");
-            echo "Hi : ",$fname;
-            die;
+            // $show_popup = true;
+            // die;
         }
         else
         {
