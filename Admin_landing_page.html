@@ -4,9 +4,9 @@
     <title>Admin_page</title>
     <head>
       
-    <link rel="stylesheet" href="Admin_landing_page.css"> 
-    <link rel="stylesheet" href=".css/bootstrap.css"> 
-     <link rel="stylesheet" href="HomeStyling.css">
+        <!-- Add the Bootstrap CSS file -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
     
   </head>
   <body>
@@ -21,48 +21,47 @@
          <header>
             <nav class="navbar">
 
-              <div class="nav-top" style="background-color: gray; border-radius: 3px;">
-                <img class="police_log" src="policeLog.PNG">
-                <h1 style="display: inline-block; color: #ffffff; margin-left: 25%; font-size: 30px;">CRIME RECORD MANAGEMENT SYSTEM</h1>
-                <a href="Home.html" style="margin-left: 180px;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16" style="margin-left: 65px;">
-                  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-                  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-                </svg> </a>
-              </div>
+             
+             
 
-          <h2> 
-            <hr>
-              <ul class="navbar-nav" style="display: inline-block; text-decoration: none; width: 1320px;";>
-
+          
+            <a href="Home.html" style="margin-left: 1230px; color: black;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16" style="margin-left: 65px;">
+              <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+              <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg> <p style="font-size: 15px;  margin-left: 50px; color: black;">Logout</p> </a>
+           
+            <h2> 
+              <ul class="navbar-nav" >
+                <div class="log">
+                  <img src="plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;">
+                </div>
 
               <li class="nav-item active" >
-               <a class="nav-link"   href="Record_case.php">Record case</a>
+               <a class="nav-link"   href="Record_case.php"   style="color: rgb(19, 17, 17);" >Record case</a>
               </li>
               <li class="nav-item" >
-                <a class="nav-link" href="add_officer.php" >Add officer</a>
+                <a class="nav-link" href="add_officer.php"  style="color: rgb(19, 17, 17);"  >Officers</a>
                 
               </li>
               <li class="nav-item" >
-                <a class="nav-link" href="Assign_work.php" >Assign work</a>
+                <a class="nav-link" href="Assign_work.php"  style="color: rgb(19, 17, 17);"  >Assign work</a>
+              </li>
+              
               </li>
               <li class="nav-item" >
-                <a class="nav-link" href="Assigned_officers.php"  >Assigned Officers</a>
-              </li>
-              </li>
-              <li class="nav-item" >
-                <a class="nav-link" href="View_cases.php"  >View cases</a>
+                <a class="nav-link" href="View_cases.php"  style="color: rgb(19, 17, 17);" >View cases</a>
               </li>
               <li class="nav-item"  >
-                <a class="nav-link" href="News2.php"  >Add feed</a>
+                <a class="nav-link" href="News2.php"  style="color: rgb(19, 17, 17);" >Add feed</a>
               </li>
               <li class="nav-item"  >
-                <a class="nav-link" href="change-password.php">Password</a>
+                <a class="nav-link" href="change-password.php"   style="color: rgb(19, 17, 17);"> Password</a>
               </li>
               <li class="nav-item" >
                 
                 <a class="nav-link" href="#"  ><svg class="notification" xmlns="http://www.w3.org/2000/svg"  width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
                   <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-                </svg></a>
+                </svg>   <p style="font-size: 15px; margin-left: -20px;">Notifications</p></a>
              
               </li>
             </ul>
@@ -78,14 +77,16 @@
    
   
   <style>
+    body{
+      background-color: rgb(0, 109, 139);
+    }
     
     .notification:hover{
-    font-weight: bold;
-    color: khaki;
+      font-weight: 400;
+      color: #1e1d1d;
     }
     a:hover{
-    font-weight: bold;
-    color: khaki;
+      font-weight: 400;
     }
     svg:hover{
     font-weight: bold;
@@ -104,33 +105,17 @@
   
    
   }
-h2{
-  height: 100px;
-  background-color:gray;
-  padding: 5px;
-  padding-top: 1px;
-  height: 50px;
-}
-.police_log{
 
-display: inline-block;
- width: 40px; 
- height: 40px; 
- margin-left: 5%; 
- align-items: start;
- margin-top: 0px;
- border-radius: 5px;
-
-}
-.nav-link {
-    font-size: 17.5px;
-    font-weight: lighter;
-   display: inline-block;
-   word-spacing: 1px;
+  .nav-link{
+  font-size: 25px;
+  margin-left: 60px;
   
-    
+  font-weight: lighter;
    
-  }
+}
+h2{
+  height: 45px ;
+}
  
     
   </style>

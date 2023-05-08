@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         body {
-            background-color: aqua;
+            background-color:  rgb(0, 109, 139);
         }
         .form-control:focus {
             box-shadow: none;
@@ -98,7 +98,7 @@
                         </div>
                         <div class="text-center">
                             <button type="Report" class="btn btn-lg btn-block">Report</button>
-                            <button type="button" class="btn btn-lg btn-block back-button">Back</button>
+                            <button type="button" class="btn btn-lg btn-block back-button"><a href="Home.html" style="text-decoration: none; color: white;">Back</a></button>
                         </div>
                     </form>
                 </div>
