@@ -59,11 +59,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
 	<title>Add Officer</title>
 	<style>
+
+body {
+			background-color: aqua;
+			padding: 50px;
+		}
+		h1 {
+			text-align: center;
+		}
+		form {
+			width: 50%;
+			margin: 0 auto;
+			background-color: white;
+			padding: 30px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+		}
 		label {
 			display: block;
 			margin-bottom: 10px;
+			font-size: 16px;
 		}
-		input[type="text"], input[type="password"], select {
+		input[type="text"], input[type="password"], select, input[type="date"] {
 			display: block;
 			margin-bottom: 20px;
 			padding: 10px;
@@ -72,6 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			font-size: 16px;
 			width: 100%;
 			box-sizing: border-box;
+			outline: none;
 		}
 		input[type="submit"] {
 			background-color: #4CAF50;
@@ -81,7 +99,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			border-radius: 5px;
 			font-size: 16px;
 			cursor: pointer;
+			outline: none;
 		}
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+
 	</style>
 </head>
 <body>
