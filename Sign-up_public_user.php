@@ -7,19 +7,22 @@ session_start();
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
         //something was posted
+        $fname = $_POST['fname'];
+        $sname = $_POST['sname'];
         $user_name = $_POST['user_name'];
         $password = $_POST['password'];
 
-        if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+        if(!is_numeric($fname) && !is_numeric($sname) && !is_numeric($user_name) && !empty($password))
         {
             //save to database
-            $user_id = random_num(20);
-            $query = "insert into users (user_id,user_name,password) values ('$user_id','$user_name','$password')";
+            // $user_id = random_num(20);
+            $query = "insert into users (fname,sname,user_name,password) values ('$fname','$sname','$user_name','$password')";
 
             mysqli_query($con, $query);
-
-            header("Location: Home.html");
-            die;
+            echo "<script>alert('Welcome to Crime record management system, $fname!');</script>";
+            
+            // $show_popup = true;
+            // die;
         }
         else
         {
@@ -27,7 +30,6 @@ session_start();
         }
 
     }
-?>
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,6 +46,10 @@ session_start();
         <div id="box">
         <form method="post">
             <div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Signup</div>
+            <label for="fname:"> First name: </label><br><br>
+            <input id="text" type="text" name="fname" placeholder="Type here"><br><br>
+            <label for="sname:"> Sir name: </label><br><br>
+            <input id="text" type="text" name="sname" placeholder="Type here"><br><br>
             <label for="Username:"> Username: </label><br><br>
             <input id="text" type="text" name="user_name" placeholder="Type here"><br><br>
             <label for="Password:">Password: </label><br><br>
