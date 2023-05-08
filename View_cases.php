@@ -4,8 +4,20 @@
   <title>Recorded cases</title>
 </head>
 <body>
-  <h1>CRIME RECORD MANAGEMENT SYSTEM</h1>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+
+ 
   <h2> Recorded cases</h2>
+
+  
+<form method="GET" action="View_cases.php" class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search of suspect..." aria-label="Search" style="margin-left: 70%">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+
+
+   <h3>SUSPECT</h3>
   
   <div class="table-container">
   <table>
@@ -13,15 +25,19 @@
       <th>Suspect</th>
       <th>Victim</th>
       <th>Incident</th>
+      <th>Location</th>
+      <th>date</th>
       <th>Type</th>
     </tr>
     
   <?php
   //linking up Record_case.php file with database using Connections.php file
   include('Connections.php');
+ 
+
 
     // Retrieve recorded cases from the database
-    $sql = 'SELECT *  FROM cases';
+    $sql = 'SELECT *  FROM cases ';
     $result = mysqli_query($con, $sql);
 
     
@@ -41,13 +57,17 @@
     echo "<td>" . $row['suspect_name'] . "</td>";
     echo "<td>" . $row['victim_name'] . "</td>";
     echo "<td>" . $row['incident'] . "</td>";
+    echo "<td>" . $row['location'] . "</td>";
+    echo "<td>" . $row['date'] . "</td>";
     echo "<td>" . $row['type'] . "</td>";
     echo "</tr>";
   }
- 
+}
   
     }
-    } else {
+    
+
+    else {
       echo "0 results";
     }
 
@@ -56,11 +76,12 @@
   
   </table>
 </div>
-
+</form>
   <style>
     .table-container {
-    width: 80%;
-    margin-left: 25%;
+     margin-left: 20%;
+    
+   
     }
     h1{
         background-color: gray;
@@ -82,21 +103,30 @@
     text-align: center;
    background-color: white;
    
+   
   }
   td, th {
     border: 1px solid black;
     padding: 10px;
   }
   th {
-    background-color: lightgray;
+    background-color: khaki;
+   
   }
   td {
-    text-align: center;
+    background-color: white;
+    text-align: left;
   }
   td + td {
     margin-left: 10px;
   }
-
+  .searchbar{
+    margin-left: 70%;
+    
+  }
+h3{
+    margin-left: 3%;
+}
   </style>
 </body>
 </html>

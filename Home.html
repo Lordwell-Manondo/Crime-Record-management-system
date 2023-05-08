@@ -4,10 +4,13 @@
     <title>Home page</title>
     <head>
       
-      
-       <link rel="stylesheet" href=".css/bootstrap.css"> 
-     <link rel="stylesheet" href="HomeStyling.css">
-     <link rel="stylesheet" href="Admin_landing_page.css">
+      <!-- Add the Bootstrap CSS file -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
+
+    
+     
   </head>
   <body>
    
@@ -19,44 +22,47 @@
        
       <div class="nav">
 
-       
+        
          <header>
-            <nav class="navbar">
-              <div class="nav-top" style="background-color: gray; border-radius: 3px;">
-                <img class="police_log" src="policeLog.PNG">
-                <h1 style="display: inline-block; color: white; margin-left: 25%; font-size:25px;font-weight: 20%; font-weight: 900;">CRIME RECORD MANAGEMENT SYSTEM</h1>
-              </div>
+            
 
              <h2> 
-               <hr>
+              
                   <ul class="navbar-nav">
+                     
+                      
                     <li class="nav-item active">
-                       <a class="nav-link" href="#" >Home</a>
+                       <a class="nav-link" href="#" style="margin-left: 10px">Home</a>
                        </li>
                        <li class="nav-item" >
-                       <a class="nav-link" href="#"  >News</a>
+                       <a class="nav-link" href="#"   style="margin-left: 30px;">News</a>
                        </li>
                        <li class="nav-item" >
-                       <a class="nav-link" href="#"  >Guidelines</a>
+                       <a class="nav-link" href="#"   style="margin-left: 60px;" >Guidelines</a>
                        </li>
                        
                       <li class="nav-item" >
-                      <a class="nav-link" href="Login_public_user.php" >Report incident</a>
+                      <a class="nav-link" href="Login_public_user.php"   style="margin-left: 90px;">Report incident</a>
                       </li>
                       <li class="nav-item"  >
-                      <a class="nav-link" href="#"  >FAQ</a>
+                      <a class="nav-link" href="#"  style="margin-left:120px;" >FAQ</a>
                       </li>
                       <li class="nav-item"  >
-                      <a class="nav-link" href="#" >About</a>
+                      <a class="nav-link" href="#"  style="margin-left: 150px;" >About</a>
                       </li>
                       <li class="nav-item"  >
-                       <a  class="nav-link" href="Master_login_register.php"   > <svg  class="login" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                       <a  class="nav-link" href="Master_login_register.php"   style="margin-left: 180px;"> <svg  class="login" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                      </svg> </a>
+                        
+                      </svg> <p style="font-size: 15px;">Login</p>   
+                    
+                      
+                    
+                    
+                    </a>
                        </li>
-                  
-                      </ul>
+                   </ul>
                </h2>
             </nav>
           </header>
@@ -64,28 +70,21 @@
         </div>
    </main>
 
-    <div class="image_container">
-    <img src="hand-cuff.PNG" >
-    </div>
-
+   <h2 style="text-align: center; margin-top: 200px; color: khaki; font-weight: 300;">CRIME RECORD MANAGEMENT SYSTEM</h2>
+   <p style="font-size: 25px; text-align: center; font-weight: 300; color: white;">Creating a Safe and Secure Malawi</p>
 
     
 <style>
-  .login{
-    text-align: right;
-    margin-left: 200px;
-    
-  }
+  body {
+ background-color: rgb(0, 109, 139);
+  background-size: cover; /* or "contain" if you want to fit the whole image into the viewport */
+  height: 100px;
+  
+  
+}
 
-.login:hover{
-    font-weight: bold;
-    color: khaki;
-
-    
-  }
   a:hover{
-    font-weight: bold;
-    color: khaki;
+     font-weight: 400;
     
   }
   .police_log{
@@ -99,9 +98,11 @@
      border-radius: 5px;
 
   }
-  .nav-link{
+  a{
     font-size: 25px;
     font-weight: lighter;
+    text-align: center;
+    
   }
  .nav-top{
    padding: 1px;
@@ -109,20 +110,40 @@
   }
 h2{
   height: 100px;
-  background-color: gray;
+  
   padding: 5px;
   padding-top: 1px;
   height: 50px;
 }
+.footer_container{
+  background-color: gray;
+ position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+}
+
+</style> 
 
 
-</style>    
+<footer class="footer bg-dark text-white">
+  <div class="footer_container">
+    <div class="row">
+      <div class="col-md-6">
+       
+      </div>
+      <div class="col-md-6">
+        <h5 style="margin-left: 5px;">Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="unima.ac.mw">unima</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 
-<footer class="footer">
-   <div class="container">
-       <span class="text-muted" >&copy; CRMS2023.</span>
-    </div>
-</footer>
+
 </html>

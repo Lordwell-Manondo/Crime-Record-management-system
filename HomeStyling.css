@@ -18,9 +18,7 @@
     margin-right: 0; /* removes the margin-right from the last list item */
   }
   
-  body{
-    background-color: aqua;
-  }
+ 
   
 .image_container img{
    width: 99%;
