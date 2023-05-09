@@ -34,18 +34,18 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Signup</title>
-        <header style="background-color: grey; red; text-align: center; color: white;">
+       <title>Signup</title>
+        <!-- <header style="background-color: grey; red; text-align: center; color: white;">
             <div>
                 <h1>Crime Record Management</h1>
-            </div>
+            </div> -->
 </header>
     </head>
     <br>
 <body>
         <div id="box">
         <form method="post">
-            <div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Signup</div>
+        <h2> <div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Signup</div></h2>
             <label for="fname:"> First name: </label><br><br>
             <input id="text" type="text" name="fname" placeholder="Type here"><br><br>
             <label for="sname:"> Sir name: </label><br><br>

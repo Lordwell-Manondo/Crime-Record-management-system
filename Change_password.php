@@ -24,13 +24,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 mysqli_query($con, $query);
                 echo "<script>alert('Password changed successfully!');</script>";
             } else {
-                echo "New password and confirm password do not match!";
+                echo "<script>alert('New password and confirm password do not match!');</script>";
             }
         } else {
-            echo "Incorrect old password!";
+            echo "<script>alert('Incorrect old password!');</script>";
         }
     } else {
-        echo "Error: " . mysqli_error($con);
+        echo "<script>alert('Error: " . mysqli_error($con) . "');</script>";
     }
 }
 ?>
@@ -39,17 +39,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <html>
     <head>
         <title>Change Password</title>
-        <header style="background-color: grey; red; text-align: center; color: white;">
+        <!-- <header style="background-color: grey; red; text-align: center; color: white;">
             <div>
                 <h1>Crime Record Management</h1>
             </div>
-        </header>
+        </header> -->
     </head>
     <br>
     <body>
         <div id="box">
             <form method="post">
-                <div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Change Password</div>
+               <h1> <div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Change Password</div></h1>
                 <label for="old_password:"> Old Password: </label><br><br>
                 <input id="text" type="password" name="old_password" placeholder="Type here"><br><br>
                 <label for="new_password:"> New Password: </label><br><br>
@@ -88,7 +88,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         }
        
         body{
-            background-color: aqua;
+            background-color: rgb(0, 109, 139);
       }
 
     </style>

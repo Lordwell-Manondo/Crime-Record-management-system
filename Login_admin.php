@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
     {
         //read from database
-        $query = "select * from users where user_name = '$user_name' limit 1";
+        $query = "select * from login_admin where user_name = '$user_name' limit 1";
 
         $result = mysqli_query($con,$query);
 
@@ -29,13 +29,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 header("Location: Admin_landing_page.html");
                 die; 
             }       
+            else {
+                echo "<script>alert('Wrong password!');</script>";
+            }       
+        } else {
+            echo "<script>alert('Wrong username!');</script>";
         }
+    } else {
+        echo "<script>alert('Please enter valid information!');</script>";
     }
-        echo "Wrong username or password!";
-    }else
-    {
-        echo "Please enter valid information!";
-    }
+}
 }
 ?>
 

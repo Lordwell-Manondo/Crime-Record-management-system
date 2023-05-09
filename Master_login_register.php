@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>Master_login</title>
-        <h1 style=" text-align: center; background-color: grey; color: white;SSS">Welcome to Crime Record Management portal</h1><br><br><br><br>
+        <h1 style=" text-align: center; color: white;SSS">Welcome to Crime Record Management portal</h1><br><br><br><br>
          
     </head>
     <body>
@@ -18,7 +18,7 @@
 </div>
 <style>
 body{
-    background-color: aqua;
+  background-color: rgb(0, 109, 139);
 }
 .login-types {
   width: 50%;
