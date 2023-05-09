@@ -7,8 +7,19 @@
         <!-- Add the Bootstrap CSS file -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVeGfN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     
-  </head>
+  
+</head>
   <body>
    
   
@@ -35,36 +46,63 @@
                 <div class="log">
                   <img src="plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;">
                 </div>
-
-              <li class="nav-item active" >
-               <a class="nav-link"   href="Record_case.php"   style="color: rgb(19, 17, 17);" >Record case</a>
-              </li>
+           
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"   style="color: rgb(19, 17, 17);">
+                        Cases
+                           </a>
+                               <div class="dropdown-menu" style="margin-left: 50px;" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="Record_case.php" style="font-size: 20px; font-weight: 100; ">Record case</a>
+                                 <a class="dropdown-item" href="View_cases.php"    style="font-size: 20px; font-weight: 100;">View cases</a>
+                             </div>
+                          </li>
+                
               <li class="nav-item" >
-                <a class="nav-link" href="add_officer.php"  style="color: rgb(19, 17, 17);"  >Officers</a>
+                   <a class="nav-link" href="add_officer.php"  style="color: rgb(19, 17, 17);"  >Officers</a>
                 
               </li>
               <li class="nav-item" >
-                <a class="nav-link" href="Assign_work.php"  style="color: rgb(19, 17, 17);"  >Assign work</a>
+                       <a class="nav-link" href="Assign_work.php"  style="color: rgb(19, 17, 17);"  >Assign work</a>
               </li>
               
-              </li>
-              <li class="nav-item" >
-                <a class="nav-link" href="View_cases.php"  style="color: rgb(19, 17, 17);" >View cases</a>
-              </li>
+             
               <li class="nav-item"  >
-                <a class="nav-link" href="News2.php"  style="color: rgb(19, 17, 17);" >Add feed</a>
+                       <a class="nav-link" href="News2.php"  style="color: rgb(19, 17, 17);" >Add feed</a>
               </li>
-              <li class="nav-item"  >
-                <a class="nav-link" href="Change_password.php">Password</a>
-              </li>
-              <li class="nav-item" >
-                
+               
                 <a class="nav-link" href="#"  ><svg class="notification" xmlns="http://www.w3.org/2000/svg"  width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
                   <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
                 </svg>   <p style="font-size: 15px; margin-left: -20px;">Notifications</p></a>
-             
-              </li>
-            </ul>
+
+                    
+                     
+                <a class="nav-link" href="#"  ><svg  class="login" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="margin-left: 150px;">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+                          <p style="font-size: 15px; margin-left: 140px;">Account
+                          
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"   style="color: rgb(19, 17, 17);">
+                              
+                                      
+                                           <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                              <a class="dropdown-item" href="Record_case.php" style="font-size: 20px; font-weight: 100; ">Record case</a>
+                                             <a class="dropdown-item" href="View_cases.php"    style="font-size: 20px; font-weight: 100;">View cases</a>
+                                         </div>
+                                        </a>
+                                      </li> 
+                                    </a>
+                                 </p>
+                          
+                      
+                       
+                    
+                            
+
+                     <li class="nav-item" >
+                    </li>
+                </ul>
             </h2>
                   
         </nav>
@@ -93,32 +131,24 @@
     color:red;
     }
    
-    
     hr{
      background-color: white;
     }
     .nav-top{
    padding: 1px;
    height: 24px;
- 
-  
-  
-   
-  }
+ }
 
   .nav-link{
   font-size: 25px;
-  margin-left: 60px;
+  margin-left: 80px;
   
   font-weight: lighter;
-   
-}
+   }
 h2{
   height: 45px ;
 }
- 
-    
-  </style>
+ </style>
   <div>
     <script>
       function openPopup() {

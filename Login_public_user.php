@@ -46,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <br>
     <body>
         <div id="box">
-            <form method="post">
+            <form method="post" action="ReportForm.php">
                 <div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Login</div>
                 <label for="Username:"> Username: </label><br><br>
                 <input id="text" type="text" name="user_name" placeholder="Type here"><br><br>
