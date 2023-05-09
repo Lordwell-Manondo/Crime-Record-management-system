@@ -64,10 +64,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 
                 <input id="button" type="submit" value="Login"> 
                 
-                <?php if(isset($_SESSION['user_id'])) { ?>
+                
                 <button id="button" style="margin-left: 16px; width: 200px;"><a href="Change_password.php" style="text-decoration:none; color:blue; ">Change Password</a></button> 
-                <?php } ?>
-            </form>
+                
+                 </form>
         </div>
             
     </body>

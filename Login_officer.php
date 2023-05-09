@@ -46,11 +46,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <html>
     <head>
         <title>Login</title>
-        <!-- <header style="background-color: grey; red; text-align: center; color: white;">
+        <header style=" text-align: center; color: white;">
             <div>
-                <h1>Crime Record Management</h1>
+                <h1>You must login firt to access our services!</h1>
             </div>
-</header> -->
+</header>
 </head>
   
     <br>
@@ -68,21 +68,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             <input id="text" type="text" name="user_name" placeholder="Type here"><br><br>
             <label for="Password:"> Password: </label><br><br>
             <input id="text" type="password" name="password" placeholder="Type here"><br><br>
+           
             <input id="button" type="submit" value="Login"> 
                 
-                <?php if(isset($_SESSION['user_id'])) { ?>
-                <button id="button" style="margin-left: 2px; width: 190px;"><a href="Change_password.php" style="text-decoration:none; color:blue; ">Change Password</a></button> 
-                <?php } ?>
-        
+            <button id="button" style="margin-left: 6px; width: 190px;"><a href="Change_password.php" style="text-decoration:red; color:blue; ">Change Password</a></button> 
+                
         </form>
         </div>
             
 </body>
 
 <style type = "text/css">
-        body{
-            backgroud-color: aqua;
-        }
         #text{
             height: 25px;
             boader-radius: 5px;
@@ -103,6 +99,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             margin: auto;
             width: 300px;
             padding: 20px;
+            height: 300px;
         }
         body{
             background-color: rgb(0, 109, 139);

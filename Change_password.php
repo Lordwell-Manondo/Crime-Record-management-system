@@ -39,14 +39,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <html>
     <head>
         <title>Change Password</title>
-        <!-- <header style="background-color: grey; red; text-align: center; color: white;">
-            <div>
-                <h1>Crime Record Management</h1>
+        <header style="text-align: center; color: white;">
+            <div><br><br>
+                <h1>Make your password unique!</h1>
             </div>
-        </header> -->
+        </header>
     </head>
     <br>
-    <body>
+    <body><br><br><br><br>
         <div id="box">
             <form method="post">
                <h1> <div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Change Password</div></h1>
@@ -57,7 +57,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 <label for="confirm_password:"> Confirm Password: </label><br><br>
                 <input id="text" type="password" name="confirm_password" placeholder="Type here"><br><br>
 
-                <input id="button" type="submit" value="Change Password">
+                <input id="button" type="submit" value="Change">
 <button id="button" style="margin-left: 41px"><a href="Home.html" style="text-decoration:none; color:blue; ">Cancel</a></button>
 
                 </form>
