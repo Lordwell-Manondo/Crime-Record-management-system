@@ -48,7 +48,7 @@ session_start();
         <h2> <div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Signup</div></h2>
             <label for="fname:"> First name: </label><br><br>
             <input id="text" type="text" name="fname" placeholder="Type here"><br><br>
-            <label for="sname:"> Sir name: </label><br><br>
+            <label for="sname:"> Surname: </label><br><br>
             <input id="text" type="text" name="sname" placeholder="Type here"><br><br>
             <label for="Username:"> Username: </label><br><br>
             <input id="text" type="text" name="user_name" placeholder="Type here"><br><br>
