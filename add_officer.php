@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("Connections.php");
+include("connections.php");
 
 // Process the form submission if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -125,15 +125,17 @@ body {
 		<label for="station">Select Station:</label>
 		<select name="station" id="station" required>
 			<option value="">Select Station</option>
-			<option value="Station 1">Station 1</option>
-			<option value="Station 2">Station 2</option>
-			<option value="Station 3">Station 3</option>
+			<option value="Station 1">Zomba Police</option>
+			<option value="Station 2">Area 30</option>
+			<option value="Station 3">Machinga</option>
 		</select>
 
 		<label for="password">Password:</label>
 		<input type="password" name="password" id="password" required>
 
 		<input type="submit" value="Add Officer">
+		<a class="nav-link" href="view_officers.php"  >Officer List</a>
+
 	</form>
 </body>
 </html>
