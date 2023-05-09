@@ -53,10 +53,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 <label for="Password:">Password: </label><br><br>
                 <input id="text" type="password" name="password" placeholder="Type here"><br><br>
                 
-                <input id="button" type="submit" value="Login"> <br><br>
+                <input id="button" type="submit" value="Login"> 
                 
                 <?php if(isset($_SESSION['user_id'])) { ?>
-                <a id="button" href="Change_password.php">Change Password</a><br><br>
+                <button id="button" style="margin-left: 16px; width: 200px;"><a href="Change_password.php" style="text-decoration:none; color:blue; ">Change Password</a></button> 
                 <?php } ?>
             </form>
         </div>
@@ -81,7 +81,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         #box{
             background-color: white;
             margin: auto;
-            width: 300px;
+            width: 320px;
             padding: 20px;
         }
        

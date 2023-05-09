@@ -56,9 +56,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 <input id="text" type="password" name="new_password" placeholder="Type here"><br><br>
                 <label for="confirm_password:"> Confirm Password: </label><br><br>
                 <input id="text" type="password" name="confirm_password" placeholder="Type here"><br><br>
-                
-                <input id="button" type="submit" value="Change Password"> <button>  <a id="button1" href="Home.html">Cancel</a></button> <br><br>
-            </form>
+
+                <input id="button" type="submit" value="Change Password">
+<button id="button" style="margin-left: 41px"><a href="Home.html" style="text-decoration:none; color:blue; ">Cancel</a></button>
+
+                </form>
         </div>
             
     </body>
@@ -81,7 +83,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         #box{
             background-color: white;
             margin: auto;
-            width: 300px;
+            width: 345px;
             padding: 20px;
         }
        

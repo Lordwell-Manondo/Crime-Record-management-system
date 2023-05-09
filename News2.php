@@ -1,5 +1,5 @@
 <?php
-//linking up Record_case.php file with database using Connections.php file
+//linking up News.php file with database using Connections.php file
 include('Connections.php');
 
 //defining and initializing variables that will be used to pass values into database     
@@ -30,7 +30,9 @@ else {
     //printing this message  if the process of saving the case was not successful
     //echo "Please enter valid information!";
 }
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -146,5 +148,32 @@ else {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <?php
+//linking up News.php file with database using Connections.php file
+include('Connections.php');
+
+// Fetch news from the database
+$sql = "SELECT * FROM news ORDER BY date DESC";
+$result = mysqli_query($con, $sql);
+
+// Check if there are any news available in the database
+if (mysqli_num_rows($result) > 0) {
+    // Loop through each news and display it
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "<h2>" . $row["title"] . "</h2>";
+        echo "<p>" . $row["description"] . "</p>";
+        echo "<p>" . $row["date"] . "</p>";
+        echo "<p>" . $row["type"] . "</p>";
+        echo "<img src='" . $row["file"] . "'/>";
+        echo "<hr>";
+    }
+} else {
+    // If there are no news available, display a message
+    echo "No news available";
+}
+?>
+
+
 </body>
 </html>
