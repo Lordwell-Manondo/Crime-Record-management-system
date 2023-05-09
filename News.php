@@ -21,7 +21,7 @@
 <body>
 
 <?php
-//Retrieving data
+//Retrieving data from database crms
 // Connect to the database
 include('Connections.php');
 
