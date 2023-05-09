@@ -1,68 +1,58 @@
-<?php
-session_start();
-include("connections.php");
-
-// Select all data from the officers table
-$query = "SELECT * FROM officers";
-$result = mysqli_query($con, $query);
-
-?>
-
-<!DOCTYPE html>
 <html>
 <head>
-	<title>Officers List</title>
-	<style>
-		body {
-			background-color: aqua;
-			padding: 50px;
-		}
-		h1 {
-			text-align: center;
-		}
-		table {
-			width: 80%;
-			margin: 0 auto;
-			background-color: white;
-			padding: 30px;
-			border-radius: 10px;
-			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-			text-align: center;
-			border-collapse: collapse;
-		}
-		th {
-			background-color: #4CAF50;
-			color: white;
-			padding: 10px;
-		}
-		td {
-			padding: 10px;
-			border: 1px solid #ccc;
-		}
-	</style>
+	<title>View Officers</title>
 </head>
 <body>
-	<h1>Officers List</h1>
-	<table>
+	<h1>Officers</h1>
+	<table border="1">
 		<tr>
-			<th>Name</th>
-			<th>Date of Birth</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Username</th>
+			<th>Date of Entry</th>
 			<th>Employee Number</th>
-			<th>User Rank</th>
+			<th>Officer Rank</th>
 			<th>Station</th>
-		</tr>
+			<th>Edit</th>
+			<th>Delete</th>
+			</tr>
 		<?php
-		// Loop through the result set and display the data in a table
-		while ($row = mysqli_fetch_assoc($result)) {
-			echo "<tr>";
-			echo "<td>".$row['name']."</td>";
-			echo "<td>".$row['dob']."</td>";
-			echo "<td>".$row['emp_number']."</td>";
-			echo "<td>".$row['user_rank']."</td>";
-			echo "<td>".$row['station']."</td>";
-			echo "</tr>";
+		// Connect to the database
+		$conn = mysqli_connect("localhost", "username", "password", "database_name");
+
+		// Check connection
+		if (!$conn) {
+			die("Connection failed: " . mysqli_connect_error());
 		}
+
+		// Retrieve data from the officers table
+		$sql = "SELECT * FROM officers";
+		$result = mysqli_query($conn, $sql);
+
+		// Output data for each row
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				echo "<tr>";
+				echo "<td>" . $row["first_name"] . "</td>";
+				echo "<td>" . $row["last_name"] . "</td>";
+				echo "<td>" . $row["username"] . "</td>";
+				echo "<td>" . $row["date_of_entry"] . "</td>";
+				echo "<td>" . $row["employee_number"] . "</td>";
+				echo "<td>" . $row["officer_rank"] . "</td>";
+				echo "<td>" . $row["station"] . "</td>";
+				echo "<td><a href='edit_officer.php?id=" . $row["id"] . "'>Edit</a></td>";
+				echo "<td><a href='delete_officer.php?id=" . $row["id"] . "' onclick='return confirm(\"Are you sure you want to delete this officer?\")'>Delete</a></td>";
+				echo "</tr>";
+			}
+		} else {
+			echo "0 results";
+		}
+
+		// Close the connection
+		mysqli_close($conn);
 		?>
 	</table>
+	<br>
+	<a href="add_officer.php">Add Officer</a>
 </body>
 </html>
