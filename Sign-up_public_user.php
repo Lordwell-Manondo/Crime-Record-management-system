@@ -57,9 +57,11 @@ session_start();
             <!-- <label for="Password:">Confirm: </label><br><br>
             <input id="text" type="password" name="password" placeholder="Type here"><br><br> -->
             
-            <input id="button" type="submit" value="Submit"> <button>  <a id="button1" href="Home.html">Cancel</a></button> <br><br>
-
-            <a id="button" href="Login_public_user.php">Click to Login</a><br><br>
+            <input id="button" type="submit" value="Submit">
+            <button id="button" style="margin-left: 180px"><a href="Home.html" style="text-decoration:none; color:blue; ">Cancel</a></button>
+            <h2>Already have an account</h2>
+            <button id="button" style="margin-left: 100px; width: 200px;"><a href="Login_public_user.php" style="text-decoration:none; color:blue; ">Click to Login</a></button>
+            <!-- <a id="button1" href="Home.html">Cancel</a></button> <br><br> -->
         </form>
         </div>
             
@@ -83,7 +85,7 @@ session_start();
         #box{
             background-color: white;
             margin: auto;
-            width: 300px;
+            width: 400px;
             padding: 20px;
         }
        
