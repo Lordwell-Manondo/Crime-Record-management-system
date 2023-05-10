@@ -77,7 +77,7 @@ else {
         }
 
         body {
-            background-color: aqua;
+            background-color: rgb(0, 109, 139);
         }
 
         .back-button {
@@ -107,9 +107,11 @@ else {
 <body>
     <header>
         <div class="container mt-5">
-            <h1 class="heading">Add News and Events</h1>
+            
             <div class="form-box">
+
                 <form action="News2.php" method="post" enctype="multipart/form-data">
+                    <h1 class="heading">Add News and Events</h1>
                     <div class="form-group">
                         <label for="title">Title:</label>
                         <input type="text" class="form-control" id="title" name="title" required>
@@ -137,7 +139,7 @@ else {
                         <label for="file">File:</label>
                         <input type="file" class="form-control-file" id="file" name="file" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                     <button type="button" class="btn back-button" onclick="history.back()">Back</button>
 
                 </form>
@@ -148,31 +150,6 @@ else {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-    <?php
-//linking up News.php file with database using Connections.php file
-include('Connections.php');
-
-// Fetch news from the database
-$sql = "SELECT * FROM news ORDER BY date DESC";
-$result = mysqli_query($con, $sql);
-
-// Check if there are any news available in the database
-if (mysqli_num_rows($result) > 0) {
-    // Loop through each news and display it
-    while($row = mysqli_fetch_assoc($result)) {
-        echo "<h2>" . $row["title"] . "</h2>";
-        echo "<p>" . $row["description"] . "</p>";
-        echo "<p>" . $row["date"] . "</p>";
-        echo "<p>" . $row["type"] . "</p>";
-        echo "<img src='" . $row["file"] . "'/>";
-        echo "<hr>";
-    }
-} else {
-    // If there are no news available, display a message
-    echo "No news available";
-}
-?>
 
 
 </body>

@@ -1,3 +1,35 @@
+<?php
+//linking up News.php file with database using Connections.php file
+include('Connections.php');
+
+//defining and initializing variables that will be used to pass values into database     
+// Form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $name = $_POST["name"];
+    $phone = $_POST["phone"];
+    $date = $_POST["date"];
+    $location = $_POST["location"];
+    $incident = $_POST["incident"];
+    
+
+    // Insert into database
+    $sql = "INSERT INTO reportform (name,phone,date,location,incident) 
+            VALUES ('$name', '$phone', '$date', '$location', '$incident')";
+    mysqli_query($con, $sql);
+
+    //give this message if the process of saving the case was successful
+    echo "Report sent";
+    exit;
+}
+else {
+    //printing this message  if the process of saving the case was not successful
+    //echo "Please enter valid information!";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,29 +98,30 @@
             <div class="col-md-6 mx-auto">
                 <div class="contact-form">
                     <h3 class="text-center">Report an Incident</h3>
-                    <form action="submit_form.php" method="post" id="contactForm">
+
+                    <form action="ReportForm.php" method="post" id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                            <input type="name" class="form-control" id="name" name="name" placeholder="Enter your name" required>
                             <span class="error">Please enter your name</span>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone</label>
                             <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter your phone" required>
-                            <span class="error">Please enter a valid phone number</span>
+                            <span class="error">Please enter valid phone number</span>
                         </div>
 
                         <div class="form-group">
                             <label for="date">Date</label>
                             <input type="date" class="form-control" id="date" name="date" placeholder="Enter todays date" required>
-                            <span class="error">Please enter a valid date</span>
+                            <span class="error">Please enter valid date</span>
                         </div>
 
                         <div class="form-group">
                             <label for="location">Location</label>
                             <input type="location" class="form-control"id="location" name="location" placeholder="Enter your location" required>
 
-                            <span class="error">Please enter a valid Location</span>
+                            <span class="error">Please enter valid Location</span>
                       </div>
 
                       <div class="form-group">
@@ -106,4 +139,4 @@
         </div>
     </div>
     <script>
- $(document)
+        $(document)

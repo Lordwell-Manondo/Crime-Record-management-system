@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +18,7 @@
     </style>
 </head>
 <body>
-
+<h1>News and Events</h1>
 <?php
 //Retrieving data from database
 // Connect to the database
@@ -39,7 +38,34 @@ if (mysqli_num_rows($result) > 0) {
     // display the recorded cases of each row
     while ($row = mysqli_fetch_array($result)) {
         // Use the retrieved data as desired
-        echo $row["title"] . " " . $row["description"] . " " . $row["date"] .  "" . $row["type"] . $row["file"] . "<br>";
+    
+        echo "<h2>" . $row["title"] . "</h2>";
+        echo "<p>" . $row["type"] . "</p>";
+        echo "<p>" . $row["date"] . "</p>";
+        echo "<p>" . $row["description"] . "</p>";
+        
+        // convert the binary data from hexadecimal string
+        //$binaryData = hex2bin(str_pad($row["file"], (strlen($row["file"]) + 1) & ~1, '0', STR_PAD_LEFT));
+        
+        // output the binary data as an image
+        //if (ctype_xdigit($row["file"]) && strlen($row["file"]) % 2 == 0) {
+         //   echo '<img src="data:image/jpeg;base64,' . base64_encode($binaryData) . '"/>';
+        //} else {
+           // echo 'Invalid file name';
+       // }
+        
+          
+if (!empty($row["file"]) && ctype_xdigit($row["file"]) && strlen($row["file"]) % 2 == 0) {
+    // convert the binary data from hexadecimal string
+    $binaryData = hex2bin(str_pad($row["file"], (strlen($row["file"]) + 1) & ~1, '0', STR_PAD_LEFT));
+    // output the binary data as an image
+    echo '<img src="data:image/jpeg;base64,' . base64_encode($binaryData) . '"/>';
+} else {
+    echo 'Invalid file name';
+}
+
+       
+        echo "<hr>";
     }
 } else {
     echo "No news available";
@@ -48,8 +74,6 @@ if (mysqli_num_rows($result) > 0) {
 // Step 5: Close the database connection
 mysqli_close($con);
 ?>
-
-<h1>Hello</h1>
 
 </body>
 </html>
