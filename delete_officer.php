@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     $officer_id = $_GET['id'];
 
     // Prepare the SQL statement
-    $stmt = $con->prepare("DELETE FROM officers WHERE id = ?");
+    $stmt = $conn->prepare("DELETE FROM officers WHERE id = ?");
 
     // Bind the parameter to the statement
     $stmt->bind_param("i", $officer_id);
@@ -31,5 +31,5 @@ if (isset($_GET['id'])) {
 }
 
 // Close the connection
-$con->close();
+$conn->close();
 ?>

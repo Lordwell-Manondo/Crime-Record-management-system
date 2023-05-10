@@ -46,7 +46,7 @@
 			$sql = "SELECT * FROM officers";
 		}
 
-		$result = mysqli_query($con, $sql);
+		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_assoc($result)) {
@@ -74,7 +74,7 @@
 		}
 
 // Close the connection
-mysqli_close($con);
+mysqli_close($conn);
 ?>
 	</table>
 	<br>

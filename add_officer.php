@@ -8,7 +8,7 @@ session_start();
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 		// Prepare the SQL statement
-		$stmt = $con->prepare("INSERT INTO officers (first_name, last_name, employee_number, date_of_entry, officer_rank, station, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+		$stmt = $conn->prepare("INSERT INTO officers (first_name, last_name, employee_number, date_of_entry, officer_rank, station, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
 	
 		// Bind the parameters to the statement
 		$stmt->bind_param("sssssss", $first_name, $last_name, $employee_number, $date_of_entry, $officer_rank, $station, $password);
@@ -51,7 +51,7 @@ session_start();
 	}
 
 	// Close the conection
-	$con->close();
+	$conn->close();
 	?>
 	
 

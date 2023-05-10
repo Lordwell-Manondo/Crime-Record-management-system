@@ -7,7 +7,7 @@ include('Functions.php');
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Prepare the SQL statement
-    $stmt = $con->prepare("UPDATE officers SET first_name=?, last_name=?, employee_number=?, date_of_entry=?, officer_rank=?, station=? WHERE id=?");
+    $stmt = $conn->prepare("UPDATE officers SET first_name=?, last_name=?, employee_number=?, date_of_entry=?, officer_rank=?, station=? WHERE id=?");
 
     // Bind the parameters to the statement
     $stmt->bind_param("ssssssi", $first_name, $last_name, $employee_number, $date_of_entry, $officer_rank, $station, $id);
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Check if an officer ID was provided in the URL
 if (isset($_GET["id"])) {
     // Retrieve the officer's data from the database
-    $stmt = $con->prepare("SELECT * FROM officers WHERE id=?");
+    $stmt = $conn->prepare("SELECT * FROM officers WHERE id=?");
     $stmt->bind_param("i", $id);
     $id = $_GET["id"];
     $stmt->execute();
@@ -54,7 +54,7 @@ if (isset($_GET["id"])) {
         </head>
         <body>
         <h1>Edit Officer</h1>
-        <div class="container">
+        <div class="conntainer">
         <form method="post" > 
             <input type="hidden" name="id" value="<?php echo $officer['id']; ?>">
             <label>First Name:</label>
@@ -81,7 +81,7 @@ if (isset($_GET["id"])) {
             background-color: rgb(0, 109, 139);
 		}
 
-		.container {
+		.conntainer {
 			width: 25%;
 			padding: 20px;
 			background-color: #f0f0f0;
@@ -93,7 +93,7 @@ if (isset($_GET["id"])) {
         }
 
 		h1 {
-            /* justify-content: center; */
+            /* justify-conntent: center; */
             text-align: center;
             color: white;
             font-weight: 200;
@@ -151,6 +151,6 @@ if (isset($_GET["id"])) {
     echo "No officer ID provided.";
 }
 
-// Close the connection
-mysqli_close($con);
+// Close the connnection
+mysqli_close($conn);
 ?>
