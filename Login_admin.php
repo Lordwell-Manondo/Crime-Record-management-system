@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         //read from database
         $query = "select * from login_admin where user_name = '$user_name' limit 1";
 
-        $result = mysqli_query($con,$query);
+        $result = mysqli_query($conn,$query);
 
         if($result)
         {

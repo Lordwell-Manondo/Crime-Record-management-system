@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         //read from database
         $query = "select * from users where user_name = '$user_name' limit 1";
 
-        $result = mysqli_query($con,$query);
+        $result = mysqli_query($conn,$query);
 
         if($result)
         {
@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
            
             <input id="button" type="submit" value="Login"> 
                 
-            <button id="button" style="margin-left: 6px; width: 190px;"><a href="Change_password.php" style="text-decoration:red; color:blue; ">Change Password</a></button> 
+            <button id="button" style="margin-left: 6px; width: 190px;"><a href="change-password.php" style="text-decoration:red; color:blue; ">Change Password</a></button> 
                 
         </form>
         </div>

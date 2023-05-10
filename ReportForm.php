@@ -106,4 +106,4 @@
         </div>
     </div>
     <script>
-        $(document)
+ $(document)
