@@ -4,8 +4,16 @@
     <title>Home page</title>
     <head>
       
+
       <!-- Add the Bootstrap CSS file -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+ <!-- Add the Bootstrap CSS file -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 
 
@@ -70,16 +78,39 @@
           </nav>
         </div>
    </main>
-
+   <div class="system-name">
    <h2 style="text-align: center; margin-top: 200px; color: khaki; font-weight: 300;">CRIME RECORD MANAGEMENT SYSTEM</h2>
    <p class="footer-paragraph">Creating a Safe and Secure Malawi</p>
+</div>
+
+   
     
 <style>
+  .system-name{
+    margin-top: -70px;
+  }
+
   body {
- background-color: rgb(0, 109, 139);
- 
-  
-}
+			background-color: rgb(0, 109, 139);;
+			background-size: cover;
+			animation: slide 35s ease-in-out infinite;
+		}
+
+		@keyframes slide {
+			0% {
+				background-image: url('policeTeam.PNG');
+			}
+			/* 25% {
+				background-image: url('policeIg.PNG');
+			} */
+			50% {
+				background-image: url('flag.PNG');
+			}
+			75% {
+				background-image: url('hand-cuff.PNG');
+			}
+			
+		}
 
   a:hover{
      font-weight: 400;
