@@ -28,7 +28,7 @@ include('Connections.php');
 $sql = "SELECT * FROM news";
 
 // Step 3: Execute the SQL statement
-$result = mysqli_query($con, $sql);
+$result = mysqli_query($conn, $sql);
 
 // Step 4: Fetch the data
 
@@ -72,7 +72,7 @@ if (!empty($row["file"]) && ctype_xdigit($row["file"]) && strlen($row["file"]) %
 }
 
 // Step 5: Close the database connection
-mysqli_close($con);
+mysqli_close($conn);
 ?>
 
 </body>

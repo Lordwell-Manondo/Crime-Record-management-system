@@ -15,7 +15,7 @@ include('Connections.php');
 $sql = "SELECT * FROM reportform";
 
 // Step 3: Execute the SQL statement
-$result = mysqli_query($con, $sql);
+$result = mysqli_query($conn, $sql);
 
 // Step 4: Fetch the data
 
@@ -38,7 +38,7 @@ if (mysqli_num_rows($result) > 0) {
 } 
 
 // Step 5: Close the database connection
-mysqli_close($con);
+mysqli_close($conn);
 
 ?>
 </body>
