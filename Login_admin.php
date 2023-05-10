@@ -72,6 +72,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 </body>
 
 <style type = "text/css">
+       
         body{
             background-color: rgb(0, 109, 139);
         }
@@ -88,6 +89,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             width: 100px;
             color: blue;
             boarder: none;
+            margin-left: 150px;
         }
 
         #box{
@@ -95,7 +97,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             margin: auto;
             width: 300px;
             padding: 20px;
+            border-radius: 5px;
+            width: 400px;
+
         }
+       label{
+        font-size: 23px;
+       }
 
     </style>
     

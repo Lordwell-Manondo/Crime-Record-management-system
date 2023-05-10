@@ -4,12 +4,12 @@
 <html>
     <head>
         <title>Master_login</title>
-        <h1 style=" text-align: center; color: white;SSS">Welcome to Crime Record Management portal</h1><br><br><br><br>
+        <h1 style="text-align: center; color: white; color: khaki; font-weight: 300;">Crime Record Management portal</h1><br><br><br><br>
          
     </head>
     <body>
     <div class="login-types">
-  <h2>Select a login/registration type:</h2><br><br>
+  <h2 style="font-size: 25px; color: white; font-weight: 100;">Login as:</h2>
   <ul>
     <li><a href="Login_admin.php" class="admin">Admin</a></li>
     <li><a href="Login_officer.php" class="staff">Officer</a></li>
@@ -17,6 +17,7 @@
   </ul>
 </div>
 <style>
+ 
 body{
   background-color: rgb(0, 109, 139);
 }
@@ -24,7 +25,9 @@ body{
   width: 50%;
   margin: 0 auto;
 }
-
+a{
+  margin-left: 50px;
+}
 .login-types h2 {
   font-size: 24px;
   font-weight: bold;

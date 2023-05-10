@@ -11,7 +11,8 @@
  
   <h2 style="color: khaki; font-weight: 300; margin-top: 20px"> Recorded cases</h2>
 <li>
-<a href="Admin_landing_page.html" style="color:white; text-decoration: none">Go back</a>
+
+<a href="Admin_landing_page.html" style="color:white; text-decoration: none"><button>Go back</button></a>
 </li>
 
 
@@ -27,7 +28,7 @@
       <th>Suspect</th>
       <th>Victim</th>
       <th>Incident</th>
-     
+      <th>Serial No.</th>
       <th>Location</th>
       <th>date</th>
       <th>Type</th>
@@ -106,13 +107,13 @@ include('Connections.php');
 
 // Check if the search input field is not empty
 if (!empty($_POST['search'])) {
-  $search = mysqli_real_escape_string($con, $_POST['search']);
-  $sql = "SELECT * FROM cases WHERE suspect_name LIKE '%$search%' OR victim_name LIKE '%$search%'";
+  $search = mysqli_real_escape_string($conn, $_POST['search']);
+  $sql = "SELECT * FROM cases WHERE suspect_name LIKE '%$search%' OR victim_name LIKE '%$search%' OR serial_no LIKE  '%$search%'";
 } else {
   $sql = "SELECT * FROM cases";
 }
 
-$result = mysqli_query($con, $sql);
+$result = mysqli_query($conn, $sql);
 
 $suspects="";
 // check if the data is available in the database
@@ -127,7 +128,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "<td>" . $row['suspect_name'] . "</td>";
     echo "<td>" . $row['victim_name'] . "</td>";
     echo "<td>" . $row['incident'] . "</td>";
-    
+    echo "<td>" . $row['serial_no'] . "</td>";
     echo "<td>" . $row['location'] . "</td>";
     echo "<td>" . $row['date'] . "</td>";
     echo "<td>" . $row['type'] . "</td>";
@@ -143,7 +144,7 @@ echo "<div style='color: white; padding: 10px; font-size: 30px; font-weight: 300
 
 }
 
-mysqli_close($con);
+mysqli_close($conn);
 ?>
 </table>
 </body>

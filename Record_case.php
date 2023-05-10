@@ -9,6 +9,7 @@ session_start();
     $suspect = $_POST['suspect'];
     $victim = $_POST['victim'];
     $incident = $_POST['incident'];
+    $serial_no = $_POST['serial_no'];
     $location = $_POST['location'];
     $date = $_POST['date'];
     $crime = $_POST['crime'];
@@ -17,10 +18,10 @@ session_start();
               
             
             // saving the case into database
-            $query = "insert into cases (suspect_name, victim_name, incident, file, location, date, type) values ('$suspect', '$victim' ,'$incident', '$file', '$location', '$date', '$crime')";
+            $query = "insert into cases (suspect_name, victim_name, incident, serial_no, location, date, type, file) values ('$suspect', '$victim' ,'$incident', '$serial_no', '$location', '$date', '$crime', '$file')";
             
             //executing the above statement
-            mysqli_query($con, $query);
+            mysqli_query($conn, $query);
            
             //give this message if the process of saving the case was successful
            echo" Case recorded";
@@ -74,17 +75,18 @@ session_start();
 
                         <div class="form-group">
                             <label for="incident">Incident</label>
-                            <textarea class="form-control" id="incident" name="incident" rows="5"  required></textarea>
+                            <textarea class="form-control" id="incident" name="incident"   required></textarea>
+                            <span class="error">Please enter incident</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serial_no">Serial No.</label>
+                            <input type="text" class="form-control" id="serial_no" name="serial_no"  required></textarea>
                             <span class="error">Please enter incident</span>
                         </div>
                           
-                        <div class="form-group">
-                        <label for="file">Attach file:</label>
-                        <input type="file" class="form-control-file" id="file" name="file" required>
-                    </div>
-                        
-
-                        <div class="form-group">
+                       
+                      <div class="form-group">
                             <label for="location">Location</label>
                             <input type="location" class="form-control"id="location" name="location" required>
 
@@ -107,14 +109,15 @@ session_start();
                            <span class="error">Please select crime type</span>
                         </div>
 
-  
+                        <div class="form-group">
+                        <label for="file">Attach file:</label>
+                        <input type="file" class="form-control-file" id="file" name="file" required>
+                    </div>
 
                         <div class="text-center">
                             <button type="Submit" id="submit-btn" class="btn btn-lg btn-block">Submit</button>
-                        
-                            
-                       
                         </div>
+                   
                     </form>
                 </div>
             </div>
