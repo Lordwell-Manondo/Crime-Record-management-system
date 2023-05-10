@@ -83,6 +83,7 @@ mysqli_close($conn);
   body {
     margin: 0;
     padding: 0;
+    background-color: rgb(0, 109, 139);
     font-family: Arial, sans-serif;
   }
 
@@ -141,6 +142,7 @@ mysqli_close($conn);
   h1 {
     text-align: center;
     margin-top: 20px;
+    color: white;
   }
 
   form {
@@ -190,7 +192,7 @@ mysqli_close($conn);
 
   input[type="submit"] {
     padding: 10px 20px;
-    background-color: #333;
+    background-color: green;
     color: #fff;
     border: none;
     border-radius: 5px;
