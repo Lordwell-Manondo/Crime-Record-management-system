@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Insert into database
     $sql = "INSERT INTO news (title, description, date, type, file) 
             VALUES ('$title', '$description', '$date', '$type', '$file_destination')";
-    mysqli_query($con, $sql);
+    mysqli_query($conn, $sql);
 
     //give this message if the process of saving the case was successful
     echo "News added successfully";
