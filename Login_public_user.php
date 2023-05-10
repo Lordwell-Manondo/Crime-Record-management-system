@@ -22,13 +22,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             if($user_data['password'] === $password)
             {
                 $_SESSION['user_id'] = $user_data['user_id'];
-                header("Location: Home.html");
+                header("Location: ReportForm.php");
                 die;
             }
-        }
-    }
-
-    echo "Wrong username or password!";
+            else {
+                echo "<script>alert('Wrong Password! Please try again.');</script>";
+            }
+        }else{
+            echo "<script>alert('Wrong username! Please try again.');</script>";
+        } 
+    }   
 }
 
 ?>
@@ -37,17 +40,23 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <html>
     <head>
         <title>Login</title>
-        <header style="background-color: grey; red; text-align: center; color: white;">
+        <!-- <header style="background-color: grey; red; text-align: center; color: white;">
             <div>
                 <h1>Crime Record Management</h1>
             </div>
-        </header>
+        </header> -->
     </head>
     <br>
     <body>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <div id="box">
-            <form method="post" action="ReportForm.php">
-                <div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Login</div>
+            <form method="post">
+               <h1> <div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Login</div></h1>
                 <label for="Username:"> Username: </label><br><br>
                 <input id="text" type="text" name="user_name" placeholder="Type here"><br><br>
                 <label for="Password:">Password: </label><br><br>
@@ -86,7 +95,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         }
        
         body{
-            background-color: aqua;
+            background-color: rgb(0, 109, 139);
       }
 
     </style>

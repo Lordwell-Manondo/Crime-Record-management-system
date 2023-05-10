@@ -64,6 +64,9 @@
       <div>
      </main>
      <style>
+      body{
+        background-color: rgb(0, 109, 139);
+      }
        a:hover{
     font-weight: bold;
     color: khaki;

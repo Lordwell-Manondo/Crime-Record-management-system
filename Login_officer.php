@@ -28,14 +28,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 $_SESSION['user_id'] = $user_data['user_id'];
                 header("Location: Officer.php");
                 die; 
-            }       
-        }
-    }
-        echo "Wrong username or password!";
-    }else
-    {
-        echo "Please enter valid information!";
-    }
+            }
+            else {
+                echo "<script>alert('Wrong Password! Please try again.');</script>";
+            }
+        }else{
+            echo "<script>alert('Wrong username! Please try again.');</script>";
+        } 
+    }   
+}
 }
 ?>
 
@@ -45,26 +46,34 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <html>
     <head>
         <title>Login</title>
-        <header style="background-color: grey; red; text-align: center; color: white;">
+        <!-- <header style="background-color: grey; red; text-align: center; color: white;">
             <div>
                 <h1>Crime Record Management</h1>
             </div>
-</header>
+</header> -->
 </head>
   
     <br>
 <body>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <div id="box">
         <form method="post">
-            <div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Login</div>
+            <h2><div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Login</div></h2>
             <label for="Username:"> Username: </label><br><br>
             <input id="text" type="text" name="user_name" placeholder="Type here"><br><br>
             <label for="Password:"> Password: </label><br><br>
             <input id="text" type="password" name="password" placeholder="Type here"><br><br>
-            
-            <input id="button" type="submit" value="Login"><br><br>
-
-            <a id="button" href="Sign-up1.php">Click to Signup</a><br><br>
+            <input id="button" type="submit" value="Login"> 
+                
+                <?php if(isset($_SESSION['user_id'])) { ?>
+                <button id="button" style="margin-left: 2px; width: 190px;"><a href="Change_password.php" style="text-decoration:none; color:blue; ">Change Password</a></button> 
+                <?php } ?>
+        
         </form>
         </div>
             
@@ -85,8 +94,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         #button{
             padding: 10px;
             width: 100px;
-            background-color: blue;
-            color: white;
+            color: blue;
             boarder: none;
         }
 
@@ -97,7 +105,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             padding: 20px;
         }
         body{
-            background-color: aqua;
+            background-color: rgb(0, 109, 139);
       }
 
     </style>

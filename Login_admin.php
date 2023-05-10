@@ -29,13 +29,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 header("Location: Admin_landing_page.html");
                 die; 
             }       
+            else {
+                echo "<script>alert('Wrong password!');</script>";
+            }       
+        } else {
+            echo "<script>alert('Wrong username!');</script>";
         }
+    } else {
+        echo "<script>alert('Please enter valid information!');</script>";
     }
-        echo "Wrong username or password!";
-    }else
-    {
-        echo "Please enter valid information!";
-    }
+}
 }
 ?>
 
