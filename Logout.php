@@ -4,6 +4,6 @@ if(isset($_SESSION['user_id']))
     {
         unset($_SESSION['user_id']);   
     }
-    header("Location: Index.php");
+    header("Location: home.html");
    // die; 
 ?>

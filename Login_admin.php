@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         //read from database
         $query = "select * from login_admin where user_name = '$user_name' limit 1";
 
-        $result = mysqli_query($con,$query);
+        $result = mysqli_query($conn,$query);
 
         if($result)
         {
@@ -48,9 +48,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <html>
     <head>
         <title>Login</title>
-        <header style="background-color: grey; red; text-align: center; color: white;">
+        <header style="text-align: center; color: white;">
             <div>
-                <h1>Crime Record Management</h1>
+                <h1>Use the details provided!</h1>
             </div>
 </header>
 </head>
@@ -65,9 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             <label for="Password:"> Password: </label><br><br>
             <input id="text" type="password" name="password" placeholder="Type here"><br><br>
             
-            <input id="button" type="submit" value="Login"><br><br>
-
-           <!-- <a id="button" href="sign-up.php">Click to Signup</a><br><br> -->
+            <input id="button" type="submit" value="Login"> 
         </form>
         </div>
             
@@ -75,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 <style type = "text/css">
         body{
-            backgroud-color: aqua;
+            background-color: rgb(0, 109, 139);
         }
         #text{
             height: 25px;
@@ -88,8 +86,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         #button{
             padding: 10px;
             width: 100px;
-            background-color: blue;
-            color: white;
+            color: blue;
             boarder: none;
         }
 
@@ -99,9 +96,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             width: 300px;
             padding: 20px;
         }
-        body{
-            background-color: aqua;
-      }
 
     </style>
     
