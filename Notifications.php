@@ -1,33 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 <?php
 // Connect to the MySQL database
-$mysqli = new mysqli("localhost", "username", "", "database_name");
+include('Connections.php');
 
-// Check for connection errors
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-    exit();
-}
+//SQL statement
+$sql = "SELECT * FROM reportform";
 
-// Retrieve the form data
-$name = $_POST['name'];
-$phone = $_POST['phone'];
-$date = $_POST['date'];
-$location = $_POST['location'];
-$message = $_POST['message'];
+// Step 3: Execute the SQL statement
+$result = mysqli_query($con, $sql);
 
-// Insert the form data into the database
-$insert_stmt = $mysqli->prepare("INSERT INTO form_data (phone, name, date, location, message) VALUES (?, ?, ?,?, ?)");
-$insert_stmt->bind_param("sss",$phone, $name, $date, lcation, $message);
-$insert_stmt->execute();
+// Step 4: Fetch the data
 
-// Send a notification to the admin
-$to = "admin@example.com";
-$subject = "New Form Submission";
-$body = "A new form submission has been received from " . $name . " (" . $phone . ").\n\nMessage:\n" . $message;
-$headers = "From: 09958699955";
-mail($to, $subject, $body, $headers);
+// check if the data is available in the database
+echo '<div class="data-container">';
+if (mysqli_num_rows($result) > 0) {
+    // display the recorded cases of each row
+    $count = 1;
+    while ($row = mysqli_fetch_array($result)) {
+        // Use the retrieved data as desired
+        echo '<a href="#">' . $row["name"] . $count . '</a> ';
+        echo '<a href="#">' . $row["phone"] . $count . '</a> ';
+        echo '<a href="#">' . $row["date"] . $count . '</a> ';
+        echo '<a href="#">' . $row["location"] . $count . '</a> ';
+        echo '<a href="#">' . $row["incident"] . $count . '</a> ';
+        echo "<br>";
+        
+        $count++;
+    }
+} 
 
-// Redirect the user to a thank-you page
-header("Location: thank_you.html");
-exit();
+// Step 5: Close the database connection
+mysqli_close($con);
+
 ?>
+</body>
+</html>
