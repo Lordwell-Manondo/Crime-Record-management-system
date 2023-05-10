@@ -10,8 +10,9 @@
 
  
   <h2 style="color: khaki; font-weight: 300; margin-top: 20px"> Recorded cases</h2>
-
-
+<li>
+<a href="Admin_landing_page.html" style="color:white; text-decoration: none">Go back</a>
+</li>
 
 
 <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
@@ -26,6 +27,7 @@
       <th>Suspect</th>
       <th>Victim</th>
       <th>Incident</th>
+     
       <th>Location</th>
       <th>date</th>
       <th>Type</th>
@@ -61,8 +63,8 @@
 
    
   table {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
     border-collapse: collapse;
     text-align: center;
    background-color: white;
@@ -112,6 +114,7 @@ if (!empty($_POST['search'])) {
 
 $result = mysqli_query($con, $sql);
 
+$suspects="";
 // check if the data is available in the database
 echo '<div class="data-container">';
 if (mysqli_num_rows($result) > 0) {
@@ -124,10 +127,12 @@ if (mysqli_num_rows($result) > 0) {
     echo "<td>" . $row['suspect_name'] . "</td>";
     echo "<td>" . $row['victim_name'] . "</td>";
     echo "<td>" . $row['incident'] . "</td>";
+    
     echo "<td>" . $row['location'] . "</td>";
     echo "<td>" . $row['date'] . "</td>";
     echo "<td>" . $row['type'] . "</td>";
     echo "</tr>";
+  
   }
 } else {
 
