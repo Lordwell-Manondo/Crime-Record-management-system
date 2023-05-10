@@ -130,6 +130,7 @@ form {
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 20px;
+  border-radius: 5px;
 }
 
 label {

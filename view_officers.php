@@ -22,7 +22,7 @@
 
   <h1>OFFICERS</h1>
 	<br>
-	<table border="1">
+	<table>
 		<tr>
 			<th>First Name</th>
 			<th>Last Name</th>
@@ -44,11 +44,12 @@
 			$sql = "SELECT * FROM officers WHERE employee_number='$employee_number'";
 		} else {
 			$sql = "SELECT * FROM officers";
+
 		}
 
 		$result = mysqli_query($conn, $sql);
 
-		if (mysqli_num_rows($result) > 0) {
+		if(mysqli_num_rows($result) > 0){
 			while ($row = mysqli_fetch_assoc($result)) {
 				echo "<tr>";
 				echo "<td>" . $row["first_name"] . "</td>";
