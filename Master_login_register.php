@@ -11,7 +11,7 @@
     <div class="login-types">
   <h2 style="font-size: 25px; color: white; font-weight: 100;">Login as:</h2>
   <ul>
-    <li><a href="Login_admin.php" class="admin">Admin</a></li>
+    <li><a href="index-admin.php" class="admin">Admin</a></li>
     <li><a href="Login_officer.php" class="staff">Officer</a></li>
     <li><a href="signup.php" class="public-user">Public User</a></li>
   </ul>
