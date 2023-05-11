@@ -9,11 +9,18 @@
             background-color: rgb(0, 109, 139);
         }
         .data-container {
-            margin: 20px;
+            margin: 10px auto;
+            max-width: 1000px;
+   
+    margin-bottom: 10px;
             padding: 10px;
             background-color: #fff;
             color: #000;
             border-radius: 5px;
+        }
+        
+        h1{color: gold;
+        text-align: center;
         }
     </style>
 </head>
