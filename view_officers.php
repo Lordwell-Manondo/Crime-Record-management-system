@@ -63,7 +63,7 @@
 				echo "</tr>";
 			}
 		} else {
-			echo "<span style='color: red;'>NO MATCH WITH ANY OFFICER NUMBER</span>";
+			echo "<span style='color: red;'>NO MATCH WITH ANY OFFICER EMPLOYEE NUMBER</span>";
         // Set the refresh time to 5 seconds
           $refreshTime = 5;
 

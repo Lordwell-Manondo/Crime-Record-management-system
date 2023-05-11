@@ -4,7 +4,7 @@ session_start();
     include('Connections.php');
     include('Functions.php');
 	
-	// Check if the form was submitted
+	// Check if the fsorm was submitted
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 		// Prepare the SQL statement
@@ -88,11 +88,11 @@ session_start();
 		<label>Station:</label>
 		<select name="station" required>
 			<option value="" selected disabled hidden>Select Station</option>
-			<option value="Station A">Area 3 police</option>
-			<option value="Station B">Kanengo police</option>
-			<option value="Station C">Lumbadzi police</option>
-			<option value="Station D">Zomba police</option>
-			<option value="Station E">Wenera police</option>
+			<option value="Area 3 police">Area 3 police</option>
+			<option value="Kanengo police">Kanengo police</option>
+			<option value="Lumbadzi police">Lumbadzi police</option>
+			<option value="Zomba police">Zomba police</option>
+			<option value="Wenera police">Wenera police</option>
 		</select><br><br>
 		<label>Password:</label>
 		<input type="password" name="password" required><br><br>
@@ -130,7 +130,6 @@ form {
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 20px;
-  border-radius: 5px;
 }
 
 label {
