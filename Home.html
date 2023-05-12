@@ -59,8 +59,8 @@
                       <a class="nav-link" href="#"   style="color: rgb(19, 17, 17);">FAQ</a>
                       </li>
                       <li class="nav-item"  >
-                      <a class="nav-link" href="#" style="color: rgb(19, 17, 17);" >About</a>
-                      </li>
+                      <!-- <a class="nav-link" href="#" style="color: rgb(19, 17, 17);" >About</a>
+                      </li> -->
                       <li class="nav-item" style="margin-top: -10px;">
                        <a  class="nav-link" href="Master_login_register.php"   style="color: rgb(19, 17, 17);"> <svg  class="login" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -79,8 +79,8 @@
         </div>
    </main>
    <div class="system-name">
-   <h2 style="text-align: center; margin-top: 200px; color: khaki; font-weight: 300;">CRIME RECORD MANAGEMENT SYSTEM</h2>
-   <p class="footer-paragraph">Creating a Safe and Secure Malawi</p>
+   <h2 style="text-align: center; margin-top: 200px; color: khaki; font-weight: 500;">CRIME RECORD MANAGEMENT SYSTEM</h2>
+   <p class="footer-paragraph" style="font-weight: 400;">Creating a Safe and Secure Malawi</p>
 </div>
 
    
@@ -125,16 +125,9 @@
 h2{
  height: 50px;
 }
-.footer_container{
-  background-color: rgb(19, 17, 17);
- position: absolute;
-  bottom: 0;
-  width: 100%;
-  
-}
 .nav-link{
   font-size: 20.5px;
-  margin-left: 80px;
+  margin-left: 100px;
   color: rgb(12, 12, 12);
   font-weight: bold;
    
@@ -143,25 +136,34 @@ h2{
   font-size: 25px; 
   text-align: center;
    font-weight: 300; 
-   color: white;
+   color: rgb(225, 227, 229);
 }
-
+.footer {
+  position: absolute;
+  bottom: 0.5;
+  width: 100%;
+  height: 30px;
+  color: white; 
+  background-color: rgb(0, 109, 139);
+}
 </style> 
-
-
-<footer class="footer bg-dark text-white">
-  <div class="footer_container">
+<br><br><br><br>
+<footer class="footer">
+  <div class="container">
     <div class="row">
       <div class="col-md-6">
-       
+        <h4>Contact Us</h4>
+        <p>Email: crms@gmail.com</p>
+        <p>Phone: +265 88 040-9999</p>
+        <p>Address: Chanco P. O. Box, 280 Zomba</p>
       </div>
       <div class="col-md-6">
-        <h5 style="margin-left: 5px; font-weight: 200; margin-left: 5px; color: khaki;">Regional Head Quarters</h5>
-        <p style="margin-left: 5px; font-weight: 50;  color: khaki;">Eastern Region : Zomba</p>
-        <p style="margin-left: 5px; font-weight: 50;  color: khaki;">Central Region : Lilongwe</p>
-        
-        </div>
+        <h4>About Us</h4>
+        <p>CRMS is a crime record management system designed to help law enforcement agencies keep track of criminal activity and investigations.</p>
+      </div>
     </div>
+    <hr>
+    <p class="text-muted">&copy; CRMS2023. All rights reserved.</p>
   </div>
 </footer>
 

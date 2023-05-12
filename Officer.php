@@ -1,100 +1,136 @@
-<?php
-?>
 <!DOCTYPE html>
 <html>
   <head>
     <title>Officer Page</title>
-    <head>
-     <script src="js/bootstrap.js"></script>
-     <link rel="stylesheet" href="HomeStyling.css">
-     <link rel="stylesheet" href="Admin_landing_page.css">
-     
-  </head>
-  <body>
-    
-    <main>
-       
-      <div class="nav">
-
-      
-
-      
-         
-        <header>
-       
-       
-        <nav class="navbar">
-        <div style="background-color: gray">
-        <img src="policeLog.PNG" style="display: inline-block; width: 5%; height: 5%; margin-left: 1%; border-radius: 5px; margin-top: 1%">
-        <h1 style="display: inline-block; color: white; margin-left: 25%">CRIME RECORD MANAGEMENT SYSTEM</h1>
-        <a href="Home.html"   style="margin-left: 300px;">Logout</a>
-      </div>
-        <hr>
-
-         <h2> 
-
-            <ul class="navbar-nav" >
-
-               <!-- <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-              </svg> -->
-              <li class="nav-item" >
-                <a class="nav-link" href="#">View Assigned work</a>
-              </li>
-              <li class="nav-item" >
-                <a class="nav-link" href="#">View cases</a>
-              </li>
-              <li class="nav-item" >
-                <a class="nav-link" href="#">Report Work</a>
-              </li>
-              <li class="nav-item" >
-                <a class="nav-link" href="ReportForm.php">Report incident</a>
-              </li>
-              <li class="nav-item" >
-                <a class="nav-link" href="#">Notifications</a>
-              </li>
-
-              
-            </ul>
-            </h2>
-                  
-        </nav>
-
-      </header>
-      <div>
-     </main>
-     <style>
-      body{
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="HomeStyling.css">
+    <link rel="stylesheet" href="Admin_landing_page.css">
+    <style>
+      body {
         background-color: rgb(0, 109, 139);
       }
-       a:hover{
-    font-weight: bold;
-    color: khaki;
-    
-  }
-  .nav-link{
-  font-size: 22px;
-    font-weight: lighter;
-    
-  }
- 
-     </style>
-  
-    </body>
-
-    <script>
-
-const menuIcon = document.getElementById('svg');
-
-menuIcon.addEventListener('click', function() {
-  // Add code here to perform the desired action when the icon is clicked
-});
-
-    </script>
-
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: gray;
+        padding: 10px;
+      }
+      .nav img {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+      }
+      .nav h1 {
+        display: inline-block;
+        color: white;
+        margin-left: 10%;
+        font-size: 24px;
+      }
+      .nav a {
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+      }
+      .nav a:hover {
+        font-weight: bold;
+        color: khaki;
+      }
+      .navbar {
+        background-color: white;
+        border-radius: 5px;
+        margin-top: 20px;
+        padding: 20px;
+      }
+      .navbar h2 {
+        color: rgb(0, 109, 139);
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .navbar li {
+        margin-bottom: 10px;
+      }
+      .navbar a {
+        color: rgb(0, 109, 139);
+        text-decoration: none;
+        font-size: 20px;
+      }
+      .navbar a:hover {
+        font-weight: bold;
+      }
+      .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: gray;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+      .footer span {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="nav">
+        <img src="policeLog.PNG">
+        <h1>CRIME RECORD MANAGEMENT SYSTEM</h1>
+        <a href="Home.html">Logout</a>
+      </div>
+      <nav class="navbar">
+        <h2>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">View Assigned work</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="view_cases.php">View cases</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Report Work</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ReportForm.php">Report incident</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Notifications.php">Notifications</a>
+            </li>
+          </ul>
+        </h2>
+      </nav>
+    </main>
+<style>
+  .footer {
+  position: absolute;
+  bottom: 0.5;
+  width: 100%;
+  height: 30px;
+  color: white; 
+  background-color: rgb(0, 109, 139);
+}
+</style> 
+<br><br><br><br>
 <footer class="footer">
   <div class="container">
-    <span class="text-muted" >&copy; @CRMS2023.</span>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Contact Us</h4>
+        <p>Email: crms@gmail.com</p>
+        <p>Phone: +265 88 040-9999</p>
+        <p>Address: Chanco P. O. Box, 280 Zomba</p>
+      </div>
+      <div class="col-md-6">
+        <h4>About Us</h4>
+        <p>CRMS is a crime record management system designed to help law enforcement agencies keep track of criminal activity and investigations.</p>
+      </div>
+    </div>
+    <hr>
+    <p class="text-muted">&copy; CRMS2023. All rights reserved.</p>
   </div>
 </footer>
+
+  
+  </body>
 </html>
