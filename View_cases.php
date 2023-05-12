@@ -10,36 +10,85 @@
 
  
   <h2 style="color: khaki; font-weight: 300; margin-top: 20px"> Recorded cases</h2>
-<li>
 
-<a href="Admin_landing_page.html" style="color:white; text-decoration: none"><button>Go back</button></a>
-</li>
-
+  
 
 <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
   <input class="form-control mr-sm-2" type="search" placeholder="Search of suspect..." aria-label="Search" name="search">
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
  
-  </form>
+</form>
 
 <table>
-    <tr>
-      <th>Suspect</th>
-      <th>Victim</th>
-      <th>Incident</th>
-      <th>Serial No.</th>
-      <th>Location</th>
-      <th>date</th>
-      <th>Type</th>
-      
-    </tr>
 
+
+<?php
+//linking up Record_case.php file with database using Connections.php file
+include('Connections.php');
+
+// Check if the search input field is not empty
+if (!empty($_POST['search'])) {
+  $search = mysqli_real_escape_string($conn, $_POST['search']);
+  $sql = "SELECT * FROM cases WHERE suspect_name LIKE '%$search%' OR victim_name LIKE '%$search%' OR serial_no LIKE  '%$search%'";
+} else {
+  $sql = "SELECT * FROM cases";
+
+
+}
+
+$result = mysqli_query($conn, $sql);
+
+$suspects="";
+// check if the data is available in the database
+echo '<div class="data-container">';
+if (mysqli_num_rows($result) > 0) {
+
+
+     // count the total number of rows in the table
+     $sql = "SELECT COUNT(*) FROM cases";
     
+     
+  // specify the number of rows to display per page
+  $rows_per_page = 10;
+  
+  
+  while ($row = mysqli_fetch_assoc($result)) {
 
-    
 
-    <style>
+    // display the data
+    echo "<tr>";
+    echo "<td>" . $row['suspect_name'] . "</td>";
+    echo "<td>" . $row['victim_name'] . "</td>";
+    echo "<td>" . $row['incident'] . "</td>";
+    echo "<td>" . $row['serial_no'] . "</td>";
+    echo "<td>" . $row['location'] . "</td>";
+    echo "<td>" . $row['date'] . "</td>";
+    echo "<td>" . $row['type'] . "</td>";
+   
+
+    echo "<td><a href='update_case.php?id=" . $row["id"] . "' style='background-color: blue; text-decoration: none; border-radius: 5px, width: 30px, height: 12px; color: white; font-size: 20px;'>Edit</a></td>";
+
+
+    echo "</tr>";
+  
+  }
+} else {
+
+  
+$message = "Currently there is no suspect or victim named "  .$_POST['search']; ;
+echo "<div style='color: white; padding: 10px; font-size: 30px; font-weight: 300;'>" . $message . "</div>";
+
+
+}
+
+
+mysqli_close($conn);
+?>
+
+</table>
+
+<style>
       form{
         margin-left: 1000px;
       }
@@ -70,6 +119,7 @@
     text-align: center;
    background-color: white;
    margin-top: 20px;
+   margin-bottom: 20px;
    
    
   }
@@ -98,55 +148,6 @@ h3{
 
   </style>
 
-
-
-
-<?php
-//linking up Record_case.php file with database using Connections.php file
-include('Connections.php');
-
-// Check if the search input field is not empty
-if (!empty($_POST['search'])) {
-  $search = mysqli_real_escape_string($conn, $_POST['search']);
-  $sql = "SELECT * FROM cases WHERE suspect_name LIKE '%$search%' OR victim_name LIKE '%$search%' OR serial_no LIKE  '%$search%'";
-} else {
-  $sql = "SELECT * FROM cases";
-}
-
-$result = mysqli_query($conn, $sql);
-
-$suspects="";
-// check if the data is available in the database
-echo '<div class="data-container">';
-if (mysqli_num_rows($result) > 0) {
-  // display the recorded cases of each row
-  while ($row = mysqli_fetch_assoc($result)) {
-
-
-    // display the data
-    echo "<tr>";
-    echo "<td>" . $row['suspect_name'] . "</td>";
-    echo "<td>" . $row['victim_name'] . "</td>";
-    echo "<td>" . $row['incident'] . "</td>";
-    echo "<td>" . $row['serial_no'] . "</td>";
-    echo "<td>" . $row['location'] . "</td>";
-    echo "<td>" . $row['date'] . "</td>";
-    echo "<td>" . $row['type'] . "</td>";
-    echo "</tr>";
-  
-  }
-} else {
-
-  
-$message = "Currently there is no suspect or victim named "  .$_POST['search']; ;
-echo "<div style='color: white; padding: 10px; font-size: 30px; font-weight: 300;'>" . $message . "</div>";
-
-
-}
-
-mysqli_close($conn);
-?>
-</table>
 </body>
 </html>
 
