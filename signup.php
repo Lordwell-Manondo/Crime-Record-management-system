@@ -51,7 +51,7 @@
                  placeholder="Re_Password"><br>
 
      	<button type="submit">Sign Up</button>
-          <a href="Login_user.php" class="ca">Already have an account?</a>
+          <a href="Login_user.php" class="ca">Already have an account? : Login</a>
      </form>
 </body>
 </html>
