@@ -3,7 +3,7 @@ session_start();
 
     //linking up Record_case.php file with database using Connections.php file
     include('Connections.php');
-    include('Record_case.php');
+
    
 //defining and initializing variables that will be used to pass values into database     
  if($_SERVER['REQUEST_METHOD'] == "POST") {
