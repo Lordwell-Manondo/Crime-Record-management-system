@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2023 at 03:32 AM
+-- Generation Time: May 12, 2023 at 02:26 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -98,7 +98,8 @@ CREATE TABLE `login_admin` (
 --
 
 INSERT INTO `login_admin` (`id`, `name`, `user_name`, `password`) VALUES
-(9, 'Lordwell Manondo', 'crms', '81dc9bdb52d04dc20036dbd8313ed055');
+(9, 'Lordwell Manondo', 'crms', '81dc9bdb52d04dc20036dbd8313ed055'),
+(12, 'Yamikani Chabuka', 'crms1', '827ccb0eea8a706c4c34a16891f84e7b');
 
 -- --------------------------------------------------------
 
@@ -113,6 +114,13 @@ CREATE TABLE `news` (
   `type` varchar(255) NOT NULL,
   `file` binary(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`title`, `description`, `date`, `type`, `file`) VALUES
+('flooding', 'some houses were washed away by running water', '2023-05-25', 'Other', 0x75706c6f6164732f494d472d32303233303431362d5741303031382e6a70670000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000);
 
 -- --------------------------------------------------------
 
@@ -142,7 +150,7 @@ CREATE TABLE `officers` (
   `date_of_entry` date NOT NULL,
   `officer_rank` varchar(20) NOT NULL,
   `station` varchar(50) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -154,7 +162,11 @@ INSERT INTO `officers` (`id`, `first_name`, `last_name`, `employee_number`, `dat
 (12, 'Yamikani', 'Chabuka', 123, '2023-05-10', 'Sergeant', 'Station fffff', '$2y$10$Gt5VLRw3KnP8t'),
 (13, 'Yamikani', 'Chabuka', 1232, '2023-05-10', 'officer', 'Station DD', '$2y$10$2WxH.yCkosx3G'),
 (26, 'Yamikani', 'Chabuka', 112222, '2023-05-10', 'Sergeant', 'Station B', '$2y$10$AnFC12WfSSIp.'),
-(28, 'Lordwell', 'Manondo', 13, '2023-05-10', 'Lieutenant', 'Station A', '$2y$10$P8jz1qepy0ixQ');
+(28, 'Lordwell', 'Manondo', 13, '2023-05-10', 'Lieutenant', 'Station A', '$2y$10$P8jz1qepy0ixQ'),
+(29, 'Lordwell', 'Manondo', 1234, '2023-04-30', 'Captain', 'Area 3 police', '$2y$10$1H.9Pb9KDQ39i'),
+(31, 'Lordwell', 'Manondo', 8229, '2023-05-11', 'Sergeant', 'Kanengo police', '$2y$10$rgjBfUbHmnlGZKA4GISNseFnu7bRBBwZlG2sUcU9lA7.u2nxym7ta'),
+(32, 'Lordwell Gabriel', 'Manondo', 9000, '2023-06-10', 'Lieutenant', 'Kanengo police', '$2y$10$.y0z7gHHRaBRBJ6TXfDHPOZzONlyEvJ.3z08RrnA5aA1OYM5hUtBy'),
+(33, 'Edson', 'Magombo', 10000, '2023-05-12', 'Sergeant', 'Wenera police', '$2y$10$9rrVK.WFsldOOEuyP7xR..tyGjarUPB8wLvEr6bJHNGzAPz/7xKyK');
 
 -- --------------------------------------------------------
 
@@ -175,7 +187,7 @@ CREATE TABLE `reportform` (
 --
 
 INSERT INTO `reportform` (`name`, `phone`, `date`, `location`, `incident`) VALUES
-('Molly', 998699955, '2023-05-09', 'ppp', 'pppp'),
+('Wiliam Chikaoneka', 992424543, '2023-05-11', 'chanco', 'some was robbed'),
 ('Lordwell Manondo', 999578228, '2023-05-10', 'Chanco, Zomba', 'i found something strange in my room');
 
 -- --------------------------------------------------------
@@ -198,7 +210,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `user_name`, `password`, `name`) VALUES
 (5, 'logman', '81dc9bdb52d04dc20036dbd8313ed055', 'Lordwell Manondo'),
 (6, 'ygc', '81dc9bdb52d04dc20036dbd8313ed055', 'Yamikani Chabuka'),
-(7, 'molly', '202cb962ac59075b964b07152d234b70', 'Molece Nkhoma');
+(7, 'molly', '202cb962ac59075b964b07152d234b70', 'Molece Nkhoma'),
+(8, 'widzy', '827ccb0eea8a706c4c34a16891f84e7b', 'william'),
+(9, 'logo', 'logo', 'logman');
 
 --
 -- Indexes for dumped tables
@@ -257,19 +271,19 @@ ALTER TABLE `duty`
 -- AUTO_INCREMENT for table `login_admin`
 --
 ALTER TABLE `login_admin`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `officers`
 --
 ALTER TABLE `officers`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
