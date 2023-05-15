@@ -1,7 +1,5 @@
 <?php 
- session_start();
- include("Connections.php");
-include './assign_duty.php'; 
+    include './assign_duty.php'; 
 ?>
 
 <!DOCTYPE html>
