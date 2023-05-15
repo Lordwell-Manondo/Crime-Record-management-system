@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($is_valid) {
         // Prepare SQL query
-        $sql = "INSERT INTO duty (id, emp_number, date_to_report)
+        $sql = "INSERT INTO duty (case_id, emp_number, date_to_report)
             VALUES ('$case_id', '$emp_number', '$date_to_report')";
 
         // Execute SQL query
