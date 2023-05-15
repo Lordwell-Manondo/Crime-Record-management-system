@@ -19,7 +19,7 @@
           <?php if (isset($_GET['name'])) { ?>
                <input type="text" 
                       name="name" 
-                      placeholder="Name"
+                      placeholder="Full Name"
                       value="<?php echo $_GET['name']; ?>"><br>
           <?php }else{ ?>
                <input type="text" 
@@ -27,18 +27,29 @@
                       placeholder="Name"><br>
           <?php }?>
 
-          <label>User Name</label>
+          <label>Username</label>
           <?php if (isset($_GET['uname'])) { ?>
                <input type="text" 
                       name="uname" 
-                      placeholder="User Name"
+                      placeholder="Username"
                       value="<?php echo $_GET['uname']; ?>"><br>
           <?php }else{ ?>
                <input type="text" 
                       name="uname" 
-                      placeholder="User Name"><br>
+                      placeholder="Username"><br>
           <?php }?>
 
+          <label>Phone Number</label>
+          <?php if (isset($_GET['phone'])) { ?>
+               <input type="text" 
+                      name="phone" 
+                      placeholder="Phone Number"
+                      value="<?php echo $_GET['phone']; ?>"><br>
+          <?php }else{ ?>
+               <input type="text" 
+                      name="phone" 
+                      placeholder="Phone Number"><br>
+          <?php }?>
 
      	<label>Password</label>
      	<input type="password" 

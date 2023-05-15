@@ -3,7 +3,7 @@ session_start();
 include "Connections.php";
 
 if (isset($_POST['uname']) && isset($_POST['password'])
-    && isset($_POST['name']) && isset($_POST['re_password'])) {
+    && isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['re_password'])) {
 
 	function validate($data){
        $data = trim($data);
@@ -14,11 +14,11 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 
 	$uname = validate($_POST['uname']);
 	$pass = validate($_POST['password']);
-
+	$phone = validate($_POST['phone']);
 	$re_pass = validate($_POST['re_password']);
 	$name = validate($_POST['name']);
 
-	$user_data = 'uname='. $uname. '&name='. $name;
+	$user_data = 'uname='. $uname. 'name='. $name .'&phone='. $phone;
 
 
 	if (empty($uname)) {
@@ -31,8 +31,13 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	else if(empty($re_pass)){
         header("Location: signup.php?error=Re Password is required&$user_data");
 	    exit();
+	}else if(!preg_match("/^[0-9]{10}$/", $phone)) {
+        header("Location: signup.php?error=Phone number must be 10 digits&name=$name&uname=$uname");
+        exit();
+    }else if(empty($phone)) {
+		header("Location: signup.php?error=Phone number is required&name=$name&uname=$uname");
+		exit();
 	}
-
 	else if(empty($name)){
         header("Location: signup.php?error=Name is required&$user_data");
 	    exit();
@@ -55,7 +60,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 			header("Location: signup.php?error=The username is taken try another&$user_data");
 	        exit();
 		}else {
-           $sql2 = "INSERT INTO users(user_name, password, name) VALUES('$uname', '$pass', '$name')";
+           $sql2 = "INSERT INTO users(user_name, password, name, phone) VALUES('$uname', '$pass', '$name', '$phone')";
            $result2 = mysqli_query($conn, $sql2);
            if ($result2) {
            	 header("Location: signup.php?success=Your account has been created successfully");
