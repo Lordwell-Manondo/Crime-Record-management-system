@@ -13,7 +13,7 @@ session_start();
     $serial_no = $_POST['serial_no'];
     $location = $_POST['location'];
     $date = $_POST['date'];
-    $type = $_POST['typ'];
+    $type = $_POST['type'];
     $file = $_POST['file'];
                 
               

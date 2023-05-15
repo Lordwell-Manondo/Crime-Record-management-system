@@ -13,7 +13,7 @@
   <ul>
     <li><a href="index-admin.php" class="admin">Admin</a></li>
     <li><a href="Login_officer.php" class="staff">Officer</a></li>
-    <li><a href="signup.php" class="public-user">Public User</a></li>
+    <li><a href="index.php" class="public-user">Public User</a></li>
   </ul>
 </div>
 <style>

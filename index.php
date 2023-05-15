@@ -3,9 +3,6 @@
 <head>
 	<title>LOGIN</title>
 	<header style=" text-align: center; color: white;">
-            <div>
-                <h1>You must login firt to access our services!</h1>
-            </div>
   </header>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>

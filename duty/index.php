@@ -1,4 +1,8 @@
-<?php include './assign_duty.php'; ?>
+<?php 
+ session_start();
+ include("Connections.php");
+include './assign_duty.php'; 
+?>
 
 <!DOCTYPE html>
 <html>
