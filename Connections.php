@@ -6,7 +6,7 @@ $dbpass = "";
 //$confirm_password = "$dbpass";
 $dbname = "crms";
 
-if(!$con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
+if(!$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
 {
         die("failed to connect");
 }

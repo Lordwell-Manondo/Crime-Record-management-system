@@ -1,4 +1,8 @@
-<?php include './assign_duty.php'; ?>
+<?php 
+ session_start();
+ include("Connections.php");
+include './assign_duty.php'; 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +23,7 @@
                 <?php echo $cases; ?>
             </select>
 
-            <label for="officer_id">Officer ID:</label>
+            <label for="officer_id">Employ NO::</label>
             <select name="officer_id" id="officer_id">
                 <?php echo $officers; ?>
             </select>
