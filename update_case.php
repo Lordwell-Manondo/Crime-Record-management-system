@@ -1,12 +1,17 @@
 <?php
 session_start();
+include('Connections.php');
 
-    //linking up Record_case.php file with database using Connections.php file
-    include('Connections.php');
+// Check if the form was submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    // Prepare the SQL statement
+    $stmt =  $conn->prepare("UPDATE cases SET suspect_name=?, victim_name=?, incident=?, serial_no=?, location=?, date=?, type=? WHERE id=?");
 
-   
-//defining and initializing variables that will be used to pass values into database     
- if($_SERVER['REQUEST_METHOD'] == "POST") {
+    // Bind the parameters to the statement
+    $stmt->bind_param("sssssssi", $suspect, $victim, $incident, $serial_no, $location, $date, $type, $id);
+
+    // Set the parameter values
+   $id = $_POST["id"];
     $suspect = $_POST['suspect'];
     $victim = $_POST['victim'];
     $incident = $_POST['incident'];
@@ -14,29 +19,42 @@ session_start();
     $location = $_POST['location'];
     $date = $_POST['date'];
     $type = $_POST['type'];
-    $file = $_POST['file'];
-                
-              
-            
-            // saving the case into database
-            $query = "insert into cases (suspect_name, victim_name, incident, serial_no, location, date, type, file) values ('$suspect', '$victim' ,'$incident', '$serial_no', '$location', '$date', '$type', '$file')";
-            
-            //executing the above statement
-            mysqli_query($conn, $query);
-           
-            //give this message if the process of saving the case was successful
-          // echo" Case recorded";
-          header("Location: added_case_message.php");
-            exit;
- }
-        else
-        {
-            //printing this message  if the process of saving the case was not successful
-            //echo "Please enter valid information!";
-        }
-        
-        ?>
 
+    // Execute the statement to update the data
+    if ($stmt->execute()) {
+        //give this message if the process of saving the case was successful
+        header("Location: case_updated_message.php");
+            exit;
+
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    // Close the statement
+    $stmt->close();
+}
+
+// Check if a case ID was provided in the URL
+if (isset($_GET["id"])) {
+    // Retrieve the case data from the database
+    $stmt = $conn->prepare("SELECT * FROM cases WHERE id=?");
+    $stmt->bind_param("i", $id);
+    $id = $_GET["id"];
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        $case = mysqli_fetch_assoc($result);
+        if (!$case) {
+            echo "Error: No case found with ID " . $id;
+        }
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    // Close the statement
+    $stmt->close();
+
+    if ($case) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,12 +64,13 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Dv78Sm9XbiIbS8ykO4GpxbEikx4s4w4sLM8WY7V+jvocEy9IaUBM0tZu0tPHq3IvguNN7wQ2EoYB3Cq3j/9XGQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2"></script>
+
 </head>
 <div class="navbar">
- 
+
+
+
  <a href="Home.html"> <svg class="logout" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16" style="margin-left: 1280px;">
                   <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                   <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
@@ -62,48 +81,53 @@ session_start();
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <div class="contact-form">
-                    <h3 class="text-center">Record case</h3>
-                    <form method="POST" action="Record_case.php" id="case-record" name="case-record">
-                        <div class="form-group">
+                    <h3 class="text-center">Update case</h3>
+                    <form method="POST" action="update_case.php" id="case-record" name="case-record">
+                        
+                    <div class="form-group">
                             <label for="victim">Suspect name</label>
-                            <input type="text" class="form-control" id="suspect" name="suspect" required>
+                            <input type="text" class="form-control" id="suspect" name="suspect" value="<?php echo $case['suspect_name']; ?>"  required>
                             <span class="error">Please enter suspect name</span>
                         </div>
+
+
+           
+                        
                         <div class="form-group">
                             <label for="victim">Victim name</label>
-                            <input type="text" class="form-control" id="victim" name="victim"  required>
+                            <input type="text" class="form-control" id="victim" name="victim" value="<?php echo $case['victim_name']; ?>"  required>
                             <span class="error">Please enter suspect name</span>
                         </div>
 
                         <div class="form-group">
                             <label for="incident">Incident</label>
-                            <textarea class="form-control" id="incident" name="incident"   required></textarea>
+                            <textarea class="form-control" id="incident" name="incident"  value="<?php echo $case['incident']; ?>" ></textarea>
                             <span class="error">Please enter incident</span>
                         </div>
 
                         <div class="form-group">
                             <label for="serial_no">Serial No.</label>
-                            <input type="text" class="form-control" id="serial_no" name="serial_no"  required></textarea>
+                            <input type="text" class="form-control" id="serial_no" name="serial_no" value="<?php echo $case['serial_no']; ?>"  required>
                             <span class="error">Please enter incident</span>
                         </div>
                           
                        
                       <div class="form-group">
                             <label for="location">Location</label>
-                            <input type="location" class="form-control"id="location" name="location" required>
+                            <input type="location" class="form-control"id="location" name="location" value="<?php echo $case['location']; ?>"required>
 
                             <span class="error">Please enter Location</span>
                       </div>
 
                       <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="date" class="form-control" id="date" name="date" placeholder="Enter todays date" required>
+                            <input type="date" class="form-control" id="date" name="date" value="<?php echo $case['date']; ?>"  required>
                             <span class="error">Please enter a valid date</span>
                         </div>
 
                         <div class="form-group">
                         <label for="my-dropdown">Crime type</label>
-                            <select class="form-control" id="type" name="type">
+                            <select class="form-control" id="type" name="type"  value="<?php echo $case['type']; ?>">
                             <option value="Theft">Theft</option>
                             <option value="Vandalism">Vandalism</option>
                              <option value="Violent">Violent</option>
@@ -114,7 +138,7 @@ session_start();
                       
 
                         <div class="text-center">
-                            <button type="Submit" id="submit-btn" class="btn btn-lg btn-block">Submit</button>
+                            <button type="submit" id="submit" value="Update" class="btn btn-lg btn-block">Update</button>
                         </div>
                    
                     </form>
@@ -122,6 +146,7 @@ session_start();
             </div>
         </div>
     </div>
+  
 
     <style>
         body {
@@ -197,7 +222,22 @@ session_start();
             logout:hover{
                 color: khaki;
             }
-           </style>
+    
+  </style>
 </body>
 </html>
-       
+<?php
+
+ 
+} else {
+        echo "Officer not found.";
+    }
+} else {
+    echo "No officer ID provided.";
+}
+
+// Close the connnection
+mysqli_close($conn);
+?> 
+
+

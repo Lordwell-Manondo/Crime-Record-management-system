@@ -1,12 +1,13 @@
 <?php
 
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-//$confirm_password = "$dbpass";
-$dbname = "crms";
+$sname= "localhost";
+$unmae= "root";
+$password = "";
 
-if(!$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
-{
-        die("failed to connect");
+$db_name = "crms";
+
+$conn = mysqli_connect($sname, $unmae, $password, $db_name);
+
+if (!$conn) {
+	echo "Connection failed!";
 }

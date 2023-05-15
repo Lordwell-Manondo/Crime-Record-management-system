@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,16 +9,23 @@
             background-color: rgb(0, 109, 139);
         }
         .data-container {
-            margin: 20px;
+            margin: 10px auto;
+            max-width: 1000px;
+   
+    margin-bottom: 10px;
             padding: 10px;
             background-color: #fff;
             color: #000;
             border-radius: 5px;
         }
+        
+        h1{color: gold;
+        text-align: center;
+        }
     </style>
 </head>
 <body>
-
+<h1>News and Events</h1>
 <?php
 //Retrieving data from database
 // Connect to the database
@@ -29,7 +35,7 @@ include('Connections.php');
 $sql = "SELECT * FROM news";
 
 // Step 3: Execute the SQL statement
-$result = mysqli_query($con, $sql);
+$result = mysqli_query($conn, $sql);
 
 // Step 4: Fetch the data
 
@@ -39,17 +45,42 @@ if (mysqli_num_rows($result) > 0) {
     // display the recorded cases of each row
     while ($row = mysqli_fetch_array($result)) {
         // Use the retrieved data as desired
-        echo $row["title"] . " " . $row["description"] . " " . $row["date"] .  "" . $row["type"] . $row["file"] . "<br>";
+    
+        echo "<h2>" . $row["title"] . "</h2>";
+        echo "<p>" . $row["type"] . "</p>";
+        echo "<p>" . $row["date"] . "</p>";
+        echo "<p>" . $row["description"] . "</p>";
+        
+        // convert the binary data from hexadecimal string
+        //$binaryData = hex2bin(str_pad($row["file"], (strlen($row["file"]) + 1) & ~1, '0', STR_PAD_LEFT));
+        
+        // output the binary data as an image
+        //if (ctype_xdigit($row["file"]) && strlen($row["file"]) % 2 == 0) {
+         //   echo '<img src="data:image/jpeg;base64,' . base64_encode($binaryData) . '"/>';
+        //} else {
+           // echo 'Invalid file name';
+       // }
+        
+          
+if (!empty($row["file"]) && ctype_xdigit($row["file"]) && strlen($row["file"]) % 2 == 0) {
+    // convert the binary data from hexadecimal string
+    $binaryData = hex2bin(str_pad($row["file"], (strlen($row["file"]) + 1) & ~1, '0', STR_PAD_LEFT));
+    // output the binary data as an image
+    echo '<img src="data:image/jpeg;base64,' . base64_encode($binaryData) . '"/>';
+} else {
+    echo 'Invalid file name';
+}
+
+       
+        echo "<hr>";
     }
 } else {
     echo "No news available";
 }
 
 // Step 5: Close the database connection
-mysqli_close($con);
+mysqli_close($conn);
 ?>
-
-<h1>Hello</h1>
 
 </body>
 </html>
