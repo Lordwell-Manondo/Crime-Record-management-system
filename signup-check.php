@@ -58,7 +58,26 @@ if (isset($_POST['uname']) && isset($_POST['password'])
            $sql2 = "INSERT INTO users(user_name, password, name) VALUES('$uname', '$pass', '$name')";
            $result2 = mysqli_query($conn, $sql2);
            if ($result2) {
-           	 header("Location: signup.php?success=Your account has been created successfully");
+			$sql = "SELECT * FROM users WHERE user_name='$uname' AND password='$pass'";
+
+			$result = mysqli_query($conn, $sql);
+	
+			if (mysqli_num_rows($result) === 1) {
+				$row = mysqli_fetch_assoc($result);
+				if ($row['user_name'] === $uname && $row['password'] === $pass) {
+					$_SESSION['user_name'] = $row['user_name'];
+					$_SESSION['name'] = $row['name'];
+					$_SESSION['id'] = $row['id'];
+					header("Location: home_user.php");
+					exit();
+				}else{
+					header("Location: index.php?error=Incorect User name or password");
+					exit();
+				}
+			}else{
+				header("Location: index.php?error=Incorect User name or password");
+				exit();
+			}
 	         exit();
            }else {
 	           	header("Location: signup.php?error=unknown error occurred&$user_data");
