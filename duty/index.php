@@ -1,4 +1,6 @@
-<?php include './assign_duty.php'; ?>
+<?php 
+    include './assign_duty.php'; 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -14,13 +16,15 @@
 	<main>
         <h2>Assign Duty</h2>
         <form method="post">
-            <label for="case_serial_no">Case Serial No:</label>
-            <select name="case_serial_no" id="case_serial_no">
+            <label for="case_id">Case ID:</label>
+            <select name="case_id" id="case_id">
+                <option selectable="false" style="color: #aaa;">Choose Case</option>
                 <?php echo $cases; ?>
             </select>
 
-            <label for="officer_id">Officer ID:</label>
-            <select name="officer_id" id="officer_id">
+            <label for="emp_number">Employee Number:</label>
+            <select name="emp_number" id="emp_number">
+                <option selectable="false" style="color: #aaa;">Choose Officer</option>
                 <?php echo $officers; ?>
             </select>
 
