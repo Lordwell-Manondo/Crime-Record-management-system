@@ -1,7 +1,7 @@
 <?php
 session_start();
 //linking up News.php file with database using Connections.php file
-include('Connections.php');
+include('../db/Connections.php');
 if (!isset($_SESSION['id'])) {
     header("Location: Login_user.php"); 
     exit;
