@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include ("../db/Chonnections.php");
+include ("../db/Connections.php");
 
 if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
