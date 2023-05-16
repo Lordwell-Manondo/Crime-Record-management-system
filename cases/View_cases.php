@@ -26,7 +26,7 @@
 <table class="cases-table">
 
 <tr>
-   <th style="width: 10%;">List</th> 
+<th style="width: 10%;">List</th> 
    <th style="width: 10%;">Serial No.</th> 
     <th style="width: 15%;">Suspect</th>
     <th style="width: 15%;">Victim</th>
@@ -121,8 +121,6 @@ else if (mysqli_num_rows($result) >0) {
    
    // edit the case
     echo "<td><a href='update_case.php?id=" . $row["id"] . "' style='background-color: blue; text-decoration: none; border-radius: 5px, width: 30px, height: 12px; color: white; font-size: 20px;'>Edit</a></td>";
-  
-    
     echo "</tr>";
   
   }
