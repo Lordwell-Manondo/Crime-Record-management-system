@@ -13,11 +13,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 <body>
      <h1>Hello, <?php echo $_SESSION['name']; ?></h1> <br><br>
      <nav class="home-nav">
-          <a href="change-password.php">Change Password</a>
+          <a href="../changepass/change-password.php">Change Password</a>
         
-          <a href="ReportForm.php">Report Incident</a>
+          <a href="../ReportForm.php">Report Incident</a>
 
-          <a href="logout.php">Logout</a>
+          <a href="../home/Home.html">Logout</a>
      </nav>
      
 </body>
