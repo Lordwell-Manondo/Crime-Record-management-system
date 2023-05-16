@@ -1,6 +1,6 @@
 <?php 
 session_start(); 
-include "../db/Connections.php";
+include ("../db/Connections.php");
 
 if (isset($_POST['uname']) && isset($_POST['password'])
     && isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['re_password'])) {
