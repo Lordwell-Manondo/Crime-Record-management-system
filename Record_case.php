@@ -3,23 +3,38 @@ session_start();
 
     //linking up Record_case.php file with database using Connections.php file
     include('Connections.php');
-    include('Record_case.php');
+   
    
 //defining and initializing variables that will be used to pass values into database     
  if($_SERVER['REQUEST_METHOD'] == "POST") {
+
     $suspect = $_POST['suspect'];
     $victim = $_POST['victim'];
     $incident = $_POST['incident'];
-    $serial_no = $_POST['serial_no'];
     $location = $_POST['location'];
     $date = $_POST['date'];
-    $type = $_POST['typ'];
-    $file = $_POST['file'];
+    $type = $_POST['type'];
+    
                 
-              
+          //generating case serial number
+          $serial_no = [];
+
+          for ($i = 0; $i < 4; $i++) {
+              $serial= substr(uniqid(), -8);
+          
+              // Check if the generated serial number already exists in the database
+              $query = "SELECT COUNT(*) as count FROM cases WHERE serial_no = '$serial'";
+              $result = $conn->query($query);
+              $row = $result->fetch_assoc();
+          
+              // If the count is 0, it means the serial number doesn't exist in the database
+              if ($row['count'] == 0) {
+                  $serial_no[] = $serial;
+              }
+          }    
             
             // saving the case into database
-            $query = "insert into cases (suspect_name, victim_name, incident, serial_no, location, date, type, file) values ('$suspect', '$victim' ,'$incident', '$serial_no', '$location', '$date', '$type', '$file')";
+            $query = "insert into cases ( serial_no, suspect_name, victim_name, incident, location, date, type, file) values ('$serial', '$suspect', '$victim' ,'$incident', '$location', '$date', '$type', '$file')";
             
             //executing the above statement
             mysqli_query($conn, $query);
@@ -64,7 +79,8 @@ session_start();
                 <div class="contact-form">
                     <h3 class="text-center">Record case</h3>
                     <form method="POST" action="Record_case.php" id="case-record" name="case-record">
-                        <div class="form-group">
+                            
+                    <div class="form-group">
                             <label for="victim">Suspect name</label>
                             <input type="text" class="form-control" id="suspect" name="suspect" required>
                             <span class="error">Please enter suspect name</span>
@@ -80,13 +96,7 @@ session_start();
                             <textarea class="form-control" id="incident" name="incident"   required></textarea>
                             <span class="error">Please enter incident</span>
                         </div>
-
-                        <div class="form-group">
-                            <label for="serial_no">Serial No.</label>
-                            <input type="text" class="form-control" id="serial_no" name="serial_no"  required></textarea>
-                            <span class="error">Please enter incident</span>
-                        </div>
-                          
+  
                        
                       <div class="form-group">
                             <label for="location">Location</label>
