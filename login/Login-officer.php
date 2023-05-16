@@ -1,53 +1,65 @@
-<?php 
-session_start(); 
-include "../db/Connections.php";
+<?php
+session_start();
+include("../db/Connections.php");
 
-if (isset($_POST['emp_number']) && isset($_POST['password'])) {
+$empNumberErr = $passwordErr = "";
 
-	function validate($data){
-       $data = trim($data);
-	   $data = stripslashes($data);
-	   $data = htmlspecialchars($data);
-	   return $data;
-	}
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    // Something was posted
+    $emp_number = $_POST['emp_number'];
+    $password = $_POST['password'];
 
-	$emp_number = validate($_POST['emp_number']);
-	$pass = validate($_POST['password']);
+    if (empty($emp_number)) {
+        $empNumberErr = "Username is required";
+    }
 
-	if (empty($emp_number)) {
-		header("Location: index-officer.php?error=User Name is required");
-	    exit();
-	}else if(empty($pass)){
-        header("Location: index-officer.php?error=Password is required");
-	    exit();
-	}else{
-		// hashing the password
-        $pass = md5($pass);
+    if (empty($password)) {
+        $passwordErr = "Password is required";
+    }
 
-        
-		$sql = "SELECT * FROM officers WHERE emp_number='$emp_number' AND password='$pass'";
+    if (empty($empNumberErr) && empty($passwordErr) && is_numeric($emp_number)) {
+        // Read from database
+        $query = "SELECT * FROM officers WHERE emp_number = '$emp_number' LIMIT 1";
+        $result = mysqli_query($conn, $query);
 
-		$result = mysqli_query($conn, $sql);
+        if ($result && mysqli_num_rows($result) > 0) {
+            $user_data = mysqli_fetch_assoc($result);
 
-		if (mysqli_num_rows($result) === 1) {
-			$row = mysqli_fetch_assoc($result);
-            if ($row['emp_number'] === $emp_number && $row['password'] === $pass) {
-            	$_SESSION['emp_number'] = $row['emp_number'];
-            	$_SESSION['first_name'] = $row['first_name'];
-            	$_SESSION['id'] = $row['id'];
-            	header("Location: ../officer.html");
-		        exit();
-            }else{
-				header("Location: index-officer.php?error=Incorect User name or password");
-		        exit();
-			}
-		}else{
-			header("Location: index-officer.php?error=Incorect User name or password");
-	        exit();
-		}
-	}
-	
-}else{
-	header("Location: index-officer.php");
-	exit();
+            if (password_verify($password, $user_data['password'])) {
+                $_SESSION['id'] = $user_data['id'];
+                header("Location: ../home/Officer.php");
+                die;
+            } else {
+                $passwordErr = "Incorrect password";
+            }
+        } else {
+            $empNumberErr = "Invalid username";
+        }
+    }
 }
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <br>
+    <div id="box">
+        <form method="post">
+            <h2><div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Login</div></h2>
+            <label for="Username:"> Username: </label><br><br>
+            <input id="text" type="text" name="emp_number" placeholder="Use employee number">
+            <span class="error"><?php echo $empNumberErr; ?></span><br><br>
+            <label for="Password:"> Password: </label><br><br>
+            <input id="text" type="password" name="password" placeholder="Type here">
+            <span class="error"><?php echo $passwordErr; ?></span><br><br>
+           
+            <button type="submit">Login</button>
+            <a href="#" class="ca">Change password</a>
+        </form>
+    </div>
+</body>
+</html>
