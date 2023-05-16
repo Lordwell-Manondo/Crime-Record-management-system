@@ -94,7 +94,7 @@ h1 {
 <body>
     <?php
     // Connect to the MySQL database
-    include('Connections.php');
+    include('./db/Connections.php');
 
     // SQL statement
     $sql = "SELECT * FROM reportform";
