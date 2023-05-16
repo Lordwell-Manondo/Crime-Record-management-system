@@ -101,7 +101,7 @@ session_start();
 
 <style>
 	
-
+ 
   body {
   font-family: Arial, sans-serif;
   background-color: rgb(0, 109, 139);
@@ -173,5 +173,5 @@ input[type="submit"]:hover,
 input[type="button"]:hover {
   background-color: green;
 }
-</style>
+</style> 
 </html>
