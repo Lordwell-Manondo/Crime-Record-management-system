@@ -3,8 +3,6 @@
   <head>
     <title>Officer Page</title>
     <script src="js/bootstrap.js"></script>
-    <link rel="stylesheet" href="HomeStyling.css">
-    <link rel="stylesheet" href="Admin_landing_page.css">
     <style>
       body {
         background-color: rgb(0, 109, 139);
@@ -86,16 +84,16 @@
               <a class="nav-link" href="#">View Assigned work</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="view_cases.php">View cases</a>
+              <a class="nav-link" href="../cases/View_cases.php">View cases</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Report Work</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="ReportForm.php">Report incident</a>
+              <a class="nav-link" href="../ReportForm.php">Report incident</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Notifications.php">Notifications</a>
+              <a class="nav-link" href="../Notifications.php">Notifications</a>
             </li>
           </ul>
         </h2>
@@ -116,13 +114,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h4>Contact Us</h4>
-        <p>Email: crms@gmail.com</p>
-        <p>Phone: +265 88 040-9999</p>
-        <p>Address: Chanco P. O. Box, 280 Zomba</p>
       </div>
       <div class="col-md-6">
-        <h4>About Us</h4>
         <p>CRMS is a crime record management system designed to help law enforcement agencies keep track of criminal activity and investigations.</p>
       </div>
     </div>
