@@ -1,6 +1,7 @@
 <?php 
 // include database connection file
-include_once("../common/db_con.php");
+// include_once("../common/db_con.php");
+include ("../db/Connections.php");
 
 // Retrieve the list of cases from the database
 $sql = isset($_GET["query"])? "SELECT * FROM `case` WHERE incident  like '%".$_GET["query"]."%' OR case_type  like '%".$_GET["query"]."%' ORDER BY serial_no" : "SELECT * FROM `case` ORDER BY serial_no";
