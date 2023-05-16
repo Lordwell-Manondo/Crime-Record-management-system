@@ -6,6 +6,7 @@
     <style>
       body {
         background-color: rgb(0, 109, 139);
+        margin: 20px;
       }
       .nav {
         display: flex;
