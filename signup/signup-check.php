@@ -73,7 +73,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 					$_SESSION['user_name'] = $row['user_name'];
 					$_SESSION['name'] = $row['name'];
 					$_SESSION['id'] = $row['id'];
-					header("Location: home_user.php");
+					header("Location: signup.php");
 					exit();
 				}else{
 					header("Location: index.php?error=Incorect User name or password");
@@ -83,7 +83,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 				header("Location: index.php?error=Incorect User name or password");
 				exit();
 			}
-	         exit();
+	         
            }else {
 	           	header("Location: signup.php?error=unknown error occurred&$user_data");
 		        exit();
