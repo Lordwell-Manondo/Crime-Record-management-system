@@ -26,6 +26,7 @@
 <table class="cases-table">
 
 <tr>
+   <th style="width: 10%;">List</th> 
    <th style="width: 10%;">Serial No.</th> 
     <th style="width: 15%;">Suspect</th>
     <th style="width: 15%;">Victim</th>
@@ -92,7 +93,10 @@ if ($current_page < $total_pages) {
 }
 // check if the data is available in the database
 echo '<div class="data-container">';
-if (mysqli_num_rows($result) >0) {
+if(mysqli_num_rows($result) <0){
+  $message = "No case recorded.";
+}
+else if (mysqli_num_rows($result) >0) {
 
 
      // count the total number of rows in the table
@@ -104,6 +108,7 @@ if (mysqli_num_rows($result) >0) {
 
     // display the data
     echo "<tr>";
+    echo "<td>" . $row['id'] . "</td>";
     echo "<td>" . $row['serial_no'] . "</td>";
     echo "<td>" . $row['suspect_name'] . "</td>";
     echo "<td>" . $row['victim_name'] . "</td>";
@@ -124,7 +129,7 @@ if (mysqli_num_rows($result) >0) {
 } else {
 
   
-$message = "Currently there is no suspect or victim named "  .$_POST['search']; ;
+$message = "No suspect, victim, serial or case type named:  ".$_POST['search'];
 echo "<div style='color: white; padding: 10px; font-size: 30px; font-weight: 300;'>" . $message . "</div>";
 
 
@@ -198,9 +203,9 @@ tr {
 
 }
 tr:hover {
-  color: green;
-  font-weight: 400;
-  font-size: 18px;
+  
+  font-weight: 200;
+  font-size: 15px;
 }
   .searchbar{
     margin-left: 70%;
