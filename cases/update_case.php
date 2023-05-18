@@ -40,6 +40,9 @@ if (isset($row)) {
 
     <label class="input-label">Incident:</label>
     <input type="textarea" name="incident" style="height: 70px;" value="<?php echo $incident ?? ''; ?>">
+
+    <label class="input-label">Location:</label>
+    <input type="text" name="location" value="<?php echo $location ?? ''; ?>">
                     
 
     <label class="input-label">Date:</label>
@@ -75,7 +78,7 @@ if (isset($row)) {
   form {
     background-color: white;
   width: 600px;
-  height: 650px;
+  height: 680px;
   margin: auto;
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
