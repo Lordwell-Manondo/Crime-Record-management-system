@@ -61,7 +61,7 @@ session_start();
 </head>
 <body>
 <header>
-			<a href="../home/Admin_landing_page.html" style="margin-left: 1230px; color: white;"> <p style="font-size: 15px;  margin-left: 50px; color: white;">Back</p> </a>
+			<a href="../home/Admin_landing_page.php" style="margin-left: 1230px; color: white;"> <p style="font-size: 15px;  margin-left: 50px; color: white;">Back</p> </a>
 </header>
 	<h2>Add Officer</h2>
 	<form action="add_officer.php" method="post">

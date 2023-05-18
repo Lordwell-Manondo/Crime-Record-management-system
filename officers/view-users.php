@@ -9,7 +9,7 @@
         <input type="submit" name="search" value="Search">
       </form>
 
-      <a href="Admin_landing_page.html" class="logout-link">Back</a>
+      <a href="Admin_landing_page.php" class="logout-link">Back</a>
       
     </header>
 
