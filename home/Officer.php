@@ -76,7 +76,7 @@
       <div class="nav">
         <img src="policeLog.PNG">
         <h1>CRIME RECORD MANAGEMENT SYSTEM</h1>
-        <a href="Home.html">Logout</a>
+        <a href="Home.php">Logout</a>
       </div>
       <nav class="navbar">
         <h2>
@@ -95,6 +95,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../Notifications.php">Notifications</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../changepass/change-password-officer.php">Change Password</a>
             </li>
           </ul>
         </h2>

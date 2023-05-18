@@ -41,7 +41,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
      	       <br>
 
      	<button type="submit">CHANGE</button>
-          <a href="../home/Admin_landing_page.html" class="ca">HOME</a>
+          <a href="../home/Admin_landing_page.php" class="ca">HOME</a>
      </form>
 </body>
 </html>

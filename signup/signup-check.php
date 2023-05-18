@@ -85,7 +85,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 			}
 	         
            }else {
-	           	header("Location: signup.php?error=unknown error occurred&$user_data");
+	           	header("Location: signup.php?error=unknown error occurred");
 		        exit();
            }
 		}

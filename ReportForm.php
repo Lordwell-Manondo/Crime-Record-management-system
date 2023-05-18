@@ -135,7 +135,7 @@ else {
                         </div>
                         <div class="text-center">
                             <button type="Report" class="btn btn-lg btn-block">Report</button>
-                            <button type="button" class="btn btn-lg btn-block back-button"><a href="./home/Home.html" style="text-decoration: none; color: white;">Back</a></button>
+                            <button type="button" class="btn btn-lg btn-block back-button"><a href="./home/Home.php" style="text-decoration: none; color: white;">Back</a></button>
                         </div>
                     </form>
                 </div>
