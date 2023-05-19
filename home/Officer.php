@@ -85,17 +85,9 @@
               <a class="nav-link" href="#">View Assigned work</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../cases/View_cases.php">View cases</a>
+              <a class="nav-link" href="../cases/View-cases-officer.php">View cases</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Report Work</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../ReportForm.php">Report incident</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../Notifications.php">Notifications</a>
-            </li>
+          
             <li class="nav-item">
               <a class="nav-link" href="../changepass/change-password-officer.php">Change Password</a>
             </li>
