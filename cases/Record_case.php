@@ -15,6 +15,7 @@ session_start();
     $date = $_POST['date'];
     $type = $_POST['type'];
     $file = $_POST['file'];
+    $status = 'Open';
                 
           //generating case serial number
           $serial_no = [];
@@ -28,26 +29,26 @@ session_start();
               $row = $result->fetch_assoc();
           
               // If the count is 0, it means the serial number doesn't exist in the database
+              // therefore, it can be given to the case
               if ($row['count'] == 0) {
                   $serial_no[] = $serial;
               }
           }    
             
             // saving the case into database
-            $query = "insert into cases ( serial_no, suspect_name, victim_name, incident, location, date, type, file) values ('$serial', '$suspect', '$victim' ,'$incident', '$location', '$date', '$type', '$file')";
+            $query = "insert into cases ( serial_no, suspect_name, victim_name, incident, location, date, type, file, status) values ('$serial', '$suspect', '$victim' ,'$incident', '$location', '$date', '$type', '$file', '$status')";
             
             //executing the above statement
             mysqli_query($conn, $query);
            
             //give this message if the process of saving the case was successful
-          // echo" Case recorded";
-          header("Location: added_case_message.php");
+           header("Location: added_case_message.php");
             exit;
  }
         else
         {
             //printing this message  if the process of saving the case was not successful
-            //echo "Please enter valid information!";
+           // echo "Case did not saved.. Please try again.";
         }
         
         ?>
