@@ -1,97 +1,116 @@
-<?php 
-session_start(); 
-include ("../db/Connections.php");
+<?php
+session_start();
+include_once 'db/Connections.php';
+require_once 'vendor/autoload.php';
 
-if (isset($_POST['uname']) && isset($_POST['password'])
-    && isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['re_password'])) {
+use Twilio\Rest\Client;
 
-	function validate($data){
-       $data = trim($data);
-	   $data = stripslashes($data);
-	   $data = htmlspecialchars($data);
-	   return $data;
-	}
-
-	$uname = validate($_POST['uname']);
-	$pass = validate($_POST['password']);
-	$phone = validate($_POST['phone']);
-	$re_pass = validate($_POST['re_password']);
-	$name = validate($_POST['name']);
-
-	$user_data = 'uname='. $uname. 'name='. $name .'&phone='. $phone;
-
-
-	if (empty($uname)) {
-		header("Location: signup.php?error=User Name is required&$user_data");
-	    exit();
-	}else if(empty($pass)){
-        header("Location: signup.php?error=Password is required&$user_data");
-	    exit();
-	}
-	else if(empty($re_pass)){
-        header("Location: signup.php?error=Re Password is required&$user_data");
-	    exit();
-	}else if(!preg_match("/^[0-9]{10}$/", $phone)) {
-        header("Location: signup.php?error=Phone number must be 10 digits&name=$name&uname=$uname");
-        exit();
-    }else if(empty($phone)) {
-		header("Location: signup.php?error=Phone number is required&name=$name&uname=$uname");
-		exit();
-	}
-	else if(empty($name)){
-        header("Location: signup.php?error=Name is required&$user_data");
-	    exit();
-	}
-
-	else if($pass !== $re_pass){
-        header("Location: signup.php?error=The confirmation password  does not match&$user_data");
-	    exit();
-	}
-
-	else{
-
-		// hashing the password
-        $pass = md5($pass);
-
-	    $sql = "SELECT * FROM users WHERE user_name='$uname' ";
-		$result = mysqli_query($conn, $sql);
-
-		if (mysqli_num_rows($result) > 0) {
-			header("Location: signup.php?error=The username is taken try another&$user_data");
-	        exit();
-		}else {
-           $sql2 = "INSERT INTO users(user_name, password, name, phone) VALUES('$uname', '$pass', '$name', '$phone')";
-           $result2 = mysqli_query($conn, $sql2);
-           if ($result2) {
-			$sql = "SELECT * FROM users WHERE user_name='$uname' AND password='$pass'";
-
-			$result = mysqli_query($conn, $sql);
-	
-			if (mysqli_num_rows($result) === 1) {
-				$row = mysqli_fetch_assoc($result);
-				if ($row['user_name'] === $uname && $row['password'] === $pass) {
-					$_SESSION['user_name'] = $row['user_name'];
-					$_SESSION['name'] = $row['name'];
-					$_SESSION['id'] = $row['id'];
-					header("Location: signup.php");
-					exit();
-				}else{
-					header("Location: index.php?error=Incorect User name or password");
-					exit();
-				}
-			}else{
-				header("Location: index.php?error=Incorect User name or password");
-				exit();
-			}
-	         
-           }else {
-	           	header("Location: signup.php?error=unknown error occurred&$user_data");
-		        exit();
-           }
-		}
-	}
-	
-}else{
-	header("Location: signup.php");
-	exit();
+// Function to generate a random 6-digit code
+function generateCode() {
+    return rand(100000, 999999);
 }
+
+// Function to send SMS using Twilio
+function sendSMSUsingTwilio($accountSid, $authToken, $twilioNumber, $phone, $message) {
+    try {
+        $client = new Client($accountSid, $authToken);
+
+        $client->messages->create(
+            $phone,
+            [
+                'from' => $twilioNumber,
+                'body' => $message
+            ]
+        );
+
+        return true;
+    } catch (Exception $e) {
+        // Log or handle the exception appropriately
+        return false;
+    }
+}
+
+// Check if the signup form was submitted
+if (isset($_POST['signup'])) {
+    // Retrieve form data
+    $name = $_POST['name'];
+    $username = $_POST['uname'];
+    $phone = $_POST['phone'];
+    $password = $_POST['password'];
+    $re_password = $_POST['re_password'];
+
+    // Check if all form fields are filled
+    if (empty($name) || empty($username) || empty($phone) || empty($password) || empty($re_password)) {
+        $error = "Please fill in all fields.";
+    }
+    // Check if passwords match
+    elseif ($password !== $re_password) {
+        $error = "Passwords do not match.";
+    }
+    // Check if the phone number is valid
+    elseif (!preg_match('/^\+?\d{7,}$/', $phone)) {
+        $error = "Invalid phone number.";
+    } else {
+        // Generate verification code
+        $verification_code = generateCode();
+
+        // Prepare and execute the database query
+        $stmt = $db->prepare("INSERT INTO users (name, username, phone, password, verification_code) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute([$name, $username, $phone, $password, $verification_code]);
+
+        // Check if the user was successfully added to the database
+        if ($stmt->rowCount() === 1) {
+            // Twilio configuration
+            $twilioAccountSid = 'AC1818122a442971639e68dee6662bbe99';
+            $twilioAuthToken = '3736e90642ce83fcde827c4e54e8b0ad';
+            $twilioPhoneNumber = '+12525126359';
+
+            // Send SMS using Twilio
+            if (sendSMSUsingTwilio($twilioAccountSid, $twilioAuthToken, $twilioPhoneNumber, $phone, $verification_code)) {
+                $success = "Sign up successful. Please check your phone for the verification code.";
+            } else {
+                $error = "Error occurred while sending the verification code.";
+            }
+        } else {
+            $error = "Error occurred while signing up. Please try again.";
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SIGN UP</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+        <h2>SIGN UP</h2>
+        <?php if (isset($error)) { ?>
+            <p class="error"><?php echo $error; ?></p>
+        <?php } ?>
+        <?php if (isset($success)) { ?>
+            <p class="success"><?php echo $success; ?></p>
+        <?php } ?>
+
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Full Name" required>
+
+        <label>Username</label>
+        <input type="text" name="uname" placeholder="Username" required>
+
+        <label>Phone Number</label>
+        <input type="text" name="phone" placeholder="Phone Number" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Password" required>
+
+        <label>Re-enter Password</label>
+        <input type="password" name="re_password" placeholder="Re-enter Password" required>
+
+        <button type="submit" name="signup">Sign Up</button>
+        <a href="../login/Login_user.php" class="ca">Already have an account? : Login</a>
+    </form>
+</body>
+</html>
