@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Verify Phone Number</title>
@@ -17,4 +17,4 @@
         <button type="submit">Verify</button>
     </form>
 </body>
-</html>
+</html> -->

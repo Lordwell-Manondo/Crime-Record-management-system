@@ -1,29 +1,34 @@
 <?php
 session_start();
-include_once '../common/db_con.php';
+require_once '../db/Connections.php';
 
-// Check if the verification form was submitted
 if (isset($_POST['verify'])) {
-    // Retrieve form data
     $verification_code = $_POST['verification_code'];
     $phone = $_SESSION['phone'];
+    
+    // Create a database connection
+    $connection = new Connection();
+    $db = $connection->connect();
 
-    // Prepare and execute the database query
     $stmt = $db->prepare("SELECT * FROM users WHERE phone = ? AND verification_code = ?");
-    $stmt->execute([$phone, $verification_code]);
+    $stmt->bind_param("ss", $phone, $verification_code);
+    $stmt->execute();
 
-    // Check if the verification code matches
-    if ($stmt->rowCount() === 1) {
-        // Update user status to verified
-        $stmt = $db->prepare("UPDATE users SET verified = 1 WHERE phone = ?");
-        $stmt->execute([$phone]);
+    $result = $stmt->get_result();
+    if ($result->num_rows === 1) {
+        $stmt = $db->prepare("UPDATE users SET is_verified = 1 WHERE phone = ?");
+        $stmt->bind_param("s", $phone);
+        $stmt->execute();
+        $success = "Phone number verified successfully.";
 
-        // Redirect to success page or perform any other actions
-        header("Location: success.php");
+        header("Location: ../login/Login_user.php");
         exit();
     } else {
-        $error = "Invalid verification code.";
+        $error = "Invalid verification code. Please try again.";
     }
+
+    $stmt->close();
+    $db->close();
 }
 ?>
 
@@ -39,9 +44,12 @@ if (isset($_POST['verify'])) {
         <?php if (isset($error)) { ?>
             <p class="error"><?php echo $error; ?></p>
         <?php } ?>
+        <?php if (isset($success)) { ?>
+            <p class="success"><?php echo $success; ?></p>
+        <?php } ?>
 
         <label>Verification Code</label>
-        <input type="text" name="verification_code" placeholder="Verification Code" required>
+        <input type="text" name="verification_code" placeholder="Enter the verification code" required>
 
         <button type="submit" name="verify">Verify</button>
     </form>

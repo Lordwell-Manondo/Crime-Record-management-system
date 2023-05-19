@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once '../common/db_con.php';
-require_once '../vendor/autoload.php';
+require_once '../db/Connections.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Twilio\Rest\Client;
 
@@ -51,17 +51,20 @@ if (isset($_POST['signup'])) {
     elseif (!preg_match('/^\+?\d{7,}$/', $phone)) {
         $error = "Invalid phone number.";
     } else {
+        // Create a database connection
+        $connection = new Connection();
+        $db = $connection->connect();
+
         // Generate verification code
         $verification_code = generateCode();
 
         // Prepare and execute the database query
-        $db = new Connection();
-        $conn = $db->getConnection();
-        $stmt = $conn->prepare("INSERT INTO users (name, username, phone, password, verification_code) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$name, $username, $phone, $password, $verification_code]);
+        $stmt = $db->prepare("INSERT INTO users (name, username, phone, password, verification_code) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $name, $username, $phone, $password, $verification_code);
+        $stmt->execute();
 
         // Check if the user was successfully added to the database
-        if ($stmt->rowCount() === 1) {
+        if ($stmt->affected_rows === 1) {
             // Twilio configuration
             $twilioAccountSid = 'AC1818122a442971639e68dee6662bbe99';
             $twilioAuthToken = '3736e90642ce83fcde827c4e54e8b0ad';
@@ -69,13 +72,21 @@ if (isset($_POST['signup'])) {
 
             // Send SMS using Twilio
             if (sendSMSUsingTwilio($twilioAccountSid, $twilioAuthToken, $twilioPhoneNumber, $phone, $verification_code)) {
-                $success = "Sign up successful. Please check your phone for the verification code.";
+                // Store phone number in session for verification
+                $_SESSION['phone'] = $phone;
+                
+                // Redirect to verification page
+                header("Location: verify.php");
+                exit();
             } else {
                 $error = "Error occurred while sending the verification code.";
             }
         } else {
             $error = "Error occurred while signing up. Please try again.";
         }
+
+        $stmt->close();
+        $db->close();
     }
 }
 ?>
@@ -91,9 +102,6 @@ if (isset($_POST['signup'])) {
         <h2>SIGN UP</h2>
         <?php if (isset($error)) { ?>
             <p class="error"><?php echo $error; ?></p>
-        <?php } ?>
-        <?php if (isset($success)) { ?>
-            <p class="success"><?php echo $success; ?></p>
         <?php } ?>
 
         <label>Name</label>

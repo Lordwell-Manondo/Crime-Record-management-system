@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once 'db/Connections.php';
-require_once 'vendor/autoload.php';
+include_once '../db/Connection.php';
+require_once '../vendor/autoload.php';
 
 use Twilio\Rest\Client;
 
@@ -55,7 +55,9 @@ if (isset($_POST['signup'])) {
         $verification_code = generateCode();
 
         // Prepare and execute the database query
-        $stmt = $db->prepare("INSERT INTO users (name, username, phone, password, verification_code) VALUES (?, ?, ?, ?, ?)");
+        $db = new Connection();
+        $conn = $db->getConnection();
+        $stmt = $connection->conn->prepare("INSERT INTO users (name, username, phone, password, verification_code) VALUES (?, ?, ?, ?, ?)");
         $stmt->execute([$name, $username, $phone, $password, $verification_code]);
 
         // Check if the user was successfully added to the database
@@ -75,42 +77,4 @@ if (isset($_POST['signup'])) {
             $error = "Error occurred while signing up. Please try again.";
         }
     }
-}
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>SIGN UP</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-        <h2>SIGN UP</h2>
-        <?php if (isset($error)) { ?>
-            <p class="error"><?php echo $error; ?></p>
-        <?php } ?>
-        <?php if (isset($success)) { ?>
-            <p class="success"><?php echo $success; ?></p>
-        <?php } ?>
-
-        <label>Name</label>
-        <input type="text" name="name" placeholder="Full Name" required>
-
-        <label>Username</label>
-        <input type="text" name="uname" placeholder="Username" required>
-
-        <label>Phone Number</label>
-        <input type="text" name="phone" placeholder="Phone Number" required>
-
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Password" required>
-
-        <label>Re-enter Password</label>
-        <input type="password" name="re_password" placeholder="Re-enter Password" required>
-
-        <button type="submit" name="signup">Sign Up</button>
-        <a href="../login/Login_user.php" class="ca">Already have an account? : Login</a>
-    </form>
-</body>
-</html>
+}?>

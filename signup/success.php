@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Success</title>
+    <title>Signup Success</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h2>Verification Successful!</h2>
-    <p>Your phone number has been successfully verified.</p>
-    <p>You can now proceed with your account setup.</p>
-    <a href="login.php">Login</a>
+    <div class="success-container">
+        <h2>Signup Successful</h2>
+        <p>Your account has been created successfully.</p>
+        <p>Please check your phone for the verification code.</p>
+        <p>Click <a href="verify.php">here</a> to verify your phone number.</p>
+    </div>
 </body>
 </html>
