@@ -66,16 +66,10 @@
                        <a class="nav-link" href="../news/News2.php"  style="color: rgb(19, 17, 17);" >Add news</a>
               </li>
              
-              <li class="nav-item dropdown">
-                <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"   style="color: rgb(19, 17, 17);">
-                    Users
-                   </a>
-                  <div  class="dropdown-menu" style="margin-left: 50px;" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="../officersview_officers.php" style="font-size: 20px; font-weight: 100; ">Officers</a>
-             <a class="dropdown-item" href="../officers/view-users.php"    style="font-size: 20px; font-weight: 100;">Public Users</a>
+            <li class="nav-item">
+             <a class="nav-link" href="../officers/view-users.php"  style="color: rgb(19, 17, 17);"  >Public Users</a>
 
-            </div>
-      </li>
+             </li>
             <li style="margin-left: 10px;">
               <a class="nav-link" href="../Notifications.php">
                 <svg class="notification" xmlns="http://www.w3.org/2000/svg" style="margin-top: -15px; font-weight: 500;" width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
