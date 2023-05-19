@@ -10,7 +10,7 @@
         <input type="submit" name="search" value="Search">
       </form>
 
-      <a class="logout-link" href="../home/Admin_landing_page.html" class="logout-link">Home</a>  
+      <a class="logout-link" href="../home/Admin_landing_page.php" class="logout-link">Home</a>  
 </header>
 
   <h1>OFFICERS</h1>

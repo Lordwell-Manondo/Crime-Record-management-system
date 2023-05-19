@@ -57,8 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <input id="text" type="password" name="password" placeholder="Type here">
             <span class="error"><?php echo $passwordErr; ?></span><br><br>
            
-            <button type="submit">Login</button>
-            <a href="#" class="ca">Change password</a>
+            <button type="submit">Login</button> <a href="../changepass/Forgot-password-officer.php" class="ca">Forgot Password</a>
         </form>
     </div>
 </body>
