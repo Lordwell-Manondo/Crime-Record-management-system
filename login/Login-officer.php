@@ -24,9 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if ($result && mysqli_num_rows($result) > 0) {
             $user_data = mysqli_fetch_assoc($result);
-
-            if (password_verify($password, $user_data['password'])) {
+            //echo $user_data['password'] ." and ". md5($password);
+            if (md5($password) == $user_data['password']) {
                 $_SESSION['id'] = $user_data['id'];
+                $_SESSION['emp_number'] = $emp_number;
                 header("Location: ../home/Officer.php");
                 die;
             } else {
