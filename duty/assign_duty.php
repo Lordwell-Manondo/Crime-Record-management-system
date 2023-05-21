@@ -1,7 +1,7 @@
 <?php
 session_start();
 // include database connection file
-include("../Connections.php");
+include("../db/Connections.php");
 $message = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -61,7 +61,7 @@ $result = mysqli_query($conn, $sql);
 $officers = "";
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
-    $officers.="<option value='" . $row['employee_number'] . "'>".$row['employee_number']." (" . $row['first_name'] .' '.$row['last_name'] . ")</option>";
+    $officers.="<option value=''>".$row['emp_number']." (" . $row['first_name'] .' '.$row['last_name'] . ")</option>";
   }
 }
 
