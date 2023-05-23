@@ -82,7 +82,7 @@
         <h2>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">View Assigned work</a>
+              <a class="nav-link" href="../duty/officer_duties.php">View Assigned work</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../cases/View-cases-officer.php">View cases</a>

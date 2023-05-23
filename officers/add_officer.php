@@ -10,9 +10,10 @@ session_start();
 		// Prepare the SQL statement
 		$stmt = $conn->prepare("INSERT INTO officers (first_name, last_name, emp_number, date_of_entry, officer_rank, station, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
 	
-		// Bind the parameters to the statement
-		$stmt->bind_param("sssssss", $first_name, $last_name, $emp_number, $date_of_entry, $officer_rank, $station, $password);
-	
+		if (!$stmt) {
+			die("Mysql preparation error: ".$conn->error);
+		}
+
 		// Set the parameter values
 		$first_name = $_POST["first_name"];
 		$last_name = $_POST["last_name"];
@@ -20,7 +21,10 @@ session_start();
 		$date_of_entry = $_POST["date_of_entry"];
 		$officer_rank = $_POST["officer_rank"];
 		$station = $_POST["station"];
-		$password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hash the password for security
+		$password = md5($_POST["password"]); // Hash the password for security
+
+		// Bind the parameters to the statement
+		$stmt->bind_param("sssssss", $first_name, $last_name, $emp_number, $date_of_entry, $officer_rank, $station, $password);
 	
 		// Execute the statement
 		if ($stmt->execute()) {
