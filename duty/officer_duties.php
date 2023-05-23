@@ -1,7 +1,7 @@
 <?php 
 session_start();
  if (!isset($_SESSION['emp_number'])) {
-    header('location: ../login/Login-officer.php');
+//header('location: ../login/Login-officer.php');
 }
 ?>
 <!DOCTYPE html>

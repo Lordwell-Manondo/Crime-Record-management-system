@@ -17,7 +17,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         
           <a href="../ReportForm.php">Report Incident</a>
 
-          <a href="../home/Home.php">Logout</a>
+          <a href="../home/logout.php">Logout</a>
      </nav>
      
 </body>
