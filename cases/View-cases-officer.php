@@ -10,8 +10,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-  <a href="../home/home.html" style="text-decolation: none; margin-left: 1250px; margin-top: 20px; color: black; font-size: 20px; font-weight: 100;">Logout</a>
-  <a href="../home/admin_landing_page.html" style="text-decolation: none; margin-left: 50px; margin-top: 20px; color: white; font-size: 20px; font-weight: 100;">Back</a>
+  <a href="../home/home.php" style="text-decolation: none; margin-left: 1250px; margin-top: 20px; color: black; font-size: 20px; font-weight: 100;">Logout</a>
+  <a href="../home/admin_landing_page.php" style="text-decolation: none; margin-left: 50px; margin-top: 20px; color: white; font-size: 20px; font-weight: 100;">Back</a>
 
   <h1>RECORDED CASES</h1>
 
@@ -104,11 +104,6 @@ else if(mysqli_num_rows($result) >0) {
     echo "<td>" . $row['date'] . "</td>";
     echo "<td>" . $row['type'] . "</td>";
     echo '<td >' . $row['status'] . '</td>';
-
-   
-   // edit the case
-    echo "<td><a href='Report-work-officer.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Report</a></td>";
-    echo "</tr>";
   
   }
 }
