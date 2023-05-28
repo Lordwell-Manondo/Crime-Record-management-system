@@ -1,11 +1,11 @@
 <?php
 session_start();
 //linking up News.php file with database using Connections.php file
-include("./db/Connections.php");
-if (!isset($_SESSION['id'])) {
-    header("Location: Login_user.php"); 
-    exit;
-}
+include("../db/Connections.php");
+// if (!isset($_SESSION['id'])) {
+//     // header("Location: Login_user.php"); 
+//     exit;
+// }
 //defining and initializing variables that will be used to pass values into database     
 // Form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['id'])) {
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['id'])) {
     mysqli_query($conn, $sql);
 
     //give this message if the process of saving the case was successful
-    echo "<div><h2>Report sent</h2><h2><a href='./home.html'>Go To Home</a></h2></div>";
+    echo "<div><h2>Report sent</h2><h2><a href='../home/home.php'>Go To Home</a></h2></div>";
     exit;
 }
 else {
@@ -115,11 +115,11 @@ else {
                             <span class="error">Please enter valid phone number</span>
                         </div> -->
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="date">Date</label>
                             <input type="date" class="form-control" id="date" name="date" placeholder="Enter todays date" required>
                             <span class="error">Please enter valid date</span>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label for="location">Location</label>
@@ -135,7 +135,7 @@ else {
                         </div>
                         <div class="text-center">
                             <button type="Report" class="btn btn-lg btn-block">Report</button>
-                            <button type="button" class="btn btn-lg btn-block back-button"><a href="./home/Home.php" style="text-decoration: none; color: white;">Back</a></button>
+                            <button type="button" class="btn btn-lg btn-block back-button"><a href="../home/Home.php" style="text-decoration: none; color: white;">Back</a></button>
                         </div>
                     </form>
                 </div>
