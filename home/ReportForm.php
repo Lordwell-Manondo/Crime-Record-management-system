@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Report Form</title>
 </head>
 <body>
-    <h2>Report Form</h2>
+    <h2 style="text-align: center;">Report Form</h2>
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <label for="phone">Phone:</label>
         <input type="text" name="phone" id="phone" required><br><br>
@@ -49,15 +49,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: rgb(0, 109, 139);
         }
         
         h2 {
-            color: #333;
-        }
-        
-        form {
-            width: 300px;
-            margin: 0 auto;
+            color: white;
         }
         
         label {
@@ -84,5 +80,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+        form {
+	width: 300px;
+	border: 2px solid #ccc;
+	padding: 30px;
+	background: #fff;
+	border-radius: 15px;
+    margin: auto;
+}
     </style>
 </html>
