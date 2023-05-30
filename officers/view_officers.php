@@ -32,8 +32,8 @@
 		include('../db/Connections.php');
 
 		if(isset($_POST['search'])) {
-			$emp_number = $_POST['emp_number'];
-			$sql = "SELECT * FROM officers WHERE emp_number='$emp_number'";
+			$service_no = $_POST['service_no'];
+			$sql = "SELECT * FROM officers WHERE service_no='$service_no'";
 		} else {
 			$sql = "SELECT * FROM officers";
 
@@ -46,7 +46,7 @@
 				echo "<tr>";
 				echo "<td>" . $row["first_name"] . "</td>";
 				echo "<td>" . $row["last_name"] . "</td>";
-				echo "<td>" . $row["emp_number"] . "</td>";
+				echo "<td>" . $row["service_no"] . "</td>";
 				echo "<td>" . $row["date_of_entry"] . "</td>";
 				echo "<td>" . $row["officer_rank"] . "</td>";
 				echo "<td>" . $row["station"] . "</td>";

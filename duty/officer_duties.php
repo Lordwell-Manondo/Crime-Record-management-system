@@ -1,8 +1,8 @@
 <?php 
 session_start();
- if (!isset($_SESSION['emp_number'])) {
-//header('location: ../login/Login-officer.php');
-}
+//  if (!isset($_SESSION['service_no'])) {
+// //header('location: ../login/Login-officer.php');
+// }
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,7 @@ session_start();
 <table class="cases-table">
 
 <tr>
-   <th style="width: 10%;">Case ID</th> 
+   <th style="width: 10%;">Serial No</th> 
     <th style="width: 10%;">Date Assigned</th>
     <th style="width: 10%;">Date to Report</th>
     <th style="width: 10%;">Suspect Name</th>
@@ -35,7 +35,7 @@ session_start();
 include('../db/Connections.php');
 
 // Retrieve the list of cases from the database
-$sql = "SELECT * FROM `duty` JOIN `cases` ON duty.case_id=cases.id JOIN officers ON officers.emp_number=duty.emp_number WHERE officers.emp_number = ". $_SESSION["emp_number"] . " ORDER BY date_assigned";
+$sql = "SELECT * FROM `duty` JOIN `cases` ON duty.serial_no=cases.serial_no JOIN officers ON officers.service_no=duty.service_no WHERE officers.service_no = ". $_SESSION["service_no"] . " ORDER BY date_assigned";
 $result = mysqli_query($conn, $sql);
 
 if (!$result) {
@@ -54,7 +54,7 @@ else if(mysqli_num_rows($result) >0) {
     // display the data
     echo "<tr>";
     
-    echo "<td>" . $row['case_id'] . "</td>";
+    echo "<td>" . $row['serial_no'] . "</td>";
     echo "<td>" . $row['date_assigned'] . "</td>";
     echo "<td>" . $row['date_to_report'] . "</td>";
     echo "<td>" . $row['suspect_name'] . "</td>";

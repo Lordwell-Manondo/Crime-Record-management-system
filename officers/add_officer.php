@@ -8,7 +8,7 @@ session_start();
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 		// Prepare the SQL statement
-		$stmt = $conn->prepare("INSERT INTO officers (first_name, last_name, emp_number, date_of_entry, officer_rank, station, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+		$stmt = $conn->prepare("INSERT INTO officers (first_name, last_name, service_no, date_of_entry, officer_rank, station, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
 	
 		if (!$stmt) {
 			die("Mysql preparation error: ".$conn->error);
@@ -17,14 +17,14 @@ session_start();
 		// Set the parameter values
 		$first_name = $_POST["first_name"];
 		$last_name = $_POST["last_name"];
-		$emp_number = $_POST["emp_number"];
+		$service_no = $_POST["service_no"];
 		$date_of_entry = $_POST["date_of_entry"];
 		$officer_rank = $_POST["officer_rank"];
 		$station = $_POST["station"];
 		$password = md5($_POST["password"]); // Hash the password for security
 
 		// Bind the parameters to the statement
-		$stmt->bind_param("sssssss", $first_name, $last_name, $emp_number, $date_of_entry, $officer_rank, $station, $password);
+		$stmt->bind_param("sssssss", $first_name, $last_name, $service_no, $date_of_entry, $officer_rank, $station, $password);
 	
 		// Execute the statement
 		if ($stmt->execute()) {
@@ -74,7 +74,7 @@ session_start();
 		<label>Last Name:</label>
 		<input type="text" name="last_name" required><br><br>
 		<label>Employee Number:</label>
-		<input type="text" name="emp_number" required><br><br>
+		<input type="text" name="service_no" required><br><br>
 		<label>Date of Entry:</label>
 		<input type="date" name="date_of_entry" required><br><br>
 		<label>Officer Rank:</label>

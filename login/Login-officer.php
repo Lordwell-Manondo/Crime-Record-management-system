@@ -2,24 +2,24 @@
 session_start();
 include("../db/Connections.php");
 
-$empNumberErr = $passwordErr = "";
+$service_noErr = $passwordErr = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     // Something was posted
-    $emp_number = $_POST['emp_number'];
+    $service_no = $_POST['service_no'];
     $password = $_POST['password'];
 
-    if (empty($emp_number)) {
-        $empNumberErr = "Username is required";
+    if (empty($service_no)) {
+        $service_noErr = "Username is required";
     }
 
     if (empty($password)) {
         $passwordErr = "Password is required";
     }
 
-    if (empty($empNumberErr) && empty($passwordErr) && is_numeric($emp_number)) {
+    if (empty($service_noErr) && empty($passwordErr) && is_numeric($service_no)) {
         // Read from database
-        $query = "SELECT * FROM officers WHERE emp_number = '$emp_number' LIMIT 1";
+        $query = "SELECT * FROM officers WHERE service_no = '$service_no' LIMIT 1";
         $result = mysqli_query($conn, $query);
 
         if ($result && mysqli_num_rows($result) > 0) {
@@ -27,14 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             //echo $user_data['password'] ." and ". md5($password);
             if (md5($password) == $user_data['password']) {
                 $_SESSION['id'] = $user_data['id'];
-                $_SESSION['emp_number'] = $emp_number;
+                $_SESSION['service_no'] = $service_no;
                 header("Location: ../home/Officer.php");
                 die;
             } else {
                 $passwordErr = "Incorrect password";
             }
         } else {
-            $empNumberErr = "Invalid username";
+            $service_noErr = "Invalid username";
         }
     }
 }
@@ -52,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <form method="post">
             <h2><div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Login</div></h2>
             <label for="Username:"> Username: </label><br><br>
-            <input id="text" type="text" name="emp_number" placeholder="Use employee number">
-            <span class="error"><?php echo $empNumberErr; ?></span><br><br>
+            <input id="text" type="text" name="service_no" placeholder="Use employee number">
+            <span class="error"><?php echo $service_noErr; ?></span><br><br>
             <label for="Password:"> Password: </label><br><br>
             <input id="text" type="password" name="password" placeholder="Type here">
             <span class="error"><?php echo $passwordErr; ?></span><br><br>

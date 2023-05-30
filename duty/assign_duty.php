@@ -8,17 +8,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
     // check that POST data is not empty
     $is_valid = true;
-    if (empty($_POST['serial_no']) || empty($_POST['emp_number']) || empty($_POST['date_to_report'])) {
+    if (empty($_POST['serial_no']) || empty($_POST['service_no']) || empty($_POST['date_to_report'])) {
         $message = "<div style='background-color: #f8d7da; color: #721c24; padding: 10px;'>Please fill all fields.</div>";
-        //echo $_POST['case_id'] . " ". $_POST['emp_number'] . " " . $_POST['date_to_report'];
+        //echo $_POST['case_id'] . " ". $_POST['service_no'] . " " . $_POST['date_to_report'];
         $is_valid = false;
     }
     $serial_no = $_POST['serial_no'];
-    $emp_number = $_POST['emp_number'];
+    $service_no = $_POST['service_no'];
     $date_to_report = $_POST['date_to_report'];
 
     // Check that the id and officer_id are valid integers
-    if (!is_string($emp_number)) {
+    if (!is_string($service_no)) {
         $message = "<div style='background-color: #f8d7da; color: #721c24; padding: 10px;'>Invalid input data. Please try again.</div>";
         $is_valid = false;
     }
@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($is_valid) {
         // Prepare SQL query
-        $sql = "INSERT INTO duty (serial_no, emp_number, date_to_report)
-            VALUES ('$serial_no', '$emp_number', '$date_to_report')";
+        $sql = "INSERT INTO duty (serial_no, service_no, date_to_report)
+            VALUES ('$serial_no', '$service_no', '$date_to_report')";
 
         // Execute SQL query
         if (mysqli_query($conn, $sql)) {
@@ -65,7 +65,7 @@ $result = mysqli_query($conn, $sql);
 $officers = "";
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
-    $officers.="<option value='".$row['emp_number']."'>".$row['emp_number']." (" . $row['first_name'] .' '.$row['last_name'] . ")</option>";
+    $officers.="<option value='".$row['service_no']."'>".$row['service_no']." (" . $row['first_name'] .' '.$row['last_name'] . ")</option>";
   }
 }
 
@@ -88,8 +88,8 @@ mysqli_close($conn);
       <?php echo $cases; ?>
     </select>
     <br><br>
-    <label for="emp_number">Select an officer:</label>
-    <select id="emp_number" name="emp_number">
+    <label for="service_no">Select an officer:</label>
+    <select id="service_no" name="service_no">
       <?php echo $officers; ?>
     </select>
     <br><br>
