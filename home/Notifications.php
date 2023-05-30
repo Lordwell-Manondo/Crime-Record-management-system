@@ -117,7 +117,6 @@ h1 {
             echo '<div class="title"><a href="#">' . $row["name"] . '</a></div>';
             echo '<div class="info">';
             echo '<div><strong>Phone: </strong>' . $row["phone"] . '</div>';
-            echo '<div><strong>Date: </strong>' . $row["date"] . '</div>';
             echo '<div><strong>Location: </strong>' . $row["location"] . '</div>';
             echo '</div>';
            
