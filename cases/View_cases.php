@@ -15,21 +15,16 @@
 
   <h1>RECORDED CASES</h1>
 
-  
-
 <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search of suspect..." aria-label="Search" name="search">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search for case..." aria-label="Search" name="search">
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
-
 
 </form>
 
 <table class="cases-table">
 
 <tr>
- 
-   <th style="width: 10%;">Serial No.</th> 
+    <th style="width: 10%;">Serial No.</th> 
     <th style="width: 15%;">Suspect</th>
     <th style="width: 15%;">Victim</th>
     <th style="width: 40%;">Incident</th>
@@ -238,10 +233,7 @@ h3{
     background-color: #dee2e6; /* Customize the header row background color */
     font-weight: bold;
   }
-
-  
-
-  </style>
+ </style>
 </body>
 </html>
 

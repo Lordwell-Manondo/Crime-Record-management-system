@@ -1,57 +1,4 @@
-<?php
-session_start();
 
-    //linking up Record_case.php file with database using Connections.php file
-    include('../db/Connections.php');
-
-   
-//defining and initializing variables that will be used to pass values into database     
- if($_SERVER['REQUEST_METHOD'] == "POST") {
-
-    $suspect = $_POST['suspect'];
-    $victim = $_POST['victim'];
-    $incident = $_POST['incident'];
-    $location = $_POST['location'];
-    $date = $_POST['date'];
-    $type = $_POST['type'];
-    $file = $_POST['file'];
-    $status = 'Open';
-                
-          //generating case serial number
-          $serial_no = [];
-
-          for ($i = 0; $i < 4; $i++) {
-              $serial= substr(uniqid(), -8);
-          
-              // Check if the generated serial number already exists in the database
-              $query = "SELECT COUNT(*) as count FROM cases WHERE serial_no = '$serial'";
-              $result = $conn->query($query);
-              $row = $result->fetch_assoc();
-          
-              // If the count is 0, it means the serial number doesn't exist in the database
-              // therefore, it can be given to the case
-              if ($row['count'] == 0) {
-                  $serial_no[] = $serial;
-              }
-          }    
-            
-            // saving the case into database
-            $query = "insert into cases ( serial_no, suspect_name, victim_name, incident, location, date, type, file, status) values ('$serial', '$suspect', '$victim' ,'$incident', '$location', '$date', '$type', '$file', '$status')";
-            
-            //executing the above statement
-            mysqli_query($conn, $query);
-           
-            //give this message if the process of saving the case was successful
-           header("Location: added_case_message.php");
-            exit;
- }
-        else
-        {
-            //printing this message  if the process of saving the case was not successful
-           // echo "Case did not saved.. Please try again.";
-        }
-        
-        ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,60 +19,30 @@ session_start();
                   <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                   <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                 </svg> <p style="font-size: 10px; color: black; margin-left: 1280px; font-weight: 10px;">Logout</p></a>
-            </div>
+           
+                <a href="../home/Officer.php" style="text-decolation: none; margin-left: 50px; margin-top: -50px; color: white; font-size: 20px; font-weight: 100;">Back</a>
+
+           
+              </div>
+
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <div class="contact-form">
-                    <h3 class="text-center">Record case</h3>
+                    <h3 class="text-center">Report assigned work</h3>
                     <form method="POST" action="Record_case.php" id="case-record" name="case-record">
                             
-                    <div class="form-group">
-                            <label for="victim">Suspect name</label>
-                            <input type="text" class="form-control" id="suspect" name="suspect" required>
-                            <span class="error">Please enter suspect name</span>
-                        </div>
+                   
                         <div class="form-group">
-                            <label for="victim">Victim name</label>
-                            <input type="text" class="form-control" id="victim" name="victim"  required>
-                            <span class="error">Please enter suspect name</span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="incident">Incident</label>
-                            <textarea class="form-control" id="incident" name="incident"   required></textarea>
+                            <label for="incident"></label>
+                            <textarea class="form-control" id="incident" name="incident" style="height: 200px;"   required></textarea>
                             <span class="error">Please enter incident</span>
                         </div>
   
                        
-                      <div class="form-group">
-                            <label for="location">Location</label>
-                            <input type="location" class="form-control"id="location" name="location" required>
-
-                            <span class="error">Please enter Location</span>
-                      </div>
-
-                      <div class="form-group">
-                            <label for="date">Date</label>
-                            <input type="date" class="form-control" id="date" name="date"  required>
-                            <span class="error">Please enter a valid date</span>
-                        </div>
-
-                        <div class="form-group">
-                        <label for="my-dropdown">Crime type</label>
-                            <select class="form-control" id="type" name="type">
-                            <option value="Theft">Theft</option>
-                            <option value="Vandalism">Vandalism</option>
-                             <option value="Violent">Violent</option>
-                           </select>
-                           <span class="error">Please select crime type</span>
-                        </div>
-
-                      
-
                         <div class="text-center">
-                            <button type="Submit" id="submit-btn" class="btn btn-lg btn-block">Submit</button>
+                            <button type="Submit" id="submit-btn" class="btn btn-lg btn-block">Submit report</button>
                         </div>
                    
                     </form>
@@ -149,6 +66,7 @@ session_start();
             margin-bottom: 30px;
             padding: 30px;
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+            height: 400px;
         }
         .contact-form label {
             font-weight: 600;
@@ -161,6 +79,10 @@ session_start();
             color: #fff;
             font-weight: 600;
             transition: background-color 0.3s ease;
+            width: 165px;
+            margin-left: 35%;
+            font-weight: 100;
+            font-family: Arial, Helvetica, sans-serif;
         }
         .contact-form button:hover {
             background-color: #0c3779;
