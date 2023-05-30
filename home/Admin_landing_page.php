@@ -58,7 +58,7 @@
                   </li>
 
               <li class="nav-item" >
-                       <a class="nav-link" href="../duty/index.php"  style="color: rgb(19, 17, 17); margin-left: 50px;"  >Assign work</a>
+                       <a class="nav-link" href="../duty/assign_duty.php"  style="color: rgb(19, 17, 17); margin-left: 50px;"  >Assign work</a>
               </li>
               
              
