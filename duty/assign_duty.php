@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $is_valid = true;
     if (empty($_POST['serial_no']) || empty($_POST['emp_number']) || empty($_POST['date_to_report'])) {
         $message = "<div style='background-color: #f8d7da; color: #721c24; padding: 10px;'>Please fill all fields.</div>";
+        //echo $_POST['case_id'] . " ". $_POST['emp_number'] . " " . $_POST['date_to_report'];
         $is_valid = false;
     }
     $serial_no = $_POST['serial_no'];

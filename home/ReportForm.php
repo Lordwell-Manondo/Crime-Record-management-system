@@ -1,37 +1,47 @@
 <?php
 session_start();
-//linking up News.php file with database using Connections.php file
-include("./db/Connections.php");
-if (!isset($_SESSION['id'])) {
-    header("Location: Login_user.php"); 
-    exit;
-}
-//defining and initializing variables that will be used to pass values into database     
-// Form submission
+// Linking the ReportForm.php file with the database using Connections.php file
+include('../db/Connections.php');
+
+// Check for form submission and session authentication
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['id'])) {
     // Get form data
-    //$name = $_POST["name"];
-    $user_id = $_SESSION['id'];
-    $date = $_POST["date"];
+    $phone = $_POST["phone"];
     $location = $_POST["location"];
     $incident = $_POST["incident"];
-    
 
-    // Insert into database
-    $sql = "INSERT INTO reportform (user_id,date,location,incident) 
-            VALUES ('$user_id', '$date', '$location', '$incident')";
-    mysqli_query($conn, $sql);
+    // Prepare the SQL statement
+    $stmt = $conn->prepare("INSERT INTO reportform (phone, location, incident) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $phone, $location, $incident);
 
-    //give this message if the process of saving the case was successful
-    echo "<div><h2>Report sent</h2><h2><a href='./home.html'>Go To Home</a></h2></div>";
-    exit;
+    // Execute the statement
+    if ($stmt->execute()) {
+        // Check if the insertion was successful
+        if ($stmt->affected_rows > 0) {
+            // Display success message
+            echo "<div><h2>Report sent</h2><h2><a href='Home.php'>Go To Home</a></h2></div>";
+            exit;
+        } else {
+            // Display error message if insertion failed
+            echo "Failed to send the report. Please try again.";
+        }
+    } else {
+        // Display error message if execution failed
+        echo "An error occurred while sending the report. Please try again.";
+    }
+
+    // Close the statement
+    $stmt->close();
+} else {
+    // Display error message if form submission or authentication failed
+    //echo "Invalid request. Please try again.";
 }
-else {
-    //printing this message  if the process of saving the case was not successful
-    //echo "Please enter valid information!";
-}
 
+// Close the database connection
+$conn->close();
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -44,6 +54,7 @@ else {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <style>
         body {
             background-color:  rgb(0, 109, 139);
@@ -55,21 +66,29 @@ else {
         .contact-form {
             background-color: #fff;
             border-radius: 10px;
+            height: 500px;
             margin-top: 30px;
             margin-bottom: 30px;
             padding: 30px;
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+           
         }
         .contact-form label {
             font-weight: 600;
             color: #333;
         }
+
+
         .contact-form button[type="report"] {
             background-color: #4cc3f1;
             border-color: #ff8c00;
             color: #fff;
             font-weight: 600;
             transition: background-color 0.3s ease;
+            width: 30%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            float: left;
         }
         .contact-form button[type="report"]:hover {
             background-color: #0c3779;
@@ -87,12 +106,22 @@ else {
             color: #fff;
             font-weight: 600;
             transition: background-color 0.3s ease;
+            width: 30%;
+            float: right;
         }
 
 
         .back-button:hover {
              background-color: navy;
         }
+             
+        .text-center.buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+              
 
     </style>
 </head>
@@ -104,22 +133,14 @@ else {
                     <h3 class="text-center">Report an Incident</h3>
 
                     <form action="ReportForm.php" method="post" id="contactForm">
-                        <!-- <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="name" class="form-control" id="name" name="name" placeholder="Enter your name" required>
-                            <span class="error">Please enter your name</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter your phone" required>
-                            <span class="error">Please enter valid phone number</span>
-                        </div> -->
 
-                        <div class="form-group">
-                            <label for="date">Date</label>
-                            <input type="date" class="form-control" id="date" name="date" placeholder="Enter todays date" required>
-                            <span class="error">Please enter valid date</span>
-                        </div>
+
+                    <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="phone" class="form-control"id="phone" name="phone" placeholder="Enter Phone number" required>
+
+                            <span class="error">Please enter valid Phone number</span>
+                      </div>
 
                         <div class="form-group">
                             <label for="location">Location</label>
@@ -135,12 +156,11 @@ else {
                         </div>
                         <div class="text-center">
                             <button type="Report" class="btn btn-lg btn-block">Report</button>
-                            <button type="button" class="btn btn-lg btn-block back-button"><a href="./home/Home.php" style="text-decoration: none; color: white;">Back</a></button>
+                            <button type="button" class="btn btn-lg btn-block back-button"><a href="Home.php" style="text-decoration: none; color: white;">Back</a></button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        $(document)
+</html>

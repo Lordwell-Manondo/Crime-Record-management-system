@@ -15,17 +15,17 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	$pass = validate($_POST['password']);
 
 	if (empty($uname)) {
-		header("Location: index-admin.php?error=User Name is required");
+		header("Location: index-officer-incharge.php?error=User Name is required");
 	    exit();
 	}else if(empty($pass)){
-        header("Location: index-admin.php?error=Password is required");
+        header("Location: index-officer-icharge.php?error=Password is required");
 	    exit();
 	}else{
 		// hashing the password
         $pass = md5($pass);
 
         
-		$sql = "SELECT * FROM login_admin WHERE user_name='$uname' AND password='$pass'";
+		$sql = "SELECT * FROM login_officer_incharge WHERE user_name='$uname' AND password='$pass'";
 
 		$result = mysqli_query($conn, $sql);
 
@@ -35,19 +35,19 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             	$_SESSION['user_name'] = $row['user_name'];
             	$_SESSION['name'] = $row['name'];
             	$_SESSION['id'] = $row['id'];
-            	header("Location: ../home/Admin_landing_page.php");
+            	header("Location: ../home/Officer-incharge_landing_page.php");
 		        exit();
             }else{
-				header("Location: index-admin.php?error=Incorect User name or password");
+				header("Location: index-officer-incharge.php?error=Incorect User name or password");
 		        exit();
 			}
 		}else{
-			header("Location: index-admin.php?error=Incorect User name or password");
+			header("Location: index-officer-incharge.php?error=Incorect User name or password");
 	        exit();
 		}
 	}
 	
 }else{
-	header("Location: index-admin.php");
+	header("Location: index-officer-incharge.php");
 	exit();
 }
