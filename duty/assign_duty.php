@@ -78,6 +78,8 @@ mysqli_close($conn);
 <html>
 <head>
   <title>Duty Assignment</title>
+<?php include ("../common/top_bar.php");
+?>
 </head>
 <body>
   <h2>Duty Assignment</h2>

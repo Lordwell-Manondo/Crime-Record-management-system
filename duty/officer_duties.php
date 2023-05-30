@@ -7,7 +7,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Recorded cases</title>
+  <title>My Duties</title>
 </head>
 <body>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -17,7 +17,7 @@ session_start();
 
   <a href="../home/officer.php" style="text-decolation: none; margin-left: 50px; margin-top: 20px; color: white; font-size: 20px; font-weight: 100;">Back</a>
 
-  <h1 style="padding: 32px;">Assigned CASES</h1>
+  <h1 style="padding: 32px;">My Duties</h1>
 
 <table class="cases-table">
 
@@ -27,8 +27,7 @@ session_start();
     <th style="width: 10%;">Date to Report</th>
     <th style="width: 10%;">Suspect Name</th>
     <th style="width: 10%;">Victim Name</th>
-    <th style="width: 40%;">Incident</th>
-    <th style="width: 20%;"></th>
+    <th style="width: 10%;">Incident</th>
   </tr>
 <?php
 //linking up Record_case.php file with database using Connections.php file
