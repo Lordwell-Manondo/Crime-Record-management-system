@@ -8,12 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
     // check that POST data is not empty
     $is_valid = true;
-    if (empty($_POST['case_id']) || empty($_POST['emp_number']) || empty($_POST['date_to_report'])) {
+    if (empty($_POST['serial_no']) || empty($_POST['emp_number']) || empty($_POST['date_to_report'])) {
         $message = "<div style='background-color: #f8d7da; color: #721c24; padding: 10px;'>Please fill all fields.</div>";
         //echo $_POST['case_id'] . " ". $_POST['emp_number'] . " " . $_POST['date_to_report'];
         $is_valid = false;
     }
-    $case_id = $_POST['case_id'];
+    $case_id = $_POST['serial_no'];
     $emp_number = $_POST['emp_number'];
     $date_to_report = $_POST['date_to_report'];
 
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($is_valid) {
         // Prepare SQL query
-        $sql = "INSERT INTO duty (case_id, emp_number, date_to_report)
+        $sql = "INSERT INTO duty (serial_no, emp_number, date_to_report)
             VALUES ('$case_id', '$emp_number', '$date_to_report')";
 
         // Execute SQL query

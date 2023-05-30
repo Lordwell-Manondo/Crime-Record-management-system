@@ -16,14 +16,14 @@
 	<main>
         <h2>Assign Duty</h2>
         <form method="post">
-            <label for="case_id">Case ID:</label>
+            <label for="case_id">Case serial No:</label>
             <select name="case_id" id="case_id">
                 <option selectable="false" style="color: #aaa;">Choose Case</option>
                 <?php echo $cases; ?>
             </select>
 
-            <label for="emp_number">Employee Number:</label>
-            <select name="emp_number" id="emp_number">
+            <label for="Service_no">Service Number:</label>
+            <select name="Service_no" id="Service_no">
                 <option selectable="false" style="color: #aaa;">Choose Officer</option>
                 <?php echo $officers; ?>
             </select>

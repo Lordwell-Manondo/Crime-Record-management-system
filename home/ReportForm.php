@@ -6,13 +6,14 @@ include('../db/Connections.php');
 // Check for form submission and session authentication
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['id'])) {
     // Get form data
+    $user_id = $_POST["user_id"];
     $phone = $_POST["phone"];
     $location = $_POST["location"];
     $incident = $_POST["incident"];
 
     // Prepare the SQL statement
-    $stmt = $conn->prepare("INSERT INTO reportform (phone, location, incident) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $phone, $location, $incident);
+    $stmt = $conn->prepare("INSERT INTO reportform (user_id, phone, location, incident) VALUES ($user_id, $phone, $location, $incident)");
+    // $stmt->bind_param("sss", $phone, $location, $incident);
 
     // Execute the statement
     if ($stmt->execute()) {
