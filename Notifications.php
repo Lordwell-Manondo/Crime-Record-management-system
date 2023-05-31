@@ -95,7 +95,11 @@ h1 {
     <?php
     // Connect to the MySQL database
     include('./db/Connections.php');
-
+    // Create a new instance of the Connection class
+    $connection = new Connection();
+    
+    // Call the connect() method to establish a database connection
+    $conn = $connection->connect();
     // SQL statement
     $sql = "SELECT * FROM reportform";
 

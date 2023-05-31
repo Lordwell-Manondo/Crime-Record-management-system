@@ -1,6 +1,11 @@
 <?php
 // Include the file for database connection
 require_once '../db/Connections.php';
+// Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
 
 // Function to insert form data into the database
 function insertFormData($phone, $location, $description, $conn) {
@@ -55,46 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <input type="submit" value="Submit">
     </form> 
-    <!-- <div id="map" style="height: 400px; width: 100%; margin-left: 10px;"></div>
-
-    <script>
-        function initMap() {
-            // Create a map object and specify the initial coordinates
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: 0, lng: 0},
-                zoom: 15
-            });
-
-            // Add a marker to the map based on the selected location
-            var input = document.getElementById('location');
-            var autocomplete = new google.maps.places.Autocomplete(input);
-            autocomplete.bindTo('bounds', map);
-
-            autocomplete.addListener('place_changed', function() {
-                var place = autocomplete.getPlace();
-
-                if (!place.geometry) {
-                    window.alert("No details available for input: '" + place.name + "'");
-                    return;
-                }
-
-                if (place.geometry.viewport) {
-                    map.fitBounds(place.geometry.viewport);
-                } else {
-                    map.setCenter(place.geometry.location);
-                    map.setZoom(15);
-                }
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: place.geometry.location
-                });
-            });
-        }
-
-        google.maps.event.addDomListener(window, 'load', initMap);
-    </script>
-        </div> -->
 </body>
 <style>
     body {
