@@ -42,6 +42,11 @@
 //linking up Record_case.php file with database using Connections.php file
 include('../db/Connections.php');
 
+// Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
 // Define the number of records to display per page
 $records_per_page = 7;
 
