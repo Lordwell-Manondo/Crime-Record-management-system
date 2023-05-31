@@ -2,7 +2,7 @@
 
 // connect to database
 session_start();
-include('./db/Connections.php');
+include('../db/Connections.php');
 
 // Create a new instance of the Connection class
 $connection = new Connection();
@@ -62,16 +62,21 @@ mysqli_close($conn);
     google.charts.load('current', {'packages':['bar']});
     google.charts.setOnLoadCallback(drawChart);
 
+ 
     function drawChart() {
   var categories = <?php echo json_encode($caseCategories); ?>;
   var countValues = <?php echo json_encode(array_values($categoryCounts)); ?>;
 
   var data = new google.visualization.arrayToDataTable([
-    ['Category', 'Value'],
+    ['Category', 'Value', { role: 'annotation' }],
     <?php
+    $totalCount = array_sum($categoryCounts); // Calculate the total count of all categories
+    
     foreach ($caseCategories as $category) {
       $count = $categoryCounts[$category];
-      echo "['" . $category . "', " . $count . "],";
+      $percentage = round(($count / $totalCount) * 100, 2); // Calculate the percentage
+      
+      echo "['" . $category . "', " . $count . ", {v: '" . $percentage . "%', f: '<span style=\"color: red;\">" . $percentage . "%</span>'}],";
     }
     ?>
   ]);
@@ -80,7 +85,19 @@ mysqli_close($conn);
     chart: {
       title: 'Bar Chart Title',
       subtitle: 'Bar Chart Subtitle',
-    }
+    },
+    annotations: {
+      textStyle: {
+        fontSize: 12,
+        
+        
+         },
+
+    },
+  
+      bar: { groupWidth: '20%'}
+    
+    
   };
 
   var chart = new google.charts.Bar(document.getElementById('chart_div'));

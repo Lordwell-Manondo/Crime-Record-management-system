@@ -44,7 +44,8 @@
                                   <a class="dropdown-item" href="../cases/Record_case.php" style="font-size: 20px; font-weight: 100; ">Record case</a>
                                  <a class="dropdown-item" href="../cases/View_cases.php"    style="font-size: 20px; font-weight: 100;">View cases</a>
                                  <a class="dropdown-item" href="../cases/View-assigned-cases.php"    style="font-size: 20px; font-weight: 100;">View  assigned cases</a>
-                             </div>
+                                 <a class="dropdown-item" href="../cases/cases_bargraph.php"    style="font-size: 20px; font-weight: 100;">Cases trend</a>
+                                </div>
                           </li>
                 
                           <li class="nav-item dropdown">
