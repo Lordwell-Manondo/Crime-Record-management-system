@@ -1,13 +1,17 @@
 <?php
+class Connection {
+    private $host = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $dbName = "crms";
 
-$sname= "localhost";
-$unmae= "root";
-$password = "";
+    public function connect() {
+        $conn = new mysqli($this->host, $this->username, $this->password, $this->dbName);
 
-$db_name = "crms";
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
-$conn = mysqli_connect($sname, $unmae, $password, $db_name);
-
-if (!$conn) {
-	echo "Connection failed!";
+        return $conn;
+    }
 }
