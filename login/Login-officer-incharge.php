@@ -7,6 +7,12 @@ $connection = new Connection();
 // Call the connect() method to establish a database connection
 $conn = $connection->connect();
 
+// Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
+
 if (isset($_POST['uname']) && isset($_POST['password'])) {
 
 	function validate($data){

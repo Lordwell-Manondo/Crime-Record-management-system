@@ -3,6 +3,12 @@ session_start();
 //  if (!isset($_SESSION['service_no'])) {
 // //header('location: ../login/Login-officer.php');
 // }
+
+// Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
 ?>
 <!DOCTYPE html>
 <html>

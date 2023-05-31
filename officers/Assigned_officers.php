@@ -20,6 +20,12 @@
   //linking up Record_case.php file with database using Connections.php file
   include('../db/Connections.php');
 
+  // Create a new instance of the Connection class
+  $connection = new Connection();
+    
+  // Call the connect() method to establish a database connection
+  $conn = $connection->connect();
+
     // Retrieve recorded cases from the database
     $sql = 'SELECT *  FROM assign_work';
     $result = mysqli_query($con, $sql);

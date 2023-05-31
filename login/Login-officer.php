@@ -2,6 +2,12 @@
 session_start();
 include("../db/Connections.php");
 
+// Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
+
 $service_noErr = $passwordErr = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
