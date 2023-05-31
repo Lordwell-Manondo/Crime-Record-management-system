@@ -3,9 +3,9 @@
 require_once '../db/Connections.php';
 
 // Function to insert form data into the database
-function insertFormData($phone, $location, $description, $connection) {
+function insertFormData($phone, $location, $description, $conn) {
     // Prepare the SQL statement
-    $statement = $connection->prepare("INSERT INTO reportform (phone, location, description) VALUES (?, ?, ?)");
+    $statement = $conn->prepare("INSERT INTO reportform (phone, location, description) VALUES (?, ?, ?)");
 
     // Bind the parameters with the form values
     $statement->bind_param("sss", $phone, $location, $description);
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Report Form</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi1Re9rRPX6TGBv81ox0H7tRXfQ7eg9lo&libraries=places"></script>
     <script>
         // Initialize Google Places Autocomplete
         function initializeAutocomplete() {
@@ -54,49 +54,89 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <input type="submit" value="Submit">
     </form>
+<br> 
+    <div id="map" style="height: 400px; width: 100%;"></div>
+
+    <script>
+        function initMap() {
+            // Create a map object and specify the initial coordinates
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 0, lng: 0},
+                zoom: 15
+            });
+
+            // Add a marker to the map based on the selected location
+            var input = document.getElementById('location');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.bindTo('bounds', map);
+
+            autocomplete.addListener('place_changed', function() {
+                var place = autocomplete.getPlace();
+
+                if (!place.geometry) {
+                    window.alert("No details available for input: '" + place.name + "'");
+                    return;
+                }
+
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(15);
+                }
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: place.geometry.location
+                });
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
 </body>
 <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: rgb(0, 109, 139);
-        }
-        
-        h2 {
-            color: white;
-            text-align: center;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-        }
-        
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-        
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        form {
-	width: 300px;
-	border: 2px solid #ccc;
-	padding: 30px;
-	background: #fff;
-	border-radius: 15px;
-    margin: auto;
-}
-    </style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(0, 109, 139);
+    }
+    
+    h2 {
+        color: white;
+        text-align: center;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+    }
+    
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    form {
+        width: 300px;
+        border: 2px solid #ccc;
+        padding: 30px;
+        background: #fff;
+        border-radius: 15px;
+        margin: auto;
+    }
+</style>
 </html>
