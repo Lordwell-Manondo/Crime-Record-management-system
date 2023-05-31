@@ -30,9 +30,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Report Form</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script>
+        // Initialize Google Places Autocomplete
+        function initializeAutocomplete() {
+            var input = document.getElementById('location');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+        }
+        google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
+    </script>
 </head>
 <body>
-    <h2 style="text-align: center;">Report Form</h2>
+    <h2>Report Form</h2>
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <label for="phone">Phone:</label>
         <input type="text" name="phone" id="phone" required><br><br>
@@ -54,6 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         h2 {
             color: white;
+            text-align: center;
         }
         
         label {
