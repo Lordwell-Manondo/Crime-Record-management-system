@@ -41,7 +41,7 @@
                        </li>
                        
                       <li class="nav-item" >
-                      <a class="nav-link" style="color: rgb(19, 17, 17);" href="../login/Login_user.php">Report incident</a>
+                      <a class="nav-link" style="color: rgb(19, 17, 17);" href="ReportForm.php">Report incident</a>
                       </li>
                       <li class="nav-item"  >
                       <a class="nav-link" style="color: rgb(19, 17, 17);" href="#" >FAQ</a>

@@ -16,18 +16,5 @@ if (mysqli_num_rows($result) > 0) {
   }
 }
 
-
-// Retrieve the list of suspects from the database
-// $sql = "SELECT * FROM `suspects`";
-// $result = mysqli_query($conn, $sql);
-// $suspects = "";
-// if (mysqli_num_rows($result) > 0) {
-//   while ($row = mysqli_fetch_assoc($result)) {
-//     $suspects .= "<li><a href='#'>".$row['name']."</a></li>";
-//   }
-// }
-
-
-// Close the database connection
 mysqli_close($conn);
 ?>

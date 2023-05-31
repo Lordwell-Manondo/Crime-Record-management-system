@@ -10,21 +10,26 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-  <a href="../home/home.php" style="text-decolation: none; margin-left: 1250px; margin-top: 20px; color: black; font-size: 20px; font-weight: 100;">Logout</a>
-  <a href="../home/admin_landing_page.php" style="text-decolation: none; margin-left: 50px; margin-top: 20px; color: white; font-size: 20px; font-weight: 100;">Back</a>
+  <a href="../home/logout.php" style="text-decolation: none; margin-left: 1250px; margin-top: 20px; color: black; font-size: 20px; font-weight: 100;">Logout</a>
+  <a href="../home/officer-incharge_landing_page.php" style="text-decolation: none; margin-left: 50px; margin-top: 20px; color: white; font-size: 20px; font-weight: 100;">Back</a>
 
   <h1>RECORDED CASES</h1>
 
-<form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search for case..." aria-label="Search" name="search">
+  
+
+<form method="POST" action="View-cases-officer.php" class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search of suspect..." aria-label="Search" name="search">
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+
 
 </form>
 
 <table class="cases-table">
 
 <tr>
-    <th style="width: 10%;">Serial No.</th> 
+ 
+   <th style="width: 10%;">Serial No.</th> 
     <th style="width: 15%;">Suspect</th>
     <th style="width: 15%;">Victim</th>
     <th style="width: 40%;">Incident</th>
@@ -99,11 +104,6 @@ else if(mysqli_num_rows($result) >0) {
     echo "<td>" . $row['date'] . "</td>";
     echo "<td>" . $row['type'] . "</td>";
     echo '<td >' . $row['status'] . '</td>';
-
-   
-   // edit the case
-    echo "<td><a href='update_case.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Edit</a></td>";
-    echo "</tr>";
   
   }
 }
@@ -233,7 +233,10 @@ h3{
     background-color: #dee2e6; /* Customize the header row background color */
     font-weight: bold;
   }
- </style>
+
+  
+
+  </style>
 </body>
 </html>
 
