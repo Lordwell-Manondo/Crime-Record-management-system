@@ -44,70 +44,96 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 // Print the category counts
-foreach ($categoryCounts as $category => $count) {
-  echo $category . ": " . $count . "<br>";
-}
+//foreach ($categoryCounts as $category => $count) {
+ 
+  //echo $category . ": " . $count . "<br>";
+
+ //$totalCount = array_sum($categoryCounts); // Calculate the total count of all categories
+ 
+  // $count = $categoryCounts[$category];
+   //$percentage = round(($count / $totalCount) * 100, 2); // Calculate the percentage
+   //echo "". $percentage ."";
+   //echo "" . $category . "     " . $count ."      ". $percentage . "% " ."<br>";
+ 
+
+//}
 
 mysqli_close($conn);
 ?>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>cases</title>
+  <title>cases bar chart</title>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', {'packages':['bar']});
     google.charts.setOnLoadCallback(drawChart);
 
- 
+    //creating a function for drawing the bar chart
     function drawChart() {
+      //defining and initializing variable categories and countValues and give them the values of categories and number of 
+      //categories respectively
   var categories = <?php echo json_encode($caseCategories); ?>;
   var countValues = <?php echo json_encode(array_values($categoryCounts)); ?>;
 
   var data = new google.visualization.arrayToDataTable([
-    ['Category', 'Value', { role: 'annotation' }],
+    ['CATEGORY', { role: 'annotation' }," "],
     <?php
-    $totalCount = array_sum($categoryCounts); // Calculate the total count of all categories
+    
+    // Calculate the total count of all categories
+    $totalCount = array_sum($categoryCounts); 
     
     foreach ($caseCategories as $category) {
       $count = $categoryCounts[$category];
       $percentage = round(($count / $totalCount) * 100, 2); // Calculate the percentage
-      
-      echo "['" . $category . "', " . $count . ", {v: '" . $percentage . "%', f: '<span style=\"color: red;\">" . $percentage . "%</span>'}],";
+     //display the category bar with its percentage
+      echo "['" . $category . "', " . $percentage . ", {v: '" . $percentage . "%', f: ' $percentage '}],";
     }
     ?>
   ]);
 
   var options = {
     chart: {
-      title: 'Bar Chart Title',
-      subtitle: 'Bar Chart Subtitle',
+      title: 'Bar chart showing the recorded cases in Malawi',
+      data : 'in',
+      bar: ''
+     
+      
     },
+
+    titleTextStyle: {
+    color: 'gray',
+    fontSize: 30,
+    marginLeft: 30,
+    bold: true
+    
+    
+    
+    
+  },
     annotations: {
       textStyle: {
         fontSize: 12,
-        
-        
-         },
-
-    },
-  
-      bar: { groupWidth: '20%'}
-    
-    
+        },
+   },
+   bar: { groupWidth: '60%',
+        color: 'red',
+      
+      }
   };
 
   var chart = new google.charts.Bar(document.getElementById('chart_div'));
   chart.draw(data, google.charts.Bar.convertOptions(options));
+
 }
 
 
   </script>
 </head>
 <body>
+   
+   </style>
   <div id="chart_div" style="width: 100%; height: 500px; "></div>
 </body>
 </html>
