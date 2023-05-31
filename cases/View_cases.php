@@ -27,9 +27,9 @@
     <th style="width: 10%;">Serial No.</th> 
     <th style="width: 15%;">Suspect</th>
     <th style="width: 15%;">Victim</th>
-    <th style="width: 40%;">Incident</th>
+    <th style="width: 35%;">Incident</th>
     <th style="width: 15%;">Location</th>
-    <th style="width: 15%;">Date</th>
+    <th style="width: 20%;">Date</th>
     <th style="width: 15%;">Type</th>
     <th style="width: 10%;">Status</th>
   </tr>
@@ -38,7 +38,7 @@
 include('../db/Connections.php');
 
 // Define the number of records to display per page
-$records_per_page = 7;
+$records_per_page = 9;
 
 // Determine the current page number
 if (!isset($_GET['page'])) {
@@ -110,8 +110,8 @@ else if(mysqli_num_rows($result) >0) {
  else  {
 
   
-$message = "No suspect, victim, serial or case type named:  ".$_POST['search'];
-echo "<div style='color: white; padding: 10px; font-size: 30px; font-weight: 300;'>" . $message . "</div>";
+$message = "No suspect, victim, serial or case type named  ".$_POST['search']." available";
+echo "<div style='color: white; padding: 10px; font-size: 20px; font-weight: 300;'>" . $message . "</div>";
 
 
 }
