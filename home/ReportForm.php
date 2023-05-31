@@ -1,6 +1,11 @@
 <?php
 // Include the file for database connection
 require_once '../db/Connections.php';
+// Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
 
 // Function to insert form data into the database
 function insertFormData($phone, $location, $description, $conn) {
