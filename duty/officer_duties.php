@@ -1,5 +1,6 @@
 <?php 
 session_start();
+
 //  if (!isset($_SESSION['service_no'])) {
 // //header('location: ../login/Login-officer.php');
 // }
@@ -33,6 +34,13 @@ session_start();
 <?php
 //linking up Record_case.php file with database using Connections.php file
 include('../db/Connections.php');
+
+// Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
+
 
 // Retrieve the list of cases from the database
 $sql = "SELECT * FROM `duty` JOIN `cases` ON duty.serial_no=cases.serial_no JOIN officers ON officers.service_no=duty.service_no WHERE officers.service_no = ". $_SESSION["service_no"] . " ORDER BY date_assigned";
