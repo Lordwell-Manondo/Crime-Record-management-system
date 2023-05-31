@@ -45,7 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Execute SQL query
         if (mysqli_query($conn, $sql)) {
         // Success message
-        $message = "<div style='background-color: #d4edda; color: #155724; padding: 10px;'>Duty assigned successfully</div>";
+        $message = "<div style='width: 15%; background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-left: 42%;'>Duty assigned successfully</div>";
+        $refreshTime = 5;
+         // Generate the meta tag with the refresh time
+         $metaTag = "<meta http-equiv='refresh' content='$refreshTime'>";
+
+         // Output the meta tag
+         echo $metaTag;
         
       } 
       
@@ -57,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Retrieve the available case serial numbers from the database
-$sql = "SELECT * FROM `cases` ORDER BY id";
+$sql = "SELECT * FROM `cases` WHERE status='Open' ORDER BY id";
 $result = mysqli_query($conn, $sql);
 $cases = "";
 if (mysqli_num_rows($result) > 0) {
@@ -105,7 +111,7 @@ mysqli_close($conn);
     <label for="date_to_report">Date to report:</label>
     <input type="date" id="date_to_report" name="date_to_report" style="width: 95%;"  min="<?php echo date('Y-m-d'); ?>">
     <br><br>
-    <input type="submit" value="Assign Duty">
+    <input type="submit" value="Assign">
   </form>
  
   <style>
@@ -124,7 +130,7 @@ mysqli_close($conn);
     form {
       max-width: 500px;
       margin: 0 auto;
-      background-color: wheat;
+      background-color: whitesmoke;
       padding: 20px;
       border-radius: 5px;
       height: 450px;
@@ -142,14 +148,22 @@ mysqli_close($conn);
       padding: 10px;
       margin-bottom: 25px;
       border: none;
-      border-radius: 3px;
+      border-radius: 5px;
     }
 
     input[type="submit"] {
       background-color: #007bff;
       color: white;
       cursor: pointer;
+      border-radius: 8px;
       height: 8%;
+      width: 20%;
+      margin-left: 40%;
+      font-size: 20px;
+      font-weight: 100;
+      padding: 5px;
+      margin-top: 25px;
+      
     }
 
     input[type="submit"]:hover {

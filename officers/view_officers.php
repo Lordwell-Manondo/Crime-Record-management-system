@@ -6,7 +6,7 @@
 <body>
     <header>
     <form method="post" action="" style="margin-left: 0;">
-      <input type="text" name="employee_number" placeholder="Use employee number">
+      <input type="text" name="service_no" placeholder="Use employee number">
         <input type="submit" name="search" value="Search">
       </form>
 

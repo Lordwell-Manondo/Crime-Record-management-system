@@ -28,12 +28,13 @@ $conn = $connection->connect();
 <table class="cases-table">
 
 <tr>
-   <th style="width: 10%;">Serial No</th> 
-    <th style="width: 10%;">Date Assigned</th>
-    <th style="width: 10%;">Date to Report</th>
-    <th style="width: 10%;">Suspect Name</th>
-    <th style="width: 10%;">Victim Name</th>
-    <th style="width: 10%;">Incident</th>
+   <th style="text-size: 10px; ">Serial No</th> 
+   <th style="text-size: 10px;">Suspect Name</th>
+    <th style="text-size: 10px;">Victim Name</th>
+    <th style="text-size: 10px; width: 25%;">Incident</th>
+    <th style="text-size: 10px;">Date Assigned</th>
+    <th style="text-size: 10px;">Date to Report</th>
+    
   </tr>
 <?php
 //linking up Record_case.php file with database using Connections.php file
@@ -60,14 +61,13 @@ else if(mysqli_num_rows($result) >0) {
     echo "<tr>";
     
     echo "<td>" . $row['serial_no'] . "</td>";
-    echo "<td>" . $row['date_assigned'] . "</td>";
-    echo "<td>" . $row['date_to_report'] . "</td>";
     echo "<td>" . $row['suspect_name'] . "</td>";
     echo "<td>" . $row['victim_name'] . "</td>";
     echo "<td>" . $row['incident'] . "</td>";
-   
+    echo "<td>" . $row['date_assigned'] . "</td>";
+    echo "<td>" . $row['date_to_report'] . "</td>";
    // edit the case
-    echo "<td><a href='report_work.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px; padding: 5px;'>Report Work</a></td>";
+    echo "<td><a href='report_work.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px; padding: 5px;'>Report</a></td>";
     echo "</tr>";
   
   }
@@ -88,7 +88,7 @@ mysqli_close($conn);
     }
    
     h1{  
-        font-weight: 100;
+      
         text-align: center;
         color: khaki; 
         margin-top: -30px; 
@@ -110,12 +110,19 @@ mysqli_close($conn);
    border-spacing: 1 10px;
   width: 90%;
   margin-left: 5%;
+  
    
    
   }
-  td, th {
+   th {
     border: 1px;
-    padding: 10px;
+    padding: 5px;
+    color: black;
+    font-weight: 450;
+  }
+  td{
+    border: 1px;
+    padding: 10px; 
   }
   
   td {
@@ -130,7 +137,7 @@ mysqli_close($conn);
   }
   /* Customize the first row (header row) */
 table tr:first-child {
-  background-color: #ddd;
+  background-color: khaki;
   font-weight: bold;
   font-size: 18px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
