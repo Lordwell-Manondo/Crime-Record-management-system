@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </script>
 </head>
 <body>
+    <div>
     <h2>Report Form</h2>
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <label for="phone">Phone:</label>
@@ -53,9 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <textarea name="description" id="description" rows="5" required></textarea><br><br>
         
         <input type="submit" value="Submit">
-    </form>
-<br> 
-    <div id="map" style="height: 400px; width: 100%;"></div>
+    </form> 
+    <!-- <div id="map" style="height: 400px; width: 100%; margin-left: 10px;"></div>
 
     <script>
         function initMap() {
@@ -94,6 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         google.maps.event.addDomListener(window, 'load', initMap);
     </script>
+        </div> -->
 </body>
 <style>
     body {
@@ -131,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         background-color: #45a049;
     }
     form {
-        width: 300px;
+        width: 400px;
         border: 2px solid #ccc;
         padding: 30px;
         background: #fff;
