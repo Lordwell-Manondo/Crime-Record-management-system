@@ -11,28 +11,24 @@
 
 
   <a href="../home/logout.php" style="text-decolation: none; margin-left: 1250px; margin-top: 20px; color: black; font-size: 20px; font-weight: 100;">Logout</a>
-  <a href="../home/admin_landing_page.php" style="text-decolation: none; margin-left: 50px; margin-top: 20px; color: white; font-size: 20px; font-weight: 100;">Back</a>
+  <a href="../home/Officer-incharge_landing_page.php" style="text-decolation: none; margin-left: 50px; margin-top: 20px; color: white; font-size: 20px; font-weight: 100;">Back</a>
 
   <h1>ASSIGNED CASES</h1>
 
-  
-
-<form method="POST" action="duty.php" class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search of suspect..." aria-label="Search" name="search">
+<form method="POST" action="View-assigned-cases.php" class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search for case..." aria-label="Search" name="search">
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
-
 
 </form>
 
 <table class="cases-table">
 
 <tr>
- 
-   <th style="width: 10%;">Case id</th> 
-    <th style="width: 15%;">Employee Number</th>
+    <th style="width: 10%;">Serial No.</th> 
+    <th style="width: 15%;">Service No</th>
     <th style="width: 15%;">Date Assigned</th>
-    <th style="width: 40%;">Date to report</th>
+    <th style="width: 40%;">Date to Report</th>
+    <th style="width: 15%;">Status</th>
   </tr>
 <?php
 //linking up Record_case.php file with database using Connections.php file
@@ -54,9 +50,9 @@ $start_record = ($current_page - 1) * $records_per_page;
 // Modify the SQL query to use the LIMIT clause
 if (!empty($_POST['search'])) {
   $search = mysqli_real_escape_string($conn, $_POST['search']);
-  $sql = "SELECT * FROM duty WHERE case_id LIKE '%$search%' OR emp_number LIKE '%$search%'  OR date_assigned LIKE '%$search%' OR date_to_report LIKE '%$search%' ORDER BY id DESC LIMIT $start_record, $records_per_page";
+  $sql = "SELECT * FROM duty WHERE serial_no LIKE '%$search%' OR service_no LIKE '%$search%' OR date_assigned LIKE '%$search%' OR date_to_report LIKE '%$search%' ORDER BY date_assigned DESC LIMIT $start_record, $records_per_page";
 } else {
-  $sql = "SELECT * FROM duty ORDER BY id DESC LIMIT $start_record, $records_per_page";
+  $sql = "SELECT * FROM duty ORDER BY date_assigned DESC LIMIT $start_record, $records_per_page";
 }
 
 $result = mysqli_query($conn, $sql);
@@ -64,7 +60,7 @@ $result = mysqli_query($conn, $sql);
 // Get the total number of records
 if (!empty($_POST['search'])) {
   $search = mysqli_real_escape_string($conn, $_POST['search']);
-  $sql = "SELECT COUNT(*) FROM duty WHERE case_idLIKE '%$search%' OR emp_number LIKE '%$search%'";
+  $sql = "SELECT COUNT(*) FROM duty WHERE serial_no LIKE '%$search%' OR service_no LIKE '%$search%'";
 } else {
   $sql = "SELECT COUNT(*) FROM duty";
 }
@@ -76,27 +72,47 @@ $total_pages = ceil($total_records / $records_per_page);
 
 // check if the data is available in the database
 echo '<div class="data-container">';
- if(mysqli_num_rows($result) > 0) {
+if(mysqli_num_rows($result) <0){
+  $message = "No case recorded.";
+}
+else if(mysqli_num_rows($result) >0) {
+
+
      // count the total number of rows in the table
-     $sql = "SELECT COUNT(*) FROM duty";     
+     $sql = "SELECT COUNT(*) FROM duty";
+    
+     
   while ($row = mysqli_fetch_assoc($result)) {
+
+
     // display the data
     echo "<tr>";
     
-    echo "<td>" . $row['case_id'] . "</td>";
-    echo "<td>" . $row['emp_number'] . "</td>";
+    echo "<td>" . $row['serial_no'] . "</td>";
+    echo "<td>" . $row['service_no'] . "</td>";
     echo "<td>" . $row['date_assigned'] . "</td>";
     echo "<td>" . $row['date_to_report'] . "</td>";
+
    
-    echo "</tr>";
+   // edit the case
+    // echo "<td><a href='update_case.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Edit</a></td>";
+    // echo "</tr>";
   
   }
 }
- 
+ else  {
+
+  
+$message = "No suspect, victim, serial or case type named:  ".$_POST['search'];
+echo "<div style='color: white; padding: 10px; font-size: 30px; font-weight: 300;'>" . $message . "</div>";
+
+
+}
+
 // Display the navigation links
 echo "<div class='pagination'>";
 if ($current_page > 1) {
-  echo "<a href='View_cases.php?page=".($current_page-1)."' style='color: white;'>Previous</a>";
+  echo "<a href='View-assigned-cases.php?page=".($current_page-1)."' style='color: white;'>Previous</a>";
 }
 for ($i = 1; $i <= $total_pages; $i++) {
   if ($i == $current_page) {
@@ -210,14 +226,6 @@ h3{
     background-color: #dee2e6; /* Customize the header row background color */
     font-weight: bold;
   }
-
-  
-
-  </style>
+ </style>
 </body>
 </html>
-
-
- 
-
-  
