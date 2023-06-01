@@ -25,15 +25,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = $connection->connect();
 
     // Prepare the SQL statement
-    $stmt = $conn->prepare("INSERT INTO officers (first_name, last_name, service_number, date_of_entry, officer_rank, station, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO officers (first_name, last_name, service_no, date_of_entry, officer_rank, station, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
     // Bind the parameters to the statement
-    $stmt->bind_param("sssssss", $first_name, $last_name, $service_number, $date_of_entry, $officer_rank, $station, $hashed_password);
+    $stmt->bind_param("sssssss", $first_name, $last_name, $service_no, $date_of_entry, $officer_rank, $station, $hashed_password);
 
     // Set the parameter values
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
-    $service_number = $_POST["service_number"];
+    $service_no = $_POST["service_no"];
     $date_of_entry = $_POST["date_of_entry"];
     $officer_rank = $_POST["officer_rank"];
     $station = $_POST["station"];
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Execute the statement
     if ($stmt->execute()) {
         echo "<span style='color: blue; font-weight: bold;'>Officer added successfully!</span><br><br>";
-        echo "Service Number: " . $service_number . "<br>";
+        echo "Service No: " . $service_no . "<br>";
         echo "Password: " . $password . "<br>";
         echo "Note: The password has been hashed for security purposes.";
     } else {
