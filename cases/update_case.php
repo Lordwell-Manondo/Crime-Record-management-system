@@ -2,6 +2,12 @@
 session_start();
 include('../db/Connections.php');
 
+// Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     // rest of your code
@@ -52,9 +58,15 @@ if (isset($row)) {
        <label class="input-label">Case type:</label>
            <select class="form-control" id="type" name="type">
                             <option value="<?php echo $type ?? ''; ?>"><?php echo $type ?? ''; ?></option>
-                            <option value="Theft">Theft</option>
-                            <option value="Vandalism">Vandalism</option>
-                             <option value="Violent">Violent</option>
+                            <option value="Criminal offense">Criminal offense</option>
+                            <option value="Traffic violation">Traffic violation</option>
+                             <option value="Domestic violation">Domestic violation</option>
+                             <option value="Cybercrime">Cybercrime</option>
+                             <option value="Child protection">Child protection</option>
+                             <option value="Human right violation">Human right violation</option>
+                             <option value="Environmental offense">Environmental offense</option>
+                             <option value="Financial crime">Financial crime</option>
+                             <option value="Public order offense">Public order offense</option>
             </select>
        </div>
 

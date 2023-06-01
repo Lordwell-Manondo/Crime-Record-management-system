@@ -4,6 +4,12 @@ session_start();
     //linking up Record_case.php file with database using Connections.php file
     include('../db/Connections.php');
 
+    // Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
+
    
 //defining and initializing variables that will be used to pass values into database     
  if($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -115,9 +121,15 @@ session_start();
                         <div class="form-group">
                         <label for="my-dropdown">Crime type</label>
                             <select class="form-control" id="type" name="type">
-                            <option value="Theft">Theft</option>
-                            <option value="Vandalism">Vandalism</option>
-                             <option value="Violent">Violent</option>
+                            <option value="Criminal offense">Criminal offense</option>
+                            <option value="Traffic violation">Traffic violation</option>
+                             <option value="Domestic violation">Domestic violation</option>
+                             <option value="Cybercrime">Cybercrime</option>
+                             <option value="Child protection">Child protection</option>
+                             <option value="Human right violation">Human right violation</option>
+                             <option value="Environmental offense">Environmental offense</option>
+                             <option value="Financial crime">Financial crime</option>
+                             <option value="Public order offense">Public order offense</option>
                            </select>
                            <span class="error">Please select crime type</span>
                         </div>
