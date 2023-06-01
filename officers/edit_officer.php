@@ -2,20 +2,25 @@
 // Database credentials
 session_start();
 include('../db/Connections.php');
+ // Create a new instance of the Connection class
+ $connection = new Connection();
+
+ // Call the connect() method to establish a database connection
+ $conn = $connection->connect();
 
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Prepare the SQL statement
-    $stmt = $conn->prepare("UPDATE officers SET first_name=?, last_name=?, emp_number=?, date_of_entry=?, officer_rank=?, station=? WHERE id=?");
+    $stmt = $conn->prepare("UPDATE officers SET first_name=?, last_name=?, service_no=?, date_of_entry=?, officer_rank=?, station=? WHERE id=?");
 
     // Bind the parameters to the statement
-    $stmt->bind_param("ssssssi", $first_name, $last_name, $emp_number, $date_of_entry, $officer_rank, $station, $id);
+    $stmt->bind_param("ssssssi", $first_name, $last_name, $service_no, $date_of_entry, $officer_rank, $station, $id);
 
     // Set the parameter values
     $id = $_POST["id"];
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
-    $emp_number = $_POST["emp_number"];
+    $service_no = $_POST["service_no"];
     $date_of_entry = $_POST["date_of_entry"];
     $officer_rank = $_POST["officer_rank"];
     $station = $_POST["station"];
@@ -60,8 +65,8 @@ if (isset($_GET["id"])) {
             <input type="text" name="first_name" value="<?php echo $officer['first_name']; ?>"><br>
             <label>Last Name:</label>
             <input type="text" name="last_name" value="<?php echo $officer['last_name']; ?>"><br>
-            <label>Employee Number:</label>
-            <input type="text" name="emp_number" value="<?php echo $officer['emp_number']; ?>"><br>
+            <label>Service Number:</label>
+            <input type="text" name="service_no" value="<?php echo $officer['service_no']; ?>"><br>
             <label>Date of Entry:</label>
             <input type="text" name="date_of_entry" value="<?php echo $officer['date_of_entry']; ?>"><br>
             <label>Officer Rank:</label>
