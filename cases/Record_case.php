@@ -123,7 +123,7 @@ $conn = $connection->connect();
 
                       <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="date" class="form-control" id="date" name="date"  required>
+                            <input type="date" class="form-control" id="date" name="date" max="<?php echo date('Y-m-d'); ?>" required>
                             <span class="error">Please enter a valid date</span>
                         </div>
 
