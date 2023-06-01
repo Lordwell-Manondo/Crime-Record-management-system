@@ -10,7 +10,7 @@
         <input type="submit" name="search" value="Search">
       </form>
 
-      <a class="logout-link" href="../home/Admin_landing_page.php" class="logout-link">Home</a>  
+      <a class="logout-link" href="../home/logout.php" class="logout-link">Home</a>  
 </header>
 
   <h1>OFFICERS</h1>
@@ -31,11 +31,10 @@
 		session_start();
 		include('../db/Connections.php');
     // Create a new instance of the Connection class
-    $connection = new Connection();
+$connection = new Connection();
     
-    // Call the connect() method to establish a database connection
-      $conn = $connection->connect();
-
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
 
 		if(isset($_POST['search'])) {
 			$service_no = $_POST['service_no'];

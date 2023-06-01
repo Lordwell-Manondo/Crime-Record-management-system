@@ -38,76 +38,123 @@ if (mysqli_num_rows($result) > 0) {
           // If the category doesn't exist, initialize the count to 1
           $categoryCounts[$category] = 1;
       }
-  }
+
+      }
+       // Find the category with the maximum count
+$maxCount = max($categoryCounts);
+$maxCategory = array_search($maxCount, $categoryCounts);
+//get the max category
+//echo "".$maxCategory.""  .$maxCount."";
+
+
 } else {
   echo "0 results";
 }
 
-// Print the category counts
-foreach ($categoryCounts as $category => $count) {
-  echo $category . ": " . $count . "<br>";
-}
+ //$totalCount = array_sum($categoryCounts); // Calculate the total count of all categories
+ 
+  // $count = $categoryCounts[$category];
+   //$percentage = round(($count / $totalCount) * 100, 2); // Calculate the percentage
+   //echo "". $percentage ."";
+   //echo "" . $category . "     " . $count ."      ". $percentage . "% " ."<br>";
+ 
+
+
 
 mysqli_close($conn);
 ?>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>cases</title>
+  <title>cases bar chart</title>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', {'packages':['bar']});
-    google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawChart);
 
- 
-    function drawChart() {
+// creating a function for drawing the bar chart
+function drawChart() {
   var categories = <?php echo json_encode($caseCategories); ?>;
   var countValues = <?php echo json_encode(array_values($categoryCounts)); ?>;
+  var maxCategory = <?php echo json_encode($maxCategory); ?>;
+  var maxCount = <?php echo $maxCount; ?>;
 
   var data = new google.visualization.arrayToDataTable([
-    ['Category', 'Value', { role: 'annotation' }],
+    ['CATEGORY', { role: 'annotation' }, " "],
     <?php
-    $totalCount = array_sum($categoryCounts); // Calculate the total count of all categories
-    
+      // Print the category counts
+foreach ($categoryCounts as $category => $count) {
+}
+
+    $totalCount = array_sum($categoryCounts); 
     foreach ($caseCategories as $category) {
       $count = $categoryCounts[$category];
-      $percentage = round(($count / $totalCount) * 100, 2); // Calculate the percentage
-      
-      echo "['" . $category . "', " . $count . ", {v: '" . $percentage . "%', f: '<span style=\"color: red;\">" . $percentage . "%</span>'}],";
+      $percentage = round(($count / $totalCount) * 100, 2);
+      echo "['" . $category ."(" .$count. ")". "', " . $percentage . ", {v: '" . $percentage . "%', f: ' $percentage '}],";
     }
+  
+
     ?>
   ]);
 
   var options = {
     chart: {
-      title: 'Bar Chart Title',
-      subtitle: 'Bar Chart Subtitle',
+      title: 'Bar chart showing the recorded cases in Malawi',
+      data: 'in',
+       borderRadius: 10,
+    },
+    titleTextStyle: {
+      color: 'gray',
+      fontSize: 30,
+      marginLeft: 30,
+      bold: true
     },
     annotations: {
       textStyle: {
         fontSize: 12,
-        
-        
-         },
-
+      }
     },
-  
-      bar: { groupWidth: '20%'}
-    
-    
+    bar: {
+      groupWidth: '60%',
+    },
+    colors: function () {
+      var colors = [];
+      for (var i = 0; i < (countValues.length); i++) {
+        if (countValues[i]=== maxCount) {
+          colors.push('red');
+        } else {
+          colors.push('#3366cc'); // Default color for other categories
+        }
+      }
+      return colors;
+    }()
   };
 
   var chart = new google.charts.Bar(document.getElementById('chart_div'));
   chart.draw(data, google.charts.Bar.convertOptions(options));
 }
-
-
-  </script>
+</script>
 </head>
 <body>
-  <div id="chart_div" style="width: 100%; height: 500px; "></div>
+ 
+  <style>
+    body{
+      background-color: khaki;
+    }
+    .count{
+      margin-bottom: 10%;
+    }
+
+    
+  </style>
+  <div id="chart_div" style="width: 100%; height: 500px; border-radius: 10%;"></div>
+
+<?php
+
+
+?>
+
+
 </body>
 </html>

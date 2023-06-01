@@ -70,7 +70,16 @@ $conn = $connection->connect();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Dv78Sm9XbiIbS8ykO4GpxbEikx4s4w4sLM8WY7V+jvocEy9IaUBM0tZu0tPHq3IvguNN7wQ2EoYB3Cq3j/9XGQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
+        
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi1Re9rRPX6TGBv81ox0H7tRXfQ7eg9lo&libraries=places"></script>
+    <script>
+        // Initialize Google Places Autocomplete
+        function initializeAutocomplete() {
+            var input = document.getElementById('location');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+        }
+        google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
+    </script>
 </head>
 <div class="navbar">
  
@@ -114,16 +123,22 @@ $conn = $connection->connect();
 
                       <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="date" class="form-control" id="date" name="date"  required>
+                            <input type="date" class="form-control" id="date" name="date" max="<?php echo date('Y-m-d'); ?>" required>
                             <span class="error">Please enter a valid date</span>
                         </div>
 
                         <div class="form-group">
                         <label for="my-dropdown">Crime type</label>
                             <select class="form-control" id="type" name="type">
-                            <option value="Theft">Theft</option>
-                            <option value="Vandalism">Vandalism</option>
-                             <option value="Violent">Violent</option>
+                            <option value="Criminal offense">Criminal offense</option>
+                            <option value="Traffic violation">Traffic violation</option>
+                             <option value="Domestic violation">Domestic violation</option>
+                             <option value="Cybercrime">Cybercrime</option>
+                             <option value="Child protection">Child protection</option>
+                             <option value="Human right violation">Human right violation</option>
+                             <option value="Environmental offense">Environmental offense</option>
+                             <option value="Financial crime">Financial crime</option>
+                             <option value="Public order offense">Public order offense</option>
                            </select>
                            <span class="error">Please select crime type</span>
                         </div>
