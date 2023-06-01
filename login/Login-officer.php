@@ -1,47 +1,47 @@
 <?php
-session_start();
-include("../db/Connections.php");
-
+session_start(); 
+include "../db/Connections.php";
 // Create a new instance of the Connection class
 $connection = new Connection();
     
 // Call the connect() method to establish a database connection
 $conn = $connection->connect();
 
-$service_noErr = $passwordErr = "";
+// Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve the form data
+    $serviceNo = $_POST["service_no"];
+    $password = $_POST["password"];
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    // Something was posted
-    $service_no = $_POST['service_no'];
-    $password = $_POST['password'];
+    // Prepare and execute the SQL statement
+    $stmt = $conn->prepare("SELECT * FROM officers WHERE service_no = ?");
+    $stmt->bind_param("s", $serviceNo);
+    $stmt->execute();
 
-    if (empty($service_no)) {
-        $service_noErr = "Username is required";
-    }
+    // Get the result
+    $result = $stmt->get_result();
 
-    if (empty($password)) {
-        $passwordErr = "Password is required";
-    }
+    // Check if a row is returned
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
 
-    if (empty($service_noErr) && empty($passwordErr) && is_numeric($service_no)) {
-        // Read from database
-        $query = "SELECT * FROM officers WHERE service_no = '$service_no' LIMIT 1";
-        $result = mysqli_query($conn, $query);
-
-        if ($result && mysqli_num_rows($result) > 0) {
-            $user_data = mysqli_fetch_assoc($result);
-            //echo $user_data['password'] ." and ". md5($password);
-            if (md5($password) == $user_data['password']) {
-                $_SESSION['id'] = $user_data['id'];
-                $_SESSION['service_no'] = $service_no;
-                header("Location: ../home/Officer.php");
-                die;
-            } else {
-                $passwordErr = "Incorrect password";
-            }
+        // Verify the password
+        if (password_verify($password, $row["password"])) {
+            // Password is correct, redirect to the home page or perform any other necessary actions
+            header("Location: ../home/Officer.php");
+            exit();
         } else {
-            $service_noErr = "Invalid username";
+            // Password is incorrect
+            $error = "Invalid service number or password.";
         }
+    } else {
+        // No matching user found
+        $error = "Invalid service number or password.";
     }
 }
 ?>
@@ -50,22 +50,118 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(0, 109, 139);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  color: #333;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  outline: none;
+  border-color: #57a3f3;
+}
+
+.login-form input[type="submit"] {
+  background-color: #57a3f3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: #3f8ce8;
+}
+
+.login-form p.error-message {
+  color: #ff0000;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.login-form p.error-message:before {
+  content: "⚠";
+  margin-right: 5px;
+}
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.forgot-password {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+    </style>
 </head>
 <body>
-    <br>
-    <div id="box">
-        <form method="post">
-            <h2><div style="font-size: 20px; margin: 10px; color: black; text-align: center;">Login</div></h2>
-            <label for="Username:"> Username: </label><br><br>
-            <input id="text" type="text" name="service_no" placeholder="Use employee number">
-            <span class="error"><?php echo $service_noErr; ?></span><br><br>
-            <label for="Password:"> Password: </label><br><br>
-            <input id="text" type="password" name="password" placeholder="Type here">
-            <span class="error"><?php echo $passwordErr; ?></span><br><br>
-           
-            <button type="submit">Login</button> <a href="../changepass/Forgot-password-officer.php" class="ca">Forgot Password</a>
-        </form>
+    <div class="container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <?php if (isset($error)) echo "<p class='error-message'>$error</p>"; ?>
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <label for="service_no">Service Number:</label>
+                <input type="text" name="service_no" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" required><br><br>
+                <div class="button-group">
+                    <input type="submit" value="Login">
+                    <a href="forgot-password.php" class="forgot-password">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>
