@@ -44,16 +44,12 @@ if (mysqli_num_rows($result) > 0) {
 $maxCount = max($categoryCounts);
 $maxCategory = array_search($maxCount, $categoryCounts);
 //get the max category
-echo "".$maxCategory."";
+//echo "".$maxCategory.""  .$maxCount."";
+
 
 } else {
   echo "0 results";
 }
-
-// Print the category counts
-//foreach ($categoryCounts as $category => $count) {
- 
-  //echo $category . ": " . $count . "<br>";
 
  //$totalCount = array_sum($categoryCounts); // Calculate the total count of all categories
  
@@ -63,7 +59,7 @@ echo "".$maxCategory."";
    //echo "" . $category . "     " . $count ."      ". $percentage . "% " ."<br>";
  
 
-//}
+
 
 mysqli_close($conn);
 ?>
@@ -87,12 +83,18 @@ function drawChart() {
   var data = new google.visualization.arrayToDataTable([
     ['CATEGORY', { role: 'annotation' }, " "],
     <?php
+      // Print the category counts
+foreach ($categoryCounts as $category => $count) {
+}
+
     $totalCount = array_sum($categoryCounts); 
     foreach ($caseCategories as $category) {
       $count = $categoryCounts[$category];
       $percentage = round(($count / $totalCount) * 100, 2);
-      echo "['" . $category . "', " . $percentage . ", {v: '" . $percentage . "%', f: ' $percentage '}],";
+      echo "['" . $category ."(" .$count. ")". "', " . $percentage . ", {v: '" . $percentage . "%', f: ' $percentage '}],";
     }
+  
+
     ?>
   ]);
 
@@ -100,7 +102,7 @@ function drawChart() {
     chart: {
       title: 'Bar chart showing the recorded cases in Malawi',
       data: 'in',
-      bar: ''
+       borderRadius: 10,
     },
     titleTextStyle: {
       color: 'gray',
@@ -135,6 +137,24 @@ function drawChart() {
 </script>
 </head>
 <body>
-  <div id="chart_div" style="width: 100%; height: 500px;"></div>
+ 
+  <style>
+    body{
+      background-color: khaki;
+    }
+    .count{
+      margin-bottom: 10%;
+    }
+
+    
+  </style>
+  <div id="chart_div" style="width: 100%; height: 500px; border-radius: 10%;"></div>
+
+<?php
+
+
+?>
+
+
 </body>
 </html>
