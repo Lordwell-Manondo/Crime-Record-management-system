@@ -43,15 +43,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Execute the statement
-    if ($stmt->execute()) {
-        echo "<span style='color: blue; font-weight: bold;'>Officer added successfully!</span><br><br>";
-        echo "Service Number: " . $service_no . "<br>";
-        echo "Password: " . $password . "<br>";
-        echo "Note: The password has been hashed for security purposes.";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
+    // // Execute the statement 
+        if ($stmt->execute()) {
+            // Redirect to the officer_details.php page with the service number and password as URL parameters
+            header("Location: officer_details.php? first_name=" . urlencode($first_name) . "&last_name=" . urlencode($last_name) ."&service_no=" . urlencode($service_no) . "&password=" . urlencode($password));
+            exit;
+        } else {
+            echo "Error: " . $stmt->error;
+        }
 
     // Close the statement
     $stmt->close();
@@ -101,10 +100,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </select><br><br>
         <input type="submit" value="Add Officer">
         <input type="button" value="View officers" onclick="location.href='view_officers.php';">
+        
     </form>
 </body>
 
-<style>
+ <style>
     body {
         font-family: Arial, sans-serif;
         background-color: rgb(0, 109, 139);
@@ -188,6 +188,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         color: green;
         font-weight: bold;
     }
-</style>
+</style> 
 
 </html>
