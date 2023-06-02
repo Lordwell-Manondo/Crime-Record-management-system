@@ -17,8 +17,18 @@ function insertFormData($phone, $location, $description, $conn) {
     $statement->bind_param("sss", $phone, $location, $description);
 
     // Execute the SQL statement
-    $statement->execute();
+    if ($statement->execute()) {
+        // Submission successful
+        return true;
+    } else {
+        // Submission failed
+        return false;
+    }
 }
+
+// Variables to track success/error messages
+$successMessage = "";
+$errorMessage = "";
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,7 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST["description"];
 
     // Call the function to insert the form data into the database
-    insertFormData($phone, $location, $description, $conn);
+    $isSubmitted = insertFormData($phone, $location, $description, $conn);
+
+    if ($isSubmitted) {
+        $successMessage = "Form submitted successfully.";
+    } else {
+        $errorMessage = "Oops! Something went wrong. Please try again.";
+    }
 }
 ?>
 
@@ -47,8 +63,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </script>
 </head>
 <body>
-    <div>
     <h2>Report Form</h2>
+    <?php if (!empty($successMessage)) : ?>
+        <div style="color: white; text-align: center;"><?php echo $successMessage; ?></div>
+    <?php endif; ?>
+    <?php if (!empty($errorMessage)) : ?>
+        <div style="color: red; text-align: center;"><?php echo $errorMessage; ?></div>
+    <?php endif; ?>
+    <br>
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <label for="phone">Phone:</label>
         <input type="text" name="phone" id="phone" required><br><br>
@@ -60,47 +82,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <textarea name="description" id="description" rows="5" required></textarea><br><br>
         
         <input type="submit" value="Submit">
-    </form> 
-    <!-- <div id="map" style="height: 400px; width: 100%; margin-left: 10px;"></div>
-
-    <script>
-        function initMap() {
-            // Create a map object and specify the initial coordinates
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: 0, lng: 0},
-                zoom: 15
-            });
-
-            // Add a marker to the map based on the selected location
-            var input = document.getElementById('location');
-            var autocomplete = new google.maps.places.Autocomplete(input);
-            autocomplete.bindTo('bounds', map);
-
-            autocomplete.addListener('place_changed', function() {
-                var place = autocomplete.getPlace();
-
-                if (!place.geometry) {
-                    window.alert("No details available for input: '" + place.name + "'");
-                    return;
-                }
-
-                if (place.geometry.viewport) {
-                    map.fitBounds(place.geometry.viewport);
-                } else {
-                    map.setCenter(place.geometry.location);
-                    map.setZoom(15);
-                }
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: place.geometry.location
-                });
-            });
-        }
-
-        google.maps.event.addDomListener(window, 'load', initMap);
-    </script>
-        </div> -->
+        <button type="button" onclick="window.history.back();">Cancel</button>
+    </form>
 </body>
 <style>
     body {
@@ -132,6 +115,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         padding: 10px 20px;
         border: none;
         cursor: pointer;
+    }
+    button[type="button"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin-left: 232px;
     }
     
     input[type="submit"]:hover {

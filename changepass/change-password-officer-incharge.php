@@ -1,6 +1,17 @@
 <?php 
 session_start();
 include ("../db/Connections.php");
+// Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
+
+// Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
 
 if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
@@ -12,7 +23,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <form action="change-p-admin.php" method="post">
+    <form action="change-p-officer-incharge.php" method="post">
      	<h2>Change Password</h2>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
@@ -41,14 +52,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
      	       <br>
 
      	<button type="submit">CHANGE</button>
-          <a href="../home/Admin_landing_page.php" class="ca">HOME</a>
+          <a href="../home/officer-incharge_landing_page.php" class="ca">HOME</a>
      </form>
 </body>
 </html>
 
 <?php 
 }else{
-     header("Location: index-admin.php");
+     header("Location: index-officer-ncharge.php");
      exit();
 }
  ?>
