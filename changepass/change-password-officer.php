@@ -13,8 +13,6 @@ $connection = new Connection();
 // Call the connect() method to establish a database connection
 $conn = $connection->connect();
 
-if (isset($_SESSION['id']) && isset($_SESSION['service_no'])) {
-
  ?>
 <!DOCTYPE html>
 <html>
@@ -56,10 +54,3 @@ if (isset($_SESSION['id']) && isset($_SESSION['service_no'])) {
      </form>
 </body>
 </html>
-
-<?php 
-}else{
-     header("Location: ../login/Login-officer.php");
-     exit();
-}
- ?>
