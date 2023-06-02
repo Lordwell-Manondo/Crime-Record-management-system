@@ -71,90 +71,69 @@ mysqli_close($conn);
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', {'packages':['bar']});
-google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawChart);
 
-// creating a function for drawing the bar chart
-function drawChart() {
-  var categories = <?php echo json_encode($caseCategories); ?>;
-  var countValues = <?php echo json_encode(array_values($categoryCounts)); ?>;
-  var maxCategory = <?php echo json_encode($maxCategory); ?>;
-  var maxCount = <?php echo $maxCount; ?>;
+    // creating a function for drawing the bar chart
+    function drawChart() {
+      var categories = <?php echo json_encode($caseCategories); ?>;
+      var countValues = <?php echo json_encode(array_values($categoryCounts)); ?>;
+      var maxCategory = <?php echo json_encode($maxCategory); ?>;
+      var maxCount = <?php echo $maxCount; ?>;
 
-  var data = new google.visualization.arrayToDataTable([
-    ['CATEGORY', { role: 'annotation' }, " "],
-    <?php
-      // Print the category counts
-foreach ($categoryCounts as $category => $count) {
-}
+      var data = new google.visualization.arrayToDataTable([
+        ['CATEGORY', 'Percentage', { role: 'annotation' }],
+        <?php
+        foreach ($caseCategories as $category) {
+          $count = $categoryCounts[$category];
+          $percentage = round(($count / array_sum($categoryCounts)) * 100, 2);
+          echo "['" . $category . " (".$count.")',". $percentage . ", '" . $count . "'],";
 
-    $totalCount = array_sum($categoryCounts); 
-    foreach ($caseCategories as $category) {
-      $count = $categoryCounts[$category];
-      $percentage = round(($count / $totalCount) * 100, 2);
-      echo "['" . $category ."(" .$count. ")". "', " . $percentage . ", {v: '" . $percentage . "%', f: ' $percentage '}],";
-    }
-  
 
-    ?>
-  ]);
-
-  var options = {
-    chart: {
-      title: 'Bar chart showing the recorded cases in Malawi',
-      data: 'in',
-       borderRadius: 10,
-    },
-    titleTextStyle: {
-      color: 'gray',
-      fontSize: 30,
-      marginLeft: 30,
-      bold: true
-    },
-    annotations: {
-      textStyle: {
-        fontSize: 12,
-      }
-    },
-    bar: {
-      groupWidth: '60%',
-    },
-    colors: function () {
-      var colors = [];
-      for (var i = 0; i < (countValues.length); i++) {
-        if (countValues[i]=== maxCount) {
-          colors.push('red');
-        } else {
-          colors.push('#3366cc'); // Default color for other categories
+        
         }
-      }
-      return colors;
-    }()
-  };
+        ?>
+      ]);
 
-  var chart = new google.charts.Bar(document.getElementById('chart_div'));
-  chart.draw(data, google.charts.Bar.convertOptions(options));
-}
-</script>
+      var options = {
+        chart: {
+          title: 'Bar chart showing the recorded cases in Malawi',
+          data: 'in',
+          
+        },
+        titleTextStyle: {
+          color: 'gray',
+          fontSize: 30,
+          marginLeft: 30,
+          bold: true
+        },
+        annotations: {
+          textStyle: {
+            fontSize: 12,
+          }
+        },
+        bar: {
+          groupWidth: '60%',
+        },
+        colors: [<?php
+          foreach ($caseCategories as $category) {
+            if ($category === $maxCategory) {
+              echo "'red',";
+            } 
+          }
+        ?>]
+      };
+
+      var chart = new google.charts.Bar(document.getElementById('chart_div'));
+      chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+  </script>
 </head>
 <body>
- 
   <style>
-    body{
-      background-color: khaki;
+    body {
+      background-color: rgb(0, 109, 139);;
     }
-    .count{
-      margin-bottom: 10%;
-    }
-
-    
   </style>
-  <div id="chart_div" style="width: 100%; height: 500px; border-radius: 10%;"></div>
-
-<?php
-
-
-?>
-
-
+  <div id="chart_div" style="width: 98%; height: 550px; border-radius: 10%; margin-left: 1%; "></div>
 </body>
 </html>
