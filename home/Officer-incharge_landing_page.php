@@ -93,7 +93,7 @@
                             <a   style="margin-left: 120px; margin-top: -95px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"   style="color: rgb(19, 17, 17); margin-left: 1px;">
                             </a>   
                               <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="../changepass/change-password-admin.php" style="font-size: 20px; font-weight: 100; ">Change password</a>
+                                            <a class="dropdown-item" href="../changepass/change-password-officer-incharge.php" style="font-size: 20px; font-weight: 100; ">Change password</a>
                                            <a class="dropdown-item" href="#" style="font-size: 20px; font-weight: 100;">View profile</a>
                                    </div>
                                      
