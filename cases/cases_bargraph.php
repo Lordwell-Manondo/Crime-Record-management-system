@@ -85,7 +85,7 @@ mysqli_close($conn);
         <?php
         foreach ($caseCategories as $category) {
           $count = $categoryCounts[$category];
-          $percentage = round(($count / array_sum($categoryCounts)) * 100, 1);
+          $percentage = round(($count / array_sum($categoryCounts)) * 100, 2);
           echo "['" . $category . " (".$count.")',". $percentage . ", '" . $count . "'],";
 
 
@@ -117,7 +117,7 @@ mysqli_close($conn);
         colors: [<?php
           foreach ($caseCategories as $category) {
             if ($category === $maxCategory) {
-              echo "'blue',";
+              echo "'red',";
             } 
           }
         ?>]
@@ -131,9 +131,9 @@ mysqli_close($conn);
 <body>
   <style>
     body {
-      background-color: khaki;
+      background-color: rgb(0, 109, 139);;
     }
   </style>
-  <div id="chart_div" style="width: 100%; height: 600px; border-radius: 10%;"></div>
+  <div id="chart_div" style="width: 98%; height: 550px; border-radius: 10%; margin-left: 1%; "></div>
 </body>
 </html>
