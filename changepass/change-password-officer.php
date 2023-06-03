@@ -1,19 +1,8 @@
 <?php 
 session_start();
 include ("../db/Connections.php");
-// Create a new instance of the Connection class
-$connection = new Connection();
-    
-// Call the connect() method to establish a database connection
-$conn = $connection->connect();
+?>
 
-// Create a new instance of the Connection class
-$connection = new Connection();
-    
-// Call the connect() method to establish a database connection
-$conn = $connection->connect();
-
- ?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -4,12 +4,6 @@ session_start();
     //linking up Record_case.php file with database using Connections.php file
     include('../db/Connections.php');
 
-    // Create a new instance of the Connection class
-$connection = new Connection();
-    
-// Call the connect() method to establish a database connection
-$conn = $connection->connect();
-
    
 //defining and initializing variables that will be used to pass values into database     
  if($_SERVER['REQUEST_METHOD'] == "POST") {

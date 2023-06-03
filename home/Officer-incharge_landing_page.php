@@ -111,7 +111,7 @@
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
                     <!-- submenu for profile -->
                     <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <li><a class="dropdown-item" style="margin-left: 0%;" href="../changepass/change-password-admin.php">Change password</a></li>
+                    <li><a class="dropdown-item" style="margin-left: 0%;" href="../changepass/change-password-officer-incharge.php">Change password</a></li>
                     <li><a class="dropdown-item" style="margin-left: 0%;" href="#">View profile</a></li>
                     </ul>
                     </li>
