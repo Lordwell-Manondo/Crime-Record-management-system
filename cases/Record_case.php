@@ -62,6 +62,8 @@ $conn = $connection->connect();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Record case</title>
@@ -223,6 +225,17 @@ $conn = $connection->connect();
             logout:hover{
                 color: khaki;
             }
+            @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+            }
+            .navbar-nav .nav-item {
+                margin: 10px 0;
+            }
+            .navbar-toggler {
+                margin-left: auto;
+            }
+        }
            </style>
 </body>
 </html>

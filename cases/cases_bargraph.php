@@ -19,7 +19,7 @@ $caseCategories = [];
 
 // Initialize an empty array to store the category counts
 $categoryCounts = [];
-
+$totalCount=0;
 // Check if the data is available in the database
 if (mysqli_num_rows($result) > 0) {
   // Loop through the results and add each category to the array
@@ -30,36 +30,32 @@ if (mysqli_num_rows($result) > 0) {
           $caseCategories[] = $category;
       }
       
+   
+
       // Count the occurrences of each category
       if (isset($categoryCounts[$category])) {
           // If the category exists, increment the count
           $categoryCounts[$category]++;
+         //total count of categories 
+          $totalCount = array_sum($categoryCounts);
       } else {
           // If the category doesn't exist, initialize the count to 1
           $categoryCounts[$category] = 1;
       }
+      
+      
+  }
 
-      }
-       // Find the category with the maximum count
-$maxCount = max($categoryCounts);
-$maxCategory = array_search($maxCount, $categoryCounts);
-//get the max category
-//echo "".$maxCategory.""  .$maxCount."";
+  // Find the category with the maximum count
+  $maxCount = max($categoryCounts);
+  $maxCategory = array_search($maxCount, $categoryCounts);
 
+  // Set the color based on the category
+  $color = ($maxCategory== true) ? 'red' : 'green';
 
 } else {
   echo "0 results";
 }
-
- //$totalCount = array_sum($categoryCounts); // Calculate the total count of all categories
- 
-  // $count = $categoryCounts[$category];
-   //$percentage = round(($count / $totalCount) * 100, 2); // Calculate the percentage
-   //echo "". $percentage ."";
-   //echo "" . $category . "     " . $count ."      ". $percentage . "% " ."<br>";
- 
-
-
 
 mysqli_close($conn);
 ?>
@@ -81,15 +77,18 @@ mysqli_close($conn);
       var maxCount = <?php echo $maxCount; ?>;
 
       var data = new google.visualization.arrayToDataTable([
-        ['CATEGORY', 'Percentage', { role: 'annotation' }],
+        ['CATEGORY', 'percentage', { role: 'style' }],
         <?php
         foreach ($caseCategories as $category) {
           $count = $categoryCounts[$category];
-          $percentage = round(($count / array_sum($categoryCounts)) * 100, 2);
-          echo "['" . $category . " (".$count.")',". $percentage . ", '" . $count . "'],";
+          $percentage = (($count / $totalCount) * 100);
 
+          // Set the color based on the category
+         // $color = ($category === $maxCategory) ? 'pink' : 'green';
 
-        
+          $bargraph= "['" . $category . "(".$count.")"."',". $percentage . ", ''],";
+          echo"".$bargraph;
+          
         }
         ?>
       ]);
@@ -98,7 +97,6 @@ mysqli_close($conn);
         chart: {
           title: 'Bar chart showing the recorded cases in Malawi',
           data: 'in',
-          
         },
         titleTextStyle: {
           color: 'gray',
@@ -106,21 +104,15 @@ mysqli_close($conn);
           marginLeft: 30,
           bold: true
         },
+        bar: {
+          groupWidth: '60%',
+        },
+        colors: ['<?php echo"".$color?>'], // Set the colors for green and red bars
         annotations: {
           textStyle: {
             fontSize: 12,
           }
-        },
-        bar: {
-          groupWidth: '60%',
-        },
-        colors: [<?php
-          foreach ($caseCategories as $category) {
-            if ($category === $maxCategory) {
-              echo "'red',";
-            } 
-          }
-        ?>]
+        }
       };
 
       var chart = new google.charts.Bar(document.getElementById('chart_div'));
@@ -131,9 +123,11 @@ mysqli_close($conn);
 <body>
   <style>
     body {
-      background-color: rgb(0, 109, 139);;
+      background-color: rgb(0, 109, 139);
     }
+
   </style>
-  <div id="chart_div" style="width: 98%; height: 550px; border-radius: 10%; margin-left: 1%; "></div>
+  <div id="chart_div" style="width: 98%; height: 550px; border-radius: 10%; margin-left: 1%;"></div> 
+ 
 </body>
 </html>
