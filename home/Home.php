@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Home</title>
+=======
+    <title>Home page</title>
+>>>>>>> 6076a65449f081ae361f1aa17f04ee808581b89c
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -63,6 +67,7 @@
             }
 
         }
+<<<<<<< HEAD
         .dropdown-menu{
             background-color: transparent;
             width: 90px;
@@ -78,6 +83,8 @@
             text-align: center;
             font-size: 14px;
         }
+=======
+>>>>>>> 6076a65449f081ae361f1aa17f04ee808581b89c
         
         .contact {
             text-align: start;
@@ -162,24 +169,8 @@
     <h1 >CRIME RECORD MANAGEMENT SYSTEM<h1>
       <h4 >Creating a Safe and Secure Malawi.</h4>
       <!-- Your crime record management system content goes here -->
-   
   </main>
 </div>
-<footer>
-  <div class="container">
-      <div class="row">
-          <div class="col-md-6 contact">
-              <p style="font-size: 20px;">Contact us</p>
-              <p>Email: crms@gmail.com</p>
-              <p>Phone: +265 88 040-9999</p>
-          </div>
-          <div class="col-md-6 text-muted">
-              &copy; CRMS2023. All rights reserved.
-          </div>
-      </div>
-  </div>
-</footer>
-
 <!-- Include Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
