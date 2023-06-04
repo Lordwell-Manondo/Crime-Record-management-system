@@ -145,7 +145,7 @@
                     </ul>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="../Notifications.php">       </a>
+                    <a class="nav-link" style="color: white;" href="Notifications.php">       </a>
                     </li>
                    
                     <li class="nav-item">

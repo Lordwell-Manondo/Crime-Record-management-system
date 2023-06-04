@@ -1,20 +1,7 @@
 <?php 
 session_start();
-
 if (isset($_SESSION['id']) && isset($_SESSION['service_no'])) {
-
     include "../db/Connections.php";
-	// Create a new instance of the Connection class
-$connection = new Connection();
-    
-// Call the connect() method to establish a database connection
-$conn = $connection->connect();
-
-// Create a new instance of the Connection class
-$connection = new Connection();
-    
-// Call the connect() method to establish a database connection
-$conn = $connection->connect();
 
 if (isset($_POST['op']) && isset($_POST['np'])
     && isset($_POST['c_np'])) {
@@ -72,6 +59,6 @@ if (isset($_POST['op']) && isset($_POST['np'])
 }
 
 }else{
-     header("Location: ../login/Login-officer.php");
+     header("Location: Login-officer.php");
      exit();
 }
