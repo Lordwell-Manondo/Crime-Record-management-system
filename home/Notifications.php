@@ -94,8 +94,7 @@ h1 {
 <body>
     <?php
     // Connect to the MySQL database
-    include('./db/Connections.php');
-
+    include('../db/Connections.php');
     // SQL statement
     $sql = "SELECT * FROM reportform";
 
@@ -114,21 +113,22 @@ h1 {
         while ($row = mysqli_fetch_array($result)) {
             // Use the retrieved data as desired
             echo '<div class="message">';
-            echo '<div class="title"><a href="#">' . $row["name"] . '</a></div>';
+            
             echo '<div class="info">';
             echo '<div><strong>Phone: </strong>' . $row["phone"] . '</div>';
+        
             echo '<div><strong>Location: </strong>' . $row["location"] . '</div>';
             echo '</div>';
            
 
-            if (strlen($row["incident"]) > 2) {
+            if (strlen($row["description"]) > 2) {
                 echo '<div class="read-more">Read More</div>';
-                echo '<div class="full-message">' . $row["incident"] . '</div>';
+                echo '<div class="full-message">' . $row["description"] . '</div>';
 
            
 
             } else {
-                echo '<div class="description">' . $row["incident"] . '</div>';
+                echo '<div class="description">' . $row["description"] . '</div>';
             }
 
 

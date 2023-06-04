@@ -133,7 +133,7 @@
                     </li>
                     
                     <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="../Notifications.php">Notifications (0)</a>
+                    <a class="nav-link" style="color: white;" href="Notifications.php">Notifications (0)</a>
                     </li>
                    
                     <li class="nav-item dropdown">
