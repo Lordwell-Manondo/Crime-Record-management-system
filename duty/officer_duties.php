@@ -29,7 +29,7 @@ session_start();
     <th style="text-size: 10px; width: 20%;">Incident</th>
     <th style="text-size: 10px; width: 15;">Date Assigned</th>
     <th style="text-size: 10px;">Date to Report</th>
-    
+    <th style="text-size: 10px;">Remaining Days</th>
   </tr>
 <?php
 //linking up Record_case.php file with database using Connections.php file
@@ -59,6 +59,18 @@ else if(mysqli_num_rows($result) >0) {
   while ($row = mysqli_fetch_assoc($result)) {
 
 
+    $targetDate = date_create($row['date_to_report']); // Convert the target date to a DateTime object
+    $currentDate = new DateTime(); // Get the current date
+
+    $interval = $currentDate->diff($targetDate); // Calculate the difference between current date and target date
+
+    if ($interval->days > 0) {
+        $remainingDays = $interval->days . " day(s)";
+    } else {
+        $remainingDays = $interval->h . " hour(s)";
+    }
+
+
     // display the data
     echo "<tr>";
     
@@ -68,6 +80,7 @@ else if(mysqli_num_rows($result) >0) {
     echo "<td>" . $row['incident'] . "</td>";
     echo "<td>" . $row['date_assigned'] . "</td>";
     echo "<td>" . $row['date_to_report'] . "</td>";
+    echo "<td>" . $remainingDays . "</td>";
    // edit the case
     echo "<td><a href='report_work.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px; padding: 5px;'>Report</a></td>";
     echo "</tr>";

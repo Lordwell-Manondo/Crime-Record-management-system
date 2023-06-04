@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verify the password
         if (password_verify($password, $row["password"])) {
             // Password is correct, redirect to the home page or perform any other necessary actions
+            $_SESSION['service_no'] = $serviceNo;
             header("Location: ../home/Officer.php");
             exit();
         } else {

@@ -136,7 +136,6 @@
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user" style="font-size: 30px;"></i>
                         <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
-
                     </a>
                     <!-- submenu for profile -->
                     <ul class="dropdown-menu" aria-labelledby="submenu">
@@ -149,6 +148,11 @@
                     <a class="nav-link" style="color: white;" href="../Notifications.php">       </a>
                     </li>
                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="../db/report.php">
+                            <i class="fas fa-file-download" tooltip="Generate Report" style="font-size: 30px; color: white;"></i>
+                        </a>
+                    </li>
                     </ul>
                     </div>
                     </nav>
