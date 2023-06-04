@@ -11,6 +11,162 @@ $conn = $connection->connect();
 // Initialize an empty array to store the categories
 $caseCategories = [];
 $caseLocations=[];
+
+  // Initialize an empty array to store the category counts
+  $categoryCounts = [];
+  $locationCounts =[];
+  
+  
+  $totalCases = 0;
+  $maxCount = 0;
+  $maxCategory = '';
+  $totalCount=0;
+  $locationTotalCount=0;
+    $sql = "SELECT *, COUNT(*) AS count FROM cases GROUP BY type";
+  //$sql = "SELECT * FROM cases GROUP BY serial_no";
+  $result = mysqli_query($conn, $sql);
+  
+  if (!$result) {
+      die("Query failed: " . mysqli_error($conn));
+  }
+  if (mysqli_num_rows($result) > 0) {
+      // Display the heading for case types and their counts
+      echo "<table>";
+      echo "<tr>";
+      echo "<th>Case category</th>";
+      echo "<div>"; 
+      echo "<th>Recorded</th>";
+      echo "<div>";
+      echo "</div>";
+       ///echo "<th>Location</th>";
+     // echo "<th>Status</th>";
+      echo "</tr>";
+          
+          while ($row = mysqli_fetch_assoc($result)) {
+          // Display the data
+          echo "<tr>";
+          echo "<td>" . $row['type'] . "</td>";
+          
+          echo "<td>" . $row['count'] . "</td>";
+          // echo "<td>" . $row['location'] . "</td>";
+         // echo "<td>" . $row['status'] . "</td>";
+          echo "</tr>";
+  
+          // Increment the total cases count
+          $totalCases += $row['count'];
+  
+          $maxCount;
+  
+          // $category = $row['type'];
+  
+          // if (!in_array($category, $caseCategories)) {
+          //     $caseCategories[] = $category;
+          // }
+  
+          // // Count the occurrences of each category
+          // if (isset($categoryCounts[$category])) {
+          //     // If the category exists, increment the count
+          //     $categoryCounts[$category]++;
+          //     //total count of categories 
+          //   $totalCount = array_sum($categoryCounts);
+          //    } 
+  
+          // else {
+          //     // If the category doesn't exist, initialize the count to 1
+          //     $categoryCounts[$category] = 0;
+          // }
+       }
+      }else{
+          echo"chamecho";
+       }
+
+       // retrieving cases data
+//$sql = "SELECT *, COUNT(*) AS count FROM cases GROUP BY type";
+$sql = "SELECT * FROM cases GROUP BY serial_no";
+$result = mysqli_query($conn, $sql);
+
+if (!$result) {
+    die("Query failed: " . mysqli_error($conn));
+}
+if (mysqli_num_rows($result) > 0) {
+    // Display the heading for case types and their counts
+    // echo "<table>";
+    // echo "<tr>";
+    // echo "<th>Case Type</th>";
+    // echo "<th>Recorded</th>";
+    // echo "</tr>";
+        
+        while ($row = mysqli_fetch_assoc($result)) {
+        // Display the data
+    //     echo "<tr>";
+    //     echo "<td>" . $row['type'] . "</td>";
+        
+    //    // echo "<td>" . $row['count'] . "</td>";
+    //     echo "</tr>";
+
+        // Increment the total cases count
+       // $totalCases += $row['count'];
+
+        $category = $row['type'];
+        $area = $row['location'];
+
+        if (!in_array($category, $caseCategories)) {
+            $caseCategories[] = $category;
+        }
+
+        // Count the occurrences of each category
+        if (isset($categoryCounts[$category])) {
+            // If the category exists, increment the count
+            $categoryCounts[$category]++;
+            //total count of categories 
+          $totalCount = array_sum($categoryCounts);
+          
+           } 
+
+           
+        else {
+            // If the category doesn't exist, initialize the count to 1
+            $categoryCounts[$category] = 1;
+        }
+
+       
+       // Increment the location counts
+if (isset($locationCounts[$area])) {
+    // If the location exists, increment the count
+    $locationCounts[$area]++;
+    // Total count of locations
+    $locationTotalCount = array_sum($locationCounts);
+} else {
+    // If the location doesn't exist, initialize the count to 1
+    $locationCounts[$area] = 1;
+}
+        }
+        $maxLocation = [];
+// Find the location with the maximum count
+$maxLocationCount = max($locationCounts);
+$maxLocation = array_search($maxLocationCount, $locationCounts);
+
+// //printing total recorded cases
+// echo "Total recorded cases: " . $totalCount;
+// echo "<br>";
+
+//printing location recorded more
+// echo $maxLocation . ": " . $maxLocationCount;
+// echo "<br>";
+     
+$maxCaseCategories = [];
+// Find the category with the maximum count
+  $maxCount = max($categoryCounts);
+  $maxCategory = array_search($maxCount, $categoryCounts);
+
+//printing category with highest record
+// echo "Case category with highest record: " . $maxCategory . " (" . $maxCount . ")";
+// echo "</div>";
+    }else {
+        echo "<div>No cases available</div>";
+    }
+    mysqli_close($conn);
+
 ?>
 
 <!DOCTYPE html>
@@ -97,11 +253,11 @@ $caseLocations=[];
             }
         }
         table {
-      width: 99%;
+      width: 50%;
       border-collapse: collapse;
       margin-bottom: 20px;
       height: 10%;
-      margin-left: 0.5%;
+      margin-left: 25%;
     }
     
     th, td{
@@ -165,91 +321,34 @@ $caseLocations=[];
 
 </head>
 <body>
+    
   <table>
     <thead>
-     
+    <tr>
+    <hr>
+        <th>Category</th>
+        <th>Value</th>
+      </tr>
     </thead>
     <tbody>
+    <tr>
+        <td>Total recorded cases</td>
+        <td><?php echo $totalCount ?></td>
+      </tr>
+      <tr>
+        <td>Case category with highest record</td>
+        <td><?php echo $maxCategory."(".$maxCount.")" ?></td>
+      </tr>
+      <tr>
+        <td>Area with more cases</td>
+        <td><?php echo $maxLocation."(".$maxLocationCount.")" ?></td>
+      </tr>
     
     </tbody>
   </table>
-
-
-
-
+ 
   <main>
-
-  <?php
-  // Initialize an empty array to store the category counts
-$categoryCounts = [];
-$locationCounts =[];
-
-
-$totalCases = 0;
-$maxCount = 0;
-$maxCategory = '';
-$totalCount=0;
-$locationTotalCount=0;
-  $sql = "SELECT *, COUNT(*) AS count FROM cases GROUP BY type";
-//$sql = "SELECT * FROM cases GROUP BY serial_no";
-$result = mysqli_query($conn, $sql);
-
-if (!$result) {
-    die("Query failed: " . mysqli_error($conn));
-}
-if (mysqli_num_rows($result) > 0) {
-    // Display the heading for case types and their counts
-    echo "<table>";
-    echo "<tr>";
-    echo "<th>Category</th>";
-    echo "<div>"; 
-    echo "<th>Recorded</th>";
-    echo "<div>";
-    echo "</div>";
-     echo "<th>Location</th>";
-    echo "<th>Status</th>";
-    echo "</tr>";
-        
-        while ($row = mysqli_fetch_assoc($result)) {
-        // Display the data
-        echo "<tr>";
-        echo "<td>" . $row['type'] . "</td>";
-        
-        echo "<td>" . $row['count'] . "</td>";
-         echo "<td>" . $row['location'] . "</td>";
-        echo "<td>" . $row['status'] . "</td>";
-        echo "</tr>";
-
-        // Increment the total cases count
-        $totalCases += $row['count'];
-
-        $maxCount;
-
-        // $category = $row['type'];
-
-        // if (!in_array($category, $caseCategories)) {
-        //     $caseCategories[] = $category;
-        // }
-
-        // // Count the occurrences of each category
-        // if (isset($categoryCounts[$category])) {
-        //     // If the category exists, increment the count
-        //     $categoryCounts[$category]++;
-        //     //total count of categories 
-        //   $totalCount = array_sum($categoryCounts);
-        //    } 
-
-        // else {
-        //     // If the category doesn't exist, initialize the count to 1
-        //     $categoryCounts[$category] = 0;
-        // }
-     }
-    }else{
-        echo"chamecho";
-     }
-
-  ?>
-   </main>
+</main>
 </div>
 <!-- Include Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -259,98 +358,3 @@ if (mysqli_num_rows($result) > 0) {
 <script src="path/to/adminator.js"></script>
 </body>
 </html>
-
-<?php
-// retrieving cases data
-//$sql = "SELECT *, COUNT(*) AS count FROM cases GROUP BY type";
-$sql = "SELECT * FROM cases GROUP BY serial_no";
-$result = mysqli_query($conn, $sql);
-
-if (!$result) {
-    die("Query failed: " . mysqli_error($conn));
-}
-if (mysqli_num_rows($result) > 0) {
-    // Display the heading for case types and their counts
-    // echo "<table>";
-    // echo "<tr>";
-    // echo "<th>Case Type</th>";
-    // echo "<th>Recorded</th>";
-    // echo "</tr>";
-        
-        while ($row = mysqli_fetch_assoc($result)) {
-        // Display the data
-    //     echo "<tr>";
-    //     echo "<td>" . $row['type'] . "</td>";
-        
-    //    // echo "<td>" . $row['count'] . "</td>";
-    //     echo "</tr>";
-
-        // Increment the total cases count
-       // $totalCases += $row['count'];
-
-        $category = $row['type'];
-        $area = $row['location'];
-
-        if (!in_array($category, $caseCategories)) {
-            $caseCategories[] = $category;
-        }
-
-        // Count the occurrences of each category
-        if (isset($categoryCounts[$category])) {
-            // If the category exists, increment the count
-            $categoryCounts[$category]++;
-            //total count of categories 
-          $totalCount = array_sum($categoryCounts);
-          
-           } 
-
-           
-        else {
-            // If the category doesn't exist, initialize the count to 1
-            $categoryCounts[$category] = 1;
-        }
-
-       
-       // Increment the location counts
-if (isset($locationCounts[$area])) {
-    // If the location exists, increment the count
-    $locationCounts[$area]++;
-    // Total count of locations
-    $locationTotalCount = array_sum($locationCounts);
-} else {
-    // If the location doesn't exist, initialize the count to 1
-    $locationCounts[$area] = 1;
-}
-        }
-        $maxLocation = [];
-// Find the location with the maximum count
-$maxLocationCount = max($locationCounts);
-$maxLocation = array_search($maxLocationCount, $locationCounts);
-//printing location recorded more
-echo $maxLocation . ": " . $maxLocationCount;
-
-     
-
-$maxCaseCategories = [];
-// Find the category with the maximum count
-  $maxCount = max($categoryCounts);
-  $maxCategory = array_search($maxCount, $categoryCounts);
-
-
- 
-   
-  echo "<div>";
-    echo "Total recorded cases: " . $totalCount;
-    
-    echo "</div>";
-   
-        echo "Case category with highest record: " . $maxCategory . " (" . $maxCount . ")";
-        echo "</div>";
-    }else {
-        echo "<div>No cases available</div>";
-    }
-    mysqli_close($conn);
-?>
-
-
-  

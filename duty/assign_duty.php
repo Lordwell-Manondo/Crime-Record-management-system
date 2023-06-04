@@ -2,6 +2,13 @@
 session_start();
 // include database connection file
 include("../db/Connections.php");
+
+// Create a new instance of the Connection class
+$connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
+
 $message = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -93,15 +100,15 @@ mysqli_close($conn);
   <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <label for="serial_no">Select a case:</label>
     <select id="serial_no" name="serial_no">
-      <?php echo $cases; ?>
+      <?php echo $cases; ?>                                         
     </select>
     <br><br>
     <label for="service_no">Select an officer:</label>
-    <select id="service_no" name="service_no">
-      <?php echo $officers; ?>
+    <select id="service_no" name="service_no"> 
+      <?php echo $officers; ?>                                     
     </select>
     <br><br>
-    <label for="date_to_report">Date to report:</label>
+    <label for="date_to_report">Date to report:</label> 
     <input type="date" id="date_to_report" name="date_to_report" style="width: 95%;"  min="<?php echo date('Y-m-d'); ?>">
     <br><br>
     <input type="submit" value="Assign">

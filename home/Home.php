@@ -130,15 +130,15 @@
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
               <li class="nav-item dropdown">
-                  <a  class="nav-link" style="color: white;" href="#"  id="casesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+                  <a  class="nav-link" style="color: white;" href="#"  id="home" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
                  
               </li>
               <li class="nav-item dropdown">
-                  <a class="nav-link" style="color: white;" href="../news/News.php" id="officersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
+                  <a class="nav-link" style="color: white;" href="../news/News.php" id="officers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
                 
                   </li>
                   <li class="nav-item dropdown">
-                  <a  class="nav-link" style="color: white;" href="#"  id="dutiesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guidelines</a>
+                  <a  class="nav-link" style="color: white;" href="#"  id="duties" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guidelines</a>
                   
                   </li>
                   <li class="nav-item">
