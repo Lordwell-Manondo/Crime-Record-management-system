@@ -138,7 +138,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" style="color: white;" href="../officers/view-users.php">Public user</a>
+          <a class="nav-link" style="color: white;" href="#">Add Guidelines</a>
         </li>
 
         <li class="nav-item">
