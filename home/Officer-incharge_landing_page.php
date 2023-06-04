@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Officer in-charge</title>
+    <title>Officer in charge</title>
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -42,6 +42,7 @@
            
             color: aliceblue;
             text-decoration: none;
+            font-weight: 600;
         }
         
         i {
@@ -61,11 +62,9 @@
 
         }
         .dropdown-menu{
-            background-color: white;
+            background-color: transparent;
             width: 60px;
             }
-  
-
 
         
     </style>
@@ -93,6 +92,11 @@
                         <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/View_cases.php">View cases</a></li>
                         <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/View-assigned-cases.php">Assigned cases</a></li>
                         <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/cases_bargraph.php">Cases trend</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../db/report.php">
+                            <i class="fas fa-file-download" tooltip="Generate Report" style="font-size: 20px; color: white; margin-left: 15px;">PrintReport</i>
+                        </a>
+                    </li>
                     </ul>
                 </li>
                 
@@ -143,15 +147,6 @@
                     <li><a class="dropdown-item" style="margin-left: 0%; font-size: 100%; " href="#">View profile</a></li>
                     <li><a class="dropdown-item" style="margin-left: 0%; font-size: 100%; " href="logout.php">Logout</a></li>
                     </ul>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="Notifications.php">       </a>
-                    </li>
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" href="../db/report.php">
-                            <i class="fas fa-file-download" tooltip="Generate Report" style="font-size: 30px; color: white;"></i>
-                        </a>
                     </li>
                     </ul>
                     </div>
