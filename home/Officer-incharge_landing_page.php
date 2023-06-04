@@ -34,7 +34,7 @@
     h1 {
       color: khaki;
       font-weight: 300;
-      margin-top: 10%;
+      margin-top: 14%;
       text-align: center;
     }
 
