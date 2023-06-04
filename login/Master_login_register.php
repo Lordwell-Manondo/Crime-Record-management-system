@@ -12,7 +12,7 @@
   <h2 style="font-size: 25px; color: white; font-weight: 100;">Login as:</h2>
   <ul>
     <li><a href="index-officer-incharge.php" class="admin">Officer in charge</a></li>
-    <li><a href="Login-officer.php" class="staff">Officer</a></li>
+    <li><a href="index-officer.php" class="staff">Officer</a></li>
   </ul>
 </div>
 <style>

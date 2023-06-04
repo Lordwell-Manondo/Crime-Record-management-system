@@ -1,21 +1,8 @@
 <?php 
 session_start();
 include ("../db/Connections.php");
-// Create a new instance of the Connection class
-$connection = new Connection();
-    
-// Call the connect() method to establish a database connection
-$conn = $connection->connect();
+?>
 
-// Create a new instance of the Connection class
-$connection = new Connection();
-    
-// Call the connect() method to establish a database connection
-$conn = $connection->connect();
-
-if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
-
- ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,10 +43,3 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
      </form>
 </body>
 </html>
-
-<?php 
-}else{
-     header("Location: index-officer-ncharge.php");
-     exit();
-}
- ?>

@@ -1,16 +1,9 @@
 <?php
-
 // connect to database
 session_start();
 include('../db/Connections.php');
 
-// Create a new instance of the Connection class
-$connection = new Connection();
-
-// Call the connect() method to establish a database connection
-$conn = $connection->connect();
-
-$sql = "SELECT * FROM cases";
+$sql = "SELECT type FROM cases";
 
 $result = mysqli_query($conn, $sql);
 

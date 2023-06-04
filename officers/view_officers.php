@@ -30,12 +30,6 @@
 		// connect to database
 		session_start();
 		include('../db/Connections.php');
-     // Create a new instance of the Connection class
-     $connection = new Connection();
-
-     // Call the connect() method to establish a database connection
-     $conn = $connection->connect();
-
 		if(isset($_POST['search'])) {
 			$service_no = $_POST['service_no'];
 			$sql = "SELECT * FROM officers WHERE service_no='$service_no'";
