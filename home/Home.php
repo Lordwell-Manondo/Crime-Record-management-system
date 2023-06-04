@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Officer in-charge</title>
+    <title>Home</title>
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -64,14 +64,14 @@
 
         }
         .dropdown-menu{
-            background-color: white;
-            width: 60px;
+            background-color: transparent;
+            width: 90px;
             }
             footer {
             position: fixed;
             bottom: 0;
             width: 100%;
-            height: 25%;
+            height: 20%;
             background-color: rgb(184, 179, 137);
             padding: 20px;
             color: #fff;

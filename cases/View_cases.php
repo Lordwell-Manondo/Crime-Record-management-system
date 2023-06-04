@@ -11,7 +11,7 @@
 
 
   <a href="../home/home.php" style="text-decolation: none; margin-left: 1250px; margin-top: 20px; color: black; font-size: 20px; font-weight: 100;">Logout</a>
-  <a href="../home/Officer-landing_page.php" style="text-decolation: none; margin-left: 50px; margin-top: 20px; color: white; font-size: 20px; font-weight: 100;">Back</a>
+  <a href="../home/Officer-incharge_landing_page.php" style="text-decolation: none; margin-left: 50px; margin-top: 20px; color: white; font-size: 20px; font-weight: 100;">Back</a>
 
   <h1>RECORDED CASES</h1>
 
@@ -44,7 +44,7 @@ $connection = new Connection();
 $conn = $connection->connect();
 
 // Define the number of records to display per page
-$records_per_page = 9;
+$records_per_page = 6;
 
 // Determine the current page number
 if (!isset($_GET['page'])) {
