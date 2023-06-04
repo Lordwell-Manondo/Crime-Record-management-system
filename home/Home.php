@@ -1,175 +1,192 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Home page</title>
-    <head>
-      
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officer in-charge</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-      <!-- Add the Bootstrap CSS file -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: rgb(0, 109, 139);
+            margin-bottom: 15%;
+          
+            
+        }
+        
+        a {
+            padding: 10%;
+            font-size: 20px;
+            margin-right: 70px;
+            font-weight: 400;
+            color: white;
+            text-decoration: none;
+            display: flex;
+        }
+        
+        
+        h1 {
+            color: khaki;
+            font-weight: 300;
+            margin-top: 200px;
+            text-align: center;
+        }
+        
+        h4 {
+            color: white;
+            font-weight: 300;
+            text-align: center;
+            margin-top: -180px;
+        }
+        
+        a:hover {
+            font-weight: 300;
+            color: aliceblue;
+            text-decoration: none;
+        }
+        
+        i {
+            color: gray;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+            }
+            .navbar-nav .nav-item {
+                margin: 10px 0;
+            }
+            .navbar-toggler {
+                margin-left: auto;
+            }
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        }
+        .dropdown-menu{
+            background-color: white;
+            width: 60px;
+            }
+            footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 25%;
+            background-color: rgb(184, 179, 137);
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .contact {
+            text-align: start;
+            margin-left: 3%;
+            font-size: 100%;
+            padding: 0%;
+            height: fit-content;
+        }
+        
+        
+        @media (max-width: 576px) {
+            .contact {
+                text-align: center;
+                margin-left: 0;
+            }
+        }
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 24px;
+            }
+            
+            h4 {
+                font-size: 14px;
+            }
+        }
 
- <!-- Add the Bootstrap CSS file -->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    
+        
+        
+        
+    </style>
 </head>
-  <body>
-   <main>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-       
-      <div class="nav" >
-         <header>
-             <h2> 
-              
-                  <ul class="navbar-nav" >
-                     
-                    <div class="log">
-                      <img src="plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;">
-                    </div>
-                      
-                    <li class="nav-item active">
-                       <a class="nav-link" style="color: rgb(19, 17, 17);" href="#" >Home</a>
-                       </li>
-                       <li class="nav-item" >
-                       <a class="nav-link" style="color: rgb(19, 17, 17);" href="../news/News.php" >News</a>
-                       </li>
-                       <li class="nav-item" >
-                       <a class="nav-link" style="color: rgb(19, 17, 17);" href="#"  >Guidelines</a>
-                       </li>
-                       
-                      <li class="nav-item" >
-                      <a class="nav-link" style="color: rgb(19, 17, 17);" href="ReportForm.php">Report incident</a>
-                      </li>
-                      <li class="nav-item"  >
-                      <a class="nav-link" style="color: rgb(19, 17, 17);" href="#" >FAQ</a>
-                      </li>
-                      <!-- <li class="nav-item"  >
-                      <a class="nav-link" href="#" >About</a>
-                      </li> -->
-                      <li class="nav-item" style="margin-top: -10px;">
-                       <a  class="nav-link" style="color: rgb(19, 17, 17);" href="../login/Master_login_register.php"> <svg  class="login" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                        
-                      </svg> <p style="font-size: 15px; margin-left: -5px;color: rgb(19, 17, 17);">Login</p>   
-                    
-                      
-                           </a>
-                       </li>
-                   </ul>
-               </h2>
-            </nav>
-          </header>
-          </nav>
-        </div>
-   </main>
-   <section >
-    <h2 style="text-align: center; margin-top: 100px; color: khaki; font-weight: 500;">CRIME RECORD MANAGEMENT SYSTEM</h2>
-    <br><p class="creat" style="font-weight: 400;font-size: 25px; text-align: center; color: aqua;">Creating a Safe and Secure Malawi</p>
- 
-</section>
+<body>
+  
+    
 
+                    <!-- Main content -->
+<div class="content">
+  
+  <!-- Header -->
+  <header>
+      <!-- Header content -->
+      <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="log">
+          <img src="plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                  <a  class="nav-link" style="color: white;" href="#"  id="casesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+                 
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link" style="color: white;" href="../news/News.php" id="officersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
+                
+                  </li>
+                  <li class="nav-item dropdown">
+                  <a  class="nav-link" style="color: white;" href="#"  id="dutiesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guidelines</a>
+                  
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" style="color: white;" href="ReportForm.php">Report incident</a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" style="color: white;" href="#">FAQ</a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" style="color: white;" href="../login/Master_login_register.php">Login</a>
+                  </li>
+                  
+                 </ul>
+                  </div>
+                  </nav>
+  </header>
+ 
+  <!-- Page content -->
+  <main>
+   
+    <h1 >CRIME RECORD MANAGEMENT SYSTEM<h1>
+      <h4 >Creating a Safe and Secure Malawi.</h4>
+      <!-- Your crime record management system content goes here -->
+   
+  </main>
+</div>
 <footer>
   <div class="container">
-        <h4>Contact Us</h4>
-        Email: crms@gmail.com <br> 
-        Phone: +265 88 040-9999 <br>
-        Address: Chanco P. O. Box, 280 Zomba
+      <div class="row">
+          <div class="col-md-6 contact">
+              <p style="font-size: 20px;">Contact us</p>
+              <p>Email: crms@gmail.com</p>
+              <p>Phone: +265 88 040-9999</p>
+          </div>
+          <div class="col-md-6 text-muted">
+              &copy; CRMS2023. All rights reserved.
+          </div>
+      </div>
   </div>
-  <p class="text-muted">&copy; CRMS2023. All rights reserved.</p>
 </footer>
+
+<!-- Include Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Include Adminator JS -->
+<script src="path/to/adminator.js"></script>
+
 </body>
-<style>
-  
-  /* styles for larger screens */
-.system-name{
-    margin-top: -70px;
-  }
-body {
-background-color: rgb(0, 109, 139);
-}
 
-  a:hover{
-    font-weight: 700;
-    color: khaki;
-  }
-
-  .nav-top{
-    padding: 1px;
-    height: 25px;
-  }
-
-  h2{
-    height: 50px;
-  }
-
-  .nav-link{
-    font-weight: 500;
-    font-size: 26.5px;
-    margin-left: 100px; 
-  }
-
-  /* styles for smaller screens */
-  @media only screen and (max-width: 768px) {
-    .nav-link{
-      font-size: 16px;
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-    .log img {
-      height: 50px;
-      width: 50px;
-    }
-    .creat {
-      font-size: 20px;
-    }
-  }
-
-  @media only screen and (max-width: 576px) {
-    .nav-link{
-      font-size: 14px;
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-    .log img {
-      height: 40px;
-      width: 40px;
-    }
-    .creat {
-      font-size: 18px;
-    }
-  }
-
-  footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 151px; 
-  background-color: #333;
-  color: khaki;
-  text-align: center;
-  padding: 10px;
-}
-.features {
-	padding: 50px;
-	text-align: center;
-}
-
-.features li {
-	font-size: 20px;
-	margin-bottom: 10px;
-	display: flex;
-	align-items: center;
-}
-
-.features i {
-	color: #333;
-	margin-right: 10px;
-}
-</style>
 </html>
