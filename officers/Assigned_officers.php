@@ -10,8 +10,8 @@
   <div class="table-container">
   <table>
     <tr>
-      <th>case_id</th>
-      <th>officer_id</th>
+      <th>serial_no</th>
+      <th>service_no</th>
       <th>assigned_date</th>
       <th>report_date</th>
     </tr>
@@ -21,8 +21,8 @@
   include('../db/Connections.php');
 
     // Retrieve recorded cases from the database
-    $sql = 'SELECT *  FROM assign_work';
-    $result = mysqli_query($con, $sql);
+    $sql = 'SELECT *  FROM duty';
+    $result = mysqli_query($conn, $sql);
 
     
       
@@ -38,10 +38,10 @@
   // Loop through the results and output the data
   while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr>";
-    echo "<td>" . $row['case_id'] . "</td>";
-    echo "<td>" . $row['officer_id'] . "</td>";
-    echo "<td>" . $row['assigned_date'] . "</td>";
-    echo "<td>" . $row['report_date'] . "</td>";
+    echo "<td>" . $row['serial_no'] . "</td>";
+    echo "<td>" . $row['service_no'] . "</td>";
+    echo "<td>" . $row['date_assigned'] . "</td>";
+    echo "<td>" . $row['date_to_report'] . "</td>";
     echo "</tr>";
   }
  
@@ -51,7 +51,7 @@
       echo "0 results";
     }
 
-    mysqli_close($con);
+    mysqli_close($conn);
   ?>
   
   </table>

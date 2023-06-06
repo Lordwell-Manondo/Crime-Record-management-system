@@ -26,8 +26,8 @@ session_start();
    <th style="text-size: 10px; ">Serial No</th> 
    <th style="text-size: 10px;">Suspect Name</th>
     <th style="text-size: 10px;">Victim Name</th>
-    <th style="text-size: 10px; width: 20%;">Incident</th>
-    <th style="text-size: 10px; width: 15;">Date Assigned</th>
+    <th style="text-size: 10px;">Incident</th>
+    <th style="text-size: 10px;">Date Assigned</th>
     <th style="text-size: 10px;">Date to Report</th>
     <th style="text-size: 10px;">Remaining Days</th>
   </tr>
