@@ -142,6 +142,7 @@
                     <li><a class="nav-link" style="color: white;" href="../login/Master_login_register.php">Login</a></li>            
                 </ul>
                 </li>
+                </li>
                   
                  </ul>
                   </div>

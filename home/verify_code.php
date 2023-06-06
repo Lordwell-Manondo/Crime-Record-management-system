@@ -52,6 +52,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Verification successful
         // Insert the form data into the database
         if (insertFormData($phoneNumber, $location, $description)) {
+
+             // saving the case into database
+             $query = "insert into reportform ( phone, location, description) values ('$phoneNumber', '$location', '$description')";
+            
+             //executing the above statement
+             mysqli_query($conn, $query);
             // Data insertion successful
             $successMessage = 'Form submitted successfully!';
 

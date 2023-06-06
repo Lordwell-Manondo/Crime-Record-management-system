@@ -24,7 +24,7 @@
     a {
       padding: 10%;
       font-size: 20px;
-      margin-right: 50px;
+      margin-right: 30px;
       font-weight: 400;
       color: white;
       text-decoration: none;
@@ -72,7 +72,10 @@
     .dropdown-menu {
       background-color: transparent;
       width: 60px;
-    }
+      }
+      .dropdown-item{
+            color: white;
+         }  
   </style>
 </head>
 
@@ -161,6 +164,12 @@
             <li><a class="dropdown-item" style="margin-left: 0%; font-size: 100%; " href="logout.php">Logout</a></li>
           </ul>
         </li>
+        <li class="nav-item">
+                  <a class="nav-link" style="color: white;" href="#"></a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" style="color: white;" href="#"></a>
+                  </li>
       </ul>
     </div>
   </nav>
