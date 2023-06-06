@@ -1,28 +1,59 @@
 <?php
+session_start();
+
 // Include the file for database connection
 require_once '../db/Connections.php';
 
-// Function to insert form data into the database
-function insertFormData($phone, $location, $description, $conn) {
-    // Prepare the SQL statement
-    $statement = $conn->prepare("INSERT INTO reportform (phone, location, description) VALUES (?, ?, ?)");
+// Include the Twilio PHP SDK
+require_once __DIR__ . '/../vendor/autoload.php';
 
-    // Bind the parameters with the form values
-    $statement->bind_param("sss", $phone, $location, $description);
+use Twilio\Rest\Client;
 
-    // Execute the SQL statement
-    if ($statement->execute()) {
-        // Submission successful
-        return true;
-    } else {
-        // Submission failed
-        return false;
-    }
+// Twilio credentials
+$accountSid = 'ACa7a8f81a7a2635a24bc25ef2ab93a4b0';
+$authToken = '8b76b8bb54132712794c60246d4acb0a';
+$twilioServiceSid = 'VA43800a8e172de2a9ba301038c68d9009';
+
+// Function to send verification code via SMS
+function sendVerificationCode($phoneNumber)
+{
+    global $accountSid, $authToken, $twilioServiceSid;
+
+    $client = new Client($accountSid, $authToken);
+
+    $verification = $client->verify->v2->services($twilioServiceSid)
+        ->verifications
+        ->create($phoneNumber, 'sms');
+
+    return $verification;
 }
 
-// Variables to track success/error messages
-$successMessage = "";
-$errorMessage = "";
+// Function to verify the entered code
+function verifyCode($phoneNumber, $verificationCode)
+{
+    global $accountSid, $authToken, $twilioServiceSid;
+
+    $client = new Client($accountSid, $authToken);
+
+    $verificationCheck = $client->verify->v2->services($twilioServiceSid)
+        ->verificationChecks
+        ->create(['to' => $phoneNumber, 'code' => $verificationCode]);
+
+    return $verificationCheck->status === 'approved';
+}
+
+// Function to insert form data into the database
+function insertFormData($phone, $location, $description)
+{
+    // Replace this with your code to insert form data into the database
+    // ...
+
+    // Return true if the insertion is successful, otherwise false
+    return true;
+}
+
+// Variable to track success message
+$successMessage = '';
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -31,14 +62,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $location = $_POST["location"];
     $description = $_POST["description"];
 
-    // Call the function to insert the form data into the database
-    $isSubmitted = insertFormData($phone, $location, $description, $conn);
+    // Call the function to send the verification code via SMS
+    $verification = sendVerificationCode($phone);
 
-    if ($isSubmitted) {
-        $successMessage = "Form submitted successfully.";
-    } else {
-        $errorMessage = "Oops! Something went wrong. Please try again.";
-    }
+    // Store the form data and phone number in session for later use
+    $_SESSION['phone'] = $phone;
+    $_SESSION['location'] = $location;
+    $_SESSION['description'] = $description;
+
+    // Redirect to the verification page
+    header("Location: verify_code.php");
+    exit();
 }
 ?>
 
@@ -46,6 +80,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Report Form</title>
+</head>
+<body>
+    <h2>Report Form</h2>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi1Re9rRPX6TGBv81ox0H7tRXfQ7eg9lo&libraries=places"></script>
     <script>
         // Initialize Google Places Autocomplete
@@ -55,26 +92,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
     </script>
-</head>
-<body>
-    <h2>Report Form</h2>
     <?php if (!empty($successMessage)) : ?>
-        <div style="color: white; text-align: center;"><?php echo $successMessage; ?></div>
+        <div style="color: green; text-align: center;"><?php echo $successMessage; ?></div>
     <?php endif; ?>
-    <?php if (!empty($errorMessage)) : ?>
-        <div style="color: red; text-align: center;"><?php echo $errorMessage; ?></div>
-    <?php endif; ?>
-    <br>
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <label for="phone">Phone:</label>
-        <input type="text" name="phone" id="phone" required><br><br>
-        
+        <input type="text" name="phone" id="phone" placeholder="Phone" required>
+        <br>
         <label for="location">Location:</label>
-        <input type="text" name="location" id="location" required><br><br>
-        
-        <label for="description">Description:</label><br>
-        <textarea name="description" id="description" rows="5" required></textarea><br><br>
-        
+        <input type="text" name="location" id="location" placeholder="Location" required>
+        <br>
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" rows="4" required></textarea>
+        <br>
         <input type="submit" value="Submit">
         <button type="button" onclick="window.history.back();">Cancel</button>
     </form>
@@ -131,4 +161,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         margin: auto;
     }
 </style>
+
 </html>
