@@ -118,10 +118,9 @@
                   <a  class="nav-link" style="color: white;" href="#"  id="casesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
                  
               </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link" style="color: white;" href="../news/News.php" id="officersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
-                
-                  </li>
+              <li>
+                  <a class="nav-link" style="color: white;" href="../news/News.php">News</a>
+              </li>
                   <li class="nav-item dropdown">
                   <a  class="nav-link" style="color: white;" href="#"  id="dutiesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guidelines</a>
                   

@@ -156,7 +156,7 @@
           </a>
           <!-- submenu for profile -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
-            <li><a class="dropdown-item" style="margin-left: 0%; font-size: 100%; " href="../changepass/change-password-admin.php">Change password</a></li>
+            <li><a class="dropdown-item" style="margin-left: 0%; font-size: 100%; " href="../changepass/change-password-officer-incharge.php">Change password</a></li>
             <li><a class="dropdown-item" style="margin-left: 0%; font-size: 100%; " href="#">View profile</a></li>
             <li><a class="dropdown-item" style="margin-left: 0%; font-size: 100%; " href="logout.php">Logout</a></li>
           </ul>
