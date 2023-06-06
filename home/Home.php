@@ -132,9 +132,17 @@
                   <li class="nav-item">
                   <a class="nav-link" style="color: white;" href="#">FAQ</a>
                   </li>
-                  <li class="nav-item">
-                  <a class="nav-link" style="color: white;" href="../login/Master_login_register.php">Login</a>
-                  </li>
+
+                  <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <i class="fas fa-user" style="font-size: 30px; width: 60px; background-color: transparent;"></i>
+                    </a>
+                <!-- submenu for profile -->
+                <ul class="dropdown-menu" style="background-color: transparent;">
+                    <li><a class="nav-link" style="color: white;" href="../login/Master_login_register.php">Login</a></li>            
+                </ul>
+                </li>
                   
                  </ul>
                   </div>
