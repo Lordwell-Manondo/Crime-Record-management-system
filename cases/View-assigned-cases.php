@@ -28,7 +28,7 @@
           <span class="navbar-toggler-icon"></span>
       </button>
  
-      <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
+      <form method="POST" action="View-assigned-cases.php" class="form-inline my-2 my-lg-0">
   <input class="form-control mr-sm-2" type="search" placeholder="Search for case..." aria-label="Search" name="search">
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button>
 </form>
@@ -119,9 +119,14 @@ else if(mysqli_num_rows($result) >0) {
     echo "<td>" . $row['date_to_report'] . "</td>";
 
    
+  //  $statusColor = ($row['status'] == 'Investigating') ? 'red' : 'green';
+   echo "<td><div class='case-status' style='color: white; background-color: red; padding: 5px; border-radius: 10px; font-weight: 700;'>". "</div>Investigating</td>";
+
+
+   
    // edit the case
-    // echo "<td><a href='update_case.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Edit</a></td>";
-    // echo "</tr>";
+    echo "<td> <a href='View-assigned-cases.php'?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Edit</a></td>";
+    echo "</tr>";
   
   }
 }
