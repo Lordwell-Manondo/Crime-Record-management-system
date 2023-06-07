@@ -176,9 +176,6 @@
 <!-- Include Adminator JS -->
 <script src="path/to/adminator.js"></script>
 
-<<<<<<< HEAD
-<h1>CRIME RECORD MANAGEMENT SYSTEM<h1>
-=======
 
   <style>
     body {
@@ -352,7 +349,6 @@
   </div>
 
   <h1>CRIME RECORD MANAGEMENT SYSTEM</h1>
->>>>>>> 9712f803020b92bfaa6ad3de1d1da2b5ceae637b
   <h4>Creating a Safe and Secure Malawi.</h4>
 
 </body>
