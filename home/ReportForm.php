@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="location" id="location" placeholder="Location" required>
         <br>
         <label for="description">Description:</label>
-        <textarea name="description" id="description" rows="4" required></textarea>
+        <textarea name="description" id="description" rows="4" placeholder="Include names of suspects and any other information" required></textarea>
         <br>
         <input type="submit" value="Submit">
         <button type="button" onclick="window.history.back();">Cancel</button>

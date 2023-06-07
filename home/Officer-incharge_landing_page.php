@@ -104,7 +104,7 @@
             <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/Record_case.php">Record case</a></li>
             <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/View_cases.php">View cases</a></li>
             <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/View-assigned-cases.php">Assigned cases</a></li>
-            <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/cases_bargraph.php">Cases trend</a></li>
+            <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/cases_statistics.php">Cases trend</a></li>
             <li class="nav-item">
               <a class="nav-link" href="../db/report.php">
                 <i class="fas fa-file-download" tooltip="Generate Report" style="font-size: 20px; color: white; margin-left: 15px;">PrintReport</i>

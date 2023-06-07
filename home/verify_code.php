@@ -54,10 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (insertFormData($phoneNumber, $location, $description)) {
 
              // saving the case into database
-             $query = "insert into reportform ( phone, location, description) values ('$phoneNumber', '$location', '$description')";
+             $sql = "insert into reportform ( phone, location, description) values ('$phoneNumber', '$location', '$description')";
             
              //executing the above statement
-             mysqli_query($conn, $query);
+             mysqli_query($conn, $sql);
             // Data insertion successful
             $successMessage = 'Form submitted successfully!';
 
@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Verify Code</title>
 </head>
 <body>
-    <h2>Verify Code</h2>
+    
     <?php if (isset($errorMessage)) : ?>
         <div style="color: red; text-align: center;"><?php echo $errorMessage; ?></div>
     <?php endif; ?>
@@ -89,10 +89,58 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div style="color: green; text-align: center;"><?php echo $successMessage; ?></div>
     <?php endif; ?>
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-        <label for="verification_code">Verification Code:</label>
-        <input type="text" name="verification_code" id="verification_code" placeholder="Verification Code" required>
+        <label for="verification_code">Verify your number:</label>
         <br>
-        <input type="submit" value="Verify">
+        <input type="text" name="verification_code" id="verification_code" placeholder="Enter given code" required>
+        <br>
+        <input type="submit" value="Submit" style=" width: 20%;">
+        
+        
+        
     </form>
+    <style>
+        body{
+            background-color: rgb(0, 109, 139);;
+           
+        }
+        form{
+            background-color: white;
+            width: 50%;
+            height: 250px;
+            display: list;
+            text-align: center;
+            margin-left: 25%;
+            border-radius: 2%;
+            margin-top: 130px;
+        }
+        
+        li{
+            list-style: none;
+        }
+        input{
+            width: 50%;
+            height: 40px;
+            margin-top: 30px;
+        }
+        input[type="text"]:hover {
+        border-color: #45a0949;
+        font-size: 20px;
+    }
+    label{
+        font-size: 30px;
+        
+    }
+   
+    button{
+            width: 50%;
+            height: 40px;
+            margin-top: 30px;
+            font-size: 25px;
+            width: 20%;
+            color: darkgray;
+            
+            
+    }
+    </style>
 </body>
 </html>
