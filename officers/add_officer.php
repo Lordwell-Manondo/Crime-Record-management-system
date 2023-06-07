@@ -19,12 +19,7 @@ function generateRandomPassword($length = 8) {
 
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Create a new instance of the Connection class
-    $connection = new Connection();
-
-    // Call the connect() method to establish a database connection
-    $conn = $connection->connect();
-
+   
     // Prepare the SQL statement
     $stmt = $conn->prepare("INSERT INTO officers (first_name, last_name, service_no, date_of_entry, officer_rank, station, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
