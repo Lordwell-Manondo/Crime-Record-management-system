@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
+    <title>Home page </title>
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+</head>
     <style>
         body {
             background-color: rgb(0, 109, 139);
@@ -63,6 +63,21 @@
             }
 
         }
+        .dropdown-menu{
+            background-color: transparent;
+            width: 90px;
+            }
+            footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 20%;
+            background-color: rgb(184, 179, 137);
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+        }
         
         .contact {
             text-align: start;
@@ -115,14 +130,21 @@
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
               <li class="nav-item dropdown">
-                  <a  class="nav-link" style="color: white;" href="#"  id="casesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+                  <a  class="nav-link" style="color: white;" href="#"  id="home" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
                  
               </li>
+<<<<<<< HEAD
+              <li class="nav-item dropdown">
+                  <a class="nav-link" style="color: white;" href="../news/News.php" id="officers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
+                
+                  </li>
+=======
               <li>
                   <a class="nav-link" style="color: white;" href="../news/News.php">News</a>
               </li>
+>>>>>>> 9712f803020b92bfaa6ad3de1d1da2b5ceae637b
                   <li class="nav-item dropdown">
-                  <a  class="nav-link" style="color: white;" href="#"  id="dutiesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guidelines</a>
+                  <a  class="nav-link" style="color: white;" href="#"  id="duties" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guidelines</a>
                   
                   </li>
                   <li class="nav-item">
