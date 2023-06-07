@@ -40,7 +40,7 @@
         
         a:hover {
            font-weight: 300;
-            color: aliceblue;
+            color: red;
             text-decoration: none;
         }
         .fas .fa-angle-down:hover{
@@ -95,7 +95,7 @@
                         <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/Record_case.php">Record case</a></li>
                         <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/View_cases.php">View cases</a></li>
                         <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/View-assigned-cases.php">Assigned cases</a></li>
-                        <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/cases_bargraph.php">Cases trend</a></li>
+                        <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/cases_statistics.php">Statistics</a></li>
                     </ul>
                 </li>
                 
