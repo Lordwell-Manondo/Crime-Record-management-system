@@ -64,10 +64,13 @@
 
     .dropdown-menu {
       background-color: transparent;
-      width: 60px;
-      }
+     width: 100%;  
+    }
+
       .dropdown-item{
             color: white;
+             font-size: 100%;
+           
          }  
   </style>
 
@@ -94,9 +97,9 @@
           </a>
           <!-- submenu for cases -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
-            <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/Record_case.php">Record case</a></li>
-            <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/View_cases.php">View cases</a></li>
-            <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/cases_statistics.php">Cases trend</a></li>
+            <li><a class="dropdown-item"  href="../cases/Record_case.php">Record case</a></li>
+            <li><a class="dropdown-item"  href="../cases/View_cases.php">View cases</a></li>
+            <li><a class="dropdown-item"  href="../cases/cases_statistics.php">Cases trend</a></li>
             <li class="nav-item">
               <a class="nav-link" href="../db/report.php">
                 <i class="fas fa-file-download" tooltip="Generate Report" style="font-size: 20px; color: white; margin-left: 15px;">PrintReport</i>
@@ -113,8 +116,8 @@
           </a>
           <!-- submenu for officers -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
-            <li><a class="dropdown-item" style="margin-left: 0%;" href="../officers/add_officer.php">Add officers</a></li>
-            <li><a class="dropdown-item" style="margin-left: 0%;" href="../officers/view_officers.php">View officers</a></li>
+            <li><a class="dropdown-item"  href="../officers/add_officer.php">Add officers</a></li>
+            <li><a class="dropdown-item"  href="../officers/view_officers.php">View officers</a></li>
           </ul>
         </li>
 
@@ -126,8 +129,8 @@
           </a>
           <!-- submenu for duties -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
-            <li><a class="dropdown-item" style="margin-left: 0%;" href="../duty/assign_duty.php">Assign duties</a></li>
-            <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/View-assigned-cases.php">Assigned duties</a></li>
+            <li><a class="dropdown-item"  href="../duty/assign_duty.php">Assign duties</a></li>
+            <li><a class="dropdown-item"  href="../cases/View-assigned-cases.php">Assigned duties</a></li>
           </ul>
         </li>
 
@@ -151,9 +154,9 @@
           </a>
           <!-- submenu for profile -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
-            <li><a class="dropdown-item" style="margin-left: 0%; font-size: 100%; " href="../changepass/change-password-officer-incharge.php">Change password</a></li>
-            <li><a class="dropdown-item" style="margin-left: 0%; font-size: 100%; " href="#">View profile</a></li>
-            <li><a class="dropdown-item" style="margin-left: 0%; font-size: 100%; " href="logout.php">Logout</a></li>
+            <li><a class="dropdown-item" style=" font-size: 100%; " href="../changepass/change-password-officer-incharge.php">Change password</a></li>
+            <li><a class="dropdown-item" style=" font-size: 100%; " href="#">View profile</a></li>
+            <li><a class="dropdown-item" style=" font-size: 100%; " href="logout.php">Logout</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -162,6 +165,8 @@
                   <li class="nav-item">
                   <a class="nav-link" style="color: white;" href="#"></a>
                   </li>
+                  
+                  
       </ul>
     </div>
   </nav>
