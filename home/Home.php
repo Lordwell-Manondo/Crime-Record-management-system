@@ -133,10 +133,16 @@
                   <a  class="nav-link" style="color: white;" href="#"  id="home" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
                  
               </li>
+<<<<<<< HEAD
               <li class="nav-item dropdown">
                   <a class="nav-link" style="color: white;" href="../news/News.php" id="officers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
                 
                   </li>
+=======
+              <li>
+                  <a class="nav-link" style="color: white;" href="../news/News.php">News</a>
+              </li>
+>>>>>>> 9712f803020b92bfaa6ad3de1d1da2b5ceae637b
                   <li class="nav-item dropdown">
                   <a  class="nav-link" style="color: white;" href="#"  id="duties" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guidelines</a>
                   
@@ -147,9 +153,18 @@
                   <li class="nav-item">
                   <a class="nav-link" style="color: white;" href="#">FAQ</a>
                   </li>
-                  <li class="nav-item">
-                  <a class="nav-link" style="color: white;" href="../login/Master_login_register.php">Login</a>
-                  </li>
+
+                  <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <i class="fas fa-user" style="font-size: 30px; width: 60px; background-color: transparent;"></i>
+                    </a>
+                <!-- submenu for profile -->
+                <ul class="dropdown-menu" style="background-color: transparent;">
+                    <li><a class="nav-link" style="color: white;" href="../login/Master_login_register.php">Login</a></li>            
+                </ul>
+                </li>
+                </li>
                   
                  </ul>
                   </div>
