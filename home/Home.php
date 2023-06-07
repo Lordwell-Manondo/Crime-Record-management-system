@@ -144,16 +144,9 @@
                   <a  class="nav-link" style="color: white;" href="#"  id="home" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
                  
               </li>
-<<<<<<< HEAD
-              <li class="nav-item dropdown">
-                  <a class="nav-link" style="color: white;" href="../news/News.php" id="officers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
-                
-                  </li>
-=======
               <li>
                   <a class="nav-link" style="color: white;" href="../news/News.php">News</a>
               </li>
->>>>>>> 9712f803020b92bfaa6ad3de1d1da2b5ceae637b
                   <li class="nav-item dropdown">
                   <a  class="nav-link" style="color: white;" href="#"  id="duties" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guidelines</a>
                   
