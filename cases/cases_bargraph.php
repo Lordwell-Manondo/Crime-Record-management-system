@@ -12,7 +12,7 @@ $caseCategories = [];
 
 // Initialize an empty array to store the category counts
 $categoryCounts = [];
-$totalCount=0;
+
 // Check if the data is available in the database
 if (mysqli_num_rows($result) > 0) {
   // Loop through the results and add each category to the array
@@ -23,28 +23,39 @@ if (mysqli_num_rows($result) > 0) {
           $caseCategories[] = $category;
       }
       
-   
+   // Count the occurrences of each category
+   if (isset($categoryCounts[$category])) {
+    // If the category exists, increment the count
+    $categoryCounts[$category]++;
+    //total count of categories 
+  $totalCount = array_sum($categoryCounts);
+   } 
 
-      // Count the occurrences of each category
-      if (isset($categoryCounts[$category])) {
-          // If the category exists, increment the count
-          $categoryCounts[$category]++;
-         //total count of categories 
-          $totalCount = array_sum($categoryCounts);
-      } else {
-          // If the category doesn't exist, initialize the count to 1
-          $categoryCounts[$category] = 1;
-      }
-      
+else {
+    // If the category doesn't exist, initialize the count to 1
+    $categoryCounts[$category] = 1;
+}
+
       
   }
+// Initialize totalCount to 0
+$totalCount = 0;
 
-  // Find the category with the maximum count
+// Loop through the categoryCounts array and sum up the counts
+foreach ($categoryCounts as $count) {
+    $totalCount += $count;
+}
+
+// Find the category with the maximum count
   $maxCount = max($categoryCounts);
   $maxCategory = array_search($maxCount, $categoryCounts);
-
+  //echo $maxCategory."".$maxCount;
+ 
   // Set the color based on the category
   $color = ($maxCategory== true) ? 'red' : 'green';
+
+  //total cases recorded
+  // echo $totalCount;
 
 } else {
   echo "0 results";
@@ -74,13 +85,15 @@ mysqli_close($conn);
         <?php
         foreach ($caseCategories as $category) {
           $count = $categoryCounts[$category];
-          $percentage = (($count / $totalCount) * 100);
-
+          $percentage = round(($count/$totalCount) * 100, 2);
+        
           // Set the color based on the category
          // $color = ($category === $maxCategory) ? 'pink' : 'green';
-
+      
+          
           $bargraph= "['" . $category . "(".$count.")"."',". $percentage . ", ''],";
           echo"".$bargraph;
+          
           
         }
         ?>

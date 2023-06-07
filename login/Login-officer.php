@@ -22,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verify the password
         if (password_verify($password, $row["password"])) {
+          $_SESSION['service_no'] = $row['service_no'];
+            	$_SESSION['id'] = $row['id'];
             // Password is correct, redirect to the home page or perform any other necessary actions
             header("Location: ../home/Officer.php");
             exit();
