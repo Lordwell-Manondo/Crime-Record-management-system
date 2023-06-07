@@ -64,13 +64,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // Clear session data
             session_unset();
             session_destroy();
+           
         } else {
             // Data insertion failed
             $errorMessage = 'Error inserting form data into the database.';
+           
+
         }
     } else {
         // Invalid verification code
-        $errorMessage = "Invalid verification code.";
+        $errorMessage = "Invalid code.";
     }
 }
 ?>

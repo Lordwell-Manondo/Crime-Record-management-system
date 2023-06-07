@@ -84,7 +84,7 @@
   <header>
       <!-- Header content -->
       <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <nav class="navbar navbar-expand-lg" style="background-color: black;">
 
     <div class="log">
           <img src="plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
@@ -112,7 +112,7 @@
           </a>
           <!-- submenu for profile -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
-            <li><a class="dropdown-item" style="font-size: 100%; " href="../changepass/change-password-officer-incharge.php">Change password</a></li>
+            <li><a class="dropdown-item" style="font-size: 100%; " href="../changepass/change-password-officer.php">Change password</a></li>
             <!-- <li><a class="dropdown-item" style="font-size: 100%; " href="#">View profile</a></li> -->
             <li><a class="dropdown-item" style="font-size: 100%; " href="logout.php">Logout</a></li>
           </ul>
