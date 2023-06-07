@@ -72,6 +72,19 @@
              font-size: 100%;
            
          }  
+         .footer {
+        width: 100%;
+        color: white;
+        text-align: center;
+        padding: 10px;
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  background-color: rgb(0, 109, 139);
+}
+      .footer span {
+        font-size: 16px;
+      }
   </style>
 
 
@@ -192,8 +205,15 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Include Adminator JS -->
-<script src="path/to/adminator.js"></script>
+ 
+<br><br><br><br>
+<footer class="footer">
+  <div class="container">
+
+     <hr style="color: white;">
+    <p class="text-muted">&copy; CRMS2023. All rights reserved.</p>
+  </div>
+</footer>
 
 
 
