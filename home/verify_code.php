@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
              mysqli_query($conn, $sql);
             // Data insertion successful
             $successMessage = 'Form submitted successfully!';
-
+            header("Location: added_success.php");
             // Clear session data
             session_unset();
             session_destroy();

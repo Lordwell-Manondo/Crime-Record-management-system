@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <label for="phone">Phone:</label>
-        <input type="text" name="phone" id="phone" placeholder="Phone" required>
+        <input type="text" name="phone" id="phone" placeholder="+265900000000" required>
         <br>
         <label for="location">Location:</label>
         <input type="text" name="location" id="location" placeholder="Location" required>
