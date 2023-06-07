@@ -19,7 +19,7 @@
 
 
 <header>
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+<nav class="navbar navbar-expand-lg" style="background-color: black;">
 <li><a class="dropdown-item" style=" font-size: 100%; margin-left: 5px; background-color: #999999; border-radius: 10%;" href="../home/Officer-incharge_landing_page.php">Back</a></li>
 <span class="recordedcases">RECORDED CASES</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
