@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     } else {
         // Invalid verification code
-        $errorMessage = 'Invalid verification code.';
+        $errorMessage = "Invalid verification code.";
     }
 }
 ?>
