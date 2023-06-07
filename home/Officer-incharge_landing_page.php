@@ -76,7 +76,7 @@
   <!-- <?php include 'Notifications.php'; ?> -->
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg " style="background-color: black;">
     <div class="log">
       <img src="plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
     </div>
@@ -96,7 +96,6 @@
           <ul class="dropdown-menu" aria-labelledby="submenu">
             <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/Record_case.php">Record case</a></li>
             <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/View_cases.php">View cases</a></li>
-            <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/View-assigned-cases.php">Assigned cases</a></li>
             <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/cases_statistics.php">Cases trend</a></li>
             <li class="nav-item">
               <a class="nav-link" href="../db/report.php">
@@ -128,7 +127,7 @@
           <!-- submenu for duties -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
             <li><a class="dropdown-item" style="margin-left: 0%;" href="../duty/assign_duty.php">Assign duties</a></li>
-            <li><a class="dropdown-item" style="margin-left: 0%;" href="#">Assigned duties</a></li>
+            <li><a class="dropdown-item" style="margin-left: 0%;" href="../cases/View-assigned-cases.php">Assigned duties</a></li>
           </ul>
         </li>
 
