@@ -18,7 +18,7 @@ $caseLocations=[];
   
   
   $totalCases = 0;
-  $maxCount = 0;
+  $maxCategoryCount = 0;
   $maxCategory = '';
   $totalCount=0;
   $totalLocationCount=0;
@@ -55,7 +55,7 @@ $caseLocations=[];
           // Increment the total cases count
           $totalCases += $row['count'];
   
-          $maxCount;
+          $maxCategoryCount;
   
        }
       }else{
@@ -89,7 +89,8 @@ if (mysqli_num_rows($result) > 0) {
         if (isset($categoryCounts[$category])) {
             // If the category exists, increment the count
             $categoryCounts[$category]++;
-            //total count of categories 
+            //total count of categories
+            $totalCategoryCount = array_sum($categoryCounts); 
           
            } 
            if (isset($locationCounts[$area])) {
@@ -107,15 +108,16 @@ if (mysqli_num_rows($result) > 0) {
             $locationCounts[$area] = 1;
         }
     }
-    $totalCount = array_sum($categoryCounts);
+    
           
 // Find the category with the maximum count
-  $maxCount = max($categoryCounts);
-  $maxCategory = array_search($maxCount, $categoryCounts);
+  $maxCategoryCount = max($categoryCounts);
+  $maxCategory = array_search($maxCategoryCount, $categoryCounts);
 
   // Find the location with the maximum count
 $maxLocationCount = max($locationCounts);
 $maxLocation = array_search($maxLocationCount, $locationCounts);
+
 
 }
 else {
@@ -152,7 +154,7 @@ else {
             text-decoration: none;
             display: flex;
         }
-         span {
+         .heading {
             color: khaki;
             font-weight: 500;
             font-size: 150%;
@@ -239,7 +241,10 @@ else {
     tr:hover {
       background-color: #e2e2e2;
     }
-    
+    li{
+          list-style: none;
+         
+        }
         
 </style>
 </head>
@@ -252,8 +257,11 @@ else {
       <!-- Header content -->
       <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <li><span class="totalcases" style="color: white; font-size: 18px; color: khaki;">Total cases:    </span></li>
+    <li><span class="total" style="color: white; margin-left: 10px; font-size: 18px; color: khaki;" ><?php echo "   ". $totalCases; ?> </span></li>
       
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -280,38 +288,13 @@ else {
 
 </head>
 <body>
-  <span>CASES STATISTICAL DATA</span>
+  <span class="heading">CASES STATISTICAL DATA</span>
+  <!-- <p style="margin-left: 80%;">Total recorded cases : <?php echo $totalCases; ?></p>
+    <p style="margin-left: 80%;">Location : <?php echo $maxLocation." (" .$maxLocationCount.") "; ?></p> -->
 <hr>  
-  <table>
-    <thead>
-    <tr>
-    <hr>
-   
-        <th>Category</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Total recorded cases</td>
-        <td><?php echo $totalCases  ?></td>
-        <!-- "<div style='color: white;background-color: blue; width: 10%; border-radius: 5%;  font-size: 20px;'>" -->
-      </tr>
-      <tr>
-        <td>Case category with highest record</td>
-        <td><?php echo $maxCategory."(".$maxCount.")" ?></td>
-      </tr>
-      <tr>
-        <td>Area with more cases</td>
-        <td><?php echo $maxLocation."(".$maxLocationCount.")" ?></td>
-      </tr>
-    
-    </tbody>
-  </table>
- 
-  <main>
+<main>
 
-  <table>
+  <!-- <table>
     <thead>
         <tr>
             <th>Location</th>
@@ -319,7 +302,7 @@ else {
             <th>Category</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody> -->
         <?php
 
         
@@ -339,11 +322,11 @@ $conn = $connection->connect();
                 $category = $row['type'];
             }
         ?>
-        <tr>
-            <td><?php echo $location; ?></td>
-            <td><?php echo $count; ?></td>
-            <td><?php echo $category; ?></td>
-        </tr>
+        <!-- <tr>
+            <td><//?php echo $location; ?></td>
+            <td><//?php echo $count; ?></td>
+            <td><//?php echo $category; ?></td>
+        </tr> -->
         <?php
         }
         mysqli_close($conn);

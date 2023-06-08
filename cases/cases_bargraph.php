@@ -101,7 +101,7 @@ mysqli_close($conn);
 
       var options = {
         chart: {
-          title: 'Bar chart showing the recorded cases in Malawi',
+          title: 'Bar chart showing the recorded case categories',
           data: 'in',
         },
         titleTextStyle: {
