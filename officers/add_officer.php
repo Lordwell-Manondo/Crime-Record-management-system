@@ -61,8 +61,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <header>
-        <a href="../home/Admin_landing_page.php" style="margin-left: 1230px; color: white;">
-            <p style="font-size: 15px;  margin-left: 50px; color: white;">Back</p>
+        <a href="../home/Officer-incharge_landing_page.php" style="text-align: center; padding-top: 10px; color: white;">
+            <p style="font-size: 15px;  margin-left: 50px; color: white;" >Back</p>
         </a>
     </header>
     <h2>Add Officer</h2>
@@ -93,9 +93,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Mpondabwino">Mpondabwino</option>
             <option value="Jali">Jali</option>
         </select><br><br>
+        <div style="text-align:center">
         <input type="submit" value="Add Officer">
         <input type="button" value="View officers" onclick="location.href='view_officers.php';">
-        
+        </div>
     </form>
 </body>
 
@@ -119,6 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         text-align: center;
         color: white;
         font-weight: 200px;
+        padding-top: 10px
     }
 
     form {
@@ -155,6 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         border-radius: 4px;
         box-sizing: border-box;
         margin-bottom: 20px;
+        ali
         font-size: 16px;
     }
 

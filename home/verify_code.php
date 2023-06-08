@@ -59,15 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
              //executing the above statement
              mysqli_query($conn, $sql);
             // Data insertion successful
-            //$successMessage = 'Incident reported successfully!';
-            
-           echo '<p style="color: khaki; font-size: 30px; margin-top: 50px; margin-left: 30px;">' . "Incident reported successfully!" . '</p>';
-           // Redirect to the verification page
-    header("Location: ReportForm.php");
-    exit();
-
-
-
+            $successMessage = 'Form submitted successfully!';
+            header("Location: added_success.php");
             // Clear session data
             session_unset();
             session_destroy();
