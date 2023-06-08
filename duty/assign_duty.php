@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Execute SQL query
         if (mysqli_query($conn, $sql)) {
         // Success message
-        $message = "<div style='width: 15%; background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-left: 42%;'>Duty assigned successfully</div>";
+        $message = "<div style='width: 20%; background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-left: 42%;'>Duty assigned successfully</div>";
         $refreshTime = 5;
          // Generate the meta tag with the refresh time
          $metaTag = "<meta http-equiv='refresh' content='$refreshTime'>";
@@ -91,19 +91,18 @@ mysqli_close($conn);
 <html>
 <head>
   <title>Duty Assignment</title>
-<?php include ("../common/top_bar.php");
-?>
+
 </head>
 <body>
   <h2>Duty Assignment</h2>
   <?php echo $message; ?>
   <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-    <label for="serial_no">Select a case:</label>
+    <label for="serial_no">Select   case:</label>
     <select id="serial_no" name="serial_no">
       <?php echo $cases; ?>                                         
     </select>
     <br><br>
-    <label for="service_no">Select an officer:</label>
+    <label for="service_no">Select officer:</label>
     <select id="service_no" name="service_no"> 
       <?php echo $officers; ?>                                     
     </select>
@@ -147,8 +146,10 @@ mysqli_close($conn);
       height: 10%;
       padding: 10px;
       margin-bottom: 25px;
-      border: none;
+      border: green;
       border-radius: 5px;
+      font-size: 20px;
+
     }
 
     input[type="submit"] {
@@ -177,6 +178,13 @@ mysqli_close($conn);
       margin-bottom: 15px;
       border-radius: 3px;
     }
+   select, input[type="date"] {
+      color: gray;
+    }
+    select{
+      background-color: white;
+    }
+   
   </style>
 
 <script>
