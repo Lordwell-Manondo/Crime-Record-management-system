@@ -31,7 +31,7 @@ session_start();
           <span class="navbar-toggler-icon"></span>
       </button>
  
-      <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
+      <form method="POST" action="officer_duties.php" class="form-inline my-2 my-lg-0">
   <input class="form-control mr-sm-2" type="search" placeholder="Search for case..." aria-label="Search" name="search">
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button>
 </form>
@@ -59,7 +59,7 @@ session_start();
     <th style="text-size: 10px;">Incident</th>
     <th style="text-size: 10px;">Date Assigned</th>
     <th style="text-size: 10px;">Date to Report</th>
-    <th style="text-size: 10px;">Remaining Days</th>
+    <th style="text-size: 10px;">Remaining Time</th>
   </tr>
 <?php
 //linking up Record_case.php file with database using Connections.php file

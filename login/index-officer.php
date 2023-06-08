@@ -16,7 +16,7 @@
      	<label>Password</label>
      	<input type="password" name="password" placeholder="Password"><br>
 
-     	<a href="" class="ca">Forgot Password</a><button type="submit" >Login</button>
+     	<a href="#" class="ca">Forgot Password</a><button type="submit" >Login</button>
      </form>
 </body>
 </html>
