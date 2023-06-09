@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Report Form</title>
 </head>
 <body>
-<h2>Report Form</h2>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi1Re9rRPX6TGBv81ox0H7tRXfQ7eg9lo&libraries=places"></script>
     <script>
         // Initialize Google Places Autocomplete
@@ -97,6 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div style="color: green; text-align: center;"><?php echo $successMessage; ?></div>
     <?php endif; ?>
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+    <h2>Report Incident</h2>
         <label for="phone">Phone:</label>
         <input type="text" name="phone" id="phone" placeholder="+265xxxxxxxxx" required>
         <br>
@@ -117,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     h2 {
-        color: white;
+        color: black;
         text-align: center;
     }
     

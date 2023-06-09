@@ -143,7 +143,7 @@ else {
 
                     <div class="form-group">
                         <label for="file">File:</label>
-                        <input type="file" class="form-control-file" id="file" name="file" required>
+                        <input type="file" class="form-control-file" id="file" name="file">
                     </div>
                     <button type="submit" class="btn btn-primary">Add</button>
                     <button type="button" class="btn back-button" onclick="history.back()">Back</button>
