@@ -107,7 +107,7 @@ else if(mysqli_num_rows($result) >0) {
 
     
    // edit the case
-    echo "<td><a href='report_work.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px; padding: 5px;'>Report</a></td>";
+    echo "<td><a href='officer_duties.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px; padding: 5px;'>Report</a></td>";
     echo "</tr>";
   
   }
