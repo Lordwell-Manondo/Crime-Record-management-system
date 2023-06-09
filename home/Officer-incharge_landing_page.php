@@ -146,6 +146,19 @@
             <li><a class="dropdown-item"  href="../cases/View-assigned-cases.php">Assigned duties</a></li>
           </ul>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link" style="color: white;" href="#" id="dutiesDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            News
+            <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550;"></i>
+          </a>
+          <!-- submenu for duties -->
+          <ul class="dropdown-menu" aria-labelledby="submenu">
+            <li><a class="dropdown-item"  href="../news/news2.php">Add news</a></li>
+            <li><a class="dropdown-item"  href="#">View news</a></li>
+          </ul>
+        </li>
           
         </li>
         <li class="nav-item dropdown">
