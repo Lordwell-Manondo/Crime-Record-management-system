@@ -148,7 +148,7 @@
                   <a class="nav-link" style="color: white;" href="../news/News.php">News</a>
               </li>
                   <li class="nav-item dropdown">
-                  <a  class="nav-link" style="color: white;" href="#"  id="duties" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guidelines</a>
+                  <a  class="nav-link" style="color: white;" href="guidelines.php">Guidelines</a>
                   
                   </li>
                   <li class="nav-item">
