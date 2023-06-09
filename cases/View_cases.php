@@ -123,7 +123,7 @@ else if(mysqli_num_rows($result) >0) {
     echo "<td>" . $row['type'] . "</td>";
    
     $statusColor = ($row['status'] == 'Open') ? 'red' : 'green';
-echo "<td><div class='case-status' style='color: white; background-color: $statusColor; padding: 5px; border-radius: 10px; font-weight: 700;'>" . $row['status'] . "</div></td>";
+echo "<td><div class='case-status' style='width: fit-content; color: white; background-color: $statusColor; padding: 5px; border-radius: 10px; font-weight: 700;'>" . $row['status'] . "</div></td>";
 
 
    

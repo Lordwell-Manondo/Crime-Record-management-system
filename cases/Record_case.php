@@ -178,6 +178,8 @@ session_start();
             color: #fff;
             font-weight: 600;
             transition: background-color 0.3s ease;
+            width: fit-content;
+            margin-left: 40%;
         }
         .contact-form button:hover {
             background-color: #0c3779;

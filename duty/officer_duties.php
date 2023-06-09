@@ -103,7 +103,9 @@ else if(mysqli_num_rows($result) >0) {
     echo "<td>" . $row['incident'] . "</td>";
     echo "<td>" . $row['date_assigned'] . "</td>";
     echo "<td>" . $row['date_to_report'] . "</td>";
-    echo "<td>" . $remainingDays . "</td>";
+    echo "<td><div class='case-status' style='width: fit-content;color: white; background-color: gray; padding: 5px; border-radius: 10px; font-weight: 600;'>" . $remainingDays . "</div></td>";
+
+    
    // edit the case
     echo "<td><a href='report_work.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px; padding: 5px;'>Report</a></td>";
     echo "</tr>";
@@ -186,7 +188,7 @@ table .highlighted-row {
 
 tr:hover {
   
-  font-weight: bold;
+  /* font-weight: 350; */
   font-size: 15px;
   margin-left: 70%;
    
@@ -203,7 +205,7 @@ h3{
 
   table .cases-table tbody tr:hover {
     background-color: #e9ecef; /* Change the background color on hover */
-    font-weight: bold; /* Make the text bold on hover */
+    font-weight: 0; /* Make the text bold on hover */
   }
 
   table .cases-table tbody tr td {
