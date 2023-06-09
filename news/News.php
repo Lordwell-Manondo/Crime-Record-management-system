@@ -1,86 +1,94 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Page</title>
-    <style>
-        body {
-            background-color: rgb(0, 109, 139);
-        }
-        .data-container {
-            margin: 10px auto;
-            max-width: 1000px;
-   
-    margin-bottom: 10px;
-            padding: 10px;
-            background-color: #fff;
-            color: #000;
-            border-radius: 5px;
-        }
-        
-        h1{color: gold;
-        text-align: center;
-        }
-    </style>
-</head>
-<body>
-<h1>News and Events</h1>
 <?php
-//Retrieving data from database
-// Connect to the database
-include('../db/Connections.php');
-
-//SQL statement
-$sql = "SELECT * FROM news";
-
-// Step 3: Execute the SQL statement
-$result = mysqli_query($conn, $sql);
-
-// Step 4: Fetch the data
-
-// check if the data is available in the database
-echo '<div class="data-container">';
-if (mysqli_num_rows($result) > 0) {
-    // display the recorded cases of each row
-    while ($row = mysqli_fetch_array($result)) {
-        // Use the retrieved data as desired
-    
-        echo "<h2>" . $row["title"] . "</h2>";
-        echo "<p>" . $row["type"] . "</p>";
-        echo "<p>" . $row["date"] . "</p>";
-        echo "<p>" . $row["description"] . "</p>";
-        
-        // convert the binary data from hexadecimal string
-        //$binaryData = hex2bin(str_pad($row["file"], (strlen($row["file"]) + 1) & ~1, '0', STR_PAD_LEFT));
-        
-        // output the binary data as an image
-        //if (ctype_xdigit($row["file"]) && strlen($row["file"]) % 2 == 0) {
-         //   echo '<img src="data:image/jpeg;base64,' . base64_encode($binaryData) . '"/>';
-        //} else {
-           // echo 'Invalid file name';
-       // }
-        
-          
-if (!empty($row["file"]) && ctype_xdigit($row["file"]) && strlen($row["file"]) % 2 == 0) {
-    // convert the binary data from hexadecimal string
-    $binaryData = hex2bin(str_pad($row["file"], (strlen($row["file"]) + 1) & ~1, '0', STR_PAD_LEFT));
-    // output the binary data as an image
-    echo '<img src="data:image/jpeg;base64,' . base64_encode($binaryData) . '"/>';
-} else {
-    echo 'Invalid file name';
-}
-
-       
-        echo "<hr>";
-    }
-} else {
-    echo "No news available";
-}
-
-// Step 5: Close the database connection
-mysqli_close($conn);
+	include "../db/Connections.php";
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.news-container {
+			margin-left: auto;
+			margin-right: auto;
+			padding: 30px;
+			border: 1px solid #ccc;
+			border-radius: 1px;
+			background-color: white;
+			border-radius: 5px;
+			height: 250px;
+			width: 1200px;
+		}
+
+		.news-title {
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		.news-date {
+			font-size: 14px;
+			color: #888;
+			margin-bottom: 5px;
+		}
+
+		.news-details {
+			margin-bottom: 15px;
+		}
+
+		.news-image {
+			max-width: 200px;
+			max-height: 200px;
+			margin-top: 10px;
+		}
+
+		body {
+			background-color: rgb(0, 109, 139);
+		}
+
+		.back-button {
+			position: fixed;
+			top: 20px;
+			left: 20px;
+			background-color: white;
+			color: #4CAF50;
+			border: none;
+			border-radius: 50%;
+			padding: 10px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<a href="../home/Home.php"><button class="back-button">&#8592;</button></a>
+
+	<?php
+		$query = "SELECT * FROM images";
+		$result = mysqli_query($conn, $query);
+
+		if(!$result){
+			echo $result . "<br/>" . mysqli_error($conn);
+		}
+
+		if(mysqli_num_rows($result)>0){
+			while($row = mysqli_fetch_array($result)){
+				$title = $row['title'];
+				$date = $row['date'];
+				$image = $row['image'];
+				$details = $row['details'];
+				
+	?>
+		<div class="news-container">
+			<h3 class="news-title"><?php echo $title; ?></h3>
+			<p class="news-date">Date: <?php echo $date; ?></p>
+			<p class="news-details"><?php echo $details; ?></p>
+			<img class="news-image" src="<?php echo $image; ?>" alt="News Image">
+		</div>
+	<?php
+			}
+		} else {
+	?>
+		<h3>No news found!</h3>
+	<?php
+		}
+	?>
 </body>
 </html>

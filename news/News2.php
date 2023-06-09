@@ -1,162 +1,145 @@
 <?php
-//linking up News.php file with database using Connections.php file
-include('../db/Connections.php');
-
-// Create a new instance of the Connection class
-$connection = new Connection();
-    
-// Call the connect() method to establish a database connection
-$conn = $connection->connect();
-
-//defining and initializing variables that will be used to pass values into database     
-// Form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data
-    $title = $_POST["title"];
-    $description = $_POST["description"];
-    $date = $_POST["date"];
-    $type = $_POST["type"];
-    
-    // File upload
-    $file_name = $_FILES['file']['name'];
-    $file_tmp = $_FILES['file']['tmp_name'];
-    $file_destination = 'uploads/' . $file_name;
-    move_uploaded_file($file_tmp, $file_destination);
-
-    // Insert into database
-    $sql = "INSERT INTO news (title, description, date, type, file) 
-            VALUES ('$title', '$description', '$date', '$type', '$file_destination')";
-    mysqli_query($conn, $sql);
-
-    //give this message if the process of saving the case was successful
-    echo "News added successfully";
-    exit;
-}
-else {
-    //printing this message  if the process of saving the case was not successful
-    //echo "Please enter valid information!";
-}
-
+	include "../db/Connections.php";
 ?>
-
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>News Form</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <style>
-        .heading {
-            color: navy;
-            text-align: center;
-        }
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: rgb(0, 109, 139);
+		}
 
-        .btn-primary {
-            background-color: #4cc3f1;
-            border-color: #black;
-            color: #fff;
-        }
+		h2 {
+			color: white;
+			text-align: center;
+		}
 
-        .btn-primary:hover, .btn-primary:focus {
-            background-color: #000080;
-            border-color: #FFFFFF;
-        }
+		label {
+			display: block;
+			margin-bottom: 5px;
+		}
 
-        input[type="file"]::-webkit-file-upload-button {
-            background-color: #4cc3f1;
-            color: #fff;
-            padding: 8px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+		input[type="text"],
+		textarea {
+			width: 100%;
+			padding: 5px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+		}
 
-        .form-box {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            background-color: #FFFFFF;
-            max-width: 500px;
-            margin: 0 auto;
-            box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
-        }
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			cursor: pointer;
+		}
 
-        body {
-            background-color: rgb(0, 109, 139);
-        }
+		button.back-button {
+			background-color: navy;
+			color: #4CAF50;
+			padding: 10px 20px;
+			border: none;
+			cursor: pointer;
+			margin-left: 232px;
+		}
 
-        .back-button {
-            float: right;
-            background-color: #4cc3f1;
-            border-color: #black;
-            color: #fff;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
+		input[type="submit"]:hover,
+		button.back-button:hover {
+			background-color: #45a049;
+		}
 
-        .back-button:hover, .back-button:focus {
-            background-color: navy;
-            border-color: #black;
-        }
+		form {
+			width: 550px;
+            height: 300px;
+			border: 2px solid #ccc;
+			padding: 30px;
+			background: #fff;
+			border-radius: 15px;
+			margin: auto;
+		}
 
-        .back-button:hover span {
-            color: #FFFFFF;
-        }
+		.message {
+			text-align: center;
+			margin-top: 20px;
+		}
 
-        .back-button span {
-            color: #FFFFFF;
-            transition: color 0.3s;
-        }
-    </style>
+		.back-link {
+			text-align: center;
+			margin-top: 10px;
+		}
+
+		.back-link a {
+			color: #4CAF50;
+			text-decoration: non;
+		}
+	</style>
+	<script>
+		// JavaScript function to set the maximum date value to today's date
+		function setMaxDate() {
+			var today = new Date().toISOString().split('T')[0];
+			document.getElementById("date").setAttribute('max', today);
+		}
+
+		// JavaScript function to validate the form before submission
+		function validateForm() {
+			var title = document.forms["submissionForm"]["title"].value;
+			var date = document.forms["submissionForm"]["date"].value;
+			var details = document.forms["submissionForm"]["details"].value;
+			var image = document.forms["submissionForm"]["image"].value;
+			
+			if (title === "" || date === "" || details === "" || image === "") {
+				alert("Please fill in all the fields.");
+				return false;
+			}
+		}
+	</script>
 </head>
-<body>
-    <header>
-        <div class="container mt-5">
-            
-            <div class="form-box">
+<body onload="setMaxDate()">
+	<?php
+		$message = "";
+		if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST" ){
+			$image = $_FILES["image"]["name"]; //getting the image name from client machine
+			
+			// Set image name with current time
+			$imageFileType = strtolower(pathinfo($image,PATHINFO_EXTENSION));
+			$randomName = "IMG_" . date("his") . "." . $imageFileType; 
+			
+			$tempName = $_FILES["image"]["tmp_name"]; //temporary file name of the file on the server.
+			$imageName = $randomName; //set the image name with current name
+			$targetDirectory = "upload/" . $imageName; //declaring the folder in which the image will be stored
+			move_uploaded_file($tempName, $targetDirectory); //move the image to that folder
 
-                <form action="News2.php" method="post" enctype="multipart/form-data">
-                    <h1 class="heading">Add News and Events</h1>
-                    <div class="form-group">
-                        <label for="title">Title:</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description:</label>
-                        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Date:</label>
-                        <input type="date" class="form-control" id="date" name="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="type">Type:</label>
-                        <select class="form-control" id="type" name="type" required>
-                            <option value="">Select type</option>
-                            <option value="Sports">Sports</option>
-                            <option value="Politics">Politics</option>
-                            <option value="Entertainment">Entertainment</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
+			$title = isset($_POST["title"]) ? $_POST["title"] : "";
+			$date = isset($_POST["date"]) ? $_POST["date"] : "";
+			$details = isset($_POST["details"]) ? $_POST["details"] : "";
 
-                    <div class="form-group">
-                        <label for="file">File:</label>
-                        <input type="file" class="form-control-file" id="file" name="file" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Add</button>
-                    <button type="button" class="btn back-button" onclick="history.back()">Back</button>
+			$query = "INSERT INTO images(title, date, details, image) VALUES ('$title', '$date', '$details', '$targetDirectory')";
+			$result = mysqli_query($conn, $query);
 
-                </form>
-            </div>
-        </div>
-    </header>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-
+			if(!$result){
+				$message = "Error: " . mysqli_error($conn);
+			} else {
+				$message = "News Submitted successfully.";
+			}
+		}
+	?>
+	<h2>News Submission Form</h2>
+	<form name="submissionForm" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+		<input type="text" name="title" placeholder="Title"><br><br>
+		<input type="date" id="date" name="date"><br><br>
+        <textarea name="details" rows="4" cols="50" placeholder="Details"></textarea><br><br>
+		<input type="file" name="image">
+		<input type="submit" name="submit" value="Upload">
+	
+		<div class="message">
+			<?php echo $message; ?>
+		</div>
+		<div class="back-link">
+			<a href="../home/Home.php"><button class="back-button">Back</button></a>
+		</div>
+	</form>
 </body>
 </html>
