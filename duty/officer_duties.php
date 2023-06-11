@@ -65,6 +65,9 @@ session_start();
 //linking up Record_case.php file with database using Connections.php file
 include('../db/Connections.php');
 
+
+
+
 // Retrieve the list of cases from the database
 $sql = "SELECT * FROM `duty` JOIN `cases` ON duty.serial_no=cases.serial_no JOIN officers ON officers.service_no=duty.service_no WHERE officers.service_no = ". $_SESSION["service_no"] . " ORDER BY date_assigned";
 $result = mysqli_query($conn, $sql);
@@ -80,7 +83,7 @@ if(mysqli_num_rows($result) <= 0){
 else if(mysqli_num_rows($result) >0) {
      
   while ($row = mysqli_fetch_assoc($result)) {
-
+ 
 
     $targetDate = date_create($row['date_to_report']); // Convert the target date to a DateTime object
     $currentDate = new DateTime(); // Get the current date

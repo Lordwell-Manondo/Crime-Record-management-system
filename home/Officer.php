@@ -77,6 +77,7 @@
 </style>
 </head>
 <body>
+<?php include('officer_session.php');?>
    <!-- Main content -->
 <div class="content">
   
@@ -108,6 +109,7 @@
           <a class="nav-link" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             <i class="fas fa-user" style="font-size: 30px;"></i>
+            <span style="color: white; font-size: 15px;"> <?php echo $myname; ?></span>
             <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
           </a>
           <!-- submenu for profile -->

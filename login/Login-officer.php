@@ -3,6 +3,7 @@ session_start();
 include "../db/Connections.php";
 
 if (isset($_POST['service_no']) && isset($_POST['password'])) {
+    $service_no = $_POST['first_name'];
     $service_no = $_POST['service_no'];
     $password = $_POST['password'];
 
@@ -32,6 +33,9 @@ if (isset($_POST['service_no']) && isset($_POST['password'])) {
             if (password_verify($password, $hashed_password)) {
                 $_SESSION['service_no'] = $row['service_no'];
                 $_SESSION['id'] = $row['id'];
+                $_SESSION['first_name'] = $row['first_name'];
+                $firstName= $_SESSION['last_name'];
+                
                 header("Location: ../home/Officer.php");
                 exit();
             } else {

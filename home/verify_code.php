@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (insertFormData($phoneNumber, $location, $description)) {
 
              // saving the case into database
-             $sql = "insert into reportform ( phone, location, description) values ('$phoneNumber', '$location', '$description')";
+             $sql = "insert into reportform (phone, location, description) values ('$phoneNumber', '$location', '$description')";
             
              //executing the above statement
              mysqli_query($conn, $sql);
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     } else {
         // Invalid verification code
-        $errorMessage = "Invalid code.";
+       echo"<span style='color: white; font-size: 30px; margin-left: 40%; margin-top: -50px;'> "."Invalid code"." </span>";
     }
 }
 ?>

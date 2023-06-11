@@ -2,34 +2,47 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-
 <title>Recorded cases</title>
-</head>
-<body>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script>
+$(document).ready(function() {
+  let typingTimer;
+  const doneTypingInterval = 500;
+  $('#searchInput').on('input', function() {
+    $('#searchForm').submit();
+  });
+});
+</script>
+</head>
+<body>
+
  
 
 
 <header>
 <nav class="navbar navbar-expand-lg" style="background-color: black;">
-<li><a class="dropdown-item" style=" font-size: 100%; margin-left: 5px; background-color: #999999; border-radius: 10%;" href="../home/Officer-incharge_landing_page.php">Back</a></li>
-<span class="recordedcases">RECORDED CASES</span>
+
+<div class="log">
+      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+    </div>
+<span class="recordedcases">REGISTERED CASES</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
  
-      <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search for case..." aria-label="Search" name="search">
+      <form id="searchForm" method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search for case..." aria-label="Search" name="search" id="searchInput">
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button>
 </form>
+
 <li class="nav-item dropdown">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user" style="font-size: 25px; margin-left: 90px; color: darkgray;"></i>
@@ -38,7 +51,7 @@
                     </a>
                     <!-- submenu for profile -->
                     <ul class="dropdown-menu" aria-labelledby="submenu">
-                    <li><a class="dropdown-item" style=" font-size: 100%;" href="../home/home.php">Logout</a></li>
+                    <li><a class="dropdown-item" style=" font-size: 20px%; color: white;" href="../home/home.php">Logout</a></li>
                     </ul>
                     </li>
     </nav>
@@ -76,7 +89,7 @@ $start_record = ($current_page - 1) * $records_per_page;
 // Modify the SQL query to use the LIMIT clause
 if (!empty($_POST['search'])) {
   $search = mysqli_real_escape_string($conn, $_POST['search']);
-  $sql = "SELECT * FROM cases WHERE suspect_name LIKE '%$search%' OR victim_name LIKE '%$search%'  OR serial_no LIKE '%$search%' OR status LIKE '%$search%' OR type LIKE '%$search%' ORDER BY id DESC LIMIT $start_record, $records_per_page";
+  $sql = "SELECT * FROM cases WHERE suspect_name LIKE '%$search%' OR victim_name LIKE '%$search%'  OR serial_no LIKE '%$search%' OR status LIKE '%$search%' OR type LIKE '%$search%' OR incident LIKE '%$search%' OR date LIKE '%$search%' ORDER BY id DESC LIMIT $start_record, $records_per_page";
 } else {
   $sql = "SELECT * FROM cases ORDER BY id DESC LIMIT $start_record, $records_per_page";
 }
@@ -176,10 +189,10 @@ mysqli_close($conn);
    
     .recordedcases{  
         font-weight: 100;
-        margin-left: 25%;
-        color: khaki;
+        margin-left: 20%;
+        color: white;
         font-size: 20px;
-        font-family: normal; 
+       
         letter-spacing: 2px;
         word-spacing: 10px;
         
@@ -266,7 +279,7 @@ table .cases-table tbody tr:first-child {
     
   }
   th{
-    color: khaki;
+    color: white;
     font-size: 15px;
     background-color: black;
   }
