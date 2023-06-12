@@ -1,5 +1,4 @@
 <?php
-
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the selected data from the form
@@ -11,27 +10,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: report.php?data=$serializedData");
     exit();
 }
-//linking up Record_case.php file with database using Connections.php file
+
+// Linking up Record_case.php file with the database using Connections.php file
 include('../db/Connections.php');
 
 // Create a new instance of the Connection class
 $connection = new Connection();
-    
+
 // Call the connect() method to establish a database connection
 $conn = $connection->connect();
 
-// Retrieve data from the database
-$sqlCaseTypes = "SELECT type, COUNT(*) as count FROM cases GROUP BY type ORDER BY count DESC";
-$resultCaseTypes = mysqli_query($conn, $sqlCaseTypes);
+// Define table names
+$tableNames = [
+    'case_types' => 'Case Types',
+    'suspects' => 'Suspects',
+    'recent_open_cases' => 'Recent Open Cases',
+    'recent_closed_cases' => 'Recent Closed Cases'
+];
 
-$sqlSuspects = "SELECT suspect_name, COUNT(*) as count FROM cases GROUP BY suspect_name ORDER BY count DESC";
-$resultSuspects = mysqli_query($conn, $sqlSuspects);
+// Retrieve data based on the selected table
+$selectedTable = isset($_GET['table']) ? $_GET['table'] : 'case_types';
 
-$sqlRecentOpenCases = "SELECT * FROM cases WHERE status = 'Open' ORDER BY date DESC LIMIT 5";
-$resultRecentOpenCases = mysqli_query($conn, $sqlRecentOpenCases);
+$sqlQueries = [
+    'case_types' => "SELECT type, COUNT(*) as count FROM cases GROUP BY type ORDER BY count DESC",
+    'suspects' => "SELECT suspect_name, COUNT(*) as count FROM cases GROUP BY suspect_name ORDER BY count DESC",
+    'recent_open_cases' => "SELECT * FROM cases WHERE status = 'Open' ORDER BY date DESC LIMIT 5",
+    'recent_closed_cases' => "SELECT * FROM cases WHERE status = 'Closed' ORDER BY date DESC LIMIT 5"
+];
 
-$sqlRecentClosedCases = "SELECT * FROM cases WHERE status = 'Closed' ORDER BY date DESC LIMIT 5";
-$resultRecentClosedCases = mysqli_query($conn, $sqlRecentClosedCases);
+$results = [];
+foreach ($sqlQueries as $table => $query) {
+    $result = mysqli_query($conn, $query);
+    $results[$table] = $result;
+}
 
 // Close the database connection
 mysqli_close($conn);
@@ -47,6 +58,10 @@ mysqli_close($conn);
             background-color: rgb(0, 109, 139);
             margin: 20px;
             color: white;
+            
+        }
+        .main {
+            display: flex;
         }
         h1 {
             color: khaki;
@@ -64,6 +79,7 @@ mysqli_close($conn);
             width: 100%;
             border-collapse: collapse;
             margin: auto;
+            margin-top: 20px;
             margin-bottom: 20px;
             max-width: 720px;
         }
@@ -80,6 +96,28 @@ mysqli_close($conn);
             align-items: center;
             justify-content: space-between;
             margin-bottom: 20px;
+        }
+        .sidebar {
+            width: 230px;
+            padding: 10px;
+            flex: 0 1;
+            border-right: 1px solid;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 8px;
+            margin: 0;
+        }
+        .sidebar li {
+            margin: 8px;
+            padding: 8px;
+        }
+        .sidebar li a {
+            color: white;
+            text-decoration: none;
+        }
+        .sidebar li.active {
+            background-color: #555;
         }
         .print-button {
             background-color: #4CAF50;
@@ -125,6 +163,10 @@ mysqli_close($conn);
             border-radius: 5px;
             cursor: pointer;
         }
+        .content {
+            flex: 1;
+            margin-left: 20px;
+        }
     </style>
 </head>
 <body>
@@ -135,81 +177,93 @@ mysqli_close($conn);
             <div class="dropdown-form" id="dropdownForm">
                 <form method="post" action="" onsubmit="toggleDropdownForm()">
                     <p>Select data to print:</p>
-                    <label><input type="checkbox" name="data[]" value="case_types" checked> Case Types</label>
-                    <label><input type="checkbox" name="data[]" value="suspects" checked> Suspects</label>
-                    <label><input type="checkbox" name="data[]" value="recent_open_cases" checked> Recent Open Cases</label>
-                    <label><input type="checkbox" name="data[]" value="recent_closed_cases" checked> Recent Closed Cases</label>
+                    <?php foreach ($tableNames as $table => $tableName) { ?>
+                        <label><input type="checkbox" name="data[]" value="<?php echo $table; ?>" <?php echo ($selectedTable === $table) ? 'checked' : ''; ?>> <?php echo $tableName; ?></label>
+                    <?php } ?>
                     <br>
                     <input type="submit" value="Generate Report">
                 </form>
             </div>
         </div>
     </div>
-
-    <h2>Case Types:</h2>
-    <table>
-        <tr>
-            <th>Case Type</th>
-            <th>Count</th>
-        </tr>
-        <?php while ($rowCaseTypes = mysqli_fetch_assoc($resultCaseTypes)) { ?>
-            <tr>
-                <td><?php echo $rowCaseTypes['type']; ?></td>
-                <td><?php echo $rowCaseTypes['count']; ?></td>
-            </tr>
+    
+    <div class="main">
+    <div class="sidebar">
+        <ul>
+            <?php foreach ($tableNames as $table => $tableName) { ?>
+                <li <?php echo ($selectedTable === $table) ? 'class="active"' : ''; ?>><a href="?table=<?php echo $table; ?>"><?php echo $tableName; ?></a></li>
+            <?php } ?>
+        </ul>
+    </div>
+    <div class="content">
+        <?php if ($selectedTable === 'case_types') { ?>
+            <h2>Case Types:</h2>
+            <table>
+                <tr>
+                    <th>Case Type</th>
+                    <th>Count</th>
+                </tr>
+                <?php while ($rowCaseTypes = mysqli_fetch_assoc($results['case_types'])) { ?>
+                    <tr>
+                        <td><?php echo $rowCaseTypes['type']; ?></td>
+                        <td><?php echo $rowCaseTypes['count']; ?></td>
+                    </tr>
+                <?php } ?>
+            </table>
+        <?php } elseif ($selectedTable === 'suspects') { ?>
+            <h2>Suspects:</h2>
+            <table>
+                <tr>
+                    <th>Suspect Name</th>
+                    <th>Count</th>
+                </tr>
+                <?php while ($rowSuspects = mysqli_fetch_assoc($results['suspects'])) { ?>
+                    <tr>
+                        <td><?php echo $rowSuspects['suspect_name']; ?></td>
+                        <td><?php echo $rowSuspects['count']; ?></td>
+                    </tr>
+                <?php } ?>
+            </table>
+        <?php } elseif ($selectedTable === 'recent_open_cases') { ?>
+            <h2>Recent Open Cases:</h2>
+            <table>
+                <tr>
+                    <th>Serial No</th>
+                    <th>Date</th>
+                    <th>Suspect</th>
+                    <th>Incident</th>
+                </tr>
+                <?php while ($rowRecentOpenCases = mysqli_fetch_assoc($results['recent_open_cases'])) { ?>
+                    <tr>
+                        <td><?php echo $rowRecentOpenCases['id']; ?></td>
+                        <td><?php echo $rowRecentOpenCases['date']; ?></td>
+                        <td><?php echo $rowRecentOpenCases['suspect_name']; ?></td>
+                        <td><?php echo $rowRecentOpenCases['incident']; ?></td>
+                    </tr>
+                <?php } ?>
+            </table>
+        <?php } elseif ($selectedTable === 'recent_closed_cases') { ?>
+            <h2>Recent Closed Cases:</h2>
+            <table>
+                <tr>
+                    <th>Serial No</th>
+                    <th>Date</th>
+                    <th>Suspect</th>
+                    <th>Incident</th>
+                </tr>
+                <?php while ($rowRecentClosedCases = mysqli_fetch_assoc($results['recent_closed_cases'])) { ?>
+                    <tr>
+                        <td><?php echo $rowRecentClosedCases['id']; ?></td>
+                        <td><?php echo $rowRecentClosedCases['date']; ?></td>
+                        <td><?php echo $rowRecentClosedCases['suspect_name']; ?></td>
+                        <td><?php echo $rowRecentClosedCases['incident']; ?></td>
+                    </tr>
+                <?php } ?>
+            </table>
         <?php } ?>
-    </table>
+    </div>
 
-    <h2>Suspects:</h2>
-    <table>
-        <tr>
-            <th>Suspect Name</th>
-            <th>Count</th>
-        </tr>
-        <?php while ($rowSuspects = mysqli_fetch_assoc($resultSuspects)) { ?>
-            <tr>
-                <td><?php echo $rowSuspects['suspect_name']; ?></td>
-                <td><?php echo $rowSuspects['count']; ?></td>
-            </tr>
-        <?php } ?>
-    </table>
-
-    <h2>Recent Open Cases:</h2>
-    <table>
-        <tr>
-            <th>Serial No</th>
-            <th>Date</th>
-            <th>Suspect</th>
-            <th>Incident</th>
-        </tr>
-        <?php while ($rowRecentOpenCases = mysqli_fetch_assoc($resultRecentOpenCases)) { ?>
-            <tr>
-                <td><?php echo $rowRecentOpenCases['id']; ?></td>
-                <td><?php echo $rowRecentOpenCases['date']; ?></td>
-                <td><?php echo $rowRecentOpenCases['suspect_name']; ?></td>
-                <td><?php echo $rowRecentOpenCases['incident']; ?></td>
-            </tr>
-        <?php } ?>
-    </table>
-
-    <h2>Recent Closed Cases:</h2>
-    <table>
-        <tr>
-            <th>Serial No</th>
-            <th>Date</th>
-            <th>Suspect</th>
-            <th>Incident</th>
-        </tr>
-        <?php while ($rowRecentClosedCases = mysqli_fetch_assoc($resultRecentClosedCases)) { ?>
-            <tr>
-                <td><?php echo $rowRecentClosedCases['id']; ?></td>
-                <td><?php echo $rowRecentClosedCases['date']; ?></td>
-                <td><?php echo $rowRecentClosedCases['suspect_name']; ?></td>
-                <td><?php echo $rowRecentClosedCases['incident']; ?></td>
-            </tr>
-        <?php } ?>
-    </table>
-
+    </div>
     <script>
         function toggleDropdownForm() {
             var dropdownForm = document.getElementById('dropdownForm');
