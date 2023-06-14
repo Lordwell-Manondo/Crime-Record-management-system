@@ -191,7 +191,7 @@ mysqli_close($conn);
 
             // Set chart options for the Bar Chart
 var options = {
-    title: '<?php echo $selectedDataset; ?>',
+   // title: '<?php echo $selectedDataset; ?>',
     height: 300,
     backgroundColor: 'rgb(0, 109, 139)',
     legend: { textStyle: { color: '#fff' } },
