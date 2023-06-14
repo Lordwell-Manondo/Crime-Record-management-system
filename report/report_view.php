@@ -168,7 +168,7 @@ mysqli_close($conn);
 
             // Set chart options for the Pie Chart
             var options = {
-                title: '<?php echo $selectedDataset; ?>',
+                //title: '<?php echo $selectedDataset; ?>',
                 pieHole: 0.4,
                 height: 400,
                 backgroundColor: 'rgb(0, 109, 139)',
