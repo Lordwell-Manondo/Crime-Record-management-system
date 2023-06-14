@@ -2,8 +2,22 @@
 <html>
 <head>
     <title>View Officers</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Include Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
             $(document).ready(function(){
             $("#myInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
@@ -12,19 +26,36 @@
                 });
             });
             });
-        </script>
-    
+        </script>    
 </head>
 <body>
 <header>
-    <form method="post" action="">
-        <input type="text" name="search_query" id="myInput" placeholder="Search Officer">
-        <input type="submit" name="search" value="Search">
-    </form>
-    <a class="logout-link" href="../home/Officer-incharge_landing_page.php" class="logout-link">Home</a>
-</header>
+        <nav class="navbar navbar-expand-lg" style="background-color: black;">
+                <div class="log">
+                <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
+            </div>
+        <!-- <span class="recordedcases">My Duties</span> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <form method="post" action="">
+                <input type="text" name="search_query" id="myInput" placeholder="Search Officer">
+                </form>
+                    <li class="nav-item dropdown">
+                            <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user" style="font-size: 25px; margin-left: 90px; color: darkgray;"></i>
+                                <!-- <?php echo $myname; ?> -->
+                                <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
 
-<h1>OFFICERS</h1>
+                            </a>
+                            <!-- submenu for profile -->
+                            <ul class="dropdown-menu" aria-labelledby="submenu">
+                            <li><a class="dropdown-item" style=" font-size: 100%;" href="../home/home.php">Logout</a></li>
+                            </ul>
+                            </li>
+            </nav>
+</header>
 <br>
 <table>
     <tr>
@@ -113,17 +144,7 @@
         background-color: rgb(0, 109, 139);
         font-family: Arial, sans-serif;
     }
-
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px;
-        min-height: 50px;
-        outline: 1px solid white;
-        background-color: white;
-    }
-
+    
     form {
         text-align: center;
         margin-top: 10px;
@@ -222,4 +243,5 @@
     }
 </style>
 </body>
+<?php include('../home/footer.html');?> 
 </html>

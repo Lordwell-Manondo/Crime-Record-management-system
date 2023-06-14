@@ -1,5 +1,4 @@
 <?php
-// session_start();
 include('../db/Connections.php');
 
 if (isset($_GET['id'])) {
@@ -30,7 +29,7 @@ else{
 // Retrieve the available officer IDs from the database
 $sql = "SELECT * FROM `officers` WHERE `position`= 'officer' ORDER BY `service_no`";
 $result = mysqli_query($conn, $sql);
-$officers = "";
+$officers  = "";
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
    
@@ -63,24 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 // Close database connection
 mysqli_close($conn);
 }
-
-// Success message
-// $
-// } 
-// $refreshTime = 5;
-// // Generate the meta tag with the refresh time
-// $metaTag = "<meta http-equiv='refresh' content='$refreshTime'>";
-
-// // Output the meta tag
-// echo $metaTag;
-
-
-// else {
-// // Error message
-// $message = "<div style='background-color: #f8d7da; color: #721c24; padding: 10px;'>Failed to assign duty: " . mysqli_error($conn) . "</div>";
-// }
-
-
 
 
 ?>
@@ -138,14 +119,18 @@ mysqli_close($conn);
         <form method="post">
          
 <div class="form-group">
-    <label for="serial_no">Case Number</label>
+    <label for="serial_no">Case Serial Number</label>
     <input type="text" class="form-control" id="serial_no" name="serial_no" value="<?php echo $case; ?>" required>
 </div>
 
 <div class="form-group">
     <label for="service_no">Select officer</label>
-    <select type="text" class="form-control" id="service_no" style="width: 80%;" name="service_no" required>
-        <?php echo $officers; ?>
+   <li> <select type="checkbox" class="form-control" id="service_no" style="width: 80%;" name="service_no" required>
+   <?php
+        
+            echo $officers; 
+        
+        ?>
     </select>
 </div>
 
@@ -196,6 +181,9 @@ mysqli_close($conn);
         }
         button{
             margin-left: 10%;
+        }
+        li{
+            list-style: none;
         }
         
         </style>

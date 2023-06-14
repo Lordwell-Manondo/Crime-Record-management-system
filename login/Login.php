@@ -79,6 +79,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+
     
 </head>
   <!-- Navbar -->
@@ -86,21 +88,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <nav class="navbar navbar-expand-lg " style="background-color: black;">
     <div class="log">
       <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-
-      
-         </ul>
+      <h3>CRIME RECORD MANAGEMENT SYSTEM</h3>
     </div>
   </nav>
+  
 <body>
+    
     <div class="container">
     <div class="box-container">
         <?php
@@ -109,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         ?>
         <form method="POST" action="">
-            <h4 class="text-center" style="color: gray;">Login to start your session</h4>
+            <h4 class="text-center" >Login to start your session</h4>
             <hr>
             <div class="form-group">
                 <div class="input-group">
@@ -140,64 +133,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
     </div>
+    <br>
+    <br>
     <script>
         function forgotPassword() {
             // Add your logic for forgot password
             alert("Currently this feature is not working, visit ICT center for help!");
         }
     </script>
-
-    <style>
-        body {
-            background-color: rgb(0, 109, 139);
-        }
-        
-        .container {
-            background-color: rgb(0, 109, 139);
-            width: 100%; 
-            height: 300px;
-            /* margin-left: 30%; */
-            margin-top: 5%;
-        }
-        
-        .form-group {
-            margin-top: 10%;
-        }
-        
-        h4 {
-            
-            margin-top: -5%;
-        }
-        
-        i {
-            width: 30px;
-            color: blue;
-        }
-        
-        button[type="button"] {
-            width: fit-content;
-            margin-top: 10%;
-        }
-        
-        button[type="submit"] {
-            margin-top: 10%;
-            width: fit-content;
-            margin-left: 30%;
-        }
-        .box-container{
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            width: 45%;
-            margin-left: 25%;
-         border: 1px black solid;
-         
-        }
-        hr{
-           border-color: gray;
-        }
-    </style>
-    
 </body>
+<?php include('../home/footer.html');?>
 </html>

@@ -31,10 +31,7 @@
     <style>
          body {
         background-color: rgb(0, 109, 139);
-        }
-        /* ... existing styles ... */
-         /* ... existing styles ... */
-       
+         }     
         
         .navbar-nav .nav-link {
             margin-left: 90px;
@@ -88,7 +85,7 @@
         
         h1, h4 {
             text-align: center;
-            color: white;
+            color: rgb(0, 109, 139);;
         }
         
         main {
@@ -205,23 +202,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<br><br><br><br>
-<footer class="footer">
-  <div class="container">
-
-      <div>
-        About us: <br>
-        <p>CRMS is a crime record management system designed to help law enforcement agencies keep track of criminal activity and investigations.</p>
-        Contact Us:
-        <p>Email: crms@gmail.com 
-            Phone: +265 88 040-9999 
-            Address: Chanco P. O. Box, 280 Zomba</p>
-      
-    </div>
-    <hr style="color: white;">
-    <p class="text-muted">&copy; CRMS2023. All rights reserved.</p>
-  </div>
-</footer>
+<?php include('footer.html');?>
 
 </body>
 

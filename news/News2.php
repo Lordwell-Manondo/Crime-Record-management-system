@@ -35,6 +35,7 @@
 			padding: 10px 20px;
 			border: none;
 			cursor: pointer;
+			margin-left: 5%;
 		}
 
 		button.back-button {
@@ -53,7 +54,7 @@
 
 		form {
 			width: 550px;
-            height: 300px;
+            height: 500px;
 			border: 2px solid #ccc;
 			padding: 30px;
 			background: #fff;
@@ -73,7 +74,8 @@
 
 		.back-link a {
 			color: #4CAF50;
-			text-decoration: non;
+			margin-top: 10%;
+			text-decoration: none;
 		}
 	</style>
 	<script>
@@ -96,7 +98,31 @@
 			}
 		}
 	</script>
-</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../login/login.css">
+
+    
+  <!-- Navbar -->
+
+  <nav class="navbar navbar-expand-lg " style="background-color: black;">
+    <div class="log">
+      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+      <h3>CRIME RECORD MANAGEMENT SYSTEM</h3>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+
+      
+         </ul>
+    </div>
+  </nav>
 <body onload="setMaxDate()">
 	<?php
 		$message = "";
@@ -131,14 +157,14 @@
 		<input type="text" name="title" placeholder="Title"><br><br>
 		<input type="date" id="date" name="date"><br><br>
         <textarea name="details" rows="4" cols="50" placeholder="Details"></textarea><br><br>
-		<input type="file" name="image">
+		<input type="file" name="image"><br><br>
 		<input type="submit" name="submit" value="Upload">
 	
 		<div class="message">
 			<?php echo $message; ?>
 		</div>
 		<div class="back-link">
-			<a href="../home/Home.php"><button class="back-button">Back</button></a>
+			<a href="../home/Admin_landing_page.php"><button class="back-button">Back</button></a>
 		</div>
 	</form>
 </body>
