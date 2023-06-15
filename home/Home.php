@@ -165,7 +165,7 @@
                     </a>
                 <!-- submenu for profile -->
                 <ul class="dropdown-menu" style="background-color: transparent;">
-                    <li><a class="nav-link" style="color: white;" href="../login/Master_login_register.php">Login</a></li>            
+                    <li><a class="nav-link" style="color: white;" href="../login/Login.php">Login</a></li>            
                 </ul>
                 </li>
                 </li>
