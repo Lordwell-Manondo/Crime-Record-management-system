@@ -146,7 +146,7 @@ echo "<td><div class='case-status' style='width: fit-content; color: white; back
   
 
      // assign duty to an officer(s)
-     echo "<td><a href='../assign.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Assign duty</a></td>";
+     echo "<td><a href='../duty/assign.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Assign duty</a></td>";
      echo "</tr>";
   }
 }
