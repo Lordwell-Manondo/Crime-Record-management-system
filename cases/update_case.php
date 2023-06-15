@@ -25,118 +25,76 @@ if (isset($row)) {
     $status = $row['status'];
 }
 ?>
+<!DOCTYPE html>
 <html>
-    <head>
-    <title>Updating-case</title>    
-    <head>
-        <body>
-<form method="post">
-    <label class="input-label">Supect:</label>
-    <input type="text" name="suspect" value="<?php echo $suspect ?? ''; ?>">
+<head>
+    <title>Updating-case</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <form method="post">
+            <div class="form-group">
+                <label for="suspect">Suspect:</label>
+                <input type="text" class="form-control" id="suspect" name="suspect" value="<?php echo $suspect ?? ''; ?>">
+            </div>
 
-    <label class="input-label">Victim:</label>
-    <input type="text" name="victim" value="<?php echo $victim ?? ''; ?>">
+            <div class="form-group">
+                <label for="victim">Victim:</label>
+                <input type="text" class="form-control" id="victim" name="victim" value="<?php echo $victim ?? ''; ?>">
+            </div>
 
+            <div class="form-group">
+                <label for="incident">Incident:</label>
+                <textarea class="form-control" id="incident" name="incident" rows="3"><?php echo $incident ?? ''; ?></textarea>
+            </div>
 
-    <label class="input-label">Incident:</label>
-    <input type="textarea" name="incident" style="height: 70px;" value="<?php echo $incident ?? ''; ?>">
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" class="form-control" id="location" name="location" value="<?php echo $location ?? ''; ?>">
+            </div>
 
-    <label class="input-label">Location:</label>
-    <input type="text" name="location" value="<?php echo $location ?? ''; ?>">
-                    
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" class="form-control" id="date" name="date" value="<?php echo $date ?? ''; ?>">
+            </div>
 
-    <label class="input-label">Date:</label>
-    <input type="date" name="date" value="<?php echo $date ?? ''; ?>">
-   
-    <div class="case-type">
-       <label class="input-label">Case type:</label>
-           <select class="form-control" id="type" name="type">
-                            <option value="<?php echo $type ?? ''; ?>"><?php echo $type ?? ''; ?></option>
-                            <option value="Criminal offense">Criminal offense</option>
-                            <option value="Traffic violation">Traffic violation</option>
-                             <option value="Domestic violation">Domestic violation</option>
-                             <option value="Cybercrime">Cybercrime</option>
-                             <option value="Child protection">Child protection</option>
-                             <option value="Human right violation">Human right violation</option>
-                             <option value="Environmental offense">Environmental offense</option>
-                             <option value="Financial crime">Financial crime</option>
-                             <option value="Public order offense">Public order offense</option>
-            </select>
-       </div>
+            <div class="form-group">
+                <label for="type">Case type:</label>
+                <select class="form-control" id="type" name="type">
+                    <option value="<?php echo $type ?? ''; ?>"><?php echo $type ?? ''; ?></option>
+                    <option value="Criminal offense">Criminal offense</option>
+                    <option value="Traffic violation">Traffic violation</option>
+                    <option value="Domestic violation">Domestic violation</option>
+                    <option value="Cybercrime">Cybercrime</option>
+                    <option value="Child protection">Child protection</option>
+                    <option value="Human right violation">Human right violation</option>
+                    <option value="Environmental offense">Environmental offense</option>
+                    <option value="Financial crime">Financial crime</option>
+                    <option value="Public order offense">Public order offense</option>
+                </select>
+            </div>
 
-       <div class="case-status">
-       <label class="input-label">Status:</label>
-           <select class="form-control" id="status" name="status">
-                          
-                          <option value="Open">Open</option>
-                            <option value="Closed">Closed</option>
-                             
-            </select>
-       </div>
-    <button type="submit" name="submit">Update</button>
-    
-    
-</form>
-<style>
-  body{
-    background-color: rgb(0, 109, 139);
-  }
-  form {
-    background-color: white;
-  width: 600px;
-  height: 680px;
-  margin: auto;
-  font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
-  padding: 20px;
-  border-radius: 5px;
-  
-}
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select class="form-control" id="status" name="status">
+                    <option value="Open">Open</option>
+                    <option value="Closed">Closed</option>
+                </select>
+            </div>
 
-label {
-  display: block;
-  margin-left: 25px;
-  margin-top: 15px;
-  font-size: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-input{
-    margin-left: 20px;
-    width: 500px;
-    height: 45px;
-    font-size: 20px;
-    border-radius: 5px;
-    border-width: 1.5px;
-    font-weight: 350;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-select{
-    width: 500px;
-    margin-left: 20px;
-    height: 45px;
-    font-size: 20px;
-    border-radius: 5px;
-    border-width: 1.5px;
-    font-weight: 350;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-button{
-    margin-top: 15px;
-    margin-left: 200px;
-    width: 100px;
-    height: 40px;
-   font-size: 20px;
-   background-color: lightgreen;
-   border-radius: 3px;
-  
-}
-button:hover{
-    font-weight: lighter;
-}
+            <button type="submit" name="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+    <style>
+         
+        label{
+            font-size: 20px;
+        }
+        </style>
 
-
-</style>
-        </body>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
 </html>
 
 

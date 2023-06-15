@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,19 +14,16 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script>
-$(document).ready(function() {
-  let typingTimer;
-  const doneTypingInterval = 500;
-  $('#searchInput').on('input', function() {
-    $('#searchForm').submit();
-  });
-});
+// $(document).ready(function() {
+//   let typingTimer;
+//   const doneTypingInterval = 5000;
+//   $('#searchInput').on('input', function() {
+//     $('#searchForm').submit();
+//   });
+// });
 </script>
 </head>
 <body>
-
- 
-
 
 <header>
 <nav class="navbar navbar-expand-lg" style="background-color: black;">
@@ -56,32 +54,34 @@ $(document).ready(function() {
                     </li>
     </nav>
 </header>
-
+<div style="height: 600px; overflow-y: scroll; overflow-x: scroll;">
 <table class="cases-table">
 
 <tr>
-    <th style="width: 10%;">Serial No.</th> 
-    <th style="width: 15%;">Suspect</th>
-    <th style="width: 15%;">Victim</th>
-    <th style="width: 35%;">Incident</th>
-    <th style="width: 15%;">Location</th>
-    <th style="width: 20%;">Date</th>
+    <th style="width: fit-content;">Serial No.</th> 
+    <th style="width: 10%;">Suspect</th>
+    <th style="width: 10%;">Victim</th>
+    <th style="width: 25%;">Incident</th>
+    <th style="width: 5%;">Location</th>
+    <th style="width: 10%;">Date</th>
     <th style="width: 15%;">Type</th>
-    <th style="width: 10%;">Status</th>
+    <th style="width: 5%;">Status</th>
+    <th style="width: 5%;">Update</th>
+    <th style="width: 15%;">Assign duty</th>
   </tr>
 <?php
 //linking up Record_case.php file with database using Connections.php file
 include('../db/Connections.php');
 
 // Define the number of records to display per page
-$records_per_page = 6;
+$records_per_page = 50;
 
 // Determine the current page number
 if (!isset($_GET['page'])) {
   $current_page = 1;
 } else {
   $current_page = $_GET['page'];
-}
+} 
 
 // Calculate the starting record number for the current page
 $start_record = ($current_page - 1) * $records_per_page;
@@ -142,8 +142,12 @@ echo "<td><div class='case-status' style='width: fit-content; color: white; back
    
    // edit the case
     echo "<td><a href='update_case.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Edit</a></td>";
-    echo "</tr>";
+    
   
+
+     // assign duty to an officer(s)
+     echo "<td><a href='../assign.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Assign duty</a></td>";
+     echo "</tr>";
   }
 }
  else  {
@@ -158,25 +162,26 @@ echo "<div style='color: white; padding: 10px; font-size: 20px; font-weight: 300
 // Display the navigation links
 echo "<div class='pagination'>";
 if ($current_page > 1) {
-  echo "<a href='View_cases.php?page=".($current_page-1)."' style='color: white;'>Previous</a>";
+  // echo "<a href='View_cases.php?page=".($current_page-1)."' style='color: white;'>Previous</a>";
 }
 for ($i = 1; $i <= $total_pages; $i++) {
   if ($i == $current_page) {
-    echo "<a class='active' href='View_cases.php?page=".$i."'>".$i."</a>";
+    // echo "<a class='active' href='View_cases.php?page=".$i."'>".$i."</a>";
   } else {
-    echo "<a href='View_cases.php?page=".$i."'>".$i."</a>";
+    // echo "<a href='View_cases.php?page=".$i."'>".$i."</a>";
   }
 }
 if ($current_page < $total_pages) {
-  echo "<a  href='View_cases.php?page=".($current_page+1)."' style='color: white;'>Next</a>";
+  // echo "<a  href='View_cases.php?page=".($current_page+1)."' style='color: white;'>Next</a>";
 }
 
 
 mysqli_close($conn);
 ?>
-
+</div>
 </table>
 <style>
+ 
  
       form{
         margin-left: 20%;
@@ -199,21 +204,19 @@ mysqli_close($conn);
          
       
     }
-    body{
-        background-color:  rgb(0, 109, 139);
-    }
+    
 
    
   table {
    border-collapse: collapse;
    text-align: center;
    background-color: white;
-   margin-top: -10px;
-   margin-bottom: 20px;
+   margin-top: -50px;
+   /* margin-bottom: 20px; */
    border-collapse: separate;
    border-spacing: 1 10px;
-  width: 90%;
-  margin-left: 5%;
+   border: solid 2px gray;
+  
    
    
   }
@@ -234,7 +237,7 @@ table .cases-table tbody tr:hover {
 }
 
 table .cases-table tbody tr td {
-  padding: 10px; /* Add padding to the table cells */
+  padding: 10px; 
   vertical-align: middle; /* Center the content vertically */
 }
 
@@ -276,23 +279,32 @@ table .cases-table tbody tr:first-child {
   td, th {
     border: 1px;
     padding: 10px;
+  
     
   }
   th{
     color: white;
     font-size: 15px;
+    font-weight: 600;
     background-color: black;
+    
+
+    
+    
   }
   td {
-    background-color: white;
+    background-color: lightgray;
+    color: black;
     text-align: left;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+     font-size: 15px;
+     border: solid 1px gray;
     
   }
  
   td + td {
     margin-left: 10px;
+    
   }
   /* Customize the first row (header row) */
 table tr:first-child {

@@ -1,57 +1,108 @@
 <?php
-//session_start();
+// Include the database connection file
+include('../db/Connections.php');
 
-    //linking up Record_case.php file with database using Connections.php file
-    include('../db/Connections.php');
-
-   
-//defining and initializing variables that will be used to pass values into database     
- if($_SERVER['REQUEST_METHOD'] == "POST") {
-
+// Check if the form is submitted via POST method
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $suspect = $_POST['suspect'];
     $victim = $_POST['victim'];
     $incident = $_POST['incident'];
     $location = $_POST['location'];
     $date = $_POST['date'];
     $type = $_POST['type'];
-    $file = $_POST['file'];
     $status = 'Open';
-                
-          //generating case serial number
-          $serial_no = [];
 
-          for ($i = 0; $i < 4; $i++) {
-              $serial= substr(uniqid(), -8);
-          
-              // Check if the generated serial number already exists in the database
-              $query = "SELECT COUNT(*) as count FROM cases WHERE serial_no = '$serial'";
-              $result = $conn->query($query);
-              $row = $result->fetch_assoc();
-          
-              // If the count is 0, it means the serial number doesn't exist in the database
-              // therefore, it can be given to the case
-              if ($row['count'] == 0) {
-                  $serial_no[] = $serial;
-              }
-          }    
-            
-            // saving the case into database
-            $query = "insert into cases ( serial_no, suspect_name, victim_name, incident, location, date, type, file, status) values ('$serial', '$suspect', '$victim' ,'$incident', '$location', '$date', '$type', '$file', '$status')";
-            
-            //executing the above statement
-            mysqli_query($conn, $query);
-           
-            //give this message if the process of saving the case was successful
-           header("Location: added_case_message.php");
-            exit;
- }
-        else
-        {
-            //printing this message  if the process of saving the case was not successful
-           // echo "Case did not saved.. Please try again.";
+    // Generate the serial number based on case category/type
+    $serialNumber = generateSerialNumber($type, $conn);
+
+    // Save the case into the database
+    $query = "INSERT INTO cases (serial_no, suspect_name, victim_name, incident, location, date, type, status) VALUES ('$serialNumber', '$suspect', '$victim', '$incident', '$location', '$date', '$type', '$status')";
+    mysqli_query($conn, $query);
+
+    // Redirect to a success message page
+    header("Location: added_case_message.php");
+    exit;
+}
+
+// Function to generate the serial number
+function generateSerialNumber($type, $conn)
+{
+    $prefix = '';
+    $length = 0;
+
+    switch ($type) {
+        case 'Criminal offense':
+            $prefix = 'CO';
+            $length = 9;
+            break;
+        case 'Traffic violation':
+            $prefix = 'TV';
+            $length = 9;
+            break;
+        case 'Domestic violation':
+            $prefix = 'DV';
+            $length = 9;
+            break;
+        case 'Cybercrime':
+            $prefix = 'CR';
+            $length = 9;
+            break;
+        case 'Child protection':
+            $prefix = 'CP';
+            $length = 9;
+            break;
+        case 'Human right violation':
+            $prefix = 'HRV';
+            $length = 10;
+            break;
+        case 'Environmental offense':
+            $prefix = 'EO';
+            $length = 9;
+            break;
+        case 'Financial crime':
+            $prefix = 'FC';
+            $length = 9;
+            break;
+        case 'Public order offense':
+            $prefix = 'POO';
+            $length = 10;
+            break;
+        default:
+            // Handle invalid case category
+            echo "There was an error in generating the case serial number.";
+            return '';
+    }
+
+    // Get the current year
+    $currentYear = date('Y');
+
+    // the case initial number
+    $number = 1;
+
+    // Generate the serial number
+    $serial = $prefix ."/". $currentYear . "/" . $number;
+
+    // Check if the generated serial number already exists in the database
+    $query = "SELECT COUNT(*) as count FROM cases WHERE serial_no = '$serial'";
+    $result = $conn->query($query);
+    $row = $result->fetch_assoc();
+
+    if ($row['count'] > 0) {
+        // Number already exists, increment it until a unique number is found
+        while ($row['count'] > 0) {
+            $number++;
+            $serial = $prefix ."/".$currentYear . "/" . $number;
+
+            $query = "SELECT COUNT(*) as count FROM cases WHERE serial_no = '$serial'";
+            $result = $conn->query($query);
+            $row = $result->fetch_assoc();
         }
-        
-        ?>
+    }
+
+    return $serial;
+}
+?>
+
 
 <!DOCTYPE html>
 <html>
