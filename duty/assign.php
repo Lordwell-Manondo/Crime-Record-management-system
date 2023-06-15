@@ -5,6 +5,21 @@ include('../db/Connections.php');
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
+
+    // Check if the form is submitted via POST method
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $serial_no = $_POST['serial_no'];
+    $service_no= $_POST['service_no'];
+   
+    $date_to_report = $_POST['date_to_report'];
+   
+ // Prepare SQL query
+ $sql = "INSERT INTO duty (serial_no, service_no, date_to_report)
+ VALUES ('$serial_no', '$service_no', '$date_to_report')";
+
+// Execute SQL query
+(mysqli_query($conn, $sql)) ;
+}
 // Retrieve data from the database
 $id = $_GET['id'];
 $sql = "SELECT * FROM cases WHERE id = $id";
@@ -40,12 +55,12 @@ if (mysqli_num_rows($result) > 0) {
   $officers.="<option value='".$row['service_no']."'>".$row['service_no']." (" . $row['first_name'] .' '.$row['last_name'] . ")</option>";
     
 }
- // Prepare SQL query
- $sql = "INSERT INTO duty (serial_no, service_no, date_to_report)
- VALUES ('$serial_no', '$service_no')";
 
-// Execute SQL query
-(mysqli_query($conn, $sql)) ;
+
+// Close database connection
+mysqli_close($conn);
+}
+
 // Success message
 // $
 // } message = "<div style='width: 20%; background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-left: 42%;'>Duty assigned successfully</div>";
@@ -61,11 +76,10 @@ if (mysqli_num_rows($result) > 0) {
 // // Error message
 // $message = "<div style='background-color: #f8d7da; color: #721c24; padding: 10px;'>Failed to assign duty: " . mysqli_error($conn) . "</div>";
 // }
-}
 
 
-// Close database connection
-mysqli_close($conn);
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -90,7 +104,7 @@ mysqli_close($conn);
 
                 <div class="form-group">
                 <label for="date">Date to report:</label>
-                <input type="date" class="form-control" id="date" name="date" min="<?php echo date('Y-m-d'); ?>">
+                <input type="date" class="form-control" id="date_to_report" name="date_to_report" min="<?php echo date('Y-m-d'); ?>">
             </div>
 
  <button type="submit" name="submit" class="btn btn-primary">Assign</button>
@@ -113,6 +127,8 @@ mysqli_close($conn);
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
+
+
 </html>
 
 
