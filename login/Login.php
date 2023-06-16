@@ -1,6 +1,8 @@
 <?php
-// Include the database connection file
-require_once '../db/Connections.php';
+include "../db/Connections.php";
+
+// Start the session
+session_start();
 
 // Function to verify hashed password
 function verifyPassword($password, $hashedPassword)
@@ -23,17 +25,15 @@ function authenticateOfficer($serviceNo, $password)
         $hashedPassword = $row['password'];
 
         if (verifyPassword($password, $hashedPassword)) {
-            echo "Officer authentication successful!";
+            $_SESSION['service_no'] = $serviceNo; // Store service number in session
             header("Location: ../home/Officer.php");
-            $serviceNo =$_SESSION['service_no'];
-            $serviceNo =$_SESSION['service_no'];
             exit();
         } else {
-            echo "Invalid service number or password for officer.";
+            return "Invalid service number or password for officer.";
         }
     } else {
-        // Officer not found, proceed to check if the user is an officer in charge
-        authenticateOfficerInCharge($serviceNo, $password);
+        // Officer not found, return null
+        return null;
     }
 }
 
@@ -52,15 +52,14 @@ function authenticateOfficerInCharge($userName, $password)
         $hashedPassword = $row['password'];
 
         if (verifyPassword($password, $hashedPassword)) {
-            echo "Officer in charge authentication successful!";
             header("Location: ../home/Officer-incharge_landing_page.php");
             exit();
         } else {
-            echo "Invalid username or password for officer in charge.";
+            return "Invalid username or password for officer in charge.";
         }
     } else {
-        // Officer in charge not found, display error message
-        echo "Invalid username or password for officer and officer in charge.";
+        // Officer in charge not found, return null
+        return null;
     }
 }
 
@@ -73,30 +72,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $serviceNo = "";
         $userName = "";
         $password = "";
+        $errorMessage = "";
 
         if ($role === 'officer') {
             // Check if service_no and password are set
             if (isset($_POST['service_no']) && isset($_POST['password'])) {
                 $serviceNo = $_POST['service_no'];
                 $password = $_POST['password'];
+            } else {
+                $errorMessage = "Service number and password are required.";
             }
         } elseif ($role === 'officer_in_charge') {
             // Check if user_name and password are set
             if (isset($_POST['user_name']) && isset($_POST['password'])) {
-               
+                $userName = $_POST['user_name'];
+                $password = $_POST['password'];
+            } else {
+                $errorMessage = "User name and password are required.";
             }
+        } else {
+            $errorMessage = "Invalid role selected.";
         }
 
         // Perform authentication based on the role and provided data
         if ($role === 'officer' && $serviceNo !== "" && $password !== "") {
-            authenticateOfficer($serviceNo, $password);
+            $errorMessage = authenticateOfficer($serviceNo, $password);
+            if ($errorMessage === null) {
+                $errorMessage = "Invalid service number or password for officer.";
+            }
         } elseif ($role === 'officer_in_charge' && $userName !== "" && $password !== "") {
-            authenticateOfficerInCharge($userName, $password);
-        } else {
-            echo "Invalid role selected or missing required fields.";
+            $errorMessage = authenticateOfficerInCharge($userName, $password);
+            if ($errorMessage === null) {
+                $errorMessage = "Invalid username or password for officer in charge.";
+            }
+        }
+
+        if (!empty($errorMessage)) {
+            echo '<div style="color: red; margin-bottom: 10px;">' . $errorMessage . '</div>';
         }
     } else {
-        echo "Role not selected.";
+        echo '<div style="color: red; margin-bottom: 10px;">Role not selected.</div>';
     }
 }
 ?>
@@ -193,6 +208,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <h1>Login</h1>
+        <?php
+        if (!empty($errorMessage)) {
+            echo '<div style="color: red; margin-bottom: 10px;">' . $errorMessage . '</div>';
+        }
+        ?>
         <form method="POST" action="">
             <div class="form-group">
                 <label for="role">Role:</label>
@@ -202,7 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </select>
             </div>
 
-            <div id="serviceNoField" style="display: none;" class="form-group">
+            <div id="serviceNoField" class="form-group">
                 <label for="service_no">Service Number:</label>
                 <input type="text" id="service_no" name="service_no">
             </div>
@@ -236,9 +256,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else if (role === "officer_in_charge") {
                 serviceNoField.style.display = "none";
                 userNameField.style.display = "block";
-            } else {
-                serviceNoField.style.display = "none";
-                userNameField.style.display = "none";
             }
         }
 
