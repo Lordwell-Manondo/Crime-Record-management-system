@@ -8,116 +8,121 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+    
+        <script>
+              window.addEventListener('DOMContentLoaded', () => {
+            const words = document.querySelectorAll('.word');
+            let currentIndex = 0;
+
+            setInterval(() => {
+                words[currentIndex].classList.remove('show');
+
+                if (currentIndex === words.length - 1) {
+                    words[0].classList.add('show');
+                    currentIndex = 0;
+                } else {
+                    words[currentIndex + 1].classList.add('show');
+                    currentIndex++;
+                }
+            }, 4000);
+        });
+    </script>
+
     <style>
-        body {
-            background-color: rgb(0, 109, 139);
-            margin-bottom: 15%;
-          
-            
+         body {
+        background-color: rgb(0, 109, 139);
         }
+        /* ... existing styles ... */
+         /* ... existing styles ... */
+       
         
-        a {
-            padding: 10%;
+        .navbar-nav .nav-link {
+            margin-left: 90px;
+            margin-right: 60px;
+            margin-top: 5px;
             font-size: 20px;
-            margin-right: 70px;
-            font-weight: 400;
-            color: white;
-            text-decoration: none;
-            display: flex;
+            spacing: 2px;
         }
-        
-        
-        h1 {
-            color: khaki;
-            font-weight: 300;
-            margin-top: 200px;
-            text-align: center;
-        }
-        
-        h4 {
-            color: white;
-            font-weight: 300;
-            text-align: center;
-            margin-top: -180px;
-        }
-        
-        a:hover {
-            font-weight: 300;
-            color: aliceblue;
-            text-decoration: none;
-        }
-        
-        i {
-            color: gray;
-        }
-        
-        @media (max-width: 768px) {
-            .navbar-nav {
-                flex-direction: column;
-            }
-            .navbar-nav .nav-item {
-                margin: 10px 0;
-            }
-            .navbar-toggler {
-                margin-left: auto;
-            }
 
-        }
-        .dropdown-menu{
-            background-color: transparent;
-            width: 90px;
-            }
-            footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 20%;
-            background-color: rgb(184, 179, 137);
+       
+
+        .news-container {
+            margin: 10px;
             padding: 20px;
-            color: #fff;
-            text-align: center;
-            font-size: 14px;
-        }
-        
-        .contact {
-            text-align: start;
-            margin-left: 3%;
-            font-size: 100%;
-            padding: 0%;
-            height: fit-content;
-        }
-        
-        
-        @media (max-width: 576px) {
-            .contact {
-                text-align: center;
-                margin-left: 0;
-            }
-        }
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 24px;
-            }
-            
-            h4 {
-                font-size: 14px;
-            }
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+            width: 800px;
+            height: 600px;
+            display: inline-block;
+            overflow: hidden;
         }
 
+        .news-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .news-date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .news-details {
+            margin-bottom: 15px;
+        }
+
+        .news-image {
+            max-width: 200px;
+            max-height: 200px;
+            margin-top: 10px;
+        }
+
+        .news-container-wrapper {
+            width: 100%;
+            overflow-x: scroll;
+            white-space: nowrap;
+        }
+        
+        h1, h4 {
+            text-align: center;
+            color: white;
+        }
+        
+        main {
+            margin-top: 0;
+        }
         .footer {
-        width: 100%;
+        background-color: black;
         color: white;
         text-align: center;
-        padding: 10px;
-  position: absolute;
-  bottom: 0;
-  height: 30px;
-  background-color: rgb(0, 109, 139);
-}
-      .footer span {
-        font-size: 16px;
-      }
-        
+        padding: 20px 0;
+        }
+
+            
+        @keyframes moveText {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            40%, 60% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+
+        .moving-text {
+            white-space: nowrap;
+            animation: moveText 10s linear infinite;
+       
+        }
+
+       
     </style>
 </head>
 <body>
@@ -178,8 +183,23 @@
   <!-- Page content -->
   <main>
    
-    <h1 >CRIME RECORD MANAGEMENT SYSTEM<h1>
-      <h4 >Creating a Safe and Secure Malawi.</h4>
+  <h1 >CRIME RECORD MANAGEMENT SYSTEM<h1>
+    <div class="moving-text">     
+        <span class="word show">Creating</span>
+        <span class="word">a</span>
+        <span class="word">Safe</span>
+        <span class="word">and</span>
+        <span class="word">Secure</span>
+        <span class="word">Malawi</span>
+    
+    </div>
+  </main>
+</div>
+<div>
+     <!-- Include the news details from display.php -->
+     <?php
+    include('display.php');
+    ?>
       <!-- Your crime record management system content goes here -->
   </main>
 </div>
