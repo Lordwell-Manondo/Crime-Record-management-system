@@ -25,6 +25,8 @@ function authenticateOfficer($serviceNo, $password)
         if (verifyPassword($password, $hashedPassword)) {
             echo "Officer authentication successful!";
             header("Location: ../home/Officer.php");
+            $serviceNo =$_SESSION['service_no'];
+            $serviceNo =$_SESSION['service_no'];
             exit();
         } else {
             echo "Invalid service number or password for officer.";
@@ -81,8 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } elseif ($role === 'officer_in_charge') {
             // Check if user_name and password are set
             if (isset($_POST['user_name']) && isset($_POST['password'])) {
-                $userName = $_POST['user_name'];
-                $password = $_POST['password'];
+               
             }
         }
 

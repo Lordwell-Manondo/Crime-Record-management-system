@@ -181,7 +181,9 @@ mysqli_close($conn);
 </div>
 </table>
 <style>
- 
+ body{
+  background-color: rgb(0, 109, 139);;
+ }
  
       form{
         margin-left: 20%;

@@ -6,20 +6,8 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
 
-    // Check if the form is submitted via POST method
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $serial_no = $_POST['serial_no'];
-    $service_no= $_POST['service_no'];
-   
-    $date_to_report = $_POST['date_to_report'];
-   
- // Prepare SQL query
- $sql = "INSERT INTO duty (serial_no, service_no, date_to_report)
- VALUES ('$serial_no', '$service_no', '$date_to_report')";
-
-// Execute SQL query
-(mysqli_query($conn, $sql)) ;
-}
+    $service_no='';
+    $officers='';
 // Retrieve data from the database
 $id = $_GET['id'];
 $sql = "SELECT * FROM cases WHERE id = $id";
@@ -30,9 +18,8 @@ $cases="";
 // Check if $row is not null before trying to access its indices
 if (isset($row)) {
     // Populate the input fields with the retrieved data
-    
-    $serial_no = $row['serial_no'];
-    $incident = $row['incident'];
+    $case = $row['serial_no'];
+   
     
 }}
 else{
@@ -49,21 +36,34 @@ if (mysqli_num_rows($result) > 0) {
   
   
    // get officers from database 
-  $service_no = $row['service_no'];
+  
   $first_name= $row['first_name'];
   $last_name = $row['last_name'];
   $officers.="<option value='".$row['service_no']."'>".$row['service_no']." (" . $row['first_name'] .' '.$row['last_name'] . ")</option>";
     
 }
 
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $service_no = $_POST['service_no'];
+    $date_to_report = $_POST['date_to_report'];
 
+    // send the duty details into the database
+    $sql = "INSERT INTO duty (serial_no, service_no, date_to_report)
+            VALUES ('$case', '$service_no', '$date_to_report')";
+
+    // Execute/saving the details
+    mysqli_query($conn, $sql);
+
+    //success message
+    $message = "<div style='width: 20%; background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-left: 42%;'>Duty assigned successfully</div>";
+}
 // Close database connection
 mysqli_close($conn);
 }
 
 // Success message
 // $
-// } message = "<div style='width: 20%; background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-left: 42%;'>Duty assigned successfully</div>";
+// } 
 // $refreshTime = 5;
 // // Generate the meta tag with the refresh time
 // $metaTag = "<meta http-equiv='refresh' content='$refreshTime'>";
@@ -91,27 +91,34 @@ mysqli_close($conn);
 <h2>Duty Assignment</h2>
     <div class="container">
         <form method="post">
-            <div class="form-group">
-                <label for="serial_no">Case:</label>
-                <input type="text" class="form-control" id="serial_no" name="serial_no" value="<?php echo $serial_no ."  (".$incident.")"?? ''; ?>">
-            </div>
+         
+<div class="form-group">
+    <label for="serial_no">Case:</label>
+    <input type="text" class="form-control" id="serial_no" name="serial_no" value="<?php echo $case; ?>" required>
+</div>
 
-            <div class="form-group">
-                <label for="serial_no">Officers:</label>
-                <select  type="text" class="form-control" id="serial_no" name="serial_no">
-                <option  value="<?php echo $service_no; ?>"><?php echo $officers; ?></option>
-                </select>
+<div class="form-group">
+    <label for="service_no">Officer:</label>
+    <select type="text" class="form-control" id="service_no" name="service_no" required>
+        <?php echo $officers; ?>
+    </select>
+</div>
 
                 <div class="form-group">
                 <label for="date">Date to report:</label>
-                <input type="date" class="form-control" id="date_to_report" name="date_to_report" min="<?php echo date('Y-m-d'); ?>">
+                <input type="date" class="form-control" id="date_to_report" name="date_to_report" min="<?php echo date('Y-m-d'); ?>" required>
             </div>
 
  <button type="submit" name="submit" class="btn btn-primary">Assign</button>
         </form>
     </div>
     <style>
-         
+        
+        form{
+            background-color: white;
+            height: 400px;
+            width: 600px;
+        } 
         label{
             font-size: 20px;
         }

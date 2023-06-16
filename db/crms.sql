@@ -97,7 +97,7 @@ INSERT INTO `duty` (`case_id`, `emp_number`, `date_to_report`) VALUES
 -- Table structure for table `login_admin`
 --
 
-CREATE TABLE `login_admin` (
+CREATE TABLE `login_officer_incharge` (
   `id` int(4) NOT NULL,
   `name` varchar(25) NOT NULL,
   `user_name` varchar(20) NOT NULL,
@@ -108,7 +108,7 @@ CREATE TABLE `login_admin` (
 -- Dumping data for table `login_admin`
 --
 
-INSERT INTO `login_admin` (`id`, `name`, `user_name`, `password`) VALUES
+INSERT INTO `` (`id`, `name`, `user_name`, `password`) VALUES
 (9, 'Lordwell Manondo', 'crms', '81dc9bdb52d04dc20036dbd8313ed055'),
 (12, 'Yamikani Chabuka', 'crms1', '827ccb0eea8a706c4c34a16891f84e7b');
 
