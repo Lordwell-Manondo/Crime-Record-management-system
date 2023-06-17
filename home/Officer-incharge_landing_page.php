@@ -159,7 +159,7 @@
           </a>
           <!-- submenu for duties -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
-            <li><a class="dropdown-item"  href="../duty/assign_duty.php">Assign duties</a></li>
+            <!-- <li><a class="dropdown-item"  href="../duty/assign_duty.php">Assign duties</a></li> -->
             <li><a class="dropdown-item"  href="../cases/View-assigned-cases.php">Assigned duties</a></li>
           </ul>
         </li>

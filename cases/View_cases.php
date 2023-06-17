@@ -24,6 +24,7 @@
 </script>
 </head>
 <body>
+  <?php include('../home/officer_incharge_session.php');?>
 
 <header>
 <nav class="navbar navbar-expand-lg" style="background-color: black;">
@@ -44,12 +45,13 @@
 <li class="nav-item dropdown">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user" style="font-size: 25px; margin-left: 90px; color: darkgray;"></i>
+                        <?php echo $name; ?></span>
                         <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
 
                     </a>
                     <!-- submenu for profile -->
                     <ul class="dropdown-menu" aria-labelledby="submenu">
-                    <li><a class="dropdown-item" style=" font-size: 20px%; color: white;" href="../home/home.php">Logout</a></li>
+                    <li><a class="dropdown-item" style=" font-size: 20px%; color: white; background-color: black;margin-left: 130px;" href="../home/home.php">Logout</a></li>
                     </ul>
                     </li>
     </nav>
@@ -196,7 +198,7 @@ mysqli_close($conn);
    
     .recordedcases{  
         font-weight: 100;
-        margin-left: 20%;
+        margin-left: 10%;
         color: white;
         font-size: 20px;
        
@@ -342,12 +344,7 @@ h3{
             margin-trim: none;
             width: 60px;
             }
-         .dropdown-item{
-            /* color: white; */
-         } 
-         .dropdown-item:hover{
-          color: black;
-         }
+         
         li{
           list-style: none;
          

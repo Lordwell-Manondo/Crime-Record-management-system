@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errorMessage = authenticateOfficer($username, $password);
 
         if (!empty($errorMessage)) {
-            echo '<div style="color: red; margin-bottom: 10px;">' . $errorMessage . '</div>';
+            // echo '<div style="color: red; margin-bottom: 10px;">' . $errorMessage . '</div>';
         }
     } else {
         echo '<div style="color: red; margin-bottom: 10px;">Username and password are required.</div>';
@@ -97,16 +97,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Username">
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" req>
                 </div>
             </div>
 
