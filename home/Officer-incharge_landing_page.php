@@ -212,15 +212,8 @@
             <li><a class="dropdown-item" style=" font-size: 100%; " href="logout.php">Logout</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-                  <a class="nav-link" style="color: white;" href="#"></a>
-                  </li>
-                  <li class="nav-item">
-                  <a class="nav-link" style="color: white;" href="#"></a>
-                  </li>
-                  
-                  
-      </ul>
+      
+         </ul>
     </div>
   </nav>
 

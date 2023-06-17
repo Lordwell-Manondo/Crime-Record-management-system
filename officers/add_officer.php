@@ -21,7 +21,7 @@ function generateRandomPassword($length = 8) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
     // Prepare the SQL statement
-    $stmt = $conn->prepare("INSERT INTO officers (first_name, last_name, service_no, date_of_entry, officer_rank, station, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO officers (first_name, last_name, service_no, position, date_of_entry, officer_rank, station, password) VALUES (?, ?, ?,'officer', ?, ?, ?, ?)");
 
     // Bind the parameters to the statement
     $stmt->bind_param("sssssss", $first_name, $last_name, $service_no, $date_of_entry, $officer_rank, $station, $hashed_password);

@@ -52,7 +52,7 @@ foreach ($categoryCounts as $count) {
   //echo $maxCategory."".$maxCount;
  
   // Set the color based on the category
-  $color = ($maxCategory== true) ? 'red' : 'green';
+  $color = ($maxCategory== true) ? 'skyblue' : 'green';
 
   //total cases recorded
   // echo $totalCount;

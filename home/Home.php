@@ -159,9 +159,7 @@
                   <li class="nav-item">
                   <a class="nav-link" style="color: white;" href="ReportForm.php">Report incident</a>
                   </li>
-                  <li class="nav-item">
-                  <a class="nav-link" style="color: white;" href="#">FAQ</a>
-                  </li>
+                
 
                   <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
