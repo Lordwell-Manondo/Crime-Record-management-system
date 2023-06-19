@@ -159,7 +159,7 @@
           </a>
           <!-- submenu for duties -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
-            <li><a class="dropdown-item"  href="../duty/assign_duty.php">Assign duties</a></li>
+            <!-- <li><a class="dropdown-item"  href="../duty/assign_duty.php">Assign duties</a></li> -->
             <li><a class="dropdown-item"  href="../cases/View-assigned-cases.php">Assigned duties</a></li>
           </ul>
         </li>
@@ -212,15 +212,8 @@
             <li><a class="dropdown-item" style=" font-size: 100%; " href="logout.php">Logout</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-                  <a class="nav-link" style="color: white;" href="#"></a>
-                  </li>
-                  <li class="nav-item">
-                  <a class="nav-link" style="color: white;" href="#"></a>
-                  </li>
-                  
-                  
-      </ul>
+      
+         </ul>
     </div>
   </nav>
 

@@ -1,5 +1,6 @@
 <?php 
-session_start();
+// session_start();
+
 
 //  if (!isset($_SESSION['service_no'])) {
 // //header('location: ../login/Login-officer.php');
@@ -23,9 +24,12 @@ session_start();
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+<?php include('../home/officer_session.php');?>
 <header>
 <nav class="navbar navbar-expand-lg" style="background-color: black;">
-<li><a class="dropdown-item" style=" font-size: 100%; margin-left: 5px; background-color: #999999; border-radius: 10%;" href="../home/officer.php">Back</a></li>
+<div class="log">
+          <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
+      </div>
 <span class="recordedcases">My Duties</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -38,6 +42,7 @@ session_start();
 <li class="nav-item dropdown">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user" style="font-size: 25px; margin-left: 90px; color: darkgray;"></i>
+                        <?php echo $myname; ?>
                         <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
 
                     </a>
@@ -63,7 +68,8 @@ session_start();
   </tr>
 <?php
 //linking up Record_case.php file with database using Connections.php file
-include('../db/Connections.php');
+// include('../db/Connections.php');
+
 
 
 
@@ -232,12 +238,16 @@ h3{
    
     .recordedcases{  
         font-weight: 100;
-        margin-left: 25%;
-        color: khaki;
-        font-size: 20px;
-        font-family: normal; 
+        margin-left: 15%;
+        color: white;
+        font-size: 30px;
+       
         letter-spacing: 2px;
         word-spacing: 10px;
+        
+    }
+    .recordedcases:hover{
+      font-weight: none;
     }
     .dropdown-menu{
             background-color: transparent; 

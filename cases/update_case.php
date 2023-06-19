@@ -32,6 +32,41 @@ if (isset($row)) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
+
+
+  
+  <!-- Header -->
+  <header>
+      <!-- Header content -->
+      <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg " style="background-color: black;">
+      <div class="log">
+          <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+             
+                 
+          <span class="heading">Update case</span>
+        </div>
+
+        <li class="nav-item dropdown">
+                    <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 150px;">
+                        <i class="fas fa-user" style="font-size: 25px;  color: darkgray;"></i>
+                        <i class="fas fa-angle-down" style=" color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
+
+                    </a>
+                    <!-- submenu for profile -->
+                    <ul class="dropdown-menu" aria-labelledby="submenu">
+                    <li><a class="dropdown-item" style=" font-size: 20px%; color: white;" href="../home/home.php">Logout</a></li>
+                    </ul>
+                    </li>
+     </nav>
+  </header>
+
     <div class="container">
         <form method="post">
             <div class="form-group">
@@ -87,11 +122,22 @@ if (isset($row)) {
         </form>
     </div>
     <style>
-         
+         form{
+            width: 80%;
+            margin-left: 10%;
+            margin-top: 10px;
+         }
         label{
             font-size: 20px;
         }
+        .heading{
+            
+            color: white;
+            margin-right: 400px;
+            font-size: 25px;
+        }
         </style>
+        
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
