@@ -19,7 +19,17 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script>
+            $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            });
+        </script>
 
 <nav class="navbar navbar-expand-lg" style="background-color: black;">
 <li><a class="dropdown-item" style=" font-size: 100%; margin-left: 5px; background-color: #999999; border-radius: 10%;" href="../home/Officer-incharge_landing_page.php">Back</a></li>
@@ -28,9 +38,9 @@
           <span class="navbar-toggler-icon"></span>
       </button>
  
-      <form method="POST" action="View-assigned-cases.php" class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search for case..." aria-label="Search" name="search">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button>
+  <form method="POST" action="View-assigned-cases.php" class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="text" id="myInput" placeholder="Search for case..." aria-label="Search" name="search">
+  <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button> -->
 </form>
 <li class="nav-item dropdown">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -108,7 +118,7 @@ else if(mysqli_num_rows($result) >0) {
     
      
   while ($row = mysqli_fetch_assoc($result)) {
-
+    echo '<tbody id="myTable">';
 
     // display the data
     echo "<tr>";
