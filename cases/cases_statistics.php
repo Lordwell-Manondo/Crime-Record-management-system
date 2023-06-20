@@ -271,7 +271,7 @@ else {
                   <a class="nav-link" style="color: white;" href="cases_bargraph.php">Bar chart</a>
                   </li>
               <li class="nav-item dropdown">
-                  <a class="nav-link" style="color: white;" href="../news/News.php" id="linearGraph" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Linear graph</a>
+                  <a class="nav-link" style="color: white;" href="categories.php">Categories</a>
                 
                   </li>
                   <li class="nav-item dropdown">

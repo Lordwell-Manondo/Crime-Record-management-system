@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include('../db/Connections.php');
 
 if (isset($_GET['id'])) {
@@ -13,6 +13,7 @@ $id = $_GET['id'];
 $sql = "SELECT * FROM cases WHERE id = $id";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
+
 
 $cases="";
 // Check if $row is not null before trying to access its indices
@@ -54,8 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     // Execute/saving the details
     mysqli_query($conn, $sql);
 
+
     //success message
-    $message = "<div style='width: 20%; background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-left: 42%;'>Duty assigned successfully</div>";
+    header("location: dutyAssigned.php");
+  exit();
 }
 // Close database connection
 mysqli_close($conn);
@@ -92,7 +95,8 @@ mysqli_close($conn);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-
+<?php include('../home/officer_incharge_session.php');?>
+<div class="box-content">
 <div class="content">
   
   <!-- Header -->
@@ -115,7 +119,8 @@ mysqli_close($conn);
 
         <li class="nav-item dropdown">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 150px;">
-                        <i class="fas fa-user" style="font-size: 25px;  color: darkgray;"></i>
+                        <i class="fas fa-user" style="font-size: 25px;  color: blue;"></i>
+                        <span style="color: white; font-size: 15px;"> <?php echo $name; ?></span>
                         <i class="fas fa-angle-down" style=" color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
 
                     </a>
@@ -133,45 +138,64 @@ mysqli_close($conn);
         <form method="post">
          
 <div class="form-group">
-    <label for="serial_no">Case</label>
+    <label for="serial_no">Case Number</label>
     <input type="text" class="form-control" id="serial_no" name="serial_no" value="<?php echo $case; ?>" required>
 </div>
 
 <div class="form-group">
-    <label for="service_no">Officer</label>
-    <select type="text" class="form-control" id="service_no" name="service_no" required>
+    <label for="service_no">Select officer</label>
+    <select type="text" class="form-control" id="service_no" style="width: 80%;" name="service_no" required>
         <?php echo $officers; ?>
     </select>
 </div>
 
                 <div class="form-group">
                 <label for="date">Date to report</label>
-                <input type="date" class="form-control" id="date_to_report" name="date_to_report" min="<?php echo date('Y-m-d'); ?>" required>
+                <input type="date" class="form-control" id="date_to_report" name="date_to_report"  min="<?php echo date('Y-m-d'); ?>" required>
             </div>
 
  <button type="submit" name="submit" class="btn btn-primary">Assign</button>
         </form>
     </div>
+</div>
     <style>
+        body{
+            background-color: rgb(0, 109, 139);
+        }
         
         form{
             background-color: white;
             height: 400px;
             width: 600px;
             margin-top: 10px;
+            border-radius: 5px;
+            width: 70%;
+            margin-left: 15%;
         } 
         label{
             font-size: 20px;
+            margin-left: 10%;
+            margin-top: 3%;
+
         }
-        form{
-            width: 70%;
-            margin-left: 15%;
-        }
+       
         .heading{
             
             color: white;
             margin-right: 300px;
             font-size: 25px;
+        }
+        .box-container{
+            border: 1px solid white;
+        }
+        input[id="date_to_report"], input[id="serial_no"], select{
+            width: 80%;
+            margin-left: 10%;
+            height: 10%;
+           
+        }
+        button{
+            margin-left: 10%;
         }
         
         </style>

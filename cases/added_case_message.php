@@ -12,7 +12,7 @@
     <body>
       
      <!-- showing this message if the case was recorded successfullt -->
-    <h1>THE CASE HAS BEEN SUCCESSFULLY RECORDED</h1>
+    <h1>THE CASE HAS BEEN SUCCESSFULLY REGISTERED</h1>
     <button><a href="View_cases.php" class="viewcases" style="text-decoration: none; color: black;">View cases</a></button>
 
 
