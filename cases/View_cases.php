@@ -14,14 +14,15 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script>
-// $(document).ready(function() {
-//   let typingTimer;
-//   const doneTypingInterval = 5000;
-//   $('#searchInput').on('input', function() {
-//     $('#searchForm').submit();
-//   });
-// });
-</script>
+            $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            });
+        </script>
 </head>
 <body>
   <?php include('../home/officer_incharge_session.php');?>
@@ -33,13 +34,13 @@
       <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
     </div>
 <span class="recordedcases">REGISTERED CASES</span>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Search">
           <span class="navbar-toggler-icon"></span>
       </button>
  
-      <form id="searchForm" method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search for case..." aria-label="Search" name="search" id="searchInput">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button>
+      <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2"  id="myInput" type="text" placeholder="Search for case..." aria-label="Search" name="search">
+  <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button> -->
 </form>
 
 <li class="nav-item dropdown">
@@ -112,7 +113,7 @@ $total_records = mysqli_fetch_array($total_records_result)[0];
 $total_pages = ceil($total_records / $records_per_page);
 
 // check if the data is available in the database
-echo '<div class="data-container">';
+echo '<div class="data-container ">';
 if(mysqli_num_rows($result) <0){
   $message = "No case recorded.";
 }
@@ -125,7 +126,7 @@ else if(mysqli_num_rows($result) >0) {
      
   while ($row = mysqli_fetch_assoc($result)) {
 
-
+ echo '<tbody id="myTable">';
     // display the data
     echo "<tr>";
     
