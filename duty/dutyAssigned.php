@@ -30,9 +30,10 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="text-center mt-5">
-          <h3 class="text-white">THE DUTY HAS BEEN SUCCESSFULLY ASSIGNED</h3>
+            <br>
+          <h3 class="text-white">THE DUTY HAS BEEN SUCCESSFULLY ASSIGNED</h3><br>
           <p class="text-white">You may view all assigned cases</p>
-          <a href="View-assigned-cases.php" class="btn btn-primary btn-lg">View</a>
+          <a href="../cases/View-assigned-cases.php" class="btn btn-primary btn-lg">View</a>
         </div>
       </div>
     </div>
@@ -73,7 +74,7 @@
         color: white;
         margin-left: 400px;
         margin-top: -50px;
-        word-spacing: 20px;
+        word-spacing: 10px;
     }
   </style>
 
