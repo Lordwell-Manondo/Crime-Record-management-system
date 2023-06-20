@@ -127,7 +127,7 @@
           </a>
           <!-- submenu for cases -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
-            <li><a class="dropdown-item"  href="../cases/Record_case.php">Record case</a></li>
+            <li><a class="dropdown-item"  href="../cases/Record_case.php">Register case</a></li>
             <li><a class="dropdown-item"  href="../cases/View_cases.php">View cases</a></li>
             <li><a class="dropdown-item"  href="../cases/cases_statistics.php">Cases trend</a></li>
             <li class="nav-item">
@@ -199,7 +199,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            <i class="fas fa-user" style="font-size: 30px;"></i>
+            <i class="fas fa-user" style="font-size: 30px; color: blue;"></i>
             <span style="color: white; font-size: 15px;"> <?php echo $name; ?></span>
             <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
             

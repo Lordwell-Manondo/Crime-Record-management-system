@@ -108,7 +108,7 @@
                   <li class="nav-item dropdown">
           <a class="nav-link" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            <i class="fas fa-user" style="font-size: 30px;"></i>
+            <i class="fas fa-user" style="font-size: 30px; color: blue;"></i>
             <span style="color: white; font-size: 15px;"> <?php echo $myname; ?></span>
             <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
           </a>

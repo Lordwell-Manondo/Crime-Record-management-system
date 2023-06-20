@@ -63,7 +63,7 @@
     <th style="width: fit-content;">Serial No.</th> 
     <th style="width: 10%;">Suspect</th>
     <th style="width: 10%;">Victim</th>
-    <th style="width: 25%;">Incident</th>
+    <th style="width: 30%;">Incident</th>
     <th style="width: 5%;">Location</th>
     <th style="width: 10%;">Date</th>
     <th style="width: 15%;">Type</th>
@@ -148,7 +148,7 @@ echo "<td><div class='case-status' style='width: fit-content; color: white; back
   
 
      // assign duty to an officer(s)
-     echo "<td><a href='../duty/assign.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Assign duty</a></td>";
+     echo "<td><a href='../duty/assign.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Assign</a></td>";
      echo "</tr>";
   }
 }

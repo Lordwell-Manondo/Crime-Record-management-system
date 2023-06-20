@@ -47,7 +47,7 @@ function authenticateOfficer($username, $password)
             return "Invalid username or password.";
         }
     } else {
-        // User not found, return null
+        // if user is not found, return null
         return null;
     }
 }
@@ -81,6 +81,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
 </head>
+  <!-- Navbar -->
+
+  <nav class="navbar navbar-expand-lg " style="background-color: black;">
+    <div class="log">
+      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+
+      
+         </ul>
+    </div>
+  </nav>
 <body>
     <div class="container">
     <div class="box-container">
@@ -90,14 +109,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         ?>
         <form method="POST" action="">
-            <h3 class="text-center" style="color: white;">Login</h3>
+            <h4 class="text-center" style="color: gray;">Login to start your session</h4>
             <hr>
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="User name" required>
                 </div>
             </div>
 
@@ -123,8 +142,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <script>
         function forgotPassword() {
-            // Add your logic for the "Forgot Password" functionality here
-            alert("Forgot Password clicked!");
+            // Add your logic for forgot password
+            alert("Currently this feature is not working, visit ICT center for help!");
         }
     </script>
 
@@ -138,15 +157,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             width: 100%; 
             height: 300px;
             /* margin-left: 30%; */
-            margin-top: 10%;
+            margin-top: 5%;
         }
         
         .form-group {
             margin-top: 10%;
         }
         
-        h3 {
-            color: white;
+        h4 {
+            
             margin-top: -5%;
         }
         
@@ -166,16 +185,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-left: 30%;
         }
         .box-container{
-            background-color: rgb(0, 109, 130);;
+            background-color: white;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 40px;
             width: 45%;
             margin-left: 25%;
-         border: 1px white solid;
+         border: 1px black solid;
+         
         }
         hr{
-           border-color: white;
+           border-color: gray;
         }
     </style>
     

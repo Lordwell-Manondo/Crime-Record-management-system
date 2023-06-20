@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include('../db/Connections.php');
 
 if (isset($_GET['id'])) {
@@ -29,11 +29,14 @@ if (isset($row)) {
 <html>
 <head>
     <title>Updating-case</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
 </head>
 <body>
 
-
+<?php include('../home/officer_incharge_session.php');?>
   
   <!-- Header -->
   <header>
@@ -55,7 +58,8 @@ if (isset($row)) {
 
         <li class="nav-item dropdown">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 150px;">
-                        <i class="fas fa-user" style="font-size: 25px;  color: darkgray;"></i>
+                        <i class="fas fa-user" style="font-size: 25px;  color: blue;"></i>
+                        <span style="color: white; font-size: 15px;"> <?php echo $name; ?></span>
                         <i class="fas fa-angle-down" style=" color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
 
                     </a>
@@ -70,32 +74,32 @@ if (isset($row)) {
     <div class="container">
         <form method="post">
             <div class="form-group">
-                <label for="suspect">Suspect:</label>
+                <label for="suspect">Suspect</label>
                 <input type="text" class="form-control" id="suspect" name="suspect" value="<?php echo $suspect ?? ''; ?>">
             </div>
 
             <div class="form-group">
-                <label for="victim">Victim:</label>
+                <label for="victim">Victim</label>
                 <input type="text" class="form-control" id="victim" name="victim" value="<?php echo $victim ?? ''; ?>">
             </div>
 
             <div class="form-group">
-                <label for="incident">Incident:</label>
+                <label for="incident">Incident</label>
                 <textarea class="form-control" id="incident" name="incident" rows="3"><?php echo $incident ?? ''; ?></textarea>
             </div>
 
             <div class="form-group">
-                <label for="location">Location:</label>
+                <label for="location">Location</label>
                 <input type="text" class="form-control" id="location" name="location" value="<?php echo $location ?? ''; ?>">
             </div>
 
             <div class="form-group">
-                <label for="date">Date:</label>
+                <label for="date">Date</label>
                 <input type="date" class="form-control" id="date" name="date" value="<?php echo $date ?? ''; ?>">
             </div>
 
             <div class="form-group">
-                <label for="type">Case type:</label>
+                <label for="type">Case type</label>
                 <select class="form-control" id="type" name="type">
                     <option value="<?php echo $type ?? ''; ?>"><?php echo $type ?? ''; ?></option>
                     <option value="Criminal offense">Criminal offense</option>
@@ -111,7 +115,7 @@ if (isset($row)) {
             </div>
 
             <div class="form-group">
-                <label for="status">Status:</label>
+                <label for="status">Status</label>
                 <select class="form-control" id="status" name="status">
                     <option value="Open">Open</option>
                     <option value="Closed">Closed</option>
@@ -122,19 +126,34 @@ if (isset($row)) {
         </form>
     </div>
     <style>
+        body{
+            background-color: rgb(0, 109, 139);;
+        }
          form{
             width: 80%;
             margin-left: 10%;
             margin-top: 10px;
+            background-color: white;
+            border-radius: 5px;
+            height: 750px;
          }
         label{
             font-size: 20px;
+            margin-left: 10%;
+            font-weight: 600;
         }
         .heading{
             
             color: white;
             margin-right: 400px;
             font-size: 25px;
+        }
+        input[id="suspect"],input[id="victim"],input[id="location"],input[id="date"],select[id="type"],select[id="status"],textarea[id="incident"]{
+            width: 80%;
+            margin-left: 10%;
+        }
+        button{
+            margin-left: 10%;
         }
         </style>
         
