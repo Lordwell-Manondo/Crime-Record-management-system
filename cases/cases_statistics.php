@@ -288,7 +288,8 @@ else {
 
 </head>
 <body>
-  <span class="heading">CASES STATISTICAL DATA</span>
+  <li><a class="case-categories" href="#">Case categories</a></li>
+  <li><a class="case-locations" href="#">Location</a></li>
   <!-- <p style="margin-left: 80%;">Total recorded cases : <?php echo $totalCases; ?></p>
     <p style="margin-left: 80%;">Location : <?php echo $maxLocation." (" .$maxLocationCount.") "; ?></p> -->
 <hr>  

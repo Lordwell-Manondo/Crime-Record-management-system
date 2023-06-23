@@ -86,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <nav class="navbar navbar-expand-lg " style="background-color: black;">
     <div class="log">
       <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+      <h3>CRIME RECORD MANAGEMENT SYSTEM</h3>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -150,6 +151,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <style>
         body {
             background-color: rgb(0, 109, 139);
+        }
+        h3{
+            color: white;
+            margin-left: 400px;
+            font-size: 30px;
+            margin-top: -40px;
+            word-spacing: 5px;
+
         }
         
         .container {

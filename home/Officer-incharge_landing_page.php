@@ -54,6 +54,10 @@
     i {
       color: gray;
     }
+   
+.fas .fa-angle-down:hover {
+  transform: rotate(180deg);
+}
     
     @media (max-width: 768px) {
       .navbar-nav {
@@ -93,6 +97,9 @@
       .footer span {
         font-size: 16px;
       }
+      nav li:hover > .dropdown-menu {
+  display: block;
+}
      
   </style>
 
@@ -128,8 +135,11 @@
           <!-- submenu for cases -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
             <li><a class="dropdown-item"  href="../cases/Record_case.php">Register case</a></li>
+            <hr>
             <li><a class="dropdown-item"  href="../cases/View_cases.php">View cases</a></li>
-            <li><a class="dropdown-item"  href="../cases/cases_statistics.php">Cases trend</a></li>
+            <hr>
+            <li><a class="dropdown-item"  href="../cases/cases_bargraph.php">Cases trend</a></li>
+            <hr>
             <li class="nav-item">
               <a class="nav-link" href="../db/report_view.php">
                 <i tooltip="Generate Report" style="font-size: 20px; color: white; margin-left: 15px;">Report</i>
@@ -147,6 +157,7 @@
           <!-- submenu for officers -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
             <li><a class="dropdown-item"  href="../officers/add_officer.php">Add officers</a></li>
+            <hr>
             <li><a class="dropdown-item"  href="../officers/view_officers.php">View officers</a></li>
           </ul>
         </li>
@@ -174,6 +185,7 @@
           <!-- submenu for duties -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
             <li><a class="dropdown-item"  href="../news/news2.php">Add news</a></li>
+            <hr>
             <li><a class="dropdown-item"  href="#">View news</a></li>
           </ul>
         </li>
@@ -188,6 +200,7 @@
           <!-- submenu for duties -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
             <li><a class="dropdown-item"  href="add-guidelines.php">Add new</a></li>
+            <hr>
             <li><a class="dropdown-item"  href="view-guidelines.php">View Guidelines</a></li>
           </ul>
         </li>
@@ -208,7 +221,9 @@
           <!-- submenu for profile -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
             <li><a class="dropdown-item" style=" font-size: 100%; " href="../changepass/change-password-officer-incharge.php">Change password</a></li>
+            <hr>
             <li><a class="dropdown-item" style=" font-size: 100%; " href="#">View profile</a></li>
+            <hr>
             <li><a class="dropdown-item" style=" font-size: 100%; " href="logout.php">Logout</a></li>
           </ul>
         </li>

@@ -64,16 +64,21 @@
     .dropdown-menu {
       background-color: transparent;
       width: 60px;
+      margin-left: 110px;
       }
       .dropdown-item{
             color: white;
+           
          } 
          h2{
             color: khaki;
             font-family: font-family: Arial, Helvetica, sans-serif;
             text-align: center;
             margin-top: 100px;
-         } 
+         }
+         nav li:hover > .dropdown-menu {
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -105,16 +110,16 @@
                 </li>
 
 
-                  <li class="nav-item dropdown">
-          <a class="nav-link" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
+                  <li class="nav-item dropdown" >
+          <a class="nav-link" style="margin-left: 100px;" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user" style="font-size: 30px; color: blue;"></i>
             <span style="color: white; font-size: 15px;"> <?php echo $myname; ?></span>
-            <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
+            <i class="fas fa-angle-down" style="color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
           </a>
           <!-- submenu for profile -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
             <li><a class="dropdown-item" style="font-size: 100%; " href="../changepass/change-password-officer.php">Change password</a></li>
+            <hr>
             <!-- <li><a class="dropdown-item" style="font-size: 100%; " href="#">View profile</a></li> -->
             <li><a class="dropdown-item" style="font-size: 100%; " href="logout.php">Logout</a></li>
           </ul>
