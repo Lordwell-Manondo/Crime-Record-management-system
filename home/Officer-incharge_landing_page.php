@@ -131,7 +131,7 @@
             <li><a class="dropdown-item"  href="../cases/View_cases.php">View cases</a></li>
             <li><a class="dropdown-item"  href="../cases/cases_statistics.php">Cases trend</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="../db/report_view.php">
+              <a class="nav-link" href="../report">
                 <i tooltip="Generate Report" style="font-size: 20px; color: white; margin-left: 15px;">Report</i>
               </a>
             </li>
