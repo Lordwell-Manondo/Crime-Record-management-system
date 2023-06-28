@@ -2,6 +2,14 @@
 // connect to database
 session_start();
 include('../db/Connections.php');
+include('cases_statistics.php');
+
+
+ //Create a new instance of the Connection class
+  $connection = new Connection();
+    
+// Call the connect() method to establish a database connection
+$conn = $connection->connect();
 
 $sql = "SELECT type FROM cases";
 
@@ -197,24 +205,29 @@ mysqli_close($conn);
             margin-left: 30%;
         }
         .box-container{
-            background-color: white;
+          position: absolute;
+         top: 15%;
+          background-color: white;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 40px;
             width: 45%;
             margin-left: 25%;
          border: 1px black solid;
+         border-radius: 2%;
+         padding: 2%;
+         border: 3px solid gray;
+        
+   
          
         }
         hr{
            border-color: gray;
         }
         .box-container {
-      position: absolute;
-      top: 15%;
-      border: 3px solid gray;
-      padding: 2%;
-      border-radius: 2%;
+     
+     
+    
       background-color: white;
     }
         .box {
@@ -226,6 +239,8 @@ mysqli_close($conn);
       width: 20%;
       height: 550px;
       border-radius: 1%;
+     letter-spacing: 1px;
+    
       
     
     }
@@ -243,8 +258,14 @@ mysqli_close($conn);
   
  <li> <div class="box-container" id="chart_div" style="width: 73%; height: 550px; border-radius: 0.5%; "></div> </li>
  <div class="box">
- <li><a class="case-categories" href="#">Case categories</a></li>
+ <li><a class="case-categories" href="#">Categories</a></li>
+ <?php 
+        // echo $caseTyp."". '<br>';
+        // echo $caseCount;
+  ?>
 <li><a class="case-locations" href="#">Locations</a></li>
+<li><a class="case-locations" href="#">Closed cases</a></li>
+<li><a class="case-locations" href="#">Open cases</a></li>
  </div>
  
 </body>

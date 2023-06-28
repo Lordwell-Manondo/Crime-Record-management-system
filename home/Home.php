@@ -30,7 +30,7 @@
 
     <style>
          body {
-        background-color: rgb(0, 109, 139);
+        background-color:  rgb(0, 109, 139);;
         }
         /* ... existing styles ... */
          /* ... existing styles ... */
@@ -88,7 +88,7 @@
         
         h1, h4 {
             text-align: center;
-            color: white;
+            color: rgb(0, 109, 139);;
         }
         
         main {

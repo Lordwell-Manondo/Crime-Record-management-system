@@ -58,13 +58,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Add Officer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../login/login.css">
 </head>
+  <!-- Navbar -->
+
+  <nav class="navbar navbar-expand-lg " style="background-color: black;">
+    <div class="log">
+      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+      <h3>CRIME RECORD MANAGEMENT SYSTEM</h3>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+
+      
+         </ul>
+    </div>
+  </nav>
 <body>
-    <header>
-        <a href="../home/Officer-incharge_landing_page.php" style="text-align: center; padding-top: 10px; color: white;">
-            <p style="font-size: 15px;  margin-left: 50px; color: white;" >Back</p>
-        </a>
-    </header>
+    
     <h2>Add Officer</h2>
     <form action="add_officer.php" method="post">
         <label>First Name:</label>
@@ -129,6 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         background-color: #fff;
         border: 1px solid #ccc;
         padding: 20px;
+        border-radius: 5px;
     }
 
     label {
@@ -163,7 +183,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     input[type="submit"],
     input[type="button"] {
-        background-color: #4CAF50;
+        background-color: blue;
         color: white;
         padding: 12px 20px;
         border: none;
@@ -174,7 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     input[type="submit"]:hover,
     input[type="button"]:hover {
-        background-color: #45a049;
+        background-color: blue;
     }
 
     .error {

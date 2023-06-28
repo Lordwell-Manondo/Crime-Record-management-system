@@ -79,6 +79,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+
     
 </head>
   <!-- Navbar -->
@@ -102,6 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </nav>
 <body>
+    
     <div class="container">
     <div class="box-container">
         <?php
@@ -110,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         ?>
         <form method="POST" action="">
-            <h4 class="text-center" style="color: gray;">Login to start your session</h4>
+            <h4 class="text-center" >Login to start your session</h4>
             <hr>
             <div class="form-group">
                 <div class="input-group">
@@ -147,66 +150,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             alert("Currently this feature is not working, visit ICT center for help!");
         }
     </script>
-
-    <style>
-        body {
-            background-color: rgb(0, 109, 139);
-        }
-        h3{
-            color: white;
-            margin-left: 400px;
-            font-size: 30px;
-            margin-top: -40px;
-            word-spacing: 5px;
-
-        }
-        
-        .container {
-            background-color: rgb(0, 109, 139);
-            width: 100%; 
-            height: 300px;
-            /* margin-left: 30%; */
-            margin-top: 5%;
-        }
-        
-        .form-group {
-            margin-top: 10%;
-        }
-        
-        h4 {
-            
-            margin-top: -5%;
-        }
-        
-        i {
-            width: 30px;
-            color: blue;
-        }
-        
-        button[type="button"] {
-            width: fit-content;
-            margin-top: 10%;
-        }
-        
-        button[type="submit"] {
-            margin-top: 10%;
-            width: fit-content;
-            margin-left: 30%;
-        }
-        .box-container{
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            width: 45%;
-            margin-left: 25%;
-         border: 1px black solid;
-         
-        }
-        hr{
-           border-color: gray;
-        }
-    </style>
-    
 </body>
 </html>

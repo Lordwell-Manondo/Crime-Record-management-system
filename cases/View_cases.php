@@ -43,7 +43,7 @@
   <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button> -->
 </form>
 
-<li class="nav-item dropdown" style="margin-left: 180px;">
+<li class="nav-item dropdown" style="margin-left: 0px;">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user" style="font-size: 25px; margin-left: 90px; color: darkgray;"></i>
                         <?php echo $name; ?></span>
@@ -185,11 +185,11 @@ mysqli_close($conn);
 </table>
 <style>
  body{
-  background-color: rgb(0, 109, 139);
+  background-color: lightgray;
  }
  
       form{
-        margin-left: 20%;
+        margin-left: 15%;
       }
     .table-container {
     margin-top: 10px;
@@ -199,7 +199,7 @@ mysqli_close($conn);
    
     .recordedcases{  
         font-weight: 100;
-        margin-left: 10%;
+        margin-left: 30%;
         color: white;
         font-size: 20px;
        
@@ -220,7 +220,8 @@ mysqli_close($conn);
    /* margin-bottom: 20px; */
    border-collapse: separate;
    border-spacing: 1 10px;
-   border: solid 2px gray;
+   border: solid 3px gray;
+   border-radius: 5px;
   
    
    
