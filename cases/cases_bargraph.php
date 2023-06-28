@@ -5,6 +5,8 @@ include('../db/Connections.php');
 include('cases_statistics.php');
 
 
+
+
  //Create a new instance of the Connection class
   $connection = new Connection();
     
@@ -258,14 +260,17 @@ mysqli_close($conn);
   
  <li> <div class="box-container" id="chart_div" style="width: 73%; height: 550px; border-radius: 0.5%; "></div> </li>
  <div class="box">
- <li><a class="case-categories" href="#">Categories</a></li>
- <?php 
-        // echo $caseTyp."". '<br>';
-        // echo $caseCount;
-  ?>
-<li><a class="case-locations" href="#">Locations</a></li>
-<li><a class="case-locations" href="#">Closed cases</a></li>
-<li><a class="case-locations" href="#">Open cases</a></li>
+ <li><a class="case-categories" href="#">Locations</a></li>
+ <li>
+  <a class="case-categories" href="#">
+  <?php
+ include('locations.php');
+  $locations; ?>
+ </a>
+</li>
+ 
+ 
+
  </div>
  
 </body>
