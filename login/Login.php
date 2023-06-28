@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
     </div>
     <div>
-    <h1 style="color: white; text-align: center; margin-left: 270px;">CRIME RECORD MANAGEMENT</h1>
+    <h2 style="color: white; text-align: center; margin-left: 300px;">CRIME RECORD MANAGEMENT</h2>
 
     </div>
   </nav>
@@ -184,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 40px;
-            width: 45%;
+            width: 60%;
             margin-left: 25%;
          border: 1px black solid;
          
