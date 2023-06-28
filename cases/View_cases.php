@@ -39,20 +39,20 @@
       </button>
  
       <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2"  id="myInput" type="text" placeholder="Search for case..." aria-label="Search" name="search">
+  <input class="form-control mr-sm-2"  id="myInput" type="text" placeholder="Search for case..." aria-label="Search" name="search" >
   <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button> -->
 </form>
 
-<li class="nav-item dropdown">
+<li class="nav-item dropdown" style="margin-left: 0px;">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user" style="font-size: 25px; margin-left: 90px; color: darkgray;"></i>
                         <?php echo $name; ?></span>
-                        <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
+                        <i class="fas fa-angle-down" style=" color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
 
                     </a>
                     <!-- submenu for profile -->
                     <ul class="dropdown-menu" aria-labelledby="submenu">
-                    <li><a class="dropdown-item" style=" font-size: 20px%; color: white; background-color: black;margin-left: 130px;" href="../home/home.php">Logout</a></li>
+                    <li><a class="dropdown-item" style=" font-size: 20px%; color: white; background-color: black;" href="../home/home.php">Logout</a></li>
                     </ul>
                     </li>
     </nav>
@@ -149,7 +149,7 @@ echo "<td><div class='case-status' style='width: fit-content; color: white; back
   
 
      // assign duty to an officer(s)
-     echo "<td><a href='../duty/assign.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Assign</a></td>";
+     echo "<td><a href='../duty/assign.php?id=" . $row["id"] . "'style='color: black; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>Assign</a></td>";
      echo "</tr>";
   }
 }
@@ -185,11 +185,11 @@ mysqli_close($conn);
 </table>
 <style>
  body{
-  background-color: rgb(0, 109, 139);;
+  background-color: lightgray;
  }
  
       form{
-        margin-left: 20%;
+        margin-left: 15%;
       }
     .table-container {
     margin-top: 10px;
@@ -199,7 +199,7 @@ mysqli_close($conn);
    
     .recordedcases{  
         font-weight: 100;
-        margin-left: 10%;
+        margin-left: 30%;
         color: white;
         font-size: 20px;
        
@@ -220,7 +220,8 @@ mysqli_close($conn);
    /* margin-bottom: 20px; */
    border-collapse: separate;
    border-spacing: 1 10px;
-   border: solid 2px gray;
+   border: solid 3px gray;
+   border-radius: 5px;
   
    
    
@@ -291,7 +292,7 @@ table .cases-table tbody tr:first-child {
     color: white;
     font-size: 15px;
     font-weight: 600;
-    background-color: black;
+    background-color: gray;
     
 
     
@@ -344,6 +345,7 @@ h3{
             
             margin-trim: none;
             width: 60px;
+            margin-left: 130px;
             }
          
         li{

@@ -1,24 +1,16 @@
 <?php
 include('../db/Connections.php');
 
-$category[]='';
+$categoryCounts = array();
 
-$sql = "SELECT *, COUNT(*) AS count FROM cases GROUP BY type ORDER BY count DESC";
-//$sql = "SELECT * FROM cases GROUP BY serial_no";
+// Retrieve the case categories and their counts
+$sql = "SELECT type, COUNT(*) AS count FROM cases GROUP BY type";
 $result = mysqli_query($conn, $sql);
-if (!$result) {
-    die("Query failed: " . mysqli_error($conn));
-}
 
-else if(mysqli_num_rows($result) > 0){
+if ($result && mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-        $cat = $row['type']. '<br>'.'<br>';
-
-        
+        $categoryCounts[$row['type']] = $row['count'];
     }
-    
-}else{
-    echo"No location available";
 }
 
 mysqli_close($conn);
@@ -31,6 +23,7 @@ mysqli_close($conn);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
 </head>
+<body>
   <!-- Navbar -->
 
   <nav class="navbar navbar-expand-lg " style="background-color: black;">
@@ -46,16 +39,37 @@ mysqli_close($conn);
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
 
+       
       
-         </ul>
+      </ul>
     </div>
   </nav>
+  <span class="categories">Case categories</span>
+  
+  <?php
+        // Output the category links
+        foreach ($categoryCounts as $category => $count) {
+            echo '<li style="margin-left: 5%; text-decoration: none; list-style: none;">';
+            echo '<a class="category" href="#" style="color: white; text-decoration: none; font-size: 20px; font-weight: 200px;">';
+            echo $category;
+            echo "";
+            echo '</a>';
+            echo '</li>';
+        }
+        ?>
+        <style>
+          body{
+            background-color: rgb(0, 109, 139);
+          }
+          .categories{
+            color: white;
+            font-size: 30px;
+            font-weight: 300;
+            margin-left: 5%;
+          }
+ 
 
-  <li>
-    <a class="category" href="#" style="color: green; text-decoration: none; "> 
-        <?php echo $cat;?>
-    </a>
-</li>  
+          
+        </style>
 </body>
 </html>
-

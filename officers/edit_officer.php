@@ -50,9 +50,23 @@ if (isset($_GET["id"])) {
         <html>
         <head>
             <title>Edit Officer</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         </head>
         <body>
-        <h1>Edit Officer</h1>
+            
+<header>
+     <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg " style="background-color: black;">
+    <div class="log">
+      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+    </div>
+    <div>
+    <h1 style="color: white; text-align: center; margin-left: 450px;">EDIT OFFICER DETAILS</h1>
+
+    </div>
+  </nav>
+</header>
         <div class="conntainer">
         <form method="post" > 
             <input type="hidden" name="id" value="<?php echo $officer['id']; ?>">
@@ -81,7 +95,7 @@ if (isset($_GET["id"])) {
 		}
 
 		.conntainer {
-			width: 25%;
+			width: 35%;
 			padding: 20px;
 			background-color: #f0f0f0;
 			border-radius: 5px;
@@ -90,15 +104,6 @@ if (isset($_GET["id"])) {
             margin-left: 480px;
 
         }
-
-		h1 {
-            /* justify-conntent: center; */
-            text-align: center;
-            color: white;
-            font-weight: 200;
-
-		}
-
 		label {
 			display: block;
 			margin-bottom: 10px;
@@ -138,10 +143,9 @@ if (isset($_GET["id"])) {
 			width: 100%;
 		}
 	</style>
-
-     
-        </body>
-        </html>
+ </body>
+<?php include('../home/footer.html');?>
+</html>
         <?php
     } else {
         echo "Officer not found.";

@@ -85,7 +85,7 @@
         
         h1, h4 {
             text-align: center;
-            color: white;
+            color: rgb(0, 109, 139);;
         }
         
         main {
