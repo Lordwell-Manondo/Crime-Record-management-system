@@ -38,7 +38,7 @@
           <span class="navbar-toggler-icon"></span>
       </button>
  
-      <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
+  <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
   <input class="form-control mr-sm-2"  id="myInput" type="text" placeholder="Search for case..." aria-label="Search" name="search" >
   <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button> -->
 </form>
@@ -179,10 +179,15 @@ if ($current_page < $total_pages) {
 }
 
 
+
 mysqli_close($conn);
 ?>
 </div>
 </table>
+<h5 style=" height: 20%;">
+
+</h5>
+<?php include('../home/footer.html');?>
 <style>
  body{
   background-color: lightgray;
@@ -199,7 +204,7 @@ mysqli_close($conn);
    
     .recordedcases{  
         font-weight: 100;
-        margin-left: 30%;
+        margin-left: 20%;
         color: white;
         font-size: 20px;
        

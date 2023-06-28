@@ -119,7 +119,7 @@ mysqli_close($conn);
         <form method="post">
          
 <div class="form-group">
-    <label for="serial_no">Case Number</label>
+    <label for="serial_no">Case Serial Number</label>
     <input type="text" class="form-control" id="serial_no" name="serial_no" value="<?php echo $case; ?>" required>
 </div>
 

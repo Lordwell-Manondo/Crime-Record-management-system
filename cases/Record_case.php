@@ -272,7 +272,6 @@ function generateSerialNumber($type, $conn)
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <div class="contact-form">
-                    <h3 class="text-center">Case registration form</h3>
                     <form method="POST" action="Record_case.php" id="case-record" name="case-record">
                             
                     <div class="form-group">
