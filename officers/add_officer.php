@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <header>
         <a href="../home/Officer-incharge_landing_page.php" style="text-align: center; padding-top: 10px; color: white;">
-            <p style="font-size: 15px;  margin-left: 50px; color: white;" >Back</p>
+            <!-- <p style="font-size: 15px;  margin-left: 50px; color: white;" >Back</p> -->
         </a>
     </header>
     <h2>Add Officer</h2>
