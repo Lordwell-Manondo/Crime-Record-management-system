@@ -90,19 +90,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
       <h3>CRIME RECORD MANAGEMENT SYSTEM</h3>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div>
+    <h1 style="color: white; text-align: center; margin-left: 270px;">CRIME RECORD MANAGEMENT</h1>
 
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-
-      
-         </ul>
     </div>
   </nav>
+  
 <body>
     
     <div class="container">
