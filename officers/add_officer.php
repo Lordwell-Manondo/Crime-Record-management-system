@@ -62,38 +62,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../login/login.css">
 </head>
-  <!-- Navbar -->
-
-  <nav class="navbar navbar-expand-lg " style="background-color: black;">
-    <div class="log">
-      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
-      <h3>CRIME RECORD MANAGEMENT SYSTEM</h3>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-
-      
-         </ul>
-    </div>
-  </nav>
 <body>
-    
+    <header>
+        <a href="../home/Officer-incharge_landing_page.php" style="text-align: center; padding-top: 10px; color: white;">
+            <p style="font-size: 15px;  margin-left: 50px; color: white;" >Back</p>
+        </a>
+    </header>
     <h2>Add Officer</h2>
     <form action="add_officer.php" method="post">
         <label>First Name:</label>
-        <input type="text" name="first_name" required><br><br>
+        <input type="text" name="first_name" required>
         <label>Last Name:</label>
-        <input type="text" name="last_name" required><br><br>
+        <input type="text" name="last_name" required>
         <label>Service number:</label>
-        <input type="text" name="service_no" required><br><br>
+        <input type="text" name="service_no" required>
         <label>Date of Entry:</label>
-        <input type="date" name="date_of_entry" required><br><br>
+        <input type="date" name="date_of_entry" required>
         <label>Officer Rank:</label>
         <select name="officer_rank" required>
             <option value="" selected disabled hidden>Select Rank</option>
@@ -190,6 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         border-radius: 4px;
         cursor: pointer;
         font-size: 16px;
+        margin-right: 90px;
     }
 
     input[type="submit"]:hover,
@@ -207,5 +192,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         font-weight: bold;
     }
 </style> 
+<?php include('../home/footer.html');?> 
 
 </html>

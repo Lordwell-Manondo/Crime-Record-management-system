@@ -74,11 +74,8 @@
             color: khaki;
             font-family: font-family: Arial, Helvetica, sans-serif;
             text-align: center;
-            margin-top: 100px;
-         }
-         nav li:hover > .dropdown-menu {
-  display: block;
-}
+            margin-top: 200px;
+         } 
 </style>
 </head>
 <body>
@@ -145,6 +142,11 @@
 
 </main>
 </div>
+<br><br><br>
+<div>
+  <br><br>
+</div>
+
 <!-- Include Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -152,4 +154,5 @@
 <!-- Include Adminator JS -->
 <script src="path/to/adminator.js"></script>
 </body>
+<?php include('footer.html');?>
 </html>

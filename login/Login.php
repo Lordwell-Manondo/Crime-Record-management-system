@@ -137,6 +137,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
     </div>
+    <br>
+    <br>
     <script>
         function forgotPassword() {
             // Add your logic for forgot password

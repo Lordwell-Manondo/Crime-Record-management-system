@@ -81,9 +81,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Report Form</title>
 </head>
+<nav class="navbar navbar-expand-lg " style="background-color: black;">
+    <div class="log">
+      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+    </div>
+    <div>
+    <h1 style="color: white; text-align: center; margin-left: 270px;">CRIME RECORD MANAGEMENT</h1>
+
+    </div>
+  </nav>
 <body>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi1Re9rRPX6TGBv81ox0H7tRXfQ7eg9lo&libraries=places"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
     <script>
         // Initialize Google Places Autocomplete
         function initializeAutocomplete() {
@@ -111,6 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="button" onclick="window.history.back();">Cancel</button>
     </form>
 </body>
+<?php include('../home/footer.html');?> 
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -148,19 +160,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         padding: 10px 20px;
         border: none;
         cursor: pointer;
-        margin-left: 232px;
+        margin-left: 300px;
     }
     
     input[type="submit"]:hover {
         background-color: #45a049;
     }
     form {
-        width: 400px;
+        width: 550px;
         border: 2px solid #ccc;
         padding: 30px;
         background: #fff;
         border-radius: 15px;
         margin: auto;
+        margin-top: 40px;
     }
 </style>
 

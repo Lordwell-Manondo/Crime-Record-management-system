@@ -164,7 +164,7 @@
 			<?php echo $message; ?>
 		</div>
 		<div class="back-link">
-			<a href="../home/Home.php"><button class="back-button">Back</button></a>
+			<a href="../home/Admin_landing_page.php"><button class="back-button">Back</button></a>
 		</div>
 	</form>
 </body>
