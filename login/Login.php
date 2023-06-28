@@ -133,6 +133,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
     </div>
+    <br>
+    <br>
     <script>
         function forgotPassword() {
             // Add your logic for forgot password
@@ -190,7 +192,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         hr{
            border-color: gray;
         }
-    </style>
-    
+    </style> 
+    <?php include('../home/footer.html');?>  
 </body>
 </html>
