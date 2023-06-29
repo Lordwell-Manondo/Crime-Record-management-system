@@ -71,8 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="log">
       <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
       <h3>ADD OFFICER</h3>
-    </div>
+
     
+    </div>
   </nav>
     </header>
     
@@ -134,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     form {
-        max-width: 500px;
+        width: 50%;
         margin: 0 auto;
         background-color: #fff;
         border: 1px solid #ccc;
@@ -197,6 +198,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .success {
         color: green;
         font-weight: bold;
+    }
+    h3{
+        text-align: center;;
     }
 </style> 
 <?php include('../home/footer.html');?> 
