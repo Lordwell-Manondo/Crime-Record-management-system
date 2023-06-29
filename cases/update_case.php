@@ -122,7 +122,8 @@ if (isset($row)) {
                 </select>
             </div>
 
-            <button type="submit" name="submit" class="btn btn-primary">Update</button>
+            <input type="submit" value="Submit" style="padding: 10px; margin-left: 100px;">
+        <button type="button" onclick="window.history.back();" style="margin-left: 60%; padding: 10px;">Cancel</button>
         </form>
     </div>
     <style>

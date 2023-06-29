@@ -139,7 +139,8 @@ mysqli_close($conn);
                 <input type="date" class="form-control" id="date_to_report" name="date_to_report"  min="<?php echo date('Y-m-d'); ?>" required>
             </div>
 
- <button type="submit" name="submit" class="btn btn-primary">Assign</button>
+            <input type="submit" value="Submit" style="padding: 6px; margin-left: 100px;">
+        <button type="button" onclick="window.history.back();" style="margin-left: 55%;">Cancel</button>
         </form>
     </div>
 </div>

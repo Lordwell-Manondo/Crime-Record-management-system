@@ -198,7 +198,8 @@ mysqli_close($conn);
 ?>
 </div>
 </table>
-<h5 style=" height: 20%;">
+<h5 style=" height: 20%; padding: 10px;">
+<button type="button" onclick="window.history.back();">Go to main page</button>
 
 </h5>
 <?php include('../home/footer.html');?>

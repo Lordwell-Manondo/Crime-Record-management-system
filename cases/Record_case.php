@@ -265,6 +265,11 @@ function generateSerialNumber($type, $conn)
         }
         google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
     </script>
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 
 
@@ -323,9 +328,8 @@ function generateSerialNumber($type, $conn)
 
                       
 
-                        <div class="text-center">
-                            <button type="Submit" id="submit-btn" class="btn btn-lg btn-block">Submit</button>
-                        </div>
+                        <input type="submit" value="Submit">
+        <button type="button" onclick="window.history.back();" style="margin-left: 70%;">Cancel</button>
                    
                     </form>
                 </div>
