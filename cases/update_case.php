@@ -122,7 +122,8 @@ if (isset($row)) {
                 </select>
             </div>
 
-            <button type="submit" name="submit" class="btn btn-primary">Update</button>
+            <input type="submit" value="Submit" style="padding: 10px; margin-left: 100px;">
+        <button type="button" onclick="window.history.back();" style="margin-left: 60%; padding: 10px;">Cancel</button>
         </form>
     </div>
     <style>
@@ -160,6 +161,7 @@ if (isset($row)) {
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
+<?php include('../home/footer.html');?>
 </html>
 
 

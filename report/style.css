@@ -8,6 +8,7 @@ body {
 .container {
     display: flex;
     height: 100vh;
+    background-color: rgb(0, 109, 139);
 }
 
 h1 {
@@ -23,6 +24,9 @@ h2 {
     margin-bottom: 10px;
     text-align: center;
 }
+.categories1{
+    color:rgb(207, 104, 0);
+}
 
 table {
     width: 100%;
@@ -31,16 +35,18 @@ table {
     margin-top: 20px;
     margin-bottom: 20px;
     max-width: 720px;
+    color: rgb(0, 0, 0);
+    background-color: beige;
 }
 
 th, td {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #050000;
 }
 
 th {
-    background-color: #626262;
+    background-color: #8c5604;
 }
 
 .header {
@@ -63,6 +69,7 @@ th {
     flex: none 1;
     border-right: 1px solid;
     height: 100%;
+    background-color: aliceblue;
 }
 
 .sidebar ul {
@@ -77,12 +84,12 @@ th {
 }
 
 .sidebar li a {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
 .sidebar li.active {
-    background-color: #555;
+    background-color:#4CAF50;
 }
 
 .print-button {
