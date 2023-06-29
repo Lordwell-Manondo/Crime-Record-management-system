@@ -26,7 +26,7 @@
 <body>
 <?php include('../home/officer_session.php');?>
 <header>
-<nav class="navbar navbar-expand-lg" style="background-color: black;">
+<nav class="navbar navbar-expand-lg" style="background-color:  rgb(0, 109, 139);">
 <div class="log">
           <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
       </div>
@@ -142,7 +142,7 @@ mysqli_close($conn);
       
     }
     body{
-        background-color:  rgb(0, 109, 139);
+        background-color:  white;
     }
 
    
@@ -270,4 +270,5 @@ h3{
 
   </style>
 </body>
+<?php include('../home/footer.html');?>
 </html>

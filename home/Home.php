@@ -125,7 +125,7 @@
                     <i class="fas fa-user" style="font-size: 30px; width: 60px; background-color: transparent;"></i>
                     </a>
                 <!-- submenu for profile -->
-                <ul class="dropdown-menu" style="background-color: transparent;">
+                <ul class="dropdown-menu" style="background-color: dark;">
                     <li><a class="nav-link" style="color: black;" href="../login/Login.php">Login</a></li>            
                 </ul>
                 </li>

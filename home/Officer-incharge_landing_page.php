@@ -36,7 +36,7 @@
     }
 
     h1 {
-      color: khaki;
+      color: black;
       font-weight: 1000;
       margin-top: 10%;
       text-align: center;
@@ -189,7 +189,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            <i class="fas fa-user" style="font-size: 30px; color: blue;"></i>
+            <i class="fas fa-user" style="font-size: 30px; color: white;"></i>
             <span style="color: white; font-size: 15px;"> <?php echo $name; ?></span>
             <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
             
