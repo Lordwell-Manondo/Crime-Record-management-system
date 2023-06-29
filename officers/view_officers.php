@@ -7,7 +7,9 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/css/bootstrap.min.css">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <!-- Include Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/js/bootstrap.bundle.min.js"></script>
@@ -27,8 +29,9 @@
         </script>    
 </head>
 <body>
+  
 <header>
-        <nav class="navbar navbar-expand-lg" style="background-color: black;">
+        <nav class="navbar navbar-expand-lg" style="background-color: rgb(0, 109, 139);">
                 <div class="log">
                 <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
             </div>
@@ -139,7 +142,7 @@
     body {
         margin: auto;
         padding: 0;
-        background-color: rgb(0, 109, 139);
+        background-color: white;
         font-family: Arial, sans-serif;
     }
     
@@ -185,12 +188,18 @@
         border-collapse: collapse;
         width: 90%;
         margin: auto;
-        margin-bottom: 20%
+        margin-bottom: 20%;
+        border: 3px solid gray;
+        border-radius: 5px;
+        
+        
+        
     }
 
     th, td {
         padding: 10px;
         text-align: center;
+       
     }
 
     th {
@@ -239,7 +248,10 @@
     .suggestion-item.active {
         background-color: #f2f2f2;
     }
+    li{
+        list-style: none;
+    }
 </style>
 </body>
-<?php include('../home/footer.html');?> 
+
 </html>

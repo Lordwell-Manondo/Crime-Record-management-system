@@ -89,10 +89,10 @@
     
   <!-- Navbar -->
 
-  <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
+  <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);;">
     <div class="log">
-      <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
-      <h3>CRIME RECORD MANAGEMENT SYSTEM</h3>
+      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+      <h3>ADDING NEWS</h3>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
       aria-expanded="false" aria-label="Toggle navigation">

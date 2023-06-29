@@ -10,7 +10,7 @@
 
     <style>
        body {
-      background-color: rgb(0, 109, 139);
+      background-color: white;
     }
 
     a {
@@ -62,7 +62,7 @@
     }
 
     .dropdown-menu {
-      background-color: transparent;
+      background-color: rgb(0, 109, 139);
       width: 60px;
       margin-left: 110px;
       }
@@ -78,6 +78,7 @@
          } 
 </style>
 </head>
+
 <body>
 <?php include('officer_session.php');?>
    <!-- Main content -->
@@ -87,7 +88,7 @@
   <header>
       <!-- Header content -->
       <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" style="background-color: black;">
+    <nav class="navbar navbar-expand-lg" style="background-color:rgb(0, 109, 139);">
 
     <div class="log">
           <img src="policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
@@ -154,4 +155,5 @@
 <!-- Include Adminator JS -->
 <script src="path/to/adminator.js"></script>
 </body>
+
 </html>
