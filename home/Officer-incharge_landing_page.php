@@ -11,6 +11,11 @@
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+ 
     
 </head>
 
@@ -67,11 +72,6 @@
       .navbar-nav .nav-item {
         margin: 10px 0;
       }
-      
-
-      .navbar-toggler {
-        margin-left: auto;
-      }
     }
 
     .dropdown-menu {
@@ -81,26 +81,18 @@
 
       .dropdown-item{
             color: white;
-             font-size: 100%;
-           
+             font-size: 100%;   
          }  
-         .footer {
-        width: 100%;
-        color: white;
-        text-align: center;
-        padding: 10px;
-  position: absolute;
-  bottom: 0;
-  height: 30px;
-  background-color: rgb(0, 109, 139);
-}
-      .footer span {
-        font-size: 16px;
+ .navbar-toggler {
+        margin-left: auto;
       }
-      nav li:hover > .dropdown-menu {
-  display: block;
-}
-     
+  .navbar-toggler-icon {
+    background-color: white;
+  }
+
+  .navbar-toggler {
+    border-color: white;
+  }
   </style>
 
 
@@ -118,7 +110,7 @@
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
       aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon" ></span>
     </button>
 
     
@@ -199,7 +191,7 @@
           </a>
           <!-- submenu for duties -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
-            <li><a class="dropdown-item"  href="add-guidelines.php">Add new</a></li>
+            <li><a class="dropdown-item"  href="add-guidelines.php">Add Guidelines</a></li>
             <hr>
             <li><a class="dropdown-item"  href="view-guidelines.php">View Guidelines</a></li>
           </ul>
@@ -234,15 +226,7 @@
 
   
 <h1>CRIME RECORD MANAGEMENT SYSTEM</h1>
-  <h4>Creating a Safe and Secure Malawi.</h4>
-
-  
-<!-- Include Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
- 
-<?php include('footer.html');?> 
-
+  <h4 style="margin-bottom: 10%;" >Creating a Safe and Secure Malawi.</h4>
 </body>
+
 </html>

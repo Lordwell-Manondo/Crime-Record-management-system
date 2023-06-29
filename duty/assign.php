@@ -119,7 +119,7 @@ mysqli_close($conn);
         <form method="post">
          
 <div class="form-group">
-    <label for="serial_no">Case Number</label>
+    <label for="serial_no">Case Serial Number</label>
     <input type="text" class="form-control" id="serial_no" name="serial_no" value="<?php echo $case; ?>" required>
 </div>
 
@@ -139,7 +139,8 @@ mysqli_close($conn);
                 <input type="date" class="form-control" id="date_to_report" name="date_to_report"  min="<?php echo date('Y-m-d'); ?>" required>
             </div>
 
- <button type="submit" name="submit" class="btn btn-primary">Assign</button>
+            <input type="submit" value="Submit" style="padding: 6px; margin-left: 100px;">
+        <button type="button" onclick="window.history.back();" style="margin-left: 55%;">Cancel</button>
         </form>
     </div>
 </div>
@@ -190,7 +191,7 @@ mysqli_close($conn);
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
-
+<?php include('../home/footer.html');?>
 
 </html>
 

@@ -265,6 +265,11 @@ function generateSerialNumber($type, $conn)
         }
         google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
     </script>
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 
 
@@ -272,7 +277,6 @@ function generateSerialNumber($type, $conn)
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <div class="contact-form">
-                    <h3 class="text-center">Case registration form</h3>
                     <form method="POST" action="Record_case.php" id="case-record" name="case-record">
                             
                     <div class="form-group">
@@ -324,9 +328,8 @@ function generateSerialNumber($type, $conn)
 
                       
 
-                        <div class="text-center">
-                            <button type="Submit" id="submit-btn" class="btn btn-lg btn-block">Submit</button>
-                        </div>
+                        <input type="submit" value="Submit">
+        <button type="button" onclick="window.history.back();" style="margin-left: 70%;">Cancel</button>
                    
                     </form>
                 </div>
