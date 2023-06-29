@@ -84,7 +84,7 @@
 
   /* Style the unread notifications */
 h1 {
-  color: gold;
+  color: khaki;
   text-align: center;
 }
 
@@ -160,5 +160,4 @@ h1 {
         }
     </script>
 </body>
-<?php include('../home/footer.html');?>
 </html>

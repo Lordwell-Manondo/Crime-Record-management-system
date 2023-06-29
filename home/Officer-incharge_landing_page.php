@@ -36,7 +36,7 @@
     }
 
     h1 {
-      color: black;
+      color: gold;
       font-weight: 1000;
       margin-top: 10%;
       text-align: center;
@@ -209,7 +209,7 @@
     </div>
   </nav> 
 
-<h1> MALAWI POLICE SERVICE IS "UPHOLDING THE RULE OF LAW"</h1>
+<h1>CRIME RECORD MANAGEMENT SYSTEM</h1>
 
 
 <!-- Add your important content here -->
