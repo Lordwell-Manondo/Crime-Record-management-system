@@ -68,10 +68,14 @@ mysqli_close($conn);
 </head>
 <body>
 <div class="header">
-    <div class="header-main">
-        <h1>Cases Report</h1>
-        <ul class="chart-tabs">
-            
+<div class="log">
+          <img src="plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
+      </div>
+      <h1>Cases Reports</h1>
+</div>
+<a href="../home/Officer-incharge_landing_page.php" style="color: white;">Go to main page</a>
+<div class="header-main" style="background-color: rgb(0, 109, 139);">
+        <ul class="chart-tabs" >
             <li class="<?php echo ($selectedChartType === 'Pie Chart') ? 'active' : ''; ?>">
                 <a href="?dataset=<?php echo $selectedDataset; ?>&chart=Pie Chart">Pie Chart</a>
             </li>
@@ -82,14 +86,11 @@ mysqli_close($conn);
                 <a href="?dataset=<?php echo $selectedDataset; ?>&chart=Table">Table</a>
             </li>
         </ul>
-    </div>
-    <div class="print-container">
-        <div class="print-button" onclick="printContent()"><i class="fas fa-file-download"></i> Print</div>
-    </div>
 </div>
-
+    
 <div class="container">
     <div class="sidebar">
+    <h2 class="categories1">Categories:</h2>
         <ul>
             <?php foreach ($datasets as $datasetName => $datasetTable) { ?>
                 <li <?php echo ($selectedDataset === $datasetName) ? 'class="active"' : ''; ?>>
@@ -98,7 +99,7 @@ mysqli_close($conn);
             <?php } ?>
         </ul>
     </div>
-
+    
     <div class="content">
         <?php if ($selectedChartType === 'Pie Chart') { ?>
             <h2><?php echo $selectedDataset; ?>:</h2>
@@ -150,6 +151,9 @@ mysqli_close($conn);
             </table>
         <?php } ?>
     </div>
+    <div class="print-container" style="float: right;">
+        <div class="print-button" onclick="printContent()"><i class="fas fa-file-download"></i> Print</div>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -192,30 +196,30 @@ mysqli_close($conn);
             // Set chart options for the Bar Chart
 var options = {
    // title: '<?php echo $selectedDataset; ?>',
-    height: 300,
-    backgroundColor: 'rgb(0, 109, 139)',
-    legend: { textStyle: { color: '#fff' } },
-    titleTextStyle: { color: '#fff' },
+    height: 500,
+    backgroundColor: 'white',
+    legend: { textStyle: { color: 'black' } },
+    titleTextStyle: { color: 'black' },
     chartArea: { left: 60, top: 40, width: '70%', height: '70%' },
     orientation: 'horizontal',
     hAxis: {
         slantedText: false, // Ensure horizontal labels are not slanted
         textStyle: {
-            color: '#fff' // Set label text color
+            color: 'black' // Set label text color
         },
-        baselineColor: '#fff', // Set the color of the horizontal axis line
+        baselineColor: 'black', // Set the color of the horizontal axis line
         gridlines: {
-            color: '#fff', // Set the color of the horizontal gridlines
+            color: 'black', // Set the color of the horizontal gridlines
             count: -1 // Show gridlines for all values
         }
     },
     vAxis: {
         textStyle: {
-            color: '#fff' // Set label text color
+            color: 'black' // Set label text color
         },
-        baselineColor: '#fff', // Set the color of the vertical axis line
+        baselineColor: 'black', // Set the color of the vertical axis line
         gridlines: {
-            color: '#fff', // Set the color of the vertical gridlines
+            color: 'black', // Set the color of the vertical gridlines
             count: -1 // Show gridlines for all values
         }
     }
@@ -237,4 +241,5 @@ var options = {
     }
 </script>
 </body>
+<?php include('../home/footer.html');?>
 </html>
