@@ -26,7 +26,7 @@
 <body>
 <?php include('../home/officer_session.php');?>
 <header>
-<nav class="navbar navbar-expand-lg" style="background-color: black;">
+<nav class="navbar navbar-expand-lg" style="background-color:  rgb(0, 109, 139);">
 <div class="log">
           <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
       </div>
@@ -65,6 +65,7 @@
     <th style="text-size: 10px;">Date Assigned</th>
     <th style="text-size: 10px;">Date to Report</th>
     <th style="text-size: 10px;">Remaining Time</th>
+    <th style="text-size: 10px;">Report</th>
   </tr>
 <?php
 //linking up Record_case.php file with database using Connections.php file
@@ -115,8 +116,10 @@ else if(mysqli_num_rows($result) >0) {
     echo "<td><div class='case-status' style='width: fit-content;color: white; background-color: gray; padding: 5px; border-radius: 10px; font-weight: 600;'>" . $remainingDays . "</div></td>";
 
     
-   // edit the case
-    echo "<td><a href='reportwork.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px; padding: 5px;'>Report</a></td>";
+   // report the case
+    echo "<td><a href='Report_case_finding.php?id=" . $row["id"] . "'style='color: white; 
+    background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px;
+     padding: 5px;'>Report</a></td>";
     echo "</tr>";
   
   }
@@ -142,7 +145,7 @@ mysqli_close($conn);
       
     }
     body{
-        background-color:  rgb(0, 109, 139);
+        background-color:  white;
     }
 
    
@@ -270,4 +273,5 @@ h3{
 
   </style>
 </body>
+<?php include('../home/footer.html');?>
 </html>

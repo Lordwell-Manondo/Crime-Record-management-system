@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="date" name="date_of_entry" required>
         <label>Officer Rank:</label>
         <select name="officer_rank" required>
-            <option value="" selected disabled hidden>Select Rank</option>
+            <option value="" selected disabled hidden></option>
             <option value="Sub-Inspector">Sub-Inspector</option>
             <option value="Assistant Sub-Inspector">Assistant Sub-Inspector</option>
             <option value="Sergeant">Sergeant</option>
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </select><br><br>
         <label>Station:</label>
         <select name="station" required>
-            <option value="" selected disabled hidden>Select Police Unit</option>
+            <option value="" selected disabled hidden></option>
             <option value="Matawale">Matawale</option>
             <option value="Domasi">Domasi</option>
             <option value="Mpunga">Mpunga</option>

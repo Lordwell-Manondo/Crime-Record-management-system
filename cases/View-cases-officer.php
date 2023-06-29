@@ -19,8 +19,10 @@
 
 
 <header>
-<nav class="navbar navbar-expand-lg" style="background-color: black;">
-<li><a class="dropdown-item" style=" font-size: 100%; margin-left: 5px; background-color: #999999; border-radius: 10%;" href="../home/officer.php">Back</a></li>
+<nav class="navbar navbar-expand-lg" style="background-color:  rgb(0, 109, 139);">
+<div class="log">
+          <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
+      </div>
 <span class="recordedcases">CASES</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -175,7 +177,7 @@ mysqli_close($conn);
       
     }
     body{
-        background-color:  rgb(0, 109, 139);
+        background-color:  white;
     }
 
    
@@ -286,6 +288,7 @@ h3{
 
   </style>
 </body>
+<?php include('../home/footer.html');?>
 </html>
 
 
