@@ -204,7 +204,7 @@ mysqli_close($conn);
 <?php include('../home/footer.html');?>
 <style>
  body{
-  background-color: lightgray;
+  background-color:rgb(0, 109, 139);
  }
  
       form{
