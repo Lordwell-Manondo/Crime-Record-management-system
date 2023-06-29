@@ -10,9 +10,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Twilio\Rest\Client;
 
 // Twilio credentials
-$accountSid = 'AC1818122a442971639e68dee6662bbe99';
-$authToken = '3736e90642ce83fcde827c4e54e8b0ad';
-$twilioServiceSid = 'VA9fd36c293180923fb622962bb51edf8b';
+$accountSid = 'AC1818122a442971639e68dee6662bbe99';  // Replace with your Twilio Account SID
+$authToken = '3736e90642ce83fcde827c4e54e8b0ad';  // Replace with your Twilio Auth Token
+$twilioServiceSid = 'VA9fd36c293180923fb622962bb51edf8b';  // Replace with your Twilio Verify Service SID
 
 // Function to send verification code via SMS
 function sendVerificationCode($phoneNumber)
@@ -83,46 +83,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <nav class="navbar navbar-expand-lg " style="background-color: black;">
     <div class="log">
-      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+        <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
     </div>
     <div>
-    <h1 style="color: white; text-align: center; margin-left: 270px;">CRIME RECORD MANAGEMENT</h1>
-
+        <h1 style="color: white; text-align: center; margin-left: 270px;">CRIME RECORD MANAGEMENT</h1>
     </div>
-  </nav>
+</nav>
 <body>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
-    <script>
-        // Initialize Google Places Autocomplete
-        function initializeAutocomplete() {
-            var input = document.getElementById('location');
-            var autocomplete = new google.maps.places.Autocomplete(input);
-        }
-        google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
-    </script>
-    
-    <?php if (!empty($successMessage)) : ?>
-        <div style="color: green; text-align: center;"><?php echo $successMessage; ?></div>
-    <?php endif; ?>
-    <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<script>
+    // Initialize Google Places Autocomplete
+    function initializeAutocomplete() {
+        var input = document.getElementById('location');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }
+    google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
+</script>
+
+<?php if (!empty($successMessage)) : ?>
+    <div style="color: green; text-align: center;"><?php echo $successMessage; ?></div>
+<?php endif; ?>
+<form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
     <h2>Report Incident</h2>
-        <label for="phone">Phone:</label>
-        <input type="text" name="phone" id="phone" placeholder="+265xxxxxxxxx" required>
-        <br>
-        <label for="location">Location:</label>
-        <input type="text" name="location" id="location" placeholder="Location" required>
-        <br>
-        <label for="description">Description:</label>
-        <textarea name="description" id="description" rows="4" placeholder="Include names of suspects and any other information" required></textarea>
-        <br>
-        <input type="submit" value="Submit">
-        <button type="button" onclick="window.history.back();">Cancel</button>
-    </form>
+    <label for="phone">Phone:</label>
+    <input type="text" name="phone" id="phone" placeholder="+265xxxxxxxxx" required>
+    <br>
+    <label for="location">Location:</label>
+    <input type="text" name="location" id="location" placeholder="Location" required>
+    <br>
+    <label for="description">Description:</label>
+    <textarea name="description" id="description" rows="4" placeholder="Include names of suspects and any other information" required></textarea>
+    <br>
+    <input type="submit" value="Submit">
+    <button type="button" onclick="window.history.back();">Cancel</button>
+</form>
 </body>
-<?php include('../home/footer.html');?> 
+<?php include('../home/footer.html');?>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -154,6 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         border: none;
         cursor: pointer;
     }
+    
     button[type="button"] {
         background-color: #4CAF50;
         color: white;
@@ -166,6 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     input[type="submit"]:hover {
         background-color: #45a049;
     }
+    
     form {
         width: 550px;
         border: 2px solid #ccc;

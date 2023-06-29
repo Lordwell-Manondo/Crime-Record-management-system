@@ -12,7 +12,7 @@
 			padding: 30px;
 			border: 1px solid #ccc;
 			border-radius: 1px;
-			background-color: white;
+			background-color:palegreen;
 			border-radius: 5px;
 			height: 700px;
 			width: 1000px;
@@ -46,24 +46,50 @@
 		}
 
 		body {
-			background-color: rgb(0, 109, 139);
-		}
-
-		.back-button {
-			position: fixed;
-			top: 20px;
-			left: 20px;
 			background-color: white;
-			color: #4CAF50;
-			border: none;
-			border-radius: 50%;
-			padding: 10px;
-			cursor: pointer;
 		}
+		<style>
+.navbar {
+  height: 50px; /* Adjust the height as per your requirement */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.log {
+  display: flex;
+  align-items: center;
+}
+</style>
+		
+
+		
 	</style>
+	<!-- Navbar -->
+
+	<nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
+    <div class="log">
+    <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-top: 5px;">
+    <h3 style="text-align: center;">CRIME RECORD MANAGEMENT SYSTEM</h3>
+</div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+
+      
+         </ul>
+    </div>
+  </nav>
 </head>
 <body>
-	<a href="../home/Home.php"><button class="back-button">&#8592;</button></a>
 
 	<?php
 			$query = "SELECT * FROM images";

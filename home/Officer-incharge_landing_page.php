@@ -22,7 +22,7 @@
 
   <style>
     body {
-      background-color: rgb(0, 109, 139);
+      background-color: white;
     }
 
     a {
@@ -74,7 +74,7 @@
     }
 
     .dropdown-menu {
-      background-color: transparent;
+      background-color: rgb(0, 109, 139);;
      width: 100%;  
     }
 
@@ -103,9 +103,9 @@
 
   <!-- Navbar -->
 
-  <nav class="navbar navbar-expand-lg " style="background-color: black;">
+  <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
     <div class="log">
-      <img src="plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+      <img src="policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -129,8 +129,7 @@
             <hr>
             <li><a class="dropdown-item"  href="../cases/View_cases.php">View cases</a></li>
             <hr>
-            <li><a class="dropdown-item"  href="../cases/cases_bargraph.php">Cases trend</a></li>
-            <hr>
+            
             <li class="nav-item">
               <a class="nav-link" href="../report">
                 <i tooltip="Generate Report" style="font-size: 20px; color: white; margin-left: 15px;">Report</i>
@@ -150,19 +149,6 @@
             <li><a class="dropdown-item"  href="../officers/add_officer.php">Add officers</a></li>
             <hr>
             <li><a class="dropdown-item"  href="../officers/view_officers.php">View officers</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link" style="color: white;" href="#" id="dutiesDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Duties
-            <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550;"></i>
-          </a>
-          <!-- submenu for duties -->
-          <ul class="dropdown-menu" aria-labelledby="submenu">
-            <!-- <li><a class="dropdown-item"  href="../duty/assign_duty.php">Assign duties</a></li> -->
-            <li><a class="dropdown-item"  href="../cases/View-assigned-cases.php">Assigned duties</a></li>
           </ul>
         </li>
 

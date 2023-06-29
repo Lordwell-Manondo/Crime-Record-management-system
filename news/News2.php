@@ -8,11 +8,11 @@
 	<style>
 		body {
 			font-family: Arial, sans-serif;
-			background-color: rgb(0, 109, 139);
+			background-color: white;
 		}
 
 		h2 {
-			color: white;
+			color: black;
 			text-align: center;
 		}
 
@@ -30,7 +30,7 @@
 		}
 
 		input[type="submit"] {
-			background-color: #4CAF50;
+			background-color: blue;
 			color: white;
 			padding: 10px 20px;
 			border: none;
@@ -38,18 +38,12 @@
 			margin-left: 5%;
 		}
 
-		button.back-button {
-			background-color: navy;
-			color: #4CAF50;
-			padding: 10px 20px;
-			border: none;
-			cursor: pointer;
-			margin-left: 232px;
-		}
+	
 
 		input[type="submit"]:hover,
 		button.back-button:hover {
-			background-color: #45a049;
+			background-color: blue;
+			
 		}
 
 		form {
@@ -67,16 +61,6 @@
 			margin-top: 20px;
 		}
 
-		.back-link {
-			text-align: center;
-			margin-top: 10px;
-		}
-
-		.back-link a {
-			color: #4CAF50;
-			margin-top: 10%;
-			text-decoration: none;
-		}
 	</style>
 	<script>
 		// JavaScript function to set the maximum date value to today's date
@@ -105,10 +89,10 @@
     
   <!-- Navbar -->
 
-  <nav class="navbar navbar-expand-lg " style="background-color: black;">
+  <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);;">
     <div class="log">
       <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
-      <h3>CRIME RECORD MANAGEMENT SYSTEM</h3>
+      <h3>ADDING NEWS</h3>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -163,9 +147,7 @@
 		<div class="message">
 			<?php echo $message; ?>
 		</div>
-		<div class="back-link">
-			<a href="../home/Admin_landing_page.php"><button class="back-button">Back</button></a>
-		</div>
+	
 	</form>
 </body>
 </html>

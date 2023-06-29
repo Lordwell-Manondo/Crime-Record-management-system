@@ -123,7 +123,7 @@ function generateSerialNumber($type, $conn)
 <?php include('../home/officer_incharge_session.php');?>
 <style>
         body {
-            background-color: rgb(0, 109, 139);
+            background-color: white;
         }
         
    
@@ -209,7 +209,7 @@ function generateSerialNumber($type, $conn)
             color: gray;
         }
         .dropdown-menu{
-            background-color: transparent; 
+            background-color: rgb(0, 109, 139); 
              width: 60px;
              margin-left: 320px;
              color: white;
@@ -226,10 +226,10 @@ function generateSerialNumber($type, $conn)
      
      </style>
 <header>
-<nav class="navbar navbar-expand-lg" style="background-color: black;">
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(0, 109, 139);">
 
 <div class="logo">
-      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-top: 0px;">
+      <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-top: 0px;">
     </div>
 
 

@@ -85,9 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
   <!-- Navbar -->
 
-  <nav class="navbar navbar-expand-lg " style="background-color: black;">
+  <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
     <div class="log">
-      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+      <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
       <h3>CRIME RECORD MANAGEMENT SYSTEM</h3>
     
   </nav>
@@ -141,5 +141,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             alert("Currently this feature is not working, visit ICT center for help!");
         }
     </script>
+    <style>
+        body{background-color: white;}
+    </style>
 </body>
 </html>

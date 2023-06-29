@@ -44,7 +44,7 @@ mysqli_close($conn);
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: rgb(0, 109, 139);
+            background-color: white
             margin: 20px;
             color: white;
         }
@@ -135,7 +135,7 @@ mysqli_close($conn);
 </head>
   <!-- Navbar -->
 
-  <nav class="navbar navbar-expand-lg " style="background-color: black;">
+  <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
     <div class="log">
       <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
       <h3>CRIME RECORD MANAGEMENT SYSTEM</h3>

@@ -29,8 +29,9 @@
         </script>    
 </head>
 <body>
+  
 <header>
-        <nav class="navbar navbar-expand-lg" style="background-color: black;">
+        <nav class="navbar navbar-expand-lg" style="background-color: rgb(0, 109, 139);">
                 <div class="log">
                 <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
             </div>
@@ -141,7 +142,7 @@
     body {
         margin: auto;
         padding: 0;
-        background-color: rgb(0, 109, 139);
+        background-color: white;
         font-family: Arial, sans-serif;
     }
     
@@ -187,12 +188,18 @@
         border-collapse: collapse;
         width: 90%;
         margin: auto;
-        margin-border:
+        margin-bottom: 20%;
+        border: 3px solid gray;
+        border-radius: 5px;
+        
+        
+        
     }
 
     th, td {
         padding: 10px;
         text-align: center;
+       
     }
 
     th {
@@ -240,6 +247,9 @@
     .suggestion-item:hover,
     .suggestion-item.active {
         background-color: #f2f2f2;
+    }
+    li{
+        list-style: none;
     }
 </style>
 </body>

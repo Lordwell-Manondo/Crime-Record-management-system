@@ -28,17 +28,17 @@
   <?php include('../home/officer_incharge_session.php');?>
 
 <header>
-<nav class="navbar navbar-expand-lg" style="background-color: black;">
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(0, 109, 139);">
 
 <div class="log">
-      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+      <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
     </div>
 <span class="recordedcases">REGISTERED CASES</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Search">
           <span class="navbar-toggler-icon"></span>
       </button>
  
-  <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
+      <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
   <input class="form-control mr-sm-2"  id="myInput" type="text" placeholder="Search for case..." aria-label="Search" name="search" >
   <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button> -->
 </form>
@@ -46,13 +46,13 @@
 <li class="nav-item dropdown" style="margin-left: 0px;">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user" style="font-size: 25px; margin-left: 90px; color: darkgray;"></i>
-                        <?php echo $name; ?></span>
+                        <span style="color: white;"><?php echo $name; ?></span>
                         <i class="fas fa-angle-down" style=" color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
 
                     </a>
                     <!-- submenu for profile -->
                     <ul class="dropdown-menu" aria-labelledby="submenu">
-                    <li><a class="dropdown-item" style=" font-size: 20px%; color: white; background-color: black;" href="../home/home.php">Logout</a></li>
+                    <li><a class="dropdown-item" style=" font-size: 20px%; color: white; background-color: rgb(0, 109, 139);" href="../home/home.php">Logout</a></li>
                     </ul>
                     </li>
     </nav>
@@ -181,14 +181,19 @@ echo "<td><div class='case-status' style='width: fit-content; color: white; back
    else if (empty($row['assigned_serial_no'])) {
       $assignStatus = "Assign";
       $link = "../duty/assign.php?id=" . $row["id"]; // Set the actual link for "Assign" status
-
-  } else {
+      
+  } else if ($row['status'] == 'Closed') {
       $assignStatus = "Investigated";
-      $link = "#"; 
+      $link = ""; 
   }
- 
+  else{
+    echo"Untracked";
+  }
   echo "<td>";
-  if ($link == "#") {
+  if($link ==''){
+    echo "<a href='' class='assignment-count' style='color: black; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>$assignStatus</a>";
+  }
+  else if ($link == "#") {
       echo "<a href='' class='assignment-count' title=' $fn $ln' style='color: black; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>$assignStatus</a>";
     
     } else {
@@ -224,19 +229,13 @@ if ($current_page < $total_pages) {
 }
 
 
-
 mysqli_close($conn);
 ?>
 </div>
 </table>
-<h5 style=" height: 20%; padding: 10px;">
-<button type="button" onclick="window.history.back();">Go to main page</button>
-
-</h5>
-<?php include('../home/footer.html');?>
 <style>
  body{
-  background-color:rgb(0, 109, 139);
+  background-color: white;
  }
  
       form{
@@ -250,7 +249,7 @@ mysqli_close($conn);
    
     .recordedcases{  
         font-weight: 100;
-        margin-left: 20%;
+        margin-left: 30%;
         color: white;
         font-size: 20px;
        
@@ -355,6 +354,7 @@ table .cases-table tbody tr:first-child {
     text-align: left;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
      font-size: 15px;
+     border-bottom: solid 5px gray;
      border: solid 1px gray;
     
   }
@@ -392,7 +392,7 @@ h3{
             color: gray;
         }
         .dropdown-menu{
-            background-color: transparent; 
+            background-color: rgb(0, 109, 139); 
             
             margin-trim: none;
             width: 60px;

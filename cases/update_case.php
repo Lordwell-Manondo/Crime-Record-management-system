@@ -32,6 +32,14 @@ if (isset($row)) {
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
     
 </head>
 <body>
@@ -42,9 +50,9 @@ if (isset($row)) {
   <header>
       <!-- Header content -->
       <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg " style="background-color: black;">
+    <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
       <div class="log">
-          <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
+          <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -72,6 +80,7 @@ if (isset($row)) {
   </header>
 
     <div class="container">
+    <div class="box-container">
         <form method="post">
             <div class="form-group">
                 <label for="suspect">Suspect</label>
@@ -126,9 +135,10 @@ if (isset($row)) {
         <button type="button" onclick="window.history.back();" style="margin-left: 60%; padding: 10px;">Cancel</button>
         </form>
     </div>
+</div>
     <style>
         body{
-            background-color: rgb(0, 109, 139);;
+            background-color: white;
         }
          form{
             width: 80%;
@@ -137,6 +147,10 @@ if (isset($row)) {
             background-color: white;
             border-radius: 5px;
             height: 750px;
+            height: fit-content;
+            border-color: gray;
+            
+            
          }
         label{
             font-size: 20px;
@@ -156,6 +170,10 @@ if (isset($row)) {
         button{
             margin-left: 10%;
         }
+        li{
+            list-style: none;
+        }
+        
         </style>
         
 
