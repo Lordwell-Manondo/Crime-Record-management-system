@@ -28,7 +28,7 @@
   <?php include('../home/officer_incharge_session.php');?>
 
 <header>
-<nav class="navbar navbar-expand-lg" style="background-color: black;">
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(0, 109, 139);">
 
 <div class="log">
       <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
@@ -46,13 +46,13 @@
 <li class="nav-item dropdown" style="margin-left: 0px;">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user" style="font-size: 25px; margin-left: 90px; color: darkgray;"></i>
-                        <?php echo $name; ?></span>
+                        <span style="color: white;"><?php echo $name; ?></span>
                         <i class="fas fa-angle-down" style=" color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
 
                     </a>
                     <!-- submenu for profile -->
                     <ul class="dropdown-menu" aria-labelledby="submenu">
-                    <li><a class="dropdown-item" style=" font-size: 20px%; color: white; background-color: black;" href="../home/home.php">Logout</a></li>
+                    <li><a class="dropdown-item" style=" font-size: 20px%; color: white; background-color: rgb(0, 109, 139);" href="../home/home.php">Logout</a></li>
                     </ul>
                     </li>
     </nav>
@@ -235,7 +235,7 @@ mysqli_close($conn);
 </table>
 <style>
  body{
-  background-color: lightgray;
+  background-color: white;
  }
  
       form{
@@ -354,6 +354,7 @@ table .cases-table tbody tr:first-child {
     text-align: left;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
      font-size: 15px;
+     border-bottom: solid 5px gray;
      border: solid 1px gray;
     
   }
@@ -391,7 +392,7 @@ h3{
             color: gray;
         }
         .dropdown-menu{
-            background-color: transparent; 
+            background-color: rgb(0, 109, 139); 
             
             margin-trim: none;
             width: 60px;

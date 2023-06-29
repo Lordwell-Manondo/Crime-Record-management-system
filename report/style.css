@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(0, 109, 139);
+    background-color: white;
     margin: 0px;
     color: white;
 }
@@ -8,11 +8,12 @@ body {
 .container {
     display: flex;
     height: 100vh;
-    background-color: rgb(0, 109, 139);
+    background-color: white;
 }
 
+
 h1 {
-    color: khaki;
+    color: white;
     font-weight: 300;
     margin-top: 24px;
     text-align: center;
@@ -54,7 +55,8 @@ th {
     align-items: center;
     justify-content: space-between;
     padding-bottom: 20px;
-    background-color: #222;
+    background-color:rgb(0, 109, 139) ;
+    height: 70px;
 }
 
 .header-main {
@@ -113,7 +115,7 @@ th {
     position: absolute;
     top: 32px;
     right: 20px;
-    background-color: rgb(0, 109, 139);
+    background-color: white;
     width: 228px;
     padding: 10px;
     border-radius: 5px;

@@ -30,7 +30,7 @@
 
     <style>
          body {
-        background-color: rgb(0, 109, 139);
+        background-color:white;
          }     
         
         .navbar-nav .nav-link {

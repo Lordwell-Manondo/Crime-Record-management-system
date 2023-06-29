@@ -22,7 +22,7 @@
 
   <style>
     body {
-      background-color: gray;
+      background-color: white;
     }
 
     a {
@@ -74,12 +74,12 @@
     }
 
     .dropdown-menu {
-      background-color: transparent;
+      background-color: rgb(0, 109, 139);;
      width: 100%;  
     }
 
       .dropdown-item{
-            color: black;
+            color: white;
              font-size: 100%;   
          }  
  .navbar-toggler {
@@ -129,8 +129,7 @@
             <hr>
             <li><a class="dropdown-item"  href="../cases/View_cases.php">View cases</a></li>
             <hr>
-            <li><a class="dropdown-item"  href="../cases/cases_bargraph.php">Cases trend</a></li>
-            <hr>
+            
             <li class="nav-item">
               <a class="nav-link" href="../report">
                 <i tooltip="Generate Report" style="font-size: 20px; color: white; margin-left: 15px;">Report</i>

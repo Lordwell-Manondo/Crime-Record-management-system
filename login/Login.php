@@ -141,5 +141,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             alert("Currently this feature is not working, visit ICT center for help!");
         }
     </script>
+    <style>
+        body{background-color: white;}
+    </style>
 </body>
 </html>

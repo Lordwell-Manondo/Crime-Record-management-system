@@ -73,8 +73,8 @@ mysqli_close($conn);
       </div>
       <h1>Cases Reports</h1>
 </div>
-<a href="../home/Officer-incharge_landing_page.php" style="color: white;">Go to main page</a>
-<div class="header-main" style="background-color: rgb(0, 109, 139);">
+<a href="../home/Officer-incharge_landing_page.php" style="color: blue;">Go to main page</a>
+<div class="header-main" style="background-color: white;">
         <ul class="chart-tabs" >
             <li class="<?php echo ($selectedChartType === 'Pie Chart') ? 'active' : ''; ?>">
                 <a href="?dataset=<?php echo $selectedDataset; ?>&chart=Pie Chart">Pie Chart</a>
@@ -175,8 +175,8 @@ mysqli_close($conn);
                 //title: '<?php echo $selectedDataset; ?>',
                 pieHole: 0.4,
                 height: 400,
-                backgroundColor: 'rgb(0, 109, 139)',
-                legend: { textStyle: { color: '#fff' } },
+                backgroundColor: 'white',
+                legend: { textStyle: { color: 'black' } },
                 titleTextStyle: { color: '#fff' },
                 chartArea: { left: 20, top: 40, width: '100%', height: '70%' }
             };
