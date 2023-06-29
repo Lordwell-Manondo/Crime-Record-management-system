@@ -32,11 +32,13 @@
         </script>
 
 <nav class="navbar navbar-expand-lg" style="background-color: black;">
-<li><a class="dropdown-item" style=" font-size: 100%; margin-left: 5px; background-color: #999999; border-radius: 10%;" href="../home/Officer-incharge_landing_page.php">Back</a></li>
+<div class="log">
+          <img src="policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
+      </div>
 <span class="recordedcases">ASSIGNED CASES</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-      </button>
+  </button>
  
   <form method="POST" action="View-assigned-cases.php" class="form-inline my-2 my-lg-0">
   <input class="form-control mr-sm-2" type="text" id="myInput" placeholder="Search for case..." aria-label="Search" name="search">
@@ -211,7 +213,7 @@ mysqli_close($conn);
    
   }
   
-          @media (max-width: 500px) {
+ @media (max-width: 500px) {
             .recordedcases {
                 flex-direction: none;
             }
@@ -329,7 +331,6 @@ h3{
          }
         li{
           list-style: none;
-         
         }
  </style>
 </body>

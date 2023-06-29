@@ -229,7 +229,7 @@ function generateSerialNumber($type, $conn)
 <nav class="navbar navbar-expand-lg" style="background-color: black;">
 
 <div class="logo">
-      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-top: 0px;">
+      <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-top: 0px;">
     </div>
 
 

@@ -31,7 +31,7 @@
 <nav class="navbar navbar-expand-lg" style="background-color: black;">
 
 <div class="log">
-      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+      <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
     </div>
 <span class="recordedcases">REGISTERED CASES</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Search">

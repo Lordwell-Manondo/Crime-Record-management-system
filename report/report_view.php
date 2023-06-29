@@ -69,7 +69,7 @@ mysqli_close($conn);
 <body>
 <div class="header">
 <div class="log">
-          <img src="plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
+          <img src="policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
       </div>
       <h1>Cases Reports</h1>
 </div>
