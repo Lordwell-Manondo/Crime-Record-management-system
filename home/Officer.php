@@ -154,5 +154,5 @@
 <!-- Include Adminator JS -->
 <script src="path/to/adminator.js"></script>
 </body>
-<?php include('footer.html');?>
+
 </html>

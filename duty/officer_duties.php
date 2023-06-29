@@ -65,6 +65,7 @@
     <th style="text-size: 10px;">Date Assigned</th>
     <th style="text-size: 10px;">Date to Report</th>
     <th style="text-size: 10px;">Remaining Time</th>
+    <th style="text-size: 10px;">Report</th>
   </tr>
 <?php
 //linking up Record_case.php file with database using Connections.php file
