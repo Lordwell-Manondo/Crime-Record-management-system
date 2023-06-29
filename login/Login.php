@@ -85,11 +85,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
   <!-- Navbar -->
 
-  <nav class="navbar " style="background-color: aqua;">
+  <nav class="navbar navbar-expand-lg " style="background-color: black;">
     <div class="log">
       <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
       <h3>CRIME RECORD MANAGEMENT SYSTEM</h3>
-    </div>
+</div>
   </nav>
   
 <body>
