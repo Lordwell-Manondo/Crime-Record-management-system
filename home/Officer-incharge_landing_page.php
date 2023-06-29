@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,8 +37,8 @@
 
     h1 {
       color: khaki;
-      font-weight: 300;
-      margin-top: 14%;
+      font-weight: 1000;
+      margin-top: 10%;
       text-align: center;
     }
 
@@ -222,11 +221,22 @@
       
          </ul>
     </div>
-  </nav>
+  </nav> 
 
-  
 <h1>CRIME RECORD MANAGEMENT SYSTEM</h1>
-  <h4 style="margin-bottom: 10%;" >Creating a Safe and Secure Malawi.</h4>
-</body>
 
+
+<!-- Add your important content here -->
+<div class="container" style="text-align: center;">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-info" role="alert">
+        <strong>Important:</strong> Our mission is to create a safe and secure community. <br> <br>
+        Together, let's work towards reducing crime and ensuring the well-being of everyone. <br><br>Remember to stay vigilant and report any suspicious activities to the authorities. <br><br>Together, we can make a difference!
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
 </html>
