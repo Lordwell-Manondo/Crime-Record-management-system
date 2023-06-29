@@ -78,7 +78,7 @@
   
   /* Add this rule to set the background color of the outside container */
   body {
-    background-color: rgb(0, 109, 139);
+    background-color: white;
 
   }
 
@@ -89,8 +89,12 @@ h1 {
 }
 
 </style>
-
+</div>
 </head>
+<nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
+    <div class="log">
+      <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">    
+  </nav>
 <body>
     <?php
     // Connect to the MySQL database
@@ -156,4 +160,5 @@ h1 {
         }
     </script>
 </body>
+<?php include('../home/footer.html');?>
 </html>
