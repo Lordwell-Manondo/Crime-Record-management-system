@@ -115,8 +115,10 @@ else if(mysqli_num_rows($result) >0) {
     echo "<td><div class='case-status' style='width: fit-content;color: white; background-color: gray; padding: 5px; border-radius: 10px; font-weight: 600;'>" . $remainingDays . "</div></td>";
 
     
-   // edit the case
-    echo "<td><a href='reportwork.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px; padding: 5px;'>Report</a></td>";
+   // report the case
+    echo "<td><a href='Report_case_finding.php?id=" . $row["id"] . "'style='color: white; 
+    background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px;
+     padding: 5px;'>Report</a></td>";
     echo "</tr>";
   
   }
