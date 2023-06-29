@@ -195,5 +195,6 @@ mysqli_close($conn);
   </script>
 
 </body>
+<?php include('../home/footer.html');?> 
 </html>
 
