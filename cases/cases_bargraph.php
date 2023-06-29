@@ -242,6 +242,7 @@ mysqli_close($conn);
       height: 550px;
       border-radius: 1%;
      letter-spacing: 1px;
+     border-top: 5px solid gray;
     
       
     
@@ -260,11 +261,11 @@ mysqli_close($conn);
   
  <li> <div class="box-container" id="chart_div" style="width: 73%; height: 550px; border-radius: 0.5%; "></div> </li>
  <div class="box">
- <li><a class="case-categories" href="#">Locations</a></li>
+ 
  <li>
   <a class="case-categories" href="#">
   <?php
- include('locations.php');
+ include('location.php');
   $locations; ?>
  </a>
 </li>

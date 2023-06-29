@@ -90,10 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
       <h3>CRIME RECORD MANAGEMENT SYSTEM</h3>
     </div>
-    <div>
-    <h1 style="color: white; text-align: center; margin-left: 270px;">CRIME RECORD MANAGEMENT</h1>
-
-    </div>
+    
   </nav>
   
 <body>

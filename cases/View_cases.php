@@ -78,7 +78,8 @@ include('../db/Connections.php');
 
 // Define the number of records to display per page
 $records_per_page = 50;
-
+$assignStatus='';
+$assignmentCount='';
 // Determine the current page number
 if (!isset($_GET['page'])) {
   $current_page = 1;
@@ -121,8 +122,15 @@ else if(mysqli_num_rows($result) >0) {
 
 
      // count the total number of rows in the table
-     $sql = "SELECT COUNT(*) FROM cases";
-    
+     //$sql = "SELECT COUNT(*) FROM cases";
+
+     $sql = "SELECT cases.*, duty.serial_no AS assigned_serial_no, COUNT(duty.serial_no) AS assignment_count
+     FROM cases
+     LEFT JOIN duty ON cases.serial_no = duty.serial_no
+     GROUP BY cases.serial_no
+     ORDER BY cases.id DESC";
+
+$result = mysqli_query($conn, $sql);
      
   while ($row = mysqli_fetch_assoc($result)) {
 
@@ -137,6 +145,7 @@ else if(mysqli_num_rows($result) >0) {
     echo "<td>" . $row['location'] . "</td>";
     echo "<td>" . $row['date'] . "</td>";
     echo "<td>" . $row['type'] . "</td>";
+    
    
     $statusColor = ($row['status'] == 'Open') ? 'red' : 'green';
 echo "<td><div class='case-status' style='width: fit-content; color: white; background-color: $statusColor; padding: 5px; border-radius: 10px; font-weight: 700;'>" . $row['status'] . "</div></td>";
@@ -144,12 +153,17 @@ echo "<td><div class='case-status' style='width: fit-content; color: white; back
 
    
    // edit the case
+
     echo "<td><a href='update_case.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; border-radius: 10px; font-size: 15px; padding: 5px;'>Edit</a></td>";
     
-  
-
-     // assign duty to an officer(s)
-     echo "<td><a href='../duty/assign.php?id=" . $row["id"] . "'style='color: black; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>Assign</a></td>";
+     if (!empty($row['assigned_serial_no'])) {
+      $assignStatus = "Assigned";
+  } else if(empty($row['assigned_serial_no'])){
+      $assignStatus = "Assign";
+  }else if(($row['assigned_serial_no'] )&& ($row['status']=='Closed')){
+    $assignStatus="Investigated";
+  }
+     echo "<td><a href='../duty/assign.php?id=" . $row["id"] . "'style='color: black; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>$assignStatus</a></td>";
      echo "</tr>";
   }
 }
