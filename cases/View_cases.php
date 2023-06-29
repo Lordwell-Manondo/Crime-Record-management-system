@@ -38,7 +38,7 @@
           <span class="navbar-toggler-icon"></span>
       </button>
  
-  <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
+      <form method="POST" action="View_cases.php" class="form-inline my-2 my-lg-0">
   <input class="form-control mr-sm-2"  id="myInput" type="text" placeholder="Search for case..." aria-label="Search" name="search" >
   <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button> -->
 </form>
@@ -181,14 +181,19 @@ echo "<td><div class='case-status' style='width: fit-content; color: white; back
    else if (empty($row['assigned_serial_no'])) {
       $assignStatus = "Assign";
       $link = "../duty/assign.php?id=" . $row["id"]; // Set the actual link for "Assign" status
-
-  } else {
+      
+  } else if ($row['status'] == 'Closed') {
       $assignStatus = "Investigated";
-      $link = "#"; 
+      $link = ""; 
   }
- 
+  else{
+    echo"Untracked";
+  }
   echo "<td>";
-  if ($link == "#") {
+  if($link ==''){
+    echo "<a href='' class='assignment-count' style='color: black; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>$assignStatus</a>";
+  }
+  else if ($link == "#") {
       echo "<a href='' class='assignment-count' title=' $fn $ln' style='color: black; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>$assignStatus</a>";
     
     } else {
@@ -224,19 +229,13 @@ if ($current_page < $total_pages) {
 }
 
 
-
 mysqli_close($conn);
 ?>
 </div>
 </table>
-<h5 style=" height: 20%; padding: 10px;">
-<button type="button" onclick="window.history.back();">Go to main page</button>
-
-</h5>
-<?php include('../home/footer.html');?>
 <style>
  body{
-  background-color:rgb(0, 109, 139);
+  background-color: lightgray;
  }
  
       form{
@@ -250,7 +249,7 @@ mysqli_close($conn);
    
     .recordedcases{  
         font-weight: 100;
-        margin-left: 20%;
+        margin-left: 30%;
         color: white;
         font-size: 20px;
        
