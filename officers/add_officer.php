@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <header>
          <!-- Navbar -->
 
-  <nav class="navbar navbar-expand-lg " style="background-color: black;">
+  <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
     <div class="log">
       <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
       <h3>ADD OFFICER</h3>
@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="date" name="date_of_entry" required>
         <label>Officer Rank:</label>
         <select name="officer_rank" required>
-            <option value="" selected disabled hidden>Select Rank</option>
+            <option value="" selected disabled hidden></option>
             <option value="Sub-Inspector">Sub-Inspector</option>
             <option value="Assistant Sub-Inspector">Assistant Sub-Inspector</option>
             <option value="Sergeant">Sergeant</option>
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </select><br><br>
         <label>Station:</label>
         <select name="station" required>
-            <option value="" selected disabled hidden>Select Police Unit</option>
+            <option value="" selected disabled hidden></option>
             <option value="Matawale">Matawale</option>
             <option value="Domasi">Domasi</option>
             <option value="Mpunga">Mpunga</option>
@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: rgb(0, 109, 139);
+        background-color: white;
         color: white;
     }
 
