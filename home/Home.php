@@ -164,7 +164,7 @@
 </a>
                     <div class="row">
                         <div class="col-md-6">
-                            <p>Today's News (Mon. June,12)</p>
+                            <p>Today's News (Fri. June,30)</p>
                         </div>
                         <div class="col-md-6">
                             <p class="text-muted float-right">mps.com</p>
@@ -316,12 +316,12 @@
 
             </div>
             
-
             <div class="row container mb-3 mt-5">
-                <div class="col">
-                    <strong>TRENDING</strong>
-                </div>
-            </div>
+    <div class="col">
+        <strong style="color: black;">TRENDING</strong>
+    </div>
+</div>
+
             <div class="col-md-8">
                 <div class="row mb-3">
                     <div class="col-md-6">
@@ -337,9 +337,9 @@
                     <div class="col-md-6">
                         <a href="#" class="text-decoration-none text-body">
                             <img src="upload/sp.jfif" class="img-fluid" alt="">
-                            
+                            <a href="../news/News.php">
                             <div class="row container" style="color: black;">Odd Mutual to support MPS Football clubs</div>
-                            <div class="row container" style="color: black;"> <small class="float-md-left color: black size: bold">IDN Times</small> </div>
+                            <div class="row container" style="color: black;"> <small class="float-md-left color: black size: bold">mps.com</small> </div>
                         </a>
                     </div>
                 </div>

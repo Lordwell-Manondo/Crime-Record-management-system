@@ -4,14 +4,12 @@
     <script language="javascript">
         <!--
         var image1 = new Image()
-        image1.src = "upload/nf.png"
+        image1.src = "upload/mp3.JPG"
         var image2 = new Image()
-        image2.src = "upload/"
+        image2.src = "upload/11.JPG"
         var image3 = new Image()
-        image3.src = "upload/"
-        var image3 = new Image()
-        image3.src = "upload/pango2.jpg"
-        //-->
+        image3.src = "upload/mp1.JPG"
+        
     </script>
 </head>
 
