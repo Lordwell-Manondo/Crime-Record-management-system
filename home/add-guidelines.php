@@ -6,7 +6,7 @@
         body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-color: rgb(0, 109, 139);
+    background-color: white;
 }
 
 h2 {
@@ -36,7 +36,7 @@ textarea {
 }
 
 input[type="submit"] {
-    background-color: #4CAF50;
+    background-color: blue;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -49,6 +49,17 @@ input[type="submit"]:hover {
 }
 
     </style>
+    	<nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);;">
+    <div class="log">
+        <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+    </div>
+    <div>
+        <h1 style="color: white; text-align: center; ">Add Website Guidelines</h1>
+    </div>
+</nav>
+<body>
+</head>
+<body>
 </head>
 <body>
     <?php
@@ -92,7 +103,7 @@ input[type="submit"]:hover {
     }
     ?>
 
-    <h2>Add Website Guidelines</h2>
+   
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required><br><br>

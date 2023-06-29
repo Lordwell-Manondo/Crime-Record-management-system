@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Website Guidelines</title>
+   
     <style>
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
-            background-color: rgb(0, 109, 139);
+            background-color: white;
         }
 
         h2 {
@@ -33,12 +33,12 @@
 
         .guideline p {
             margin: 0;
-            color: white;
+            color: black;
         }
 
         .update-button {
-            background-color: #4CAF50;
-            color: white;
+            background-color: blue;
+            color: black;
             padding: 8px 12px;
             border: none;
             border-radius: 4px;
@@ -48,9 +48,17 @@
         }
 
         .update-button:hover {
-            background-color: #45a049;
+            background-color: blue;
         }
     </style>
+    <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);;">
+    <div class="log">
+        <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+    </div>
+    <div>
+        <h1 style="color: white; text-align: center; ">Website Guidelines</h1>
+    </div>
+</nav>
 </head>
 <body>
     <?php
@@ -63,7 +71,7 @@
 
     // Check if there are any guidelines
     if (mysqli_num_rows($result) > 0) {
-        echo "<h2>Website Guidelines</h2>";
+        
         echo "<div class='guidelines'>";
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<div class='guideline'>";

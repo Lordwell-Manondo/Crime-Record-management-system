@@ -27,7 +27,8 @@
         <input type="password" name="c_np" placeholder="Confirm New Password" required>
         <br>
 
-        <button type="submit">CHANGE</button>
+        <button type="submit" style="background-color: blue;">CHANGE</button>
+
         <a href="../home/officer.php" class="ca">HOME</a>
     </form>
 </body>
