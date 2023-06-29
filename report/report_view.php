@@ -168,7 +168,7 @@ mysqli_close($conn);
 
             // Set chart options for the Pie Chart
             var options = {
-                title: '<?php echo $selectedDataset; ?>',
+                //title: '<?php echo $selectedDataset; ?>',
                 pieHole: 0.4,
                 height: 400,
                 backgroundColor: 'rgb(0, 109, 139)',
@@ -190,14 +190,38 @@ mysqli_close($conn);
             <?php } ?>
 
             // Set chart options for the Bar Chart
-            var options = {
-                title: '<?php echo $selectedDataset; ?>',
-                height: 400,
-                backgroundColor: 'rgb(0, 109, 139)',
-                legend: { textStyle: { color: '#fff' } },
-                titleTextStyle: { color: '#fff' },
-                chartArea: { left: 60, top: 40, width: '100%', height: '70%' }
-            };
+var options = {
+   // title: '<?php echo $selectedDataset; ?>',
+    height: 300,
+    backgroundColor: 'rgb(0, 109, 139)',
+    legend: { textStyle: { color: '#fff' } },
+    titleTextStyle: { color: '#fff' },
+    chartArea: { left: 60, top: 40, width: '70%', height: '70%' },
+    orientation: 'horizontal',
+    hAxis: {
+        slantedText: false, // Ensure horizontal labels are not slanted
+        textStyle: {
+            color: '#fff' // Set label text color
+        },
+        baselineColor: '#fff', // Set the color of the horizontal axis line
+        gridlines: {
+            color: '#fff', // Set the color of the horizontal gridlines
+            count: -1 // Show gridlines for all values
+        }
+    },
+    vAxis: {
+        textStyle: {
+            color: '#fff' // Set label text color
+        },
+        baselineColor: '#fff', // Set the color of the vertical axis line
+        gridlines: {
+            color: '#fff', // Set the color of the vertical gridlines
+            count: -1 // Show gridlines for all values
+        }
+    }
+};
+
+
 
             // Create and draw the Bar Chart
             var chart = new google.visualization.BarChart(document.getElementById('chart'));
