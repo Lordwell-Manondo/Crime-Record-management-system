@@ -62,13 +62,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../login/login.css">
 </head>
+
 <body>
     <header>
-        <a href="../home/Officer-incharge_landing_page.php" style="text-align: center; padding-top: 10px; color: white;">
-            <p style="font-size: 15px;  margin-left: 50px; color: white;" >Back</p>
-        </a>
+         <!-- Navbar -->
+
+  <nav class="navbar navbar-expand-lg " style="background-color: black;">
+    <div class="log">
+      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+      <h3>ADD OFFICER</h3>
+    </div>
+    
+  </nav>
     </header>
-    <h2>Add Officer</h2>
+    
     <form action="add_officer.php" method="post">
         <label>First Name:</label>
         <input type="text" name="first_name" required>
