@@ -209,7 +209,7 @@
     </div>
   </nav> 
 
-<h1>CRIME RECORD MANAGEMENT SYSTEM</h1>
+<h1> MALAWI POLICE SERVICE IS "UPHOLDING THE RULE OF LAW"</h1>
 
 
 <!-- Add your important content here -->
