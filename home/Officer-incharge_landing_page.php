@@ -14,6 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
  
     
 </head>
@@ -71,11 +72,6 @@
       .navbar-nav .nav-item {
         margin: 10px 0;
       }
-      
-
-      .navbar-toggler {
-        margin-left: auto;
-      }
     }
 
     .dropdown-menu {
@@ -87,7 +83,16 @@
             color: white;
              font-size: 100%;   
          }  
-     
+ .navbar-toggler {
+        margin-left: auto;
+      }
+  .navbar-toggler-icon {
+    background-color: white;
+  }
+
+  .navbar-toggler {
+    border-color: white;
+  }
   </style>
 
 
@@ -105,7 +110,7 @@
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
       aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon" ></span>
     </button>
 
     
@@ -186,7 +191,7 @@
           </a>
           <!-- submenu for duties -->
           <ul class="dropdown-menu" aria-labelledby="submenu">
-            <li><a class="dropdown-item"  href="add-guidelines.php">Add new</a></li>
+            <li><a class="dropdown-item"  href="add-guidelines.php">Add Guidelines</a></li>
             <hr>
             <li><a class="dropdown-item"  href="view-guidelines.php">View Guidelines</a></li>
           </ul>
@@ -222,11 +227,6 @@
   
 <h1>CRIME RECORD MANAGEMENT SYSTEM</h1>
   <h4 style="margin-bottom: 10%;" >Creating a Safe and Secure Malawi.</h4>
-
-  
-<!-- Include Bootstrap JS -->
-
-<?php include('footer.html');?> 
-
 </body>
+
 </html>

@@ -118,7 +118,16 @@
             animation: moveText 10s linear infinite;
        
         }
+        .navbar-toggler {
+        margin-left: auto;
+      }
+  .navbar-toggler-icon {
+    background-color: white;
+  }
 
+  .navbar-toggler {
+    border-color: white;
+  }
        
     </style>
 </head>
