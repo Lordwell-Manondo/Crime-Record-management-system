@@ -28,7 +28,7 @@
 <header>
 <nav class="navbar navbar-expand-lg" style="background-color: black;">
 <div class="log">
-          <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
+          <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
       </div>
 <span class="recordedcases">My Duties</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -116,7 +116,7 @@ else if(mysqli_num_rows($result) >0) {
 
     
    // edit the case
-    echo "<td><a href='reportwork.php?id=" . $row["id"] . "'style='color: white; background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px; padding: 5px;'>Report</a></td>";
+    echo "<td><a href='reportDutyFinding.php?id=" . $row["id"] . " 'style='color: white; background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px; padding: 5px;'>Report</a></td>";
     echo "</tr>";
   
   }
@@ -246,9 +246,7 @@ h3{
         word-spacing: 10px;
         
     }
-    .recordedcases:hover{
-      font-weight: none;
-    }
+  
     .dropdown-menu{
             background-color: transparent; 
             

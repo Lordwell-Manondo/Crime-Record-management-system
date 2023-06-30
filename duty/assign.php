@@ -84,7 +84,7 @@ mysqli_close($conn);
   <header>
       <!-- Header content -->
       <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg " style="background-color: black;">
+    <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
       <div class="log">
           <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
       </div>
@@ -139,14 +139,14 @@ mysqli_close($conn);
                 <input type="date" class="form-control" id="date_to_report" name="date_to_report"  min="<?php echo date('Y-m-d'); ?>" required>
             </div>
 
-            <input type="submit" value="Submit" style="padding: 6px; margin-left: 100px;">
+            <input type="submit" value="Submit" style="padding: 6px; margin-left: 100px; color: white; background-color: blue;">
         <button type="button" onclick="window.history.back();" style="margin-left: 55%;">Cancel</button>
         </form>
     </div>
 </div>
     <style>
         body{
-            background-color: rgb(0, 109, 139);
+            background-color: white;
         }
         
         form{
