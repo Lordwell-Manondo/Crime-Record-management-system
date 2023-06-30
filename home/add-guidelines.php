@@ -9,7 +9,7 @@
         body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-color: white;
+    background-color: rgb(0, 109, 139);
 }
 
 h2 {
@@ -39,7 +39,7 @@ textarea {
 }
 
 input[type="submit"] {
-    background-color: #4CAF50;
+    background-color: blue;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -58,32 +58,24 @@ label{
 }
 
     </style>
+    	<nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);;">
+    <div class="log">
+        <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+    </div>
+    <div>
+        <h3 style="color: white; margin-left: 300px; padding: 5px; margin-bottom: -10px;">ADD SYSTEM GUIDELINES</h3>
+    </div>
+</nav>
+<body>
+</head>
+<body>
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../login/login.css">
 
     
-  <!-- Navbar -->
 
-  <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
-    <div class="log">
-      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
-      <h3>ADDING GUIDLINES</h3>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-
-      
-         </ul>
-    </div>
-  </nav>
 <body>
     <?php
    session_start();
@@ -126,7 +118,7 @@ label{
     }
     ?>
 
-  
+   
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
       <li>  <label for="title">Title:</label></li>
         <input type="text" id="title" name="title" required><br><br>

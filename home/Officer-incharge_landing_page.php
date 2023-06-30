@@ -92,6 +92,12 @@
   .navbar-toggler {
     border-color: white;
   }
+  span{
+    font-size: 30px;
+  }
+  strong{
+    font-size: 40px;
+  }
   </style>
 
 
@@ -105,7 +111,7 @@
 
   <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
     <div class="log">
-      <img src="policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+      <img src="policeLog.PNG" style="height: 65px; width: 65px; margin-left: 0.5px; border-radius: 25px;  margin-top: 0px;">
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -183,7 +189,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" style="color: white;" href="Notifications.php">Notifications (<span id="notification-count"><?php echo mysqli_num_rows($result); ?></span>)</a>
+          <a class="nav-link" style="color: white;" href="Notifications.php">Notifications (<span id="notification-count" style="font-size: 20px;"><?php echo mysqli_num_rows($result); ?></span>)</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -217,9 +223,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="alert alert-info" role="alert">
-        <strong>Important:</strong> Our mission is to create a safe and secure community. <br> <br>
-        Together, let's work towards reducing crime and ensuring the well-being of everyone. <br><br>Remember to stay vigilant and report any suspicious activities to the authorities. <br><br>Together, we can make a difference!
-      </div>
+        <br> <span> Easy access to registered crime records,</span><br><span>Safe and secure crime record keeping.</span><br></div>
     </div>
   </div>
 </div>

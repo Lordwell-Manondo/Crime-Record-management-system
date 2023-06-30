@@ -29,20 +29,22 @@
 			border: 1px solid #ccc;
 		}
 
-		input[type="submit"] {
-			background-color: blue;
-			color: white;
-			padding: 10px 20px;
-			border: none;
-			cursor: pointer;
-			margin-left: 5%;
-		}
+ input[type="submit"] {
+ 
+  border-radius: 5px;
+ 
+  padding: 10px 20px;
+  /* other properties */
+}
 
+<<<<<<< HEAD
 		input[type="submit"]:hover,
 		button.back-button:hover {
 			background-color: blue;
 			
 		}
+=======
+>>>>>>> 8253db054130b8f7550f7b4917f249a170864274
 
 		form {
 			width: 550px;
@@ -51,7 +53,8 @@
 			padding: 30px;
 			background: #fff;
 			border-radius: 15px;
-			margin: auto;
+			margin-top: 5px;
+			margin-left:500px;
 		}
 
 		.message {
@@ -136,7 +139,8 @@
 		<input type="date" id="date" name="date"><br><br>
 		<textarea name="details" rows="4" cols="50" placeholder="Details"></textarea><br><br>
 		<input type="file" name="image"><br><br>
-		<input type="submit" name="submit" value="Upload">
+		<input type="submit" name="submit" value="Upload" style="background-color: blue; color:white;">
+
 	
 		<div class="message">
 			<?php echo $message; ?>

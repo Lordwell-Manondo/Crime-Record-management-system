@@ -13,7 +13,7 @@ require_once '../db/Connections.php';
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         body {
-            background-color: rgb(0, 109, 139);
+            background-color: white;
             display: flex;
             align-items: center;
             justify-content: center;

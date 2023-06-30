@@ -13,7 +13,7 @@
       
      <!-- showing this message if the case was recorded successfullt -->
     <h1>THE CASE HAS BEEN SUCCESSFULLY REGISTERED</h1>
-    <button><a href="View_cases.php" class="viewcases" style="text-decoration: none; color: black;">View cases</a></button>
+    <button><a href="View_cases.php" class="viewcases" style="text-decoration: none; color: white;">View cases</a></button>
 
 
 <style>
@@ -32,7 +32,7 @@
       height: 60px;
       border-radius: 5px;
       margin-left: 600px;
-      background-color: khaki;
+      background-color: blue;
       font-weight: 350;
       font-size: 30px;
         

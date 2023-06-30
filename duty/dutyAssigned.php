@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Assigned cases</title>
+   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -12,7 +12,7 @@
   <nav class="navbar navbar-expand-lg" style="background-color: black;">
     <div class="log">
       <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
-      <h2>CRIME RECORD MANAGEMENT SYSTEM</h2>
+      <h2>Assigned cases</h2>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -41,11 +41,11 @@
 
   <style>
     body {
-      background-color: rgb(0, 109, 139);
+      background-color: white;
     }
 
     .navbar {
-      background-color: black;
+      background-color: rgb(0, 109, 139);
     }
 
     .log img {

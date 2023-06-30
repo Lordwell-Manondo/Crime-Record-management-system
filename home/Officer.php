@@ -71,11 +71,15 @@
            
          } 
          h2{
-            color: khaki;
+            color: darkkhaki;
             font-family: font-family: Arial, Helvetica, sans-serif;
             text-align: center;
             margin-top: 200px;
+            
          } 
+         span{
+    font-size: 30px;
+  }
 </style>
 </head>
 
@@ -110,7 +114,7 @@
 
                   <li class="nav-item dropdown" >
           <a class="nav-link" style="margin-left: 100px;" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user" style="font-size: 30px; color: blue;"></i>
+            <i class="fas fa-user" style="font-size: 30px; color: white;"></i>
             <span style="color: white; font-size: 15px;"> <?php echo $myname; ?></span>
             <i class="fas fa-angle-down" style="color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
           </a>
@@ -138,7 +142,16 @@
   
 </head>
 <body>
-  <h2>CRIME RECORD MANAGEMENT SYSTEM</h2>
+  <h1>CRIME RECORD MANAGEMENT SYSTEM</h1>
+  <!-- Add your important content here -->
+<div class="container" style="text-align: center;">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-info" role="alert">
+        <br> <span> Easy access to registered crime records,</span><br><span>Safe and secure crime record keeping.</span><br></div>
+    </div>
+  </div>
+</div>
 
 
 </main>

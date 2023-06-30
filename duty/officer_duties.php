@@ -22,13 +22,24 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+            $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            });
+        </script>    
+
 </head>
 <body>
 <?php include('../home/officer_session.php');?>
 <header>
 <nav class="navbar navbar-expand-lg" style="background-color:  rgb(0, 109, 139);">
 <div class="log">
-          <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
+          <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
       </div>
 <span class="recordedcases">My Duties</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,19 +47,18 @@
       </button>
  
       <form method="POST" action="officer_duties.php" class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search for case..." aria-label="Search" name="search">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button>
+  <input class="form-control mr-sm-2" type="text" id="myInput" placeholder="Search for case..." aria-label="Search" name="search">
 </form>
 <li class="nav-item dropdown">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user" style="font-size: 25px; margin-left: 90px; color: darkgray;"></i>
-                        <?php echo $myname; ?>
+                        <span style="color: white;"><?php echo $myname; ?></span>
                         <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
 
                     </a>
                     <!-- submenu for profile -->
-                    <ul class="dropdown-menu" aria-labelledby="submenu">
-                    <li><a class="dropdown-item" style=" font-size: 100%;" href="../home/home.php">Logout</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="submenu" style="margin-left: 100px; background-color: rgb(0, 109, 139);">
+                    <li><a class="dropdown-item" style=" font-size: 100%; color: white;" href="../home/home.php">Logout</a></li>
                     </ul>
                     </li>
     </nav>
@@ -106,7 +116,8 @@ else if(mysqli_num_rows($result) >0) {
 
     // display the data
     echo "<tr>";
-    
+    echo '<tbody id="myTable">';
+
     echo "<td>" . $row['serial_no'] . "</td>";
     echo "<td>" . $row['suspect_name'] . "</td>";
     echo "<td>" . $row['victim_name'] . "</td>";
@@ -116,10 +127,8 @@ else if(mysqli_num_rows($result) >0) {
     echo "<td><div class='case-status' style='width: fit-content;color: white; background-color: gray; padding: 5px; border-radius: 10px; font-weight: 600;'>" . $remainingDays . "</div></td>";
 
     
-   // report the case
-    echo "<td><a href='Report_case_finding.php?id=" . $row["id"] . "'style='color: white; 
-    background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px;
-     padding: 5px;'>Report</a></td>";
+   // edit the case
+    echo "<td><a href='reportDutyFinding.php?id=" . $row["id"] . " 'style='color: white; background-color: #3663c9; text-decoration: none; width: 96px; border-radius: 10px; font-size: 15px; padding: 5px;'>Report</a></td>";
     echo "</tr>";
   
   }
@@ -152,7 +161,7 @@ mysqli_close($conn);
   table {
    border-collapse: collapse;
    text-align: center;
-   background-color: white;
+   background-color: lightgray;
    margin-top: -10px;
    margin-bottom: 20px;
    border-collapse: separate;
@@ -166,12 +175,13 @@ mysqli_close($conn);
    th {
     border: 1px;
     padding: 5px;
-    color: black;
+    color: white;
     font-weight: 450;
   }
   td{
     border: 1px;
     padding: 10px; 
+    
   }
   
   td {
@@ -181,12 +191,15 @@ mysqli_close($conn);
 
     
   }
-  td + td {
+  td, td {
     margin-left: 10px;
+    background-color: lightgray;
+    
   }
   /* Customize the first row (header row) */
 table tr:first-child {
-  background-color: khaki;
+  background-color: gray;
+  
   font-weight: bold;
   font-size: 18px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -201,8 +214,7 @@ table .highlighted-row {
 tr:hover {
   
   /* font-weight: 350; */
-  font-size: 15px;
-  margin-left: 70%;
+  
    
     
   }
@@ -249,9 +261,7 @@ h3{
         word-spacing: 10px;
         
     }
-    .recordedcases:hover{
-      font-weight: none;
-    }
+  
     .dropdown-menu{
             background-color: transparent; 
             
@@ -273,5 +283,5 @@ h3{
 
   </style>
 </body>
-<?php include('../home/footer.html');?>
+
 </html>

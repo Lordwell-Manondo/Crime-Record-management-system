@@ -131,8 +131,8 @@ if (isset($row)) {
                 </select>
             </div>
 
-            <input type="submit" value="Submit" style="padding: 10px; margin-left: 100px;">
-        <button type="button" onclick="window.history.back();" style="margin-left: 60%; padding: 10px;">Cancel</button>
+            <input type="submit" value="Submit" style="padding: 10px; margin-left: 100px;  border-radius: 5px; background-color:blue; color:white">
+        <button type="button" onclick="window.history.back();" style="margin-left: 60%; border-radius: 5px; color: wnhite; padding: 10px; background-color:grey;">Cancel</button>
         </form>
     </div>
 </div>

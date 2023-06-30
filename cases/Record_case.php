@@ -146,13 +146,15 @@ function generateSerialNumber($type, $conn)
         }
        
         .contact-form button {
-            background-color: #4cc3f1;
-            border-color: #ff8c00;
+            background-color: grey;
+           
             color: #fff;
             font-weight: 600;
             transition: background-color 0.3s ease;
             width: fit-content;
             margin-left: 40%;
+            border-radius: 5px;
+
         }
         .contact-form button:hover {
             background-color: #0c3779;
@@ -242,7 +244,7 @@ function generateSerialNumber($type, $conn)
 
       <li class="nav-item dropdown">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user" style="font-size: 25px; margin-left: 300px; color: darkgray;"></i>
+                        <i class="fas fa-user" style="font-size: 25px; margin-left: 300px; color: white;"></i>
                         <span style="color: white; font-size: 15px;"> <?php echo $name; ?></span>
                         <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
 
@@ -327,10 +329,10 @@ function generateSerialNumber($type, $conn)
                         </div>
 
                       
+                        <input type="submit" value="Submit" style="background-color: blue; color: white;             border-radius: 5px;
+">
+<button type="button" onclick="window.history.back();" style="margin-left: 70%;">Cancel</button>
 
-                        <input type="submit" value="Submit">
-        <button type="button" onclick="window.history.back();" style="margin-left: 70%;">Cancel</button>
-                   
                     </form>
                 </div>
             </div>
