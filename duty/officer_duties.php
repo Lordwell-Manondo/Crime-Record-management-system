@@ -269,5 +269,5 @@ h3{
 
   </style>
 </body>
-<?php include('../home/footer.html');?>
+
 </html>
