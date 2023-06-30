@@ -78,18 +78,22 @@
   
   /* Add this rule to set the background color of the outside container */
   body {
-    background-color: rgb(0, 109, 139);
+    background-color: white;
 
   }
 
   /* Style the unread notifications */
 h1 {
-  color: gold;
+  color: khaki;
   text-align: center;
 }
 
 </style>
-
+<div class="log" style="background-color: rgb(0, 109, 139);">
+          <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-left: 0px; margin-top: 0px;">
+      </div>
+      <h1></h1>
+</div>
 </head>
 <body>
     <?php
