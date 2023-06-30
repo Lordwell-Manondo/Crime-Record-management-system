@@ -22,6 +22,17 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+            $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            });
+        </script>    
+
 </head>
 <body>
 <?php include('../home/officer_session.php');?>
@@ -36,8 +47,7 @@
       </button>
  
       <form method="POST" action="officer_duties.php" class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search for case..." aria-label="Search" name="search">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background:green;">Search</button>
+  <input class="form-control mr-sm-2" type="text" id="myInput" placeholder="Search for case..." aria-label="Search" name="search">
 </form>
 <li class="nav-item dropdown">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -106,7 +116,8 @@ else if(mysqli_num_rows($result) >0) {
 
     // display the data
     echo "<tr>";
-    
+    echo '<tbody id="myTable">';
+
     echo "<td>" . $row['serial_no'] . "</td>";
     echo "<td>" . $row['suspect_name'] . "</td>";
     echo "<td>" . $row['victim_name'] . "</td>";
