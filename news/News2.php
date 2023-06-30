@@ -38,8 +38,6 @@
 			margin-left: 5%;
 		}
 
-	
-
 		input[type="submit"]:hover,
 		button.back-button:hover {
 			background-color: blue;
@@ -48,7 +46,7 @@
 
 		form {
 			width: 550px;
-            height: 500px;
+			height: 500px;
 			border: 2px solid #ccc;
 			padding: 30px;
 			background: #fff;
@@ -60,7 +58,6 @@
 			text-align: center;
 			margin-top: 20px;
 		}
-
 	</style>
 	<script>
 		// JavaScript function to set the maximum date value to today's date
@@ -82,43 +79,37 @@
 			}
 		}
 	</script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="../login/login.css">
-
-    
-  <!-- Navbar -->
-
-  <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);;">
-    <div class="log">
-      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
-      <h3>ADDING NEWS</h3>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-
-      
-         </ul>
-    </div>
-  </nav>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="../login/login.css">
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
+		<div class="log">
+			<img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+			<h3>ADDING NEWS</h3>
+		</div>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ml-auto">
+			</ul>
+		</div>
+	</nav>
+</head>
 <body onload="setMaxDate()">
 	<?php
 		$message = "";
-		if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST" ){
-			$image = $_FILES["image"]["name"]; //getting the image name from client machine
-			
-			// Set image name with current time
-			$imageFileType = strtolower(pathinfo($image,PATHINFO_EXTENSION));
+		if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+			$image = $_FILES["image"]["name"]; //getting the image name from the client machine
+
+			// Set image name with the current time
+			$imageFileType = strtolower(pathinfo($image, PATHINFO_EXTENSION));
 			$randomName = "IMG_" . date("his") . "." . $imageFileType; 
-			
+
 			$tempName = $_FILES["image"]["tmp_name"]; //temporary file name of the file on the server.
-			$imageName = $randomName; //set the image name with current name
+			$imageName = $randomName; //set the image name with the current name
 			$targetDirectory = "upload/" . $imageName; //declaring the folder in which the image will be stored
 			move_uploaded_file($tempName, $targetDirectory); //move the image to that folder
 
@@ -129,25 +120,27 @@
 			$query = "INSERT INTO images(title, date, details, image) VALUES ('$title', '$date', '$details', '$targetDirectory')";
 			$result = mysqli_query($conn, $query);
 
-			if(!$result){
+			if (!$result) {
 				$message = "Error: " . mysqli_error($conn);
 			} else {
 				$message = "News Submitted successfully.";
+				// Redirect to a new page displaying the success message
+				header("Location: success.php?message=" . urlencode($message));
+				exit();
 			}
 		}
 	?>
-	<h2>News Submission Form</h2>
+	
 	<form name="submissionForm" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
 		<input type="text" name="title" placeholder="Title"><br><br>
 		<input type="date" id="date" name="date"><br><br>
-        <textarea name="details" rows="4" cols="50" placeholder="Details"></textarea><br><br>
+		<textarea name="details" rows="4" cols="50" placeholder="Details"></textarea><br><br>
 		<input type="file" name="image"><br><br>
 		<input type="submit" name="submit" value="Upload">
 	
 		<div class="message">
 			<?php echo $message; ?>
 		</div>
-	
 	</form>
 </body>
 </html>
