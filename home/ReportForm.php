@@ -11,7 +11,7 @@ use Twilio\Rest\Client;
 
 // Twilio credentials
 $accountSid = 'AC1818122a442971639e68dee6662bbe99';  // Replace with your Twilio Account SID
-$authToken = '3736e90642ce83fcde827c4e54e8b0ad';  // Replace with your Twilio Auth Token
+$authToken = '9060e9116fb3360eb77a959b7271941e';  // Replace with your Twilio Auth Token
 $twilioServiceSid = 'VA9fd36c293180923fb622962bb51edf8b';  // Replace with your Twilio Verify Service SID
 
 // Function to send verification code via SMS
