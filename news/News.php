@@ -12,7 +12,7 @@
 			padding: 30px;
 			border: 1px solid #ccc;
 			border-radius: 1px;
-			background-color:palegreen;
+			background-color:white;
 			border-radius: 5px;
 			height: 700px;
 			width: 1000px;
@@ -55,12 +55,12 @@
 
 .navbar-brand {
   display: flex;
-  align-items: center;
+  
 }
 
 .log {
   display: flex;
-  align-items: center;
+
 }
 </style>
 		
@@ -69,25 +69,14 @@
 	</style>
 	<!-- Navbar -->
 
-	<nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
+	<nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);;">
     <div class="log">
-    <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-top: 5px;">
-    <h3 style="text-align: center;">CRIME RECORD MANAGEMENT SYSTEM</h3>
-</div>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-
-      
-         </ul>
+        <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
     </div>
-  </nav>
+    <div>
+        <h1 style="color: white; text-align: center; ">News and Events</h1>
+    </div>
+</nav>
 </head>
 <body>
 

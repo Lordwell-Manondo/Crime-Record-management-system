@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Report Form</title>
 </head>
-<nav class="navbar navbar-expand-lg " style="background-color: black;">
+<nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);;">
     <div class="log">
         <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
     </div>
@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </script>
 
 <?php if (!empty($successMessage)) : ?>
-    <div style="color: green; text-align: center;"><?php echo $successMessage; ?></div>
+    <div style="color: blue; text-align: center;"><?php echo $successMessage; ?></div>
 <?php endif; ?>
 <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
     <h2>Report Incident</h2>
@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: rgb(0, 109, 139);
+        background-color: white;
     }
     
     h2 {
@@ -147,24 +147,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     input[type="submit"] {
-        background-color: #4CAF50;
+        background-color: blue;
         color: white;
         padding: 10px 20px;
         border: none;
         cursor: pointer;
+        border-radius: 5px;
     }
     
     button[type="button"] {
-        background-color: #4CAF50;
+        background-color: grey;
         color: white;
         padding: 10px 20px;
         border: none;
         cursor: pointer;
         margin-left: 300px;
+        border-radius: 5px;
     }
     
     input[type="submit"]:hover {
-        background-color: #45a049;
+        background-color: blue;
+        
     }
     
     form {

@@ -9,7 +9,7 @@
         body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-color: white;
+    background-color: rgb(0, 109, 139);
 }
 
 h2 {
@@ -39,7 +39,7 @@ textarea {
 }
 
 input[type="submit"] {
-    background-color: #4CAF50;
+    background-color: blue;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -58,6 +58,17 @@ label{
 }
 
     </style>
+    	<nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);;">
+    <div class="log">
+        <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+    </div>
+    <div>
+        <h1 style="color: white; text-align: center; ">Add Website Guidelines</h1>
+    </div>
+</nav>
+<body>
+</head>
+<body>
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -126,7 +137,7 @@ label{
     }
     ?>
 
-  
+    <h2>Add Website Guidelines</h2>
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
       <li>  <label for="title">Title:</label></li>
         <input type="text" id="title" name="title" required><br><br>

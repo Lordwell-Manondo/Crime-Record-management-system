@@ -29,22 +29,14 @@
 			border: 1px solid #ccc;
 		}
 
-		input[type="submit"] {
-			background-color: blue;
-			color: white;
-			padding: 10px 20px;
-			border: none;
-			cursor: pointer;
-			margin-left: 5%;
-		}
+ input[type="submit"] {
+ 
+  border-radius: 5px;
+ 
+  padding: 10px 20px;
+  /* other properties */
+}
 
-	
-
-		input[type="submit"]:hover,
-		button.back-button:hover {
-			background-color: blue;
-			
-		}
 
 		form {
 			width: 550px;
@@ -53,7 +45,8 @@
 			padding: 30px;
 			background: #fff;
 			border-radius: 15px;
-			margin: auto;
+			margin-top: 5px;
+			margin-left:500px;
 		}
 
 		.message {
@@ -91,8 +84,8 @@
 
   <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);;">
     <div class="log">
-      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
-      <h3>ADDING NEWS</h3>
+      <img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
+      <h3>News Submission Form</h3>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -136,13 +129,14 @@
 			}
 		}
 	?>
-	<h2>News Submission Form</h2>
+	
 	<form name="submissionForm" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
 		<input type="text" name="title" placeholder="Title"><br><br>
 		<input type="date" id="date" name="date"><br><br>
         <textarea name="details" rows="4" cols="50" placeholder="Details"></textarea><br><br>
 		<input type="file" name="image"><br><br>
-		<input type="submit" name="submit" value="Upload">
+		<input type="submit" name="submit" value="Upload" style="background-color: blue; color:white;">
+
 	
 		<div class="message">
 			<?php echo $message; ?>
