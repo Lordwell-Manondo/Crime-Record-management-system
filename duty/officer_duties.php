@@ -42,13 +42,13 @@
 <li class="nav-item dropdown">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user" style="font-size: 25px; margin-left: 90px; color: darkgray;"></i>
-                        <?php echo $myname; ?>
+                        <span style="color: white;"><?php echo $myname; ?></span>
                         <i class="fas fa-angle-down" style="margin-left: 5px; color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
 
                     </a>
                     <!-- submenu for profile -->
-                    <ul class="dropdown-menu" aria-labelledby="submenu">
-                    <li><a class="dropdown-item" style=" font-size: 100%;" href="../home/home.php">Logout</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="submenu" style="margin-left: 100px; background-color: rgb(0, 109, 139);">
+                    <li><a class="dropdown-item" style=" font-size: 100%; color: white;" href="../home/home.php">Logout</a></li>
                     </ul>
                     </li>
     </nav>
@@ -150,7 +150,7 @@ mysqli_close($conn);
   table {
    border-collapse: collapse;
    text-align: center;
-   background-color: white;
+   background-color: lightgray;
    margin-top: -10px;
    margin-bottom: 20px;
    border-collapse: separate;
@@ -164,12 +164,13 @@ mysqli_close($conn);
    th {
     border: 1px;
     padding: 5px;
-    color: black;
+    color: white;
     font-weight: 450;
   }
   td{
     border: 1px;
     padding: 10px; 
+    
   }
   
   td {
@@ -179,12 +180,15 @@ mysqli_close($conn);
 
     
   }
-  td + td {
+  td, td {
     margin-left: 10px;
+    background-color: lightgray;
+    
   }
   /* Customize the first row (header row) */
 table tr:first-child {
-  background-color: khaki;
+  background-color: gray;
+  
   font-weight: bold;
   font-size: 18px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -199,8 +203,7 @@ table .highlighted-row {
 tr:hover {
   
   /* font-weight: 350; */
-  font-size: 15px;
-  margin-left: 70%;
+  
    
     
   }

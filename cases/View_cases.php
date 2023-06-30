@@ -45,7 +45,7 @@
 
 <li class="nav-item dropdown" style="margin-left: 0px;">
                     <a  class="nav-link" href="#"  id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user" style="font-size: 25px; margin-left: 90px; color: darkgray;"></i>
+                        <i class="fas fa-user" style="font-size: 25px; margin-left: 90px; color: white;"></i>
                         <span style="color: white;"><?php echo $name; ?></span>
                         <i class="fas fa-angle-down" style=" color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
 
@@ -191,13 +191,13 @@ echo "<td><div class='case-status' style='width: fit-content; color: white; back
   }
   echo "<td>";
   if($link ==''){
-    echo "<a href='' class='assignment-count' style='color: black; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>$assignStatus</a>";
+    echo "<a href='' class='assignment-count' style='color: white; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>$assignStatus</a>";
   }
   else if ($link == "#") {
-      echo "<a href='' class='assignment-count' title=' $fn $ln' style='color: black; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>$assignStatus</a>";
+      echo "<a href='' class='assignment-count' title=' $fn $ln' style='color: white; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>$assignStatus</a>";
     
     } else {
-      echo "<a href='$link' style='color: black; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>$assignStatus</a>";
+      echo "<a href='$link' style='color: white; background-color: gray; text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: 500;padding: 5px;'>$assignStatus</a>";
   }
   echo "</td>";
   echo "</tr>";

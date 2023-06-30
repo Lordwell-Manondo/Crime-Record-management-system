@@ -128,7 +128,7 @@ mysqli_close($conn);
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                         style="margin-right: 150px;">
-                            <i class="fas fa-user" style="font-size: 25px; color: blue;"></i>
+                            <i class="fas fa-user" style="font-size: 25px; color: white;"></i>
                             <span style="color: white; font-size: 15px;"><?php echo $name; ?></span>
                             <i class="fas fa-angle-down" style="color: white; font-size: small; font-weight: 550; transition: transform 0.3s;"></i>
                         </a>

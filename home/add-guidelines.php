@@ -63,7 +63,7 @@ label{
         <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
     </div>
     <div>
-        <h1 style="color: white; text-align: center; ">Add Website Guidelines</h1>
+        <h3 style="color: white; margin-left: 300px; padding: 5px; margin-bottom: -10px;">ADD SYSTEM GUIDELINES</h3>
     </div>
 </nav>
 <body>
@@ -75,26 +75,7 @@ label{
     <link rel="stylesheet" href="../login/login.css">
 
     
-  <!-- Navbar -->
 
-  <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
-    <div class="log">
-      <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
-      <h3>ADDING GUIDLINES</h3>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-
-      
-         </ul>
-    </div>
-  </nav>
 <body>
     <?php
    session_start();
@@ -137,7 +118,7 @@ label{
     }
     ?>
 
-    <h2>Add Website Guidelines</h2>
+   
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
       <li>  <label for="title">Title:</label></li>
         <input type="text" id="title" name="title" required><br><br>
