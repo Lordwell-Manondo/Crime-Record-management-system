@@ -37,14 +37,11 @@
   /* other properties */
 }
 
-<<<<<<< HEAD
 		input[type="submit"]:hover,
 		button.back-button:hover {
 			background-color: blue;
 			
 		}
-=======
->>>>>>> 8253db054130b8f7550f7b4917f249a170864274
 
 		form {
 			width: 550px;
@@ -54,7 +51,7 @@
 			background: #fff;
 			border-radius: 15px;
 			margin-top: 5px;
-			margin-left:500px;
+			margin-left:300px;
 		}
 
 		.message {
