@@ -1,11 +1,23 @@
+<!--
+- The code includes the necessary PHP include statement to load the database connection file.
+- The HTML structure and CSS styles are defined for creating a form to add news.
+- JavaScript functions are included for setting the maximum date value and form validation.
+- The Bootstrap and Font Awesome libraries are linked for styling and icons.
+- A navbar is created using Bootstrap's navbar component with a customized logo and title.
+- The PHP code handles the form submission. It retrieves the image file, renames it with the current time, and moves it to the designated folder. The form data (title, date, details, and image path) is inserted into the database table.
+- If there are any errors during the database query, an error message is displayed. Otherwise, a success message is shown, and the user is redirected to a success page.
+- The form includes input fields for title, date, details, and image, along with a submit button. It also displays the message variable, which contains either an error or success message.
+-->
+
 <?php
-	include "../db/Connections.php";
-?>
+	include "../db/Connections.php"; // Include the database connection file
+	?>
+
 
 <!DOCTYPE html>
 <html>
 <head>
-	<style>
+	<style>		/* Styles */
 		body {
 			font-family: Arial, sans-serif;
 			background-color: white;
