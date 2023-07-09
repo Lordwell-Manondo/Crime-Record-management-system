@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Bind the parameters to the statement
     $stmt->bind_param("ssssssi", $first_name, $last_name, $service_no, $date_of_entry, $officer_rank, $station, $id);
 
-    // Set the parameter values
+    // Set the parameter values you are updating
     $id = $_POST["id"];
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];

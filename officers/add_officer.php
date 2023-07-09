@@ -26,19 +26,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Bind the parameters to the statement
     $stmt->bind_param("sssssss", $first_name, $last_name, $service_no, $date_of_entry, $officer_rank, $station, $hashed_password);
 
-    // Set the parameter values
+    // Set the parameter values from the form input
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
     $service_no = $_POST["service_no"];
     $date_of_entry = $_POST["date_of_entry"];
     $officer_rank = $_POST["officer_rank"];
     $station = $_POST["station"];
-    $password = generateRandomPassword(); // Generate a random password
 
-    // Hash the password
+    // Generate a random password
+    $password = generateRandomPassword(); 
+
+    // Hash the password for security
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // // Execute the statement 
+    // Execute the statement to insert officer details
         if ($stmt->execute()) {
             // Redirect to the officer_details.php page with the service number and password as URL parameters
             header("Location: officer_details.php? first_name=" . urlencode($first_name) . "&last_name=" . urlencode($last_name) ."&service_no=" . urlencode($service_no) . "&password=" . urlencode($password));
@@ -47,10 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Error: " . $stmt->error;
         }
 
-    // Close the statement
+    // Close the prepared statement
     $stmt->close();
 
-    // Close the connection
+    // Close the database connection
     $conn->close();
 }
 ?>
@@ -78,6 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
     
     <form action="add_officer.php" method="post">
+        <!-- Form for adding an officer -->
         <label>First Name:</label>
         <input type="text" name="first_name" required>
         <label>Last Name:</label>

@@ -10,9 +10,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Twilio\Rest\Client;
 
 // Twilio credentials
-$accountSid = 'AC1818122a442971639e68dee6662bbe99';  // Replace with your Twilio Account SID
-$authToken = '9060e9116fb3360eb77a959b7271941e';  // Replace with your Twilio Auth Token
-$twilioServiceSid = 'VA9fd36c293180923fb622962bb51edf8b';  // Replace with your Twilio Verify Service SID
+$accountSid = 'AC1818122a442971639e68dee6662bbe99';  
+$authToken = '9060e9116fb3360eb77a959b7271941e';  
+$twilioServiceSid = 'VA9fd36c293180923fb622962bb51edf8b';  
 
 // Function to send verification code via SMS
 function sendVerificationCode($phoneNumber)

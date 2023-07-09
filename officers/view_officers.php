@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>View Officers</title>
+        <!-- CSS and JS libraries -->
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/css/bootstrap.min.css">
@@ -11,7 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <!-- Include Bootstrap JS -->
+          <!-- Bootstrap JS and jQuery -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/js/bootstrap.bundle.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -19,6 +20,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
             $(document).ready(function(){
+                // Filter table rows based on user input
             $("#myInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
                 $("#myTable tr").filter(function() {
@@ -77,6 +79,7 @@
     $searchQuery = isset($_POST['search_query']) ? $_POST['search_query'] : '';
 
     if (isset($_POST['search'])) {
+        // Perform a search query
         $escapedSearchQuery = mysqli_real_escape_string($conn, $searchQuery);
         $sql = "SELECT * FROM officers WHERE 
                 first_name LIKE '%$escapedSearchQuery%' OR 
@@ -89,6 +92,7 @@
 
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
+                // Display search results in table rows
                 echo "<tr>";
                 echo "<td>" . $row["first_name"] . "</td>";
                 echo "<td>" . $row["last_name"] . "</td>";
@@ -101,8 +105,9 @@
                 echo "</tr>";
             }
         } else {
+             // Display a message when no search results are found
             echo "<tr><td colspan='8'><span style='color: red;'>No matching search: Search again after 10 seconds</span></td></tr>";
-            // Set the refresh time to 5 seconds
+            // Set the refresh time to 10 seconds
                 $refreshTime = 10;
                 
             // Generate the meta tag with the refresh time
@@ -112,10 +117,12 @@
             echo $metaTag;
         }
     } else {
+        // Retrieve all officers from the database
         $sql = "SELECT * FROM officers";
         $result = mysqli_query($conn, $sql);
 
         while ($row = mysqli_fetch_assoc($result)) {
+             // Display officer details in table rows
             echo '<tbody id="myTable">';
 
             echo "<tr>";
@@ -131,7 +138,7 @@
         }
     }
 
-    // Close the connection
+    // Close the database connection
     mysqli_close($conn);
     ?>
 </table>
