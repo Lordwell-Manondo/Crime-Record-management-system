@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2023 at 12:19 PM
+-- Generation Time: Jun 29, 2023 at 10:32 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -45,7 +45,13 @@ CREATE TABLE `cases` (
 --
 
 INSERT INTO `cases` (`serial_no`, `suspect_name`, `victim_name`, `incident`, `location`, `date`, `type`, `file`, `status`, `id`) VALUES
-('DV/2023/1', 'Chifuniro', 'Moly', 'anagulitsirana katundu mopanda chilolezo', 'Chikanda, Zomba, Malawi', '2023-06-09', 'Domestic violation', 0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 'Open', 1);
+('DV/2023/1', 'Chifuniro', 'Moly', 'anagulitsirana katundu mopanda chilolezo', 'Chikanda, Zomba, Malawi', '2023-06-09', 'Domestic violation', 0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 'Closed', 1),
+('CO/2023/1', 'Yamikani', 'Chabuka', 'abelana galimoto', 'chikanda', '2023-03-06', 'Criminal offense', 0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 'Open', 2),
+('TV/2023/1', 'George', 'Chipasula', 'anathawa apolice pamseu', 'Balaka', '2023-06-23', 'Traffic violation', 0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 'Open', 3),
+('CR/2023/1', 'samuel', 'Chipasula', 'he insulted chipasula through fb', 'Zomba', '2023-06-13', 'Cybercrime', 0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 'Open', 4),
+('DV/2023/2', 'samuel', 'Chimtibu', 'analandana mkazi', 'Thondwe', '2023-06-13', 'Domestic violation', 0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 'Open', 5),
+('CP/2023/1', 'ygc', 'lm', 'wertyuioj', 'Chanco', '2023-06-14', 'Child protection', 0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 'Open', 6),
+('CR/2023/2', 'mafana', 'ofewa', 'mafana akumacheza heavy and nthawi zina sungakhulupilire utawaona', 'unima', '2023-06-21', 'Cybercrime', 0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 'Open', 7);
 
 -- --------------------------------------------------------
 
@@ -54,9 +60,9 @@ INSERT INTO `cases` (`serial_no`, `suspect_name`, `victim_name`, `incident`, `lo
 --
 
 CREATE TABLE `duty` (
-  `id` int(11) NOT NULL,
-  `serial_no` varchar(4) NOT NULL,
-  `service_no` varchar(20) NOT NULL,
+  `id` int(4) NOT NULL,
+  `serial_no` varchar(15) NOT NULL,
+  `service_no` int(20) NOT NULL,
   `date_to_report` date NOT NULL,
   `date_assigned` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -66,16 +72,10 @@ CREATE TABLE `duty` (
 --
 
 INSERT INTO `duty` (`id`, `serial_no`, `service_no`, `date_to_report`, `date_assigned`) VALUES
-(1, '35aa', 'qwerty123', '2023-06-15', '2023-06-01'),
-(2, '35aa', 'qwerty12345', '2023-06-05', '2023-06-04'),
-(3, '35aa', 'qwerty1234', '2023-06-27', '2023-06-06'),
-(4, 'ced2', 'qwerty123', '2023-06-30', '2023-06-06'),
-(5, 'e68e', 'qwerty12345', '2023-06-29', '2023-06-07'),
-(6, '35aa', 'qwerty123', '2023-06-29', '2023-06-07'),
-(7, 'd43d', 'qwerty123', '2023-06-30', '2023-06-07'),
-(8, 'e68e', '1234', '2023-06-09', '2023-06-07'),
-(9, 'aaec', '1234', '2023-06-21', '2023-06-07'),
-(10, 'f069', '1234', '2023-06-23', '2023-06-09');
+(1, 'DV/2023/2', 12345, '2023-06-29', '2023-06-28'),
+(2, 'CP/2023/1', 12345, '2023-07-06', '2023-06-29'),
+(3, 'DV/2023/1', 12345, '2023-07-07', '2023-06-29'),
+(4, 'DV/2023/1', 12345, '2023-07-07', '2023-06-29');
 
 -- --------------------------------------------------------
 
@@ -97,7 +97,8 @@ CREATE TABLE `guidelines` (
 INSERT INTO `guidelines` (`id`, `title`, `content`, `created_at`) VALUES
 (1, 'When you want to report an incident', 'Make sure you have the following things:\r\n1. working phone number which will be verified\r\n\r\n2. provide suspects and victims detais\r\n\r\n3. provide a varide location for an incident', '2023-06-09 05:54:12'),
 (2, 'If you have issues', '1. Check the FAQ and the responses\r\n\r\n2. you can leave your comment in FAQ section', '2023-06-09 05:54:20'),
-(3, 'How to navigate through our website', '1. click on the link that will take you to the page needed\r\n2. check if everything is oky.', '2023-06-09 06:26:27');
+(3, 'How to navigate through our website', '1. click on the link that will take you to the page needed\r\n2. check if everything is oky.', '2023-06-09 06:26:27'),
+(4, 'Presentations tommorrow', 'We are having project presentations tommorrow from 8:30 am\r\n\r\nhope youwill be there on time', '2023-06-29 19:50:44');
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,7 @@ CREATE TABLE `images` (
   `title` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `details` text DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL
+  `image` varchar(5000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -118,7 +119,11 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `title`, `date`, `details`, `image`) VALUES
-(2, 'Floods', '2023-05-31', 'There washeavy rains in chikwawa that led to the flodding you are seeing in the picture bellow', 'upload/IMG_114454.png');
+(2, 'Floods', '2023-05-31', 'There washeavy rains in chikwawa that led to the flodding you are seeing in the picture bellow', 'upload/IMG_114454.png'),
+(3, 'MAFANA OPOILA', '2023-05-30', 'Zomwe zikuvekazi eeee', 'upload/IMG_045602.jfif'),
+(4, 'CHIBWANA', '2023-05-30', 'CHANDIPWETEKETSA', 'upload/IMG_045902.jfif'),
+(5, 'TABWERA TONSE', '2023-05-31', 'TABWERA TONSE LERO', 'upload/IMG_050132.jpg'),
+(6, 'TIWERUKE ', '2023-05-29', 'TATOPA', 'upload/IMG_050823.png');
 
 -- --------------------------------------------------------
 
@@ -188,6 +193,7 @@ CREATE TABLE `officers` (
   `id` int(5) NOT NULL,
   `first_name` varchar(30) NOT NULL,
   `last_name` varchar(30) NOT NULL,
+  `position` varchar(20) NOT NULL,
   `service_no` int(20) NOT NULL,
   `date_of_entry` date NOT NULL,
   `officer_rank` varchar(20) NOT NULL,
@@ -199,10 +205,10 @@ CREATE TABLE `officers` (
 -- Dumping data for table `officers`
 --
 
-INSERT INTO `officers` (`id`, `first_name`, `last_name`, `service_no`, `date_of_entry`, `officer_rank`, `station`, `password`) VALUES
-(1, 'Joshua ', 'Mashaka', 123, '2023-06-01', 'Sub-Inspector', 'Mpunga', '$2y$10$sWpk1Q8rhSF3f.YwaSarBex3UB4A2OdVSwfnpDmL7xU9nnzTuQH3C'),
-(2, 'Lordwell', 'Manondo', 1234, '2023-06-01', 'Assistant Sub-Inspec', 'Mpondabwino', '$2y$10$y1CTtqcrTJRJth.BrYlkaew85c4pADoddg4zjLCdgz9AJj8zjzOSq'),
-(3, 'William', 'Chikaoneka', 12345, '2023-06-02', 'Corporal', 'Mpunga', '$2y$10$8J.ooN82/33twSi92mn.IeEzYCfSJxBgrQH4Qyy37.8Z9L9KkWkkW');
+INSERT INTO `officers` (`id`, `first_name`, `last_name`, `position`, `service_no`, `date_of_entry`, `officer_rank`, `station`, `password`) VALUES
+(1, 'Joshua ', 'Mashaka', 'officer', 12, '2023-06-01', 'Sub-Inspector', 'Mpunga', '$2y$10$sWpk1Q8rhSF3f.YwaSarBex3UB4A2OdVSwfnpDmL7xU9nnzTuQH3C'),
+(2, 'Lordwell', 'Manondo', 'in-charge', 1234, '2023-06-01', 'Assistant Sub-Inspec', 'Mpondabwino', '$2y$10$y1CTtqcrTJRJth.BrYlkaew85c4pADoddg4zjLCdgz9AJj8zjzOSq'),
+(3, 'William', 'Chikaoneka', 'officer', 12345, '2023-06-02', 'Corporal', 'Mpunga', '$2y$10$8J.ooN82/33twSi92mn.IeEzYCfSJxBgrQH4Qyy37.8Z9L9KkWkkW');
 
 -- --------------------------------------------------------
 
@@ -244,23 +250,8 @@ CREATE TABLE `reportform` (
 --
 
 INSERT INTO `reportform` (`id`, `phone`, `location`, `description`) VALUES
-(1, '0999578228', 'chanco', 'this was it'),
-(2, '0999578228', 'chanco', 'this was it'),
-(3, '0999578228', 'university of malawi', 'chifuniro bumped into molly'),
-(4, '0999578228', 'university of malawi', 'chifuniro bumped into molly'),
-(5, '0884407587', 'Mulunguzi Dam, Zomba Malawi, Zomba, Malawi', 'vandalisation of waterboard pipes'),
-(6, '0998699955', 'Chikanda, Zomba, Malawi', 'qwertyuiopasdfhjkl;zxcvbnm,qwertyuio'),
-(7, '0998269199', 'Chinkhoma, Kasungu, Malawi', 'was there'),
-(8, '0998269199', 'Chinkhoma, Kasungu, Malawi', 'was there'),
-(9, '0998269199', 'Chinkhoma, Kasungu, Malawi', 'was there'),
-(10, '0998269199', 'Chinkhoma, Kasungu, Malawi', 'was there'),
-(11, '0998269199', 'Chinkhoma, Kasungu, Malawi', 'was there'),
-(12, '0998269199', 'Chinkhoma, Kasungu, Malawi', 'was there'),
-(13, '0988888888', 'Lilongwe, Malawi', '23456'),
-(14, '0997530644', 'Likoma Island, Likoma, Malawi', 'one went missing'),
-(15, '2345678', 'Lilongwe, Malawi', 'case closed'),
-(16, '+265999578228', 'University of Malawi, Zomba, Malawi', 'chifuniro masula was fighting with william'),
-(17, '+265997530644', 'Chanco, Chile', 'qwertyui\r\nqwerty\r\nqwrty\r\nqwert');
+(1, '+265999578228', 'University of Malawi, Zomba, Malawi', 'People are now writting end of year exams'),
+(2, '+265997530644', 'unima', 'people were demonstrating for what they call it poor academic calendar');
 
 --
 -- Indexes for dumped tables
@@ -276,9 +267,7 @@ ALTER TABLE `cases`
 -- Indexes for table `duty`
 --
 ALTER TABLE `duty`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `serial_no` (`serial_no`),
-  ADD KEY `service_no` (`service_no`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `guidelines`
@@ -330,25 +319,25 @@ ALTER TABLE `reportform`
 -- AUTO_INCREMENT for table `cases`
 --
 ALTER TABLE `cases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `duty`
 --
 ALTER TABLE `duty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `guidelines`
 --
 ALTER TABLE `guidelines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `login_officer_incharge`
@@ -372,7 +361,7 @@ ALTER TABLE `officers`
 -- AUTO_INCREMENT for table `reportform`
 --
 ALTER TABLE `reportform`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
