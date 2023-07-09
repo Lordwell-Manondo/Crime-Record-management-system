@@ -36,7 +36,7 @@
     }
 
     h1 {
-      color: gold;
+      color: black;
       font-weight: 1000;
       margin-top: 10%;
       text-align: center;
@@ -169,7 +169,7 @@
           <ul class="dropdown-menu" aria-labelledby="submenu">
             <li><a class="dropdown-item"  href="../news/news2.php">Add news</a></li>
             <hr>
-            <li><a class="dropdown-item"  href="#">View news</a></li>
+            <li><a class="dropdown-item"  href="../news/view.php">View news</a></li>
           </ul>
         </li>
           

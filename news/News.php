@@ -12,7 +12,7 @@
 			padding: 30px;
 			border: 1px solid #ccc;
 			border-radius: 1px;
-			background-color:white;
+			background-color: white;
 			border-radius: 5px;
 			height: 700px;
 			width: 1000px;
@@ -48,67 +48,59 @@
 		body {
 			background-color: white;
 		}
-		<style>
-.navbar {
-  height: 50px; /* Adjust the height as per your requirement */
-}
 
-.navbar-brand {
-  display: flex;
-  
-}
+		.navbar {
+			height: 65px; /* Adjust the height as per your requirement */
+		}
 
-.log {
-  display: flex;
+		.navbar-brand {
+			display: flex;
+			
+		}
 
-}
-</style>
-		
-
-		
+		.log {
+			display: flex;
+			align-items: center;
+		}
 	</style>
-	<!-- Navbar -->
-
-	<nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);;">
-    <div class="log">
-        <img src="../home/plog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px;  margin-top: 0px;">
-    </div>
-    <div>
-        <h1 style="color: white; text-align: center; ">News and Events</h1>
-    </div>
-</nav>
 </head>
 <body>
+	<!-- Navbar -->
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(0, 109, 139);">
+	<div class="log">
+		<img src="../home/policeLog.PNG" style="height: 65px; width: 65px; margin-left: 5px; border-radius: 25px; margin-top: 0px;">
+		<h3 style="text-align: center; color: white; margin: auto;">News and Events</h3>
+	</div>
+</nav>
 
 	<?php
-			$query = "SELECT * FROM images";
-			$result = mysqli_query($conn, $query);
+		$query = "SELECT * FROM images";
+		$result = mysqli_query($conn, $query);
 
-			if(!$result){
-				echo $result . "<br/>" . mysqli_error($conn);
-			}
+		if (!$result) {
+			echo $result . "<br/>" . mysqli_error($conn);
+		}
 
-			if(mysqli_num_rows($result)>0){
-				while($row = mysqli_fetch_array($result)){
-					$title = $row['title'];
-					$date = $row['date'];
-					$image = $row['image'];
-					$details = $row['details'];
-					
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$title = $row['title'];
+				$date = $row['date'];
+				$image = $row['image'];
+				$details = $row['details'];
 	?>
-		<div class="news-container">
-			<h3 class="news-title"><?php echo $title; ?></h3>
-			<p class="news-date">Date: <?php echo $date; ?></p>
-			<img class="news-image" src="<?php echo $image; ?>" alt="News Image">
-			<p class="news-details"><?php echo $details; ?></p>
-		</div>
+				<div class="news-container">
+					<h3 class="news-title"><?php echo $title; ?></h3>
+					<p class="news-date">Date: <?php echo $date; ?></p>
+					<img class="news-image" src="<?php echo $image; ?>" alt="News Image">
+					<p class="news-details"><?php echo $details; ?></p>
+				</div>
 	<?php
-				}
-			} else {
+			}
+		} else {
 	?>
 		<h3>No news found!</h3>
 	<?php
-			}
+		}
 	?>
 </body>
 </html>

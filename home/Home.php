@@ -32,6 +32,7 @@
          body {
         background-color:white;
          }     
+         
         
         .navbar-nav .nav-link {
             margin-left: 90px;
@@ -40,6 +41,22 @@
             font-size: 20px;
             spacing: 2px;
         }
+
+
+	.navbar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: rgb(0, 109, 139);
+		opacity: 1;
+		z-index: 1000;
+        
+	}
+
+
+
+
 
         h1, h4 {
             text-align: center;
@@ -138,14 +155,14 @@
  
   <!-- Page content -->
   <main>
-            <h1>CRIME RECORD MANAGEMENT SYSTEM</h1>
+            <h1 style= "margin-bottom: 3%; color: rgb(0, 109, 139);">
+            CRIME RECORD MANAGEMENT SYSTEM</h1>
             <div class="moving-text">
-                <span class="word show">Creating</span>
-                <span class="word">a</span>
-                <span class="word">Safe</span>
-                <span class="word">and</span>
-                <span class="word">Secure</span>
-                <span class="word">Malawi</span>
+                <span class="word show">CRIME</span>
+                <span class="word">RECORD</span>
+                <span class="word">MANAGEMENT</span>
+                <span class="word">SYSTEM</span>
+                
             </div>
         </main>
     </div> 
@@ -235,83 +252,38 @@
             <div class="border col-md-4">
                 <div class="row mx-2">
                     <div class="col-md-6 mt-4">
-                        <strong>POPULAR</strong>
-                    </div>
-                    <div class="col-md-6 mt-4">
-                        <small class="float-md-right"> <a class="text-muted" href="#">Lainnya</a> </small>
-                    </div>
-                </div>
-                <div class="row mx-2">
-                    <div class="col-md-3 my-2 text-decoration-none"> <a class="text-black" href="#">
-                            Semua
-                        </a> </div>
-                        <div class="col-md-3 my-2">
-    <a class="text-black" href="#">
-        <a href="../news/News.php" style="color: black;">News</a>
-    </a>
-</div>
-
-                    <div class="col-md-3 my-2"> <a class="text-black" href="#">
-                            Sports
-                        </a> </div>
-                    <div class="col-md-3 my-2"> <a class="text-black" href="#">
-                            Life
-                        </a> </div>
-                </div>
-                <div class="row m-2">
-                    <div class="col-md-1">
-                        <strong>1</strong>
-                    </div>
+                        <strong>DID YOU KNOW?</strong>
+                 
                     <div class="col-md">
-                        <a href="#" class="text-decoration-none text-black">Ngeri! Suami Nia Ramadhani Rekam Detik-detik Orang Diduga Bunuh Diri</a>
-                        <br><small class="text-muted float-left">grid.ID</small>
+                        <Whats happening in your area?>
                     </div>
                 </div>
                 <div class="row m-2">
                     <div class="col-md-1">
-                        <strong>2</strong>
+                <strong>1</strong>
                     </div>
-                    <div class="col-md">
-                        <a href="#" class="text-decoration-none text-black">Kronologi Penemuan Surat Suara yang Sudah Tercoblos di Malaysia</a>
-                        <br><small class="text-muted float-left">Okezone.com</small>
-                    </div>
-                </div>
-                <div class="row m-2">
-                    <div class="col-md-1">
-                        <strong>3</strong>
-                    </div>
-                    <div class="col-md">
-                        <a href="#" class="text-decoration-none text-black">Black Hole Pertama Kali Tertangkap Kamera, Ini 7 Fakta </a>
-                        <br><small class="text-muted float-left">IDN Times</small>
-                    </div>
-                </div>
-                <div class="row m-2">
-                    <div class="col-md-1">
-                        <strong>4</strong>
-                    </div>
-                    <div class="col-md">
-                        <a href="#" class="text-decoration-none text-black">Bela Pelaku Pengeroyokan Audrey, Seorang Netizen Dibanjiri Kecaman</a>
-                        <br><small class="text-muted float-left">hai-online.com</small>
-                    </div>
-                </div>
-                <div class="row m-2">
-                    <div class="col-md-1">
-                        <strong>5</strong>
-                    </div>
-                    <div class="col-md">
-                        <a href="#" class="text-decoration-none text-black">Foto Bocah Ojek Payung Ini Menyimpan Kisah Haru di Baliknya</a>
-                        <br><small class="text-muted float-left">Brilio.net</small>
-                    </div>
-                </div>
-                <div class="row m-2">
-                    <div class="col-md-1">
-                        <strong>6</strong>
-                    </div>
-                    <div class="col-md">
-                        <a href="#" class="text-decoration-none text-black">
-                        <br><small class="text-muted float-left">mps.com</small>
-                    </div>
-                </div>
+                    <p1>
+                        Have you ever experienced any violence, corruption, abuse or witness any incident that is violent?
+                </p1>
+                <strong>2</strong>
+                 
+                    <p2>
+                        Do you know that ignoring any form of violence, corruption or abuse situation puts the nation at risk?
+                </p2>
+                 
+                <strong>3</strong>
+                    <p3>
+                        Do you know that you can be a weapon to end corruption, abuse and violence in your community?
+                </p3>
+                <br>
+                 
+                <strong>4</strong>
+                 
+                   <p4>
+                        The solution is here; just <a href="ReportForm.php" class="text-decoration-none text-black">Report the Incident Now!!!</a>
+                </4>  to     
+                <strong>CREATE A SAFE AND SECURE NATION FOR THE BETTERMENT OF ALL</strong>               </div>
+                
             </div>
 
             </div>
