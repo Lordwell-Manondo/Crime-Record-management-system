@@ -1,10 +1,18 @@
+<!-- The code includes the necessary HTML structure, CSS styles, and JavaScript code to create a responsive web page.
+- The navigation bar is created using Bootstrap's navbar component, which includes links to different sections of the website.
+- The header section contains a heading and a rotating text animation created using JavaScript. The text "CRIME," "RECORD," "MANAGEMENT," and "SYSTEM" will rotate every 4 seconds.
+- The main content section includes two columns. The first column is divided into two sections: a slideshow and a news article. The slideshow is included using PHP's `include` statement to load the `slide.php` file. The news article includes a title, date, and description, and is linked to a news page.
+- The second column includes multiple news and event sections. Each section contains an image, a title, and a link to the news page.
+- The code also includes a "DID YOU KNOW?" section with four statements and a link to report incidents.
+- The page concludes with a "TRENDING" section, which includes two news articles with images, titles, and links to the news page.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page </title>
-    <!-- Include Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -104,12 +112,12 @@
   
     
 
-                    <!-- Main content -->
+<!-- Main content -->
 <div class="content">
   
   <!-- Header -->
   <header>
-      <!-- Header content -->
+     
       <!-- Navbar -->
     <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 109, 139);">
       <div class="log">
@@ -155,7 +163,7 @@
  
   <!-- Page content -->
   <main>
-            <h1 style= "margin-bottom: 3%; color: rgb(0, 109, 139);">
+            <h1 style= "margin-bottom: 5%; color: rgb(0, 109, 139);">
             CRIME RECORD MANAGEMENT SYSTEM</h1>
             <div class="moving-text">
                 <span class="word show">CRIME</span>

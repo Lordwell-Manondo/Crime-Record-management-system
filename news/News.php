@@ -1,11 +1,23 @@
+<!--
+- The code includes the necessary PHP include statement to load the database connection file.
+- The HTML structure and CSS styles are defined to create a news and events web page.
+- The navigation bar is created using Bootstrap's navbar component with a customized logo and title.
+- A database query is executed to retrieve news data from the "images" table.
+- If there are news records available, a loop is used to display each news article with its title, date, image, and details.
+- The news articles are enclosed in a container with appropriate styling.
+- If no news records are found, a message indicating no news is displayed.
+-->
+
+
 <?php
-	include "../db/Connections.php";
+	include "../db/Connections.php"; // Include the database connection file
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<style>
+	<style> 		/* Styles for the news container */
+
 		.news-container {
 			margin-left: auto;
 			margin-right: auto;
@@ -73,21 +85,29 @@
 	</div>
 </nav>
 
+		<!--Retrieve data from the database-->
+
 	<?php
 		$query = "SELECT * FROM images";
 		$result = mysqli_query($conn, $query);
 
+		// Check if the query was successful
 		if (!$result) {
 			echo $result . "<br/>" . mysqli_error($conn);
 		}
 
+		// Check if there are news records in the database
 		if (mysqli_num_rows($result) > 0) {
+
+		// Loop through each news record
 			while ($row = mysqli_fetch_array($result)) {
 				$title = $row['title'];
 				$date = $row['date'];
 				$image = $row['image'];
 				$details = $row['details'];
 	?>
+
+			<!-- Display the news record in a container -->
 				<div class="news-container">
 					<h3 class="news-title"><?php echo $title; ?></h3>
 					<p class="news-date">Date: <?php echo $date; ?></p>
@@ -98,6 +118,8 @@
 			}
 		} else {
 	?>
+
+	<!--No news records found-->
 		<h3>No news found!</h3>
 	<?php
 		}
