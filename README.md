@@ -1,5 +1,5 @@
 # Crime-Record-management-system
-For our project group work
+Ambuye finale pulojekiti
 # Authers:
 # Lordwell Manondo
 # Chifuniro Masula
